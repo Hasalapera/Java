@@ -158,6 +158,11 @@ public class StuHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "medicalCard");
+
+                String[] mediStatus = {"Medical_id", "Course_code", "Course_name", "Week_No", "Day_No", "Status"};
+                DefaultTableModel model = new DefaultTableModel(null, mediStatus);
+                mediDetailsTable.setModel(model);
+                viewMedicalStatus();
             }
         });
 
@@ -438,6 +443,56 @@ public class StuHome extends JFrame {
             }
         } catch (SQLException | IOException e) {
             System.out.println("Error in display Notice Content: " + e.getMessage());
+        }
+    }
+
+    //************ Medical *******************
+
+    public void viewMedicalStatus(){
+        Connection con = DatabaseConnection.connect();
+        try{
+            System.out.println("LoggedIn Username = [" + Session.loggedInUsername + "]");
+            String sql = "SELECT med.Medical_id, med.Course_code, med.Week_No, med.Day_No, med.Status, c.Course_Name " +
+                    "FROM Medical med " +
+                    "JOIN Course c ON med.Course_code = c.Course_code " +
+                    "JOIN Student s ON med.Stu_id = s.Stu_id " +
+                    "JOIN User u ON s.UserName = u.UserName " +
+                    "WHERE u.UserName = ?";
+
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, Session.loggedInUsername);
+
+            System.out.println("Executing query: " + sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            DefaultTableModel model = (DefaultTableModel) mediDetailsTable.getModel();
+            model.setRowCount(0);
+            int count = 0;
+            boolean found = false;
+            while (rs.next()) {
+                count++;
+                found = true;
+                String medId = rs.getString("Medical_id");
+                String courseCode = rs.getString("Course_code");
+                String courseName = rs.getString("Course_Name");
+                String weekNo = rs.getString("Week_No");
+                String dayNo = rs.getString("Day_No");
+                String status = rs.getString("Status");
+
+                model.addRow(new Object[]{medId, courseCode, courseName, weekNo, dayNo, status});
+            }
+            System.out.println("Total Records Found: " + count);
+            if(count == 0){
+                JOptionPane.showMessageDialog(null, "No Records Found");
+                System.out.println("No Records Found");
+            }
+            if(!found){
+                JOptionPane.showMessageDialog(null, "No Medical Found");
+                System.out.println("No Medical Found");
+            }
+        } catch (Exception e) {
+            System.out.println("Error in view Medical Status: " + e.getMessage());
         }
     }
 
