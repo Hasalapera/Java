@@ -430,7 +430,8 @@ public class StuHome extends JFrame {
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-                File noticeFile = new File("notices/notice_" + noticeId + ".txt");
+                File noticeFile = new File("JavaMiniProject/notices/notice_" + noticeId + ".txt");
+                System.out.println("noticeFile: " + noticeId+ " Displayed");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
                 StringBuilder content = new StringBuilder();
                 String line;
