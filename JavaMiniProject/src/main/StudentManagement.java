@@ -13,4 +13,3 @@ public class StudentManagement {
         new Login(); // Open login UI
     }
 }
-
