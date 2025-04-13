@@ -26,7 +26,6 @@ public class Login extends JFrame {
     private JPanel loginFormMain;
     private JPanel loginFormPanel;
     private JPanel loginFormInsidePanel;
-    private JLabel giflbl;
 
     private String userName, password;
     private Connection connection;

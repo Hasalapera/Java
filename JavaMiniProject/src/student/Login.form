@@ -83,13 +83,11 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="c5896" class="javax.swing.JLabel" binding="giflbl">
+                  <component id="36b36" class="javax.swing.JLabel">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <background color="-66049"/>
-                      <enabled value="false"/>
                       <icon value="resources/YqmxRwVQSX.gif"/>
                       <text value=""/>
                     </properties>
