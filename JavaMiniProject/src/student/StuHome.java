@@ -2,7 +2,6 @@ package student;
 
 import database.DatabaseConnection;
 import database.Session;
-import student.ShowCAEligibility;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +13,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 //import net.proteanit.sql.DbUtils;
 
 
@@ -94,6 +95,7 @@ public class StuHome extends JFrame {
     private JScrollPane timeTableScrollPane;
     private JButton updateProfileButton;
     private JButton checkEligibilityButton;
+    private JButton checkAttendanceEligibilityButton;
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
@@ -118,6 +120,7 @@ public class StuHome extends JFrame {
         setVisible(true);
 
         displayProfileDetils();
+        getAllAttendanceCounts();
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
@@ -258,6 +261,12 @@ public class StuHome extends JFrame {
                         new String[]{"Attendance Id", "Lecture Hour", "Week No", "Day No", "Status", "Course Type"}, 0
                 );
                 attTable.setModel(model);
+            }
+        });
+        checkAttendanceEligibilityButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
@@ -569,6 +578,92 @@ public class StuHome extends JFrame {
 
         }catch (Exception e){
             System.out.println("Error in view Attendance Eligibility: " + e.getMessage());
+        }
+    }
+
+    public void getAttendanceCount(String Course_code){
+        Connection con = DatabaseConnection.connect();
+        try{
+            System.out.println("LoggedIn Username = [" + Session.loggedInUsername + "]");
+            String sql = "SELECT count(*) FROM Attendance a JOIN Course c ON  a.Course_code = c.Course_code " +
+                    "JOIN Student s ON a.Stu_id = s.Stu_id " +
+                    "JOIN User u ON s.UserName = u.UserName " +
+                    "WHERE u.UserName = ? AND a.Course_code = ? AND a.Status = 'Present'";
+            ;
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            pstmt.setString(1, Session.loggedInUsername);
+            pstmt.setString(2, Course_code);
+
+//            System.out.println("Executing query: " + sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            int presentCount = 0;
+            if (rs.next()) {
+                presentCount = rs.getInt(1);
+                System.out.println("Total Records Found: " + presentCount);
+            }
+
+            String sql2 = "SELECT COUNT(*) FROM Attendance a " +
+                    "JOIN Course c ON a.Course_code = c.Course_code " +
+                    "JOIN Student s ON a.Stu_id = s.Stu_id " +
+                    "JOIN User u ON s.UserName = u.UserName " +
+                    "WHERE u.UserName = ? AND a.Course_code = ?";
+
+            PreparedStatement pstmt2 = con.prepareStatement(sql2);
+            pstmt2.setString(1, Session.loggedInUsername);
+            pstmt2.setString(2, Course_code);
+
+            ResultSet rs2 = pstmt2.executeQuery();
+
+            int totalCount = 0;
+            if (rs2.next()) {
+                totalCount = rs2.getInt(1);
+                System.out.println("Total Records Found: " + totalCount);
+            }
+            double attendancePercentage = ((double) presentCount / totalCount) * 100;
+            System.out.println("Attendance Percentage for course " + Course_code + ": " + attendancePercentage + "%");
+        }catch (Exception e){
+            System.out.println("Error in Get AttendanceCount: " + e.getMessage());
+        }
+    }
+
+    public void getAllAttendanceCounts() {
+        List<String> courseCodes = getAllCourseCodes();  // dynamically load from DB
+
+        for (String courseCode : courseCodes) {
+            getAttendanceCount(courseCode);
+        }
+    }
+
+// ********** Get course codes from database *********************
+
+    public List<String> getAllCourseCodes() {
+        List<String> courseCodes = new ArrayList<>();
+        Connection con = DatabaseConnection.connect();
+        try {
+            String sql = "SELECT Course_code FROM Course";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                courseCodes.add(rs.getString("Course_code"));
+            }
+        } catch (Exception e) {
+            System.out.println("Error in getAllCourseCodes: " + e.getMessage());
+        }
+        return courseCodes;
+    }
+
+
+
+
+    public void checkAttendanceEligibility(String Course_code){
+        Connection con = DatabaseConnection.connect();
+        try{
+            System.out.println("LoggedIn Username = [" + Session.loggedInUsername + "]");
+        }catch (Exception e){
+            System.out.println("Error in Check Attendance Eligibility: " + e.getMessage());
         }
     }
 
