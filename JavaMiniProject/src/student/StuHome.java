@@ -630,10 +630,15 @@ public class StuHome extends JFrame {
 
     public void getAllAttendanceCounts() {
         List<String> courseCodes = getAllCourseCodes();  // dynamically load from DB
-
+        // for each
         for (String courseCode : courseCodes) {
             getAttendanceCount(courseCode);
         }
+        // for loop
+//        for (int i = 0; i < courseCodes.size(); i++) {
+//            String courseCode = courseCodes.get(i);
+//            getAttendanceCount(courseCode);
+//        }
     }
 
 // ********** Get course codes from database *********************
