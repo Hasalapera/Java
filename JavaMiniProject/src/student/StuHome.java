@@ -75,7 +75,6 @@ public class StuHome extends JFrame {
     private JComboBox selectAttCourseCombo;
     private JComboBox selectCrsTypeCombo;
     private JLabel selectAttCourseLbl;
-    private JLabel selectCrsTypeLbl;
     private JButton clearButton;
     private JButton OKButton;
     private JPanel attViewPanel;
@@ -224,6 +223,41 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 new ShowCAEligibility();
 //                dispose();
+            }
+        });
+        selectAttCourseCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = selectAttCourseCombo.getSelectedIndex();
+                String selectedCourseCode = courseCodes[selectedIndex];
+                System.out.println("Selected CourseCode: " + selectedCourseCode);
+            }
+        });
+
+        OKButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = selectAttCourseCombo.getSelectedIndex();
+                if (selectedIndex >= 0) {
+                    String selectedCourseCode = courseCodes[selectedIndex];
+                    System.out.println("Selected CourseCode: " + selectedCourseCode);
+                    viewAttendance(selectedCourseCode);
+                }else {
+                    JOptionPane.showMessageDialog(null, "Please select a course");
+                }
+            }
+        });
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Reset ComboBox selection to no selection
+                selectAttCourseCombo.setSelectedIndex(0);  // or 0 if you want the first item
+
+                //Clear the table model (remove all data)
+                DefaultTableModel model = new DefaultTableModel(
+                        new String[]{"Attendance Id", "Lecture Hour", "Week No", "Day No", "Status", "Course Type"}, 0
+                );
+                attTable.setModel(model);
             }
         });
     }
@@ -494,6 +528,47 @@ public class StuHome extends JFrame {
             }
         } catch (Exception e) {
             System.out.println("Error in view Medical Status: " + e.getMessage());
+        }
+    }
+
+    public void viewAttendance(String Course_code){
+        Connection con = DatabaseConnection.connect();
+        try{
+            System.out.println("LoggedIn Username = [" + Session.loggedInUsername + "]");
+            String sql = "SELECT a.Attendance_id, a.Lec_hour, a.Week_No, a.Day_No, a.Status, a.Course_type " +
+                    "FROM Attendance a " +
+                    "JOIN Course c ON c.Course_code = a.Course_code " +
+                    "JOIN Student s ON a.Stu_id = s.Stu_id " +
+                    "JOIN User u ON s.UserName = u.UserName " +
+                    "WHERE u.UserName = ? AND a.Course_code = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, Session.loggedInUsername);
+            pstmt.setString(2, Course_code);
+
+            System.out.println("Executing query: " + sql);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            DefaultTableModel model = new DefaultTableModel(
+                    new String[]{"Attendance Id", "Lectur Hour", "Week No", "Day No", "Status", "Course Type"}, 0
+            );
+
+            while (rs.next()) {
+                String attendanceID = rs.getString("Attendance_id");
+                String lecHour = rs.getString("Lec_hour");
+                String weekNo = rs.getString("Week_No");
+                String dayNo = rs.getString("Day_No");
+                String status = rs.getString("Status");
+                String courseType = rs.getString("Course_type");
+
+                model.addRow(new Object[] {attendanceID, lecHour, weekNo, dayNo, status, courseType});
+
+            }
+            attTable.setModel(model);
+
+        }catch (Exception e){
+            System.out.println("Error in view Attendance Eligibility: " + e.getMessage());
         }
     }
 

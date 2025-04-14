@@ -681,36 +681,11 @@
                 </constraints>
                 <properties>
                   <model>
-                    <item value="&lt;None&gt;"/>
                     <item value="ICT2113 - Data Structures and Algorithms"/>
                     <item value="ICT2122 - Object Oriented Programming"/>
                     <item value="ICT2132 - Object Oriented Programmin Practicum"/>
                     <item value="ICT2142 - Object Oriented Analysis and Design"/>
                     <item value="ICT2152 - E Commerce Implimentation, Management and Security"/>
-                  </model>
-                </properties>
-              </component>
-              <component id="ec222" class="javax.swing.JLabel" binding="selectCrsTypeLbl">
-                <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Kannada MN" size="22" style="1"/>
-                  <foreground color="-16758099"/>
-                  <text value="Select a Type"/>
-                </properties>
-              </component>
-              <component id="758d0" class="javax.swing.JComboBox" binding="selectCrsTypeCombo">
-                <constraints>
-                  <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="-1" height="40"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <model>
-                    <item value="&lt;None&gt;"/>
-                    <item value="Theory"/>
-                    <item value="Practical"/>
                   </model>
                 </properties>
               </component>
@@ -757,7 +732,10 @@
                     <children>
                       <component id="47782" class="javax.swing.JTable" binding="attTable">
                         <constraints/>
-                        <properties/>
+                        <properties>
+                          <font name="Courier New" size="14" style="0"/>
+                          <foreground color="-16758099"/>
+                        </properties>
                       </component>
                     </children>
                   </scrollpane>
