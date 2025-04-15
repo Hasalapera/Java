@@ -41,7 +41,13 @@
             <children>
               <component id="527f9" class="javax.swing.JTable" binding="attEligiTable">
                 <constraints/>
-                <properties/>
+                <properties>
+                  <font name="Courier New" size="14" style="0"/>
+                  <foreground color="-16758099"/>
+                  <intercellSpacing width="1" height="5"/>
+                  <rowHeight value="25"/>
+                  <rowMargin value="5"/>
+                </properties>
               </component>
             </children>
           </scrollpane>
