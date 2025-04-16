@@ -3,7 +3,10 @@ package student;
 import database.DatabaseConnection;
 import database.Session;
 import lecture.LecHome;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -104,6 +107,10 @@ public class Login extends JFrame {
                     } else if (userNamelower.startsWith("lec")) {
                         JOptionPane.showMessageDialog(null, "Lecturer Login Successful");
                         new LecHome();
+<<<<<<< Updated upstream
+=======
+                        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
+>>>>>>> Stashed changes
                     } else if (userNamelower.startsWith("tech")) {
                         JOptionPane.showMessageDialog(null, "Technical Officer Login Successful");
                     } else {
