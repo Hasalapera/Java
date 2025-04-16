@@ -99,7 +99,7 @@
               <background color="-66049"/>
               <font name="Krungthep" size="20" style="0"/>
               <foreground color="-16758099"/>
-              <text value="Courses"/>
+              <text value="Add Marks"/>
             </properties>
           </component>
           <component id="dd135" class="javax.swing.JButton" binding="gradeAndGPAButton" default-binding="true">
@@ -125,7 +125,7 @@
               <background color="-66049"/>
               <font name="Krungthep" size="20" style="0"/>
               <foreground color="-16758099"/>
-              <text value="Attendance"/>
+              <text value="Attendance And Medical"/>
             </properties>
           </component>
           <component id="d1efb" class="javax.swing.JButton" binding="medicalButton" default-binding="true">
@@ -138,7 +138,7 @@
               <background color="-66049"/>
               <font name="Krungthep" size="20" style="0"/>
               <foreground color="-16758099"/>
-              <text value="Medical"/>
+              <text value="Undergradutes Details"/>
             </properties>
           </component>
           <component id="2657a" class="javax.swing.JButton" binding="timeTableButton" default-binding="true">
@@ -151,7 +151,7 @@
               <background color="-66049"/>
               <font name="Krungthep" size="20" style="0"/>
               <foreground color="-16758099"/>
-              <text value="Time Table"/>
+              <text value="Eligibility"/>
             </properties>
           </component>
           <component id="1edde" class="javax.swing.JButton" binding="noticeButton">
