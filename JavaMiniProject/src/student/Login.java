@@ -1,5 +1,8 @@
 package student;
 
+import Admin.AdminHome;
+//import admin.AdminHome;
+
 import database.DatabaseConnection;
 import database.Session;
 
@@ -94,6 +97,14 @@ public class Login extends JFrame {
 
                     if (userNamelower.startsWith("admin")) {
                         JOptionPane.showMessageDialog(null, "Admin Login Successful");
+                        System.out.println("AdminHome window created");
+                        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
+                        topFrame.dispose();
+                        try{
+                            new AdminHome();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
                     } else if (userNamelower.startsWith("tg")) {
                         JOptionPane.showMessageDialog(null, "Student Login Successful");
                         new StuHome();

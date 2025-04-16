@@ -1,7 +1,10 @@
-package student;
+package Admin;
 
 import database.DatabaseConnection;
 import database.Session;
+import student.Login;
+import student.ShowCAEligibility;
+import student.UpdateStudentProfile;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +19,7 @@ import java.sql.*;
 //import net.proteanit.sql.DbUtils;
 
 
-public class StuHome extends JFrame {
+public class AdminHome extends JFrame {
     private JPanel mainPanel;
     private JPanel headingPanel;
     private JPanel btnPanel;
@@ -50,6 +53,8 @@ public class StuHome extends JFrame {
     private JLabel FoTLbl;
     private JPanel coursesCard;
     private JLabel CoursesHeadingLbl;
+    //    private JComboBox comboBoxCourses;
+//    private JLabel selectCourseLbl;
     private JPanel displayDetailsPanel;
     private JPanel gradeGPACard;
     private JLabel gradeGPAHeadingLbl;
@@ -91,12 +96,6 @@ public class StuHome extends JFrame {
     private JScrollPane noticeScrollPane;
     private JScrollPane timeTableScrollPane;
     private JButton updateProfileButton;
-    private JTable table1;
-    private JButton deleteButton;
-    private JButton updateCourseButton;
-    private JButton updateTimeTableButton;
-    private JButton addButton;
-    private JButton deleteButton1;
     private JButton checkEligibilityButton;
 
     private String[] courseCodes = {
@@ -112,8 +111,21 @@ public class StuHome extends JFrame {
     ResultSet rs;
 
 
-    public StuHome() {
+    public AdminHome() {
+        mainPanel = new JPanel(); // and continue adding components manually
+
+
 //        JFrame frame = new JFrame("Student Management System - Home");
+        /*JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+
+        JLabel label = new JLabel("Welcome, Admin!", SwingConstants.CENTER);
+        mainPanel.add(label, BorderLayout.CENTER);*/
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+
+
+
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Student Home");
@@ -121,9 +133,11 @@ public class StuHome extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
+        cardMainPanel = new JPanel(new CardLayout());
+
         displayProfileDetils();
 
-        CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
         // Button actions to switch cards
         profileButton.addActionListener(new ActionListener() {
@@ -446,6 +460,25 @@ public class StuHome extends JFrame {
 
 
     public static void main(String[] args) {
-        new StuHome();
+        new AdminHome();
+
+        /*SwingUtilities.invokeLater(() -> {
+            // Create a JFrame to preview
+            JFrame frame = new JFrame("Test Course Card Preview");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(500, 400);
+
+            // Create a dummy panel for testing
+            JPanel dummyPanel = new JPanel();
+            dummyPanel.add(new JLabel("This is a test panel"));
+
+            // Set the dummy panel as the content
+            frame.setContentPane(dummyPanel);
+            frame.revalidate();
+            frame.repaint();
+            frame.setVisible(true);
+        });*/
+
+
     }
 }
