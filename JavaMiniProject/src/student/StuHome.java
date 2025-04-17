@@ -120,6 +120,7 @@ public class StuHome extends JFrame {
         setVisible(true);
 
         displayProfileDetils();
+        showProfilePicture(imageLbl);
 //        getAllAttendanceCounts();
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
@@ -324,16 +325,17 @@ public class StuHome extends JFrame {
 
         try {
             con = DatabaseConnection.connect();
-            String sql = "{CALL GetGradeByStudentAndCourse (?, ?)}";
+//            String sql = "{CALL GetGradeByStudentAndCourse (?, ?)}";
+            String sql = "{CALL Get_Grade_By_Course_And_Student(?, ?)}";
             cstmt = con.prepareCall(sql);
 
-            cstmt.setString(1, Session.loggedInUsername);
-            cstmt.setString(2, courseCode);
+            cstmt.setString(1, courseCode);
+            cstmt.setString(2, Session.loggedInUsername);
 
             rs = cstmt.executeQuery();
 
             if(rs.next()){
-                String grade = rs.getString("Student_Grade");
+                String grade = rs.getString("Grade");
                 yourGradeTxt.setText(grade);
 
                 System.out.println("Course Code: " + courseCode + " | Grade: " + grade); // Print to console
@@ -589,6 +591,55 @@ public class StuHome extends JFrame {
             System.out.println("Error in view Attendance Eligibility: " + e.getMessage());
         }
     }
+
+    //***************** show profile picture ************************
+
+    public void showProfilePicture(JLabel imageLbl) {
+        Connection con = DatabaseConnection.connect();
+        try {
+            String sql = "SELECT Profile_pic FROM User WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                String fileName = rs.getString("Profile_pic");
+
+                // Handle null or empty from database
+                if (fileName == null || fileName.trim().isEmpty()) {
+                    fileName = "default.png";
+                }
+
+                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
+                File imageFile = new File(path);
+
+                if (!imageFile.exists()) {
+                    path = "JavaMiniProject/user_Pro_Pic/default.png";
+//                    imageFile = new File(path);
+                }
+
+                ImageIcon imageIcon = new ImageIcon(path);
+
+                // Protect against zero-size label
+                int width = imageLbl.getWidth() > 0 ? imageLbl.getWidth() : 150;
+                int height = imageLbl.getHeight() > 0 ? imageLbl.getHeight() : 150;
+
+                Image image = imageIcon.getImage().getScaledInstance(
+                        width,
+                        height,
+                        Image.SCALE_SMOOTH
+                );
+
+                imageLbl.setIcon(new ImageIcon(image));
+                imageLbl.repaint();  // Force UI to refresh
+            }
+        } catch (Exception e) {
+            System.out.println("Error in show profile picture: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
 
     public static void main(String[] args) {
         new StuHome();

@@ -403,10 +403,13 @@
                     <children>
                       <component id="3f3b5" class="javax.swing.JLabel" binding="imageLbl">
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="150"/>
+                          </grid>
                         </constraints>
                         <properties>
-                          <text value="No Image"/>
+                          <background color="-1746929"/>
+                          <text value=""/>
                         </properties>
                       </component>
                     </children>

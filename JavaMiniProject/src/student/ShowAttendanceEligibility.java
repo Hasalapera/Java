@@ -25,7 +25,7 @@ public class ShowAttendanceEligibility extends JFrame {
     public ShowAttendanceEligibility() {
         setTitle("Attendance Eligibility");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000, 800);
+        setSize(2000, 1000);
         setContentPane(mainPanel);
         setLocationRelativeTo(null);
         setVisible(true);
