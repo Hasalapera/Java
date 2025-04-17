@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/AddAttendance.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/AddAttendance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/addmedical.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/addmedical.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" afterDir="false" />
     </list>
@@ -40,8 +41,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.AddAttendance.executor": "Run",
     "Application.Attendance.executor": "Run",
     "Application.StuHome.executor": "Run",
+    "Application.addmedical.executor": "Run",
     "Application.toHome.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -78,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1744526520616</updated>
       <workItem from="1744526521691" duration="322000" />
-      <workItem from="1744888357542" duration="16053000" />
+      <workItem from="1744888357542" duration="19165000" />
     </task>
     <servers />
   </component>
