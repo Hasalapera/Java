@@ -505,23 +505,14 @@
                         <maximum-size width="1000" height="500"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-1"/>
+                    </properties>
                     <border type="none"/>
                     <children>
-                      <component id="9d9a1" class="javax.swing.JTable" binding="timeTableTable">
+                      <component id="bf282" class="javax.swing.JTable" binding="timeTableTable">
                         <constraints/>
-                        <properties>
-                          <background color="-6569222"/>
-                          <editingColumn value="0"/>
-                          <editingRow value="0"/>
-                          <font name="Courier New" size="12" style="1"/>
-                          <foreground color="-16758099"/>
-                          <gridColor color="-16758099"/>
-                          <maximumSize width="2147483647" height="-1"/>
-                          <preferredSize width="500" height="1000"/>
-                          <rowHeight value="30"/>
-                          <rowMargin value="5"/>
-                        </properties>
+                        <properties/>
                       </component>
                     </children>
                   </scrollpane>
