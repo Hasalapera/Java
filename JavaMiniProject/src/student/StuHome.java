@@ -98,6 +98,8 @@ public class StuHome extends JFrame {
     private JButton addButton;
     private JButton deleteButton1;
     private JButton checkEligibilityButton;
+    private JButton button3;
+
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
