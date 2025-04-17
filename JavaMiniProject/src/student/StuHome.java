@@ -13,8 +13,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 //import net.proteanit.sql.DbUtils;
 
 
@@ -96,6 +94,7 @@ public class StuHome extends JFrame {
     private JButton updateProfileButton;
     private JButton checkEligibilityButton;
     private JButton checkAttendanceEligibilityButton;
+    private JButton deleteProfilePictureButton;
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
@@ -275,6 +274,13 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 new ShowAttendanceEligibility();
                 dispose();
+            }
+        });
+        deleteProfilePictureButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteProfilePicture(imageLbl);
+                deleteProfilePictureButton.setEnabled(false);
             }
         });
     }
@@ -536,10 +542,10 @@ public class StuHome extends JFrame {
                 model.addRow(new Object[]{medId, courseCode, courseName, weekNo, dayNo, status});
             }
             System.out.println("Total Records Found: " + count);
-            if(count == 0){
-                JOptionPane.showMessageDialog(null, "No Records Found");
-                System.out.println("No Records Found");
-            }
+//            if(count == 0){
+//                JOptionPane.showMessageDialog(null, "No Records Found");
+//                System.out.println("No Records Found");
+//            }
             if(!found){
                 JOptionPane.showMessageDialog(null, "No Medical Found");
                 System.out.println("No Medical Found");
@@ -594,6 +600,51 @@ public class StuHome extends JFrame {
 
     //***************** show profile picture ************************
 
+//    public void showProfilePicture(JLabel imageLbl) {
+//        Connection con = DatabaseConnection.connect();
+//        try {
+//            String sql = "SELECT Profile_pic FROM User WHERE UserName = ?";
+//            PreparedStatement pst = con.prepareStatement(sql);
+//            pst.setString(1, Session.loggedInUsername);
+//            ResultSet rs = pst.executeQuery();
+//
+//            if (rs.next()) {
+//                String fileName = rs.getString("Profile_pic");
+//
+//                // Handle null or empty from database
+//                if (fileName == null || fileName.trim().isEmpty()) {
+//                    fileName = "default.png";
+//                }
+//
+//                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
+//                File imageFile = new File(path);
+//
+//                if (!imageFile.exists()) {
+//                    path = "JavaMiniProject/user_Pro_Pic/default.png";
+////                    imageFile = new File(path);
+//                }else{
+//                    ImageIcon imageIcon = new ImageIcon(path);
+//
+//                    // Protect against zero-size label
+//                    int width = imageLbl.getWidth() > 0 ? imageLbl.getWidth() : 150;
+//                    int height = imageLbl.getHeight() > 0 ? imageLbl.getHeight() : 150;
+//
+//                    Image image = imageIcon.getImage().getScaledInstance(
+//                            width,
+//                            height,
+//                            Image.SCALE_SMOOTH
+//                    );
+//                    imageLbl.setIcon(new ImageIcon(image));
+//                }
+//
+//                imageLbl.repaint();  // refresh
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error in show profile picture: " + e.getMessage());
+//            e.printStackTrace();
+//        }
+//    }
+
     public void showProfilePicture(JLabel imageLbl) {
         Connection con = DatabaseConnection.connect();
         try {
@@ -605,7 +656,7 @@ public class StuHome extends JFrame {
             if (rs.next()) {
                 String fileName = rs.getString("Profile_pic");
 
-                // Handle null or empty from database
+                // If no profile picture set in DB, use default
                 if (fileName == null || fileName.trim().isEmpty()) {
                     fileName = "default.png";
                 }
@@ -613,31 +664,71 @@ public class StuHome extends JFrame {
                 String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
                 File imageFile = new File(path);
 
+                // If image file does not exist, fallback to default image
                 if (!imageFile.exists()) {
                     path = "JavaMiniProject/user_Pro_Pic/default.png";
-//                    imageFile = new File(path);
                 }
 
+                // Load and Resize Image to fit JLabel
                 ImageIcon imageIcon = new ImageIcon(path);
 
-                // Protect against zero-size label
-                int width = imageLbl.getWidth() > 0 ? imageLbl.getWidth() : 150;
-                int height = imageLbl.getHeight() > 0 ? imageLbl.getHeight() : 150;
+                // Get JLabel size (designed from GUI builder)
+                int width = imageLbl.getWidth();
+                int height = imageLbl.getHeight();
 
-                Image image = imageIcon.getImage().getScaledInstance(
-                        width,
-                        height,
-                        Image.SCALE_SMOOTH
-                );
+                // Default size safety check (in case label not ready)
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
 
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
                 imageLbl.setIcon(new ImageIcon(image));
-                imageLbl.repaint();  // Force UI to refresh
+                imageLbl.repaint(); // Refresh label to show updated image
             }
         } catch (Exception e) {
-            System.out.println("Error in show profile picture: " + e.getMessage());
+            System.out.println("Error in showProfilePicture: " + e.getMessage());
             e.printStackTrace();
         }
     }
+
+    public void deleteProfilePicture(JLabel imageLbl) {
+        Connection con = DatabaseConnection.connect();
+        try{
+            String sql = "UPDATE User SET Profile_pic = NULL WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+
+            int result = pst.executeUpdate();
+
+            if (result > 0) {
+                // Set default image after deletion
+                String path = "JavaMiniProject/user_Pro_Pic/default.png";
+
+                // Get label size
+                int width = imageLbl.getWidth();
+                int height = imageLbl.getHeight();
+
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
+
+                ImageIcon imageIcon = new ImageIcon(path);
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                imageLbl.setIcon(new ImageIcon(image));
+                imageLbl.repaint();  // Refresh label
+
+                System.out.println("Profile picture deleted successfully.");
+            } else {
+                System.out.println("No profile picture was found or username invalid.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error in deleteProfilePicture: " + e.getMessage());
+        }
+    }
+
 
 
 
