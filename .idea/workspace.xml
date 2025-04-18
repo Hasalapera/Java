@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateAttendance.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateAttendance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateMedical.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateMedical.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateTOprofile.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateTOprofile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/addmedical.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/addmedical.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +54,7 @@
     "Application.addmedical.executor": "Run",
     "Application.toHome.executor": "Run",
     "Application.updateAttendance.executor": "Run",
+    "Application.updateTOprofile.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "241",
@@ -95,7 +91,7 @@
       <updated>1744526520616</updated>
       <workItem from="1744526521691" duration="322000" />
       <workItem from="1744888357542" duration="20367000" />
-      <workItem from="1744958635519" duration="21346000" />
+      <workItem from="1744958635519" duration="23279000" />
     </task>
     <servers />
   </component>

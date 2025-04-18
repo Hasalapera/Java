@@ -2,6 +2,7 @@ package Technical_officer;
 
 import database.DatabaseConnection;
 import database.Session;
+import student.Login;
 import student.UpdateStudentProfile;
 
 import javax.swing.*;
@@ -93,6 +94,14 @@ public class toHome extends  JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
 
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String password = ""                        ;
+                new Login();
+            }
+        });
+
         profileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -102,7 +111,7 @@ public class toHome extends  JFrame {
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new UpdateStudentProfile();
+                new updateTOprofile();
                 dispose();
             }
         });
