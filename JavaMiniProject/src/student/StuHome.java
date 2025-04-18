@@ -2,7 +2,6 @@ package student;
 
 import database.DatabaseConnection;
 import database.Session;
-import student.ShowCAEligibility;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -75,7 +74,6 @@ public class StuHome extends JFrame {
     private JComboBox selectAttCourseCombo;
     private JComboBox selectCrsTypeCombo;
     private JLabel selectAttCourseLbl;
-    private JLabel selectCrsTypeLbl;
     private JButton clearButton;
     private JButton OKButton;
     private JPanel attViewPanel;
@@ -95,6 +93,8 @@ public class StuHome extends JFrame {
     private JScrollPane timeTableScrollPane;
     private JButton updateProfileButton;
     private JButton checkEligibilityButton;
+    private JButton checkAttendanceEligibilityButton;
+    private JButton deleteProfilePictureButton;
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
@@ -119,6 +119,8 @@ public class StuHome extends JFrame {
         setVisible(true);
 
         displayProfileDetils();
+        showProfilePicture(imageLbl);
+//        getAllAttendanceCounts();
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
@@ -158,6 +160,11 @@ public class StuHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "medicalCard");
+
+                String[] mediStatus = {"Medical_id", "Course_code", "Course_name", "Week_No", "Day_No", "Status"};
+                DefaultTableModel model = new DefaultTableModel(null, mediStatus);
+                mediDetailsTable.setModel(model);
+                viewMedicalStatus();
             }
         });
 
@@ -221,6 +228,61 @@ public class StuHome extends JFrame {
 //                dispose();
             }
         });
+        selectAttCourseCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = selectAttCourseCombo.getSelectedIndex();
+                String selectedCourseCode = courseCodes[selectedIndex];
+                System.out.println("Selected CourseCode: " + selectedCourseCode);
+            }
+        });
+
+        OKButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = selectAttCourseCombo.getSelectedIndex();
+                if (selectedIndex >= 0) {
+                    String selectedCourseCode = courseCodes[selectedIndex];
+                    System.out.println("Selected CourseCode: " + selectedCourseCode);
+                    viewAttendance(selectedCourseCode);
+                }else {
+                    JOptionPane.showMessageDialog(null, "Please select a course");
+                }
+            }
+        });
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Reset ComboBox selection to no selection
+                selectAttCourseCombo.setSelectedIndex(0);  // or 0 if you want the first item
+
+                //Clear the table model (remove all data)
+                DefaultTableModel model = new DefaultTableModel(
+                        new String[]{"Attendance Id", "Lecture Hour", "Week No", "Day No", "Status", "Course Type"}, 0
+                );
+                attTable.setModel(model);
+            }
+        });
+        checkAttendanceEligibilityButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        checkAttendanceEligibilityButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ShowAttendanceEligibility();
+                dispose();
+            }
+        });
+        deleteProfilePictureButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteProfilePicture(imageLbl);
+                deleteProfilePictureButton.setEnabled(false);
+            }
+        });
     }
 
     // ******* Grade & GPA *****************
@@ -269,16 +331,17 @@ public class StuHome extends JFrame {
 
         try {
             con = DatabaseConnection.connect();
-            String sql = "{CALL GetGradeByStudentAndCourse (?, ?)}";
+//            String sql = "{CALL GetGradeByStudentAndCourse (?, ?)}";
+            String sql = "{CALL Get_Grade_By_Course_And_Student(?, ?)}";
             cstmt = con.prepareCall(sql);
 
-            cstmt.setString(1, Session.loggedInUsername);
-            cstmt.setString(2, courseCode);
+            cstmt.setString(1, courseCode);
+            cstmt.setString(2, Session.loggedInUsername);
 
             rs = cstmt.executeQuery();
 
             if(rs.next()){
-                String grade = rs.getString("Student_Grade");
+                String grade = rs.getString("Grade");
                 yourGradeTxt.setText(grade);
 
                 System.out.println("Course Code: " + courseCode + " | Grade: " + grade); // Print to console
@@ -425,7 +488,8 @@ public class StuHome extends JFrame {
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-                File noticeFile = new File("notices/notice_" + noticeId + ".txt");
+                File noticeFile = new File("JavaMiniProject/notices/notice_" + noticeId + ".txt");
+                System.out.println("noticeFile: " + noticeId+ " Displayed");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
                 StringBuilder content = new StringBuilder();
                 String line;
@@ -440,6 +504,234 @@ public class StuHome extends JFrame {
             System.out.println("Error in display Notice Content: " + e.getMessage());
         }
     }
+
+    //************ Medical *******************
+
+    public void viewMedicalStatus(){
+        Connection con = DatabaseConnection.connect();
+        try{
+            System.out.println("LoggedIn Username = [" + Session.loggedInUsername + "]");
+            String sql = "SELECT med.Medical_id, med.Course_code, med.Week_No, med.Day_No, med.Status, c.Course_Name " +
+                    "FROM Medical med " +
+                    "JOIN Course c ON med.Course_code = c.Course_code " +
+                    "JOIN Student s ON med.Stu_id = s.Stu_id " +
+                    "JOIN User u ON s.UserName = u.UserName " +
+                    "WHERE u.UserName = ?";
+
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, Session.loggedInUsername);
+
+            System.out.println("Executing query: " + sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            DefaultTableModel model = (DefaultTableModel) mediDetailsTable.getModel();
+            model.setRowCount(0);
+            int count = 0;
+            boolean found = false;
+            while (rs.next()) {
+                count++;
+                found = true;
+                String medId = rs.getString("Medical_id");
+                String courseCode = rs.getString("Course_code");
+                String courseName = rs.getString("Course_Name");
+                String weekNo = rs.getString("Week_No");
+                String dayNo = rs.getString("Day_No");
+                String status = rs.getString("Status");
+
+                model.addRow(new Object[]{medId, courseCode, courseName, weekNo, dayNo, status});
+            }
+            System.out.println("Total Records Found: " + count);
+//            if(count == 0){
+//                JOptionPane.showMessageDialog(null, "No Records Found");
+//                System.out.println("No Records Found");
+//            }
+            if(!found){
+                JOptionPane.showMessageDialog(null, "No Medical Found");
+                System.out.println("No Medical Found");
+            }
+        } catch (Exception e) {
+            System.out.println("Error in view Medical Status: " + e.getMessage());
+        }
+    }
+
+// ************* Attendance **********************
+
+    public void viewAttendance(String Course_code) {
+        Connection con = DatabaseConnection.connect();
+        try {
+            System.out.println("LoggedIn Username = [" + Session.loggedInUsername + "]");
+            String sql = "SELECT a.Attendance_id, a.Lec_hour, a.Week_No, a.Day_No, a.Status, a.Course_type " +
+                    "FROM Attendance a " +
+                    "JOIN Course c ON c.Course_code = a.Course_code " +
+                    "JOIN Student s ON a.Stu_id = s.Stu_id " +
+                    "JOIN User u ON s.UserName = u.UserName " +
+                    "WHERE u.UserName = ? AND a.Course_code = ?";
+
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, Session.loggedInUsername);
+            pstmt.setString(2, Course_code);
+
+            System.out.println("Executing query: " + sql);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            DefaultTableModel model = new DefaultTableModel(
+                    new String[]{"Attendance Id", "Lectur Hour", "Week No", "Day No", "Status", "Course Type"}, 0
+            );
+
+            while (rs.next()) {
+                String attendanceID = rs.getString("Attendance_id");
+                String lecHour = rs.getString("Lec_hour");
+                String weekNo = rs.getString("Week_No");
+                String dayNo = rs.getString("Day_No");
+                String status = rs.getString("Status");
+                String courseType = rs.getString("Course_type");
+
+                model.addRow(new Object[]{attendanceID, lecHour, weekNo, dayNo, status, courseType});
+
+            }
+            attTable.setModel(model);
+
+        } catch (Exception e) {
+            System.out.println("Error in view Attendance Eligibility: " + e.getMessage());
+        }
+    }
+
+    //***************** show profile picture ************************
+
+//    public void showProfilePicture(JLabel imageLbl) {
+//        Connection con = DatabaseConnection.connect();
+//        try {
+//            String sql = "SELECT Profile_pic FROM User WHERE UserName = ?";
+//            PreparedStatement pst = con.prepareStatement(sql);
+//            pst.setString(1, Session.loggedInUsername);
+//            ResultSet rs = pst.executeQuery();
+//
+//            if (rs.next()) {
+//                String fileName = rs.getString("Profile_pic");
+//
+//                // Handle null or empty from database
+//                if (fileName == null || fileName.trim().isEmpty()) {
+//                    fileName = "default.png";
+//                }
+//
+//                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
+//                File imageFile = new File(path);
+//
+//                if (!imageFile.exists()) {
+//                    path = "JavaMiniProject/user_Pro_Pic/default.png";
+////                    imageFile = new File(path);
+//                }else{
+//                    ImageIcon imageIcon = new ImageIcon(path);
+//
+//                    // Protect against zero-size label
+//                    int width = imageLbl.getWidth() > 0 ? imageLbl.getWidth() : 150;
+//                    int height = imageLbl.getHeight() > 0 ? imageLbl.getHeight() : 150;
+//
+//                    Image image = imageIcon.getImage().getScaledInstance(
+//                            width,
+//                            height,
+//                            Image.SCALE_SMOOTH
+//                    );
+//                    imageLbl.setIcon(new ImageIcon(image));
+//                }
+//
+//                imageLbl.repaint();  // refresh
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error in show profile picture: " + e.getMessage());
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void showProfilePicture(JLabel imageLbl) {
+        Connection con = DatabaseConnection.connect();
+        try {
+            String sql = "SELECT Profile_pic FROM User WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                String fileName = rs.getString("Profile_pic");
+
+                // If no profile picture set in DB, use default
+                if (fileName == null || fileName.trim().isEmpty()) {
+                    fileName = "default.png";
+                }
+
+                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
+                File imageFile = new File(path);
+
+                // If image file does not exist, fallback to default image
+                if (!imageFile.exists()) {
+                    path = "JavaMiniProject/user_Pro_Pic/default.png";
+                }
+
+                // Load and Resize Image to fit JLabel
+                ImageIcon imageIcon = new ImageIcon(path);
+
+                // Get JLabel size (designed from GUI builder)
+                int width = imageLbl.getWidth();
+                int height = imageLbl.getHeight();
+
+                // Default size safety check (in case label not ready)
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
+
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                imageLbl.setIcon(new ImageIcon(image));
+                imageLbl.repaint(); // Refresh label to show updated image
+            }
+        } catch (Exception e) {
+            System.out.println("Error in showProfilePicture: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteProfilePicture(JLabel imageLbl) {
+        Connection con = DatabaseConnection.connect();
+        try{
+            String sql = "UPDATE User SET Profile_pic = NULL WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+
+            int result = pst.executeUpdate();
+
+            if (result > 0) {
+                // Set default image after deletion
+                String path = "JavaMiniProject/user_Pro_Pic/default.png";
+
+                // Get label size
+                int width = imageLbl.getWidth();
+                int height = imageLbl.getHeight();
+
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
+
+                ImageIcon imageIcon = new ImageIcon(path);
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                imageLbl.setIcon(new ImageIcon(image));
+                imageLbl.repaint();  // Refresh label
+
+                System.out.println("Profile picture deleted successfully.");
+            } else {
+                System.out.println("No profile picture was found or username invalid.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error in deleteProfilePicture: " + e.getMessage());
+        }
+    }
+
+
+
+
 
 
     public static void main(String[] args) {
