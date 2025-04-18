@@ -5,16 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateAttendance.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateAttendance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateMedical.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateMedical.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/AddAttendance.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/AddAttendance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/addmedical.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/addmedical.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,9 +54,11 @@
   "keyToString": {
     "Application.AddAttendance.executor": "Run",
     "Application.Attendance.executor": "Run",
+    "Application.Login.executor": "Run",
     "Application.StuHome.executor": "Run",
     "Application.addmedical.executor": "Run",
     "Application.toHome.executor": "Run",
+    "Application.updateAttendance.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "241",
@@ -81,7 +94,8 @@
       <option name="presentableId" value="Default" />
       <updated>1744526520616</updated>
       <workItem from="1744526521691" duration="322000" />
-      <workItem from="1744888357542" duration="19165000" />
+      <workItem from="1744888357542" duration="20367000" />
+      <workItem from="1744958635519" duration="21346000" />
     </task>
     <servers />
   </component>

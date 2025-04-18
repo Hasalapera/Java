@@ -3,10 +3,7 @@ package Technical_officer;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class addmedical extends JFrame {
     private JPanel MainPanel;
@@ -28,7 +25,6 @@ public class addmedical extends JFrame {
     private JLabel aidLabel;
     private JButton addButton;
 
-
     public addmedical() {
         setTitle("Add Medical");
         setContentPane(MainPanel);
@@ -45,6 +41,7 @@ public class addmedical extends JFrame {
     }
 
     private Connection con;
+
     private void connectToDatabase() {
         try {
             String url = "jdbc:mysql://localhost:3308/techlms";
@@ -65,25 +62,24 @@ public class addmedical extends JFrame {
         String day = dayField.getText();
         String status = statusField.getText();
 
-        Connection conn = null;
+        connectToDatabase();
         PreparedStatement pstmt = null;
 
         try {
-            // Connect to DB
-            connectToDatabase();
-            String sql = "INSERT INTO medical (Medical_id, Stu_id, Course_code, week_No, day_No, Status,Attendance_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            pstmt = conn.prepareStatement(sql);
+            String sql = "INSERT INTO medical (Medical_id, Stu_id, Course_code, week_No, day_No, Status, Attendance_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            pstmt = con.prepareStatement(sql);
             pstmt.setString(1, mid);
             pstmt.setString(2, sid);
-            pstmt.setString(3, aid);
-            pstmt.setString(4, course);
-            pstmt.setString(5, week);
-            pstmt.setString(6, day);
-            pstmt.setString(7, status);
+            pstmt.setString(3, course);   // corrected: course instead of aid
+            pstmt.setString(4, week);
+            pstmt.setString(5, day);
+            pstmt.setString(6, status);
+            pstmt.setString(7, aid);      // corrected: aid placed here
 
             int rows = pstmt.executeUpdate();
             if (rows > 0) {
                 JOptionPane.showMessageDialog(this, "Medical record added successfully!");
+                updateAttendanceStatus(aid); // Update attendance status
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to add record.");
             }
@@ -94,7 +90,36 @@ public class addmedical extends JFrame {
         } finally {
             try {
                 if (pstmt != null) pstmt.close();
-                if (conn != null) conn.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    private void updateAttendanceStatus(String attendanceId) {
+        connectToDatabase();
+        PreparedStatement pstmt = null;
+
+        try {
+            String sql = "UPDATE attendance SET status = 'Medical' WHERE Attendance_id = ?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, attendanceId);
+
+            int updatedRows = pstmt.executeUpdate();
+            if (updatedRows > 0) {
+                System.out.println("Attendance status updated to 'Medical'.");
+            } else {
+                System.out.println("No attendance record found with the given ID.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Failed to update attendance status: " + e.getMessage());
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (con != null) con.close();
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }

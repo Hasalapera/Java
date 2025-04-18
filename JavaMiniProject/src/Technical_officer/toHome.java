@@ -146,6 +146,8 @@ public class toHome extends  JFrame {
                 }
             }
         });
+
+        //Add attendance
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -153,12 +155,17 @@ public class toHome extends  JFrame {
                 addForm.setVisible(true);// make sure class name matches
             }
         });
+
+        //Update attendance
         update.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                updateAttendance updateForm = new updateAttendance();
+                updateForm.setVisible(true);
             }
         });
+
+        //Add medical
         addbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -166,10 +173,13 @@ public class toHome extends  JFrame {
                 addmedi.setVisible(true);
             }
         });
-        updatebtn.addMouseListener(new MouseAdapter() {
+
+        //Update medical
+        updatebtn.addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            public void actionPerformed(ActionEvent e) {
+                updateMedical upmedi = new  updateMedical();
+                upmedi.setVisible(true);
             }
         });
     }
