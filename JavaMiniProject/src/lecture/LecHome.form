@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="1281" height="981"/>
+      <xy x="20" y="20" width="1882" height="981"/>
     </constraints>
     <properties>
       <background color="-66049"/>
@@ -62,7 +62,7 @@
           </hspacer>
         </children>
       </grid>
-      <grid id="fc494" binding="btnPanel" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+      <grid id="fc494" binding="btnPanel" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
         <margin top="10" left="0" bottom="10" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -156,7 +156,7 @@
           </component>
           <component id="1edde" class="javax.swing.JButton" binding="noticeButton">
             <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="220" height="80"/>
               </grid>
             </constraints>
@@ -165,6 +165,19 @@
               <font name="Krungthep" size="20" style="0"/>
               <foreground color="-16758099"/>
               <text value="Notice"/>
+            </properties>
+          </component>
+          <component id="5baca" class="javax.swing.JButton" binding="LecturematerialButton">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="220" height="80"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-66049"/>
+              <font name="Krungthep" size="20" style="0"/>
+              <foreground color="-16758099"/>
+              <text value="Add Lecture Materials"/>
             </properties>
           </component>
         </children>
@@ -425,7 +438,7 @@
               </grid>
             </children>
           </grid>
-          <grid id="f9a6f" binding="coursesCard" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="f9a6f" binding="AddmarksCard" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <card name="coursesCard"/>
@@ -436,69 +449,267 @@
             </properties>
             <border type="none"/>
             <children>
-              <component id="5ed3c" class="javax.swing.JLabel" binding="CoursesHeadingLbl">
-                <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="-1" height="80"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <font name="Krungthep" size="48" style="1"/>
-                  <foreground color="-16758099"/>
-                  <text value="Courses"/>
-                </properties>
-              </component>
-              <component id="7ae26" class="javax.swing.JLabel" binding="selectCourseLbl">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Kannada MN" size="20" style="1"/>
-                  <foreground color="-16758099"/>
-                  <text value="Select a Course"/>
-                </properties>
-              </component>
-              <component id="10b00" class="javax.swing.JComboBox" binding="comboBoxCourses">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <model>
-                    <item value="&lt;None&gt;"/>
-                    <item value="ICT2113 - Data Structures and Algorithms"/>
-                    <item value="ICT2122 - Object Oriented Programming"/>
-                    <item value="ICT2132 - Object Oriented Programmin Practicum"/>
-                    <item value="ICT2142 - Object Oriented Analysis and Design"/>
-                    <item value="ICT2152 - E Commerce Implimentation, Management and Security"/>
-                  </model>
-                </properties>
-              </component>
-              <grid id="b3bcf" binding="displayDetailsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="f4164" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="-1" height="700"/>
-                  </grid>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-2500135"/>
+                  <background color="-1"/>
                 </properties>
-                <border type="none"/>
-                <children/>
+                <border type="none">
+                  <color color="-16758099"/>
+                </border>
+                <children>
+                  <grid id="3518d" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <background color="-1"/>
+                    </properties>
+                    <border type="line">
+                      <color color="-16758099"/>
+                    </border>
+                    <children>
+                      <grid id="1d5ff" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <background color="-1"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <grid id="42110" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="50" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                                <maximum-size width="700" height="150"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-1"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="19bb1" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="48" style="1"/>
+                                  <foreground color="-16447994"/>
+                                  <text value="Attendance and Medicals"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="d24b3" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="40" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="100"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-1"/>
+                              <opaque value="true"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <grid id="6ec6b" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                                <margin top="20" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="400" height="100"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="ac7bb" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <font name="JetBrains Mono" size="17"/>
+                                      <foreground color="-16447994"/>
+                                      <text value="Show Unique Student Attenadance % (Student Number):"/>
+                                    </properties>
+                                  </component>
+                                  <component id="4e3e6" class="javax.swing.JTextField">
+                                    <constraints>
+                                      <grid row="0" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="30"/>
+                                        <maximum-size width="300" height="100"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-1"/>
+                                      <font size="18"/>
+                                    </properties>
+                                  </component>
+                                  <grid id="10f82" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                                    <margin top="10" left="0" bottom="0" right="0"/>
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                        <preferred-size width="-1" height="50"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-1"/>
+                                    </properties>
+                                    <border type="none"/>
+                                    <children>
+                                      <component id="e2a8c" class="javax.swing.JButton">
+                                        <constraints>
+                                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                            <preferred-size width="100" height="30"/>
+                                            <maximum-size width="200" height="200"/>
+                                          </grid>
+                                        </constraints>
+                                        <properties>
+                                          <background color="-1"/>
+                                          <font size="16"/>
+                                          <foreground color="-16447994"/>
+                                          <text value="Show"/>
+                                        </properties>
+                                      </component>
+                                    </children>
+                                  </grid>
+                                </children>
+                              </grid>
+                              <grid id="38eb3" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                                <margin top="30" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                    <maximum-size width="610" height="60"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="146da" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <font name="JetBrains Mono" size="17"/>
+                                      <foreground color="-16447994"/>
+                                      <text value="Show All Students Attendace (%):"/>
+                                    </properties>
+                                  </component>
+                                  <component id="5aaaf" class="javax.swing.JButton">
+                                    <constraints>
+                                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="100" height="30"/>
+                                        <maximum-size width="100" height="30"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-1"/>
+                                      <font size="16"/>
+                                      <foreground color="-16447994"/>
+                                      <text value="Show"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <component id="1e6ac" class="javax.swing.JButton" default-binding="true">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="145" height="40"/>
+                                    <maximum-size width="145" height="40"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                  <font size="16"/>
+                                  <foreground color="-16447994"/>
+                                  <text value="All Attendance"/>
+                                </properties>
+                              </component>
+                              <component id="5464f" class="javax.swing.JButton" default-binding="true">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="145" height="40"/>
+                                    <maximum-size width="145" height="40"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                  <font size="16"/>
+                                  <foreground color="-16447994"/>
+                                  <text value="All Medicels"/>
+                                </properties>
+                              </component>
+                              <component id="ccf0" class="javax.swing.JButton" default-binding="true">
+                                <constraints>
+                                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="145" height="40"/>
+                                    <maximum-size width="145" height="40"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                  <font size="16"/>
+                                  <foreground color="-16447994"/>
+                                  <text value="Attendance_Eligibility"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <scrollpane id="441d1">
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="700" height="300"/>
+                                <maximum-size width="800" height="400"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-1"/>
+                              <foreground color="-16447994"/>
+                              <horizontalScrollBarPolicy value="30"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="a7776" class="javax.swing.JTable">
+                                <constraints/>
+                                <properties>
+                                  <autoResizeMode value="0"/>
+                                  <background color="-1"/>
+                                  <enabled value="false"/>
+                                  <fillsViewportHeight value="false"/>
+                                  <font name="JetBrains Mono" size="14"/>
+                                  <foreground color="-16447994"/>
+                                  <gridColor color="-16447994"/>
+                                  <preferredScrollableViewportSize width="1000" height="500"/>
+                                  <requestFocusEnabled value="true"/>
+                                  <selectionForeground color="-16447994"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                          <vspacer id="e42af">
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="20"/>
+                              </grid>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
+                    </children>
+                  </grid>
+                </children>
               </grid>
-              <component id="58783" class="javax.swing.JButton" binding="checkEligibilityButton">
-                <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="180" height="40"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-66049"/>
-                  <font name="Kannada MN" size="16" style="0"/>
-                  <foreground color="-16758099"/>
-                  <text value="Check CA Eligibility"/>
-                </properties>
-              </component>
             </children>
           </grid>
           <grid id="4ad74" binding="gradeGPACard" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -638,7 +849,7 @@
               </grid>
             </children>
           </grid>
-          <grid id="baf6a" binding="attendanceCard" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="baf6a" binding="Att_MediCard" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <card name="attendanceCard"/>
@@ -773,7 +984,7 @@
               </vspacer>
             </children>
           </grid>
-          <grid id="a122a" binding="medicalCard" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="a122a" binding="UG_DetailsCard" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <card name="medicalCard"/>
@@ -913,43 +1124,265 @@
                   <text value="TimeTable"/>
                 </properties>
               </component>
-              <grid id="f0ccc" binding="timeTablePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                <margin top="30" left="30" bottom="30" right="30"/>
+              <grid id="5b1cf" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <background color="-16758099"/>
+                  <background color="-1"/>
                 </properties>
-                <border type="none"/>
+                <border type="none">
+                  <color color="-16758099"/>
+                </border>
                 <children>
-                  <scrollpane id="fa807" binding="timeTableScrollPane">
+                  <grid id="df093" binding="MainFrame" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                        <preferred-size width="1000" height="500"/>
-                        <maximum-size width="1000" height="500"/>
-                      </grid>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
-                    <border type="none"/>
+                    <properties>
+                      <background color="-1"/>
+                    </properties>
+                    <border type="line">
+                      <color color="-16758099"/>
+                    </border>
                     <children>
-                      <component id="61cb4" class="javax.swing.JTable" binding="timeTableTable">
-                        <constraints/>
+                      <grid id="f4f8b" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                        <margin top="0" left="0" bottom="0" right="0"/>
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
                         <properties>
-                          <background color="-6569222"/>
-                          <editingColumn value="0"/>
-                          <editingRow value="0"/>
-                          <font name="Courier New" size="12" style="1"/>
-                          <foreground color="-16758099"/>
-                          <gridColor color="-16758099"/>
-                          <maximumSize width="2147483647" height="-1"/>
-                          <preferredSize width="500" height="1000"/>
-                          <rowHeight value="30"/>
-                          <rowMargin value="5"/>
+                          <background color="-1"/>
                         </properties>
-                      </component>
+                        <border type="none"/>
+                        <children>
+                          <grid id="b02bb" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="50" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                                <maximum-size width="700" height="150"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-1"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="82cc2" class="javax.swing.JLabel">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                                </constraints>
+                                <properties>
+                                  <font size="48" style="1"/>
+                                  <foreground color="-16447994"/>
+                                  <text value="Attendance and Medicals"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <grid id="929cf" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="40" left="0" bottom="0" right="0"/>
+                            <constraints>
+                              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="100"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-1"/>
+                              <opaque value="true"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <grid id="413c6" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                                <margin top="20" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="400" height="100"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="e9387" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <font name="JetBrains Mono" size="17"/>
+                                      <foreground color="-16447994"/>
+                                      <text value="Show Unique Student Attenadance % (Student Number):"/>
+                                    </properties>
+                                  </component>
+                                  <component id="afd2b" class="javax.swing.JTextField" binding="Stu_number">
+                                    <constraints>
+                                      <grid row="0" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="150" height="30"/>
+                                        <maximum-size width="300" height="100"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-1"/>
+                                      <font size="18"/>
+                                    </properties>
+                                  </component>
+                                  <grid id="ffc83" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                                    <margin top="10" left="0" bottom="0" right="0"/>
+                                    <constraints>
+                                      <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                        <preferred-size width="-1" height="50"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-1"/>
+                                    </properties>
+                                    <border type="none"/>
+                                    <children>
+                                      <component id="2a029" class="javax.swing.JButton" binding="uniqoneshowButton">
+                                        <constraints>
+                                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                            <preferred-size width="100" height="30"/>
+                                            <maximum-size width="200" height="200"/>
+                                          </grid>
+                                        </constraints>
+                                        <properties>
+                                          <background color="-1"/>
+                                          <font size="16"/>
+                                          <foreground color="-16447994"/>
+                                          <text value="Show"/>
+                                        </properties>
+                                      </component>
+                                    </children>
+                                  </grid>
+                                </children>
+                              </grid>
+                              <grid id="71b40" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                                <margin top="30" left="0" bottom="0" right="0"/>
+                                <constraints>
+                                  <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                    <maximum-size width="610" height="60"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                </properties>
+                                <border type="none"/>
+                                <children>
+                                  <component id="c56cd" class="javax.swing.JLabel">
+                                    <constraints>
+                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                                    </constraints>
+                                    <properties>
+                                      <font name="JetBrains Mono" size="17"/>
+                                      <foreground color="-16447994"/>
+                                      <text value="Show All Students Attendace (%):"/>
+                                    </properties>
+                                  </component>
+                                  <component id="bd533" class="javax.swing.JButton" binding="AllshowButton">
+                                    <constraints>
+                                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                        <preferred-size width="100" height="30"/>
+                                        <maximum-size width="100" height="30"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-1"/>
+                                      <font size="16"/>
+                                      <foreground color="-16447994"/>
+                                      <text value="Show"/>
+                                    </properties>
+                                  </component>
+                                </children>
+                              </grid>
+                              <component id="f266a" class="javax.swing.JButton" binding="allAttendanceButton" default-binding="true">
+                                <constraints>
+                                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="145" height="40"/>
+                                    <maximum-size width="145" height="40"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                  <font size="16"/>
+                                  <foreground color="-16447994"/>
+                                  <text value="All Attendance"/>
+                                </properties>
+                              </component>
+                              <component id="fe650" class="javax.swing.JButton" binding="allMedicelsButton" default-binding="true">
+                                <constraints>
+                                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="145" height="40"/>
+                                    <maximum-size width="145" height="40"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                  <font size="16"/>
+                                  <foreground color="-16447994"/>
+                                  <text value="All Medicels"/>
+                                </properties>
+                              </component>
+                              <component id="44777" class="javax.swing.JButton" binding="eligibilityButton" default-binding="true">
+                                <constraints>
+                                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                                    <preferred-size width="145" height="40"/>
+                                    <maximum-size width="145" height="40"/>
+                                  </grid>
+                                </constraints>
+                                <properties>
+                                  <background color="-1"/>
+                                  <font size="16"/>
+                                  <foreground color="-16447994"/>
+                                  <text value="Attendance_Eligibility"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </grid>
+                          <scrollpane id="82b7">
+                            <constraints>
+                              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                                <preferred-size width="700" height="300"/>
+                                <maximum-size width="800" height="400"/>
+                              </grid>
+                            </constraints>
+                            <properties>
+                              <background color="-1"/>
+                              <foreground color="-16447994"/>
+                              <horizontalScrollBarPolicy value="30"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="e5d30" class="javax.swing.JTable" binding="Attendance_table">
+                                <constraints/>
+                                <properties>
+                                  <autoResizeMode value="0"/>
+                                  <background color="-1"/>
+                                  <enabled value="false"/>
+                                  <fillsViewportHeight value="false"/>
+                                  <font name="JetBrains Mono" size="14"/>
+                                  <foreground color="-16447994"/>
+                                  <gridColor color="-16447994"/>
+                                  <preferredScrollableViewportSize width="1000" height="500"/>
+                                  <requestFocusEnabled value="true"/>
+                                  <selectionForeground color="-16447994"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                          <vspacer id="54e0f">
+                            <constraints>
+                              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                                <preferred-size width="-1" height="20"/>
+                              </grid>
+                            </constraints>
+                          </vspacer>
+                        </children>
+                      </grid>
                     </children>
-                  </scrollpane>
+                  </grid>
                 </children>
               </grid>
             </children>

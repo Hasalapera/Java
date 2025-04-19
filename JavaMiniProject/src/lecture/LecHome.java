@@ -51,11 +51,6 @@ public class LecHome extends JFrame {
     private JButton noticeButton;
     private JLabel stuManaSysLbl;
     private JLabel FoTLbl;
-    private JPanel coursesCard;
-    private JLabel CoursesHeadingLbl;
-    private JComboBox comboBoxCourses;
-    private JLabel selectCourseLbl;
-    private JPanel displayDetailsPanel;
     private JPanel gradeGPACard;
     private JLabel gradeGPAHeadingLbl;
     private JComboBox selectCrsComboBox;
@@ -67,8 +62,8 @@ public class LecHome extends JFrame {
     private JLabel selectCrsLbl;
     private JLabel sgpaLbl;
     private JButton logOutButton;
-    private JPanel attendanceCard;
-    private JPanel medicalCard;
+    private JPanel Att_MediCard;
+    private JPanel UG_DetailsCard;
     private JPanel timeTableCard;
     private JPanel noticeCard;
     private JLabel attendanceHeadingLbl;
@@ -88,15 +83,23 @@ public class LecHome extends JFrame {
     private JLabel timeTableHeadingLbl;
     private JPanel noticeTxtAreaPanel;
     private JTextArea noticeTxtArea;
-    private JPanel timeTablePanel;
     private JTable timeTableTable;
     private JTable attTable;
     private JScrollPane attScrollPane;
     private JScrollPane mediScrollPane;
     private JScrollPane noticeScrollPane;
-    private JScrollPane timeTableScrollPane;
     private JButton updateProfileButton;
     private JButton checkEligibilityButton;
+    private JPanel AddmarksCard;
+    private JButton LecturematerialButton;
+    private JPanel MainFrame;
+    private JTextField Stu_number;
+    private JButton uniqoneshowButton;
+    private JButton AllshowButton;
+    private JButton allAttendanceButton;
+    private JButton allMedicelsButton;
+    private JButton eligibilityButton;
+    private JTable Attendance_table;
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
@@ -152,14 +155,14 @@ public class LecHome extends JFrame {
         attendanceButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(cardMainPanel, "attendanceCard");
+                cardLayout.show(cardMainPanel, "Att_MediCard");
             }
         });
 
         medicalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(cardMainPanel, "medicalCard");
+                cardLayout.show(cardMainPanel, "UG_DetailsCard");
             }
         });
 
