@@ -4,43 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="dcbvv">
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateProfile.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateProfile.java" afterDir="false" />
+    <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="ok">
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/notices/notice_N1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/notices/notice_N2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ProfileUpdate.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ProfileUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddTimeTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddTimeTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AdminHomeNew.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/Admin_UpdateStudentProfile$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/Admin_UpdateStudentProfile$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/Admin_UpdateStudentProfile$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/Admin_UpdateStudentProfile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateCourse.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateCourse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateTimeTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateTimeTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/ViewCourse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddTimeTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddTimeTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/Admin_UpdateStudentProfile.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/Admin_UpdateStudentProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateTimeTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateTimeTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdminHome.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdminHome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateProfile.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ViewCourse.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ViewCourse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,38 +65,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AdHome.executor": "Run",
-    "Application.AddCourse.executor": "Run",
-    "Application.AddTimeTable.executor": "Run",
-    "Application.AdminHome.executor": "Run",
-    "Application.AdminHomeNew.executor": "Run",
-    "Application.StuHome.executor": "Run",
-    "Application.StudentManagement.executor": "Run",
-    "Application.UpdateCourse.executor": "Run",
-    "Application.UpdateProfile.executor": "Run",
-    "Application.UpdateTimeTable.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "294",
-    "git-widget-placeholder": "Navodya",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/HP/Desktop/my java/JavaMiniProject/src/Admin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AdHome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddCourse.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddTimeTable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AdminHome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AdminHomeNew.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProfileUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StuHome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StudentManagement.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UpdateCourse.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UpdateProfile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UpdateTimeTable.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;294&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Navodya&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/Desktop/my java/JavaMiniProject/notices&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\my java\JavaMiniProject\notices" />
       <recent name="C:\Users\HP\Desktop\my java\JavaMiniProject\src\Admin" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
@@ -143,7 +125,12 @@
       <workItem from="1744695138711" duration="33562000" />
       <workItem from="1744785878940" duration="37625000" />
       <workItem from="1744834241055" duration="2995000" />
-      <workItem from="1744870262173" duration="33842000" />
+      <workItem from="1744870262173" duration="37030000" />
+      <workItem from="1744925327722" duration="19000" />
+      <workItem from="1744925644361" duration="20000" />
+      <workItem from="1744951210416" duration="15950000" />
+      <workItem from="1744986970679" duration="3346000" />
+      <workItem from="1745038260843" duration="10883000" />
     </task>
     <task id="LOCAL-00001" summary="dcbvv">
       <option name="closed" value="true" />
@@ -161,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744836912129</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ok">
+      <option name="closed" value="true" />
+      <created>1744922099369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744922099369</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,22 +187,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dcbvv" />
-    <option name="LAST_COMMIT_MESSAGE" value="dcbvv" />
+    <MESSAGE value="ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateProfile.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateProfile.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

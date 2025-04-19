@@ -10,9 +10,23 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
+import java.sql.Date;
+
+import student.Login;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.File;
 
 
-public class AdHome {
+
+
+
+
+
+
+public class AdHome extends JFrame {
     private JPanel mainPanel;
     private JButton profileButton;
     private JButton courseButton;
@@ -45,13 +59,34 @@ public class AdHome {
     private JButton deleteButton1;
     private JScrollPane TimeTable;
     private JPanel buton;
+    private JPanel NoticeCard;
+    private JButton addNoticeButton;
+    private JButton deleteNoticeButton;
+    private JButton viewNoticeButton;
+    private JTextArea textArea1;
+    private JTable NoticeTable;
+    //private JTable noticeTable;
+
+
+
 
     public AdHome() {
+
+        setTitle("Admin Home");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setContentPane(mainPanel); // IntelliJ should generate and initialize this
+        pack(); // Adjusts window size to fit content
+        setLocationRelativeTo(null);
+        setVisible(true);
+
         courseButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardpanel.getLayout();
             cl.show(cardpanel, "Course");
             loadCourseData();// Make sure "course" matches the card name you set in Designer
         });
+
+        // Load admin profile automatically when AdHome is initialized
+        loadAdminProfile();  // Call to load the admin details right after the window is shown
 
         profileButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardpanel.getLayout();
@@ -59,15 +94,16 @@ public class AdHome {
             loadAdminProfile();
         });
 
+
         updateProfileButton.addActionListener(e -> {
-            // Open the UpdateProfile window when the update profile button is clicked
             JFrame frame = new JFrame("Update Profile");
-            frame.setContentPane(new UpdateProfile().panel1);  // Ensure 'Mainpanel' is the public panel name in UpdateProfile
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close this window but keep the app running
+            frame.setContentPane(new ProfileUpdate().MainPanel);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.pack();
             frame.setLocationRelativeTo(null); // Center on screen
             frame.setVisible(true);
         });
+
 
         timeTableButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardpanel.getLayout();
@@ -152,15 +188,79 @@ public class AdHome {
             }
         });
 
-//        updateProfileButton.addActionListener(e -> {
-//            JFrame frame = new JFrame("Update Admin Profile");
-//            frame.setContentPane(new AdminUpdateProfile().mainPanel); // Make sure panel1 is public in AdminUpdateProfile
-//            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//            frame.pack();
-//            frame.setLocationRelativeTo(null); // Center the frame
-//            frame.setVisible(true);
-//        });
 
+        noticeButton.addActionListener(e -> {
+            CardLayout cl = (CardLayout) cardpanel.getLayout();
+            cl.show(cardpanel, "Notice");
+            loadNoticeData();
+        });
+
+
+
+        logOutButton.addActionListener(e -> {
+            // Close the current window
+            dispose();
+
+            // Open the login window
+            JFrame loginFrame = new JFrame("Login");
+            loginFrame.setContentPane(new Login().mainPanel); // Adjust according to your Login class
+            loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            loginFrame.pack();
+            loginFrame.setLocationRelativeTo(null);
+            loginFrame.setVisible(true);
+        });
+
+        viewNoticeButton.addActionListener(e -> {
+            int selectedRow = NoticeTable.getSelectedRow();
+
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(null, "Please select a notice to view.");
+                return;
+            }
+
+            // Get Notice ID from selected row (assume column 0)
+            String noticeId = NoticeTable.getValueAt(selectedRow, 0).toString(); // e.g., N1
+            String filename = "notice_"+ noticeId + ".txt"; // e.g., N1.txt
+
+            // Build file path
+//            File file = new File("notices", filename);
+              File file = new File("C:/Users/HP/Desktop/my java/JavaMiniProject/notices/" + filename);
+
+            System.out.println("Trying to read from: " + file.getAbsolutePath());
+
+            // Read and display the file
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                StringBuilder content = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    content.append(line).append("\n");
+                }
+                textArea1.setText(content.toString());
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Unable to load notice content from file: " + file.getName());
+            }
+        });
+
+        deleteNoticeButton.addActionListener(e -> {
+            int selectedRow = NoticeTable.getSelectedRow();
+
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(null, "Please select a notice to delete.");
+                return;
+            }
+
+            // Get the Notice ID (assuming it is in column 0 of the JTable)
+            String noticeId = NoticeTable.getValueAt(selectedRow, 0).toString();
+
+            // Confirm before deletion
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete Notice ID: " + noticeId + "?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+
+            if (confirm == JOptionPane.YES_OPTION) {
+                deleteNotice(noticeId);  // Call the combined method
+            }
+        });
 
 
 
@@ -271,6 +371,9 @@ public class AdHome {
             model.addColumn("Day");
 
             while (rs.next()) {
+                String dayNumber = rs.getString("day"); // Get the day number from DB
+                String dayName = convertDayNumberToName(dayNumber); // Convert to day name
+
                 model.addRow(new Object[]{
                         rs.getString("timetable_id"),
                         rs.getString("ad_id"),
@@ -278,7 +381,7 @@ public class AdHome {
                         rs.getString("course_code"),
                         rs.getString("course_name"),
                         rs.getString("time"),
-                        rs.getString("day")
+                        dayName
                 });
             }
 
@@ -290,6 +393,17 @@ public class AdHome {
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error loading timetable data");
+        }
+    }
+
+    // This helper method converts numeric days to names
+    private String convertDayNumberToName(String dayNumber) {
+        switch (dayNumber) {
+            case "1": return "Monday";
+            case "2": return "Tuesday";
+            case "3": return "Wednesday";
+            case "4": return "Thursday";
+            default: return "Unknown";
         }
     }
 
@@ -314,6 +428,78 @@ public class AdHome {
         }
     }
 
+    private void loadNoticeData() {
+        try {
+            Connection conn = DatabaseConnection.connect();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM notice");
+
+            // Define column names
+            String[] columnNames = {"Notice ID", "Admin ID", "Title", "Date"};
+
+            // Use DefaultTableModel to fill JTable
+            DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+
+            while (rs.next()) {
+                String id = rs.getString("Notice_id");
+                String adId = rs.getString("Ad_id");
+                String title = rs.getString("Title");
+                Date date = rs.getDate("Date");
+
+                Object[] row = {id, adId, title, date};
+                tableModel.addRow(row);
+            }
+
+            // Set model to your JTable
+            NoticeTable.setModel(tableModel);
+
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error loading notice data");
+        }
+    }
+
+    private void deleteNotice(String noticeId) {
+        try {
+            // Step 1: Delete from the database
+            Connection conn = DatabaseConnection.connect();
+            Statement stmt = conn.createStatement();
+
+            // Execute the delete query
+            String deleteQuery = "DELETE FROM notice WHERE Notice_id = '" + noticeId + "'";
+            int rowsAffected = stmt.executeUpdate(deleteQuery);
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Notice deleted successfully.");
+
+                // Step 2: Remove the selected row from the JTable
+                DefaultTableModel model = (DefaultTableModel) NoticeTable.getModel();
+                int selectedRow = NoticeTable.getSelectedRow();
+
+                if (selectedRow != -1) {
+                    // Remove the row from the JTable
+                    model.removeRow(selectedRow);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Notice not found or could not be deleted.");
+            }
+
+            // Step 3: Close connections
+            stmt.close();
+            conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error deleting notice.");
+        }
+    }
+
+
+
 
 
 
@@ -326,12 +512,12 @@ public class AdHome {
             frame.pack();
             frame.setLocationRelativeTo(null); // Center the window
             frame.setVisible(true);
+
         });
     }
 
 
-//    public static void main(String[] args) {
-//        new AdHome();
-    }
+
+}
 
 
