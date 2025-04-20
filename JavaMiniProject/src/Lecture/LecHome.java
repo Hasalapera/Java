@@ -113,7 +113,7 @@ public class LecHome extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
-        new LecHome();
-    }
+//    public static void main(String[] args) {
+//        new LecHome();
+//    }
 }
