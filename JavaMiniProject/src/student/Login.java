@@ -1,5 +1,6 @@
 package student;
 
+import Lecture.LecHome;
 import database.DatabaseConnection;
 import database.Session;
 
@@ -101,6 +102,7 @@ public class Login extends JFrame {
                         topFrame.dispose();
                     } else if (userNamelower.startsWith("lec")) {
                         JOptionPane.showMessageDialog(null, "Lecturer Login Successful");
+                        new LecHome();
                     } else if (userNamelower.startsWith("tech")) {
                         JOptionPane.showMessageDialog(null, "Technical Officer Login Successful");
                     } else {
