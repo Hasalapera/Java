@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="ok">
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/notices/notice_N1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/notices/notice_N2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ProfileUpdate.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ProfileUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddNotices.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddNotices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/ViewCourse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdminHome.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdminHome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateProfile.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ViewCourse.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ViewCourse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +57,7 @@
   &quot;keyToString&quot;: {
     &quot;Application.AdHome.executor&quot;: &quot;Run&quot;,
     &quot;Application.AddCourse.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddNotices.executor&quot;: &quot;Run&quot;,
     &quot;Application.AddTimeTable.executor&quot;: &quot;Run&quot;,
     &quot;Application.AdminHome.executor&quot;: &quot;Run&quot;,
     &quot;Application.AdminHomeNew.executor&quot;: &quot;Run&quot;,
@@ -130,7 +119,11 @@
       <workItem from="1744925644361" duration="20000" />
       <workItem from="1744951210416" duration="15950000" />
       <workItem from="1744986970679" duration="3346000" />
-      <workItem from="1745038260843" duration="10883000" />
+      <workItem from="1745038260843" duration="11155000" />
+      <workItem from="1745050649249" duration="64000" />
+      <workItem from="1745075081510" duration="113000" />
+      <workItem from="1745229141321" duration="16961000" />
+      <workItem from="1745260035637" duration="1698000" />
     </task>
     <task id="LOCAL-00001" summary="dcbvv">
       <option name="closed" value="true" />
@@ -156,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744922099369</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ok">
+      <option name="closed" value="true" />
+      <created>1745050504127</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745050504127</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

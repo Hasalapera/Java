@@ -262,6 +262,16 @@ public class AdHome extends JFrame {
             }
         });
 
+        addNoticeButton.addActionListener(e -> {
+            JFrame frame = new JFrame("Add Notice");
+            frame.setContentPane(new AddNotices().MainPanel); // if AddNotice has a MainPanel
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.pack();
+            frame.setLocationRelativeTo(null); // center on screen
+            frame.setVisible(true);
+        });
+
+
 
 
 
