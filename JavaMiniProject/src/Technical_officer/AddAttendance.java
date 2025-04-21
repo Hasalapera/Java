@@ -51,7 +51,7 @@ public class AddAttendance extends JFrame {
 
     private void connectToDatabase() {
         try {
-            String url = "jdbc:mysql://localhost:3308/techlms";
+            String url = "jdbc:mysql://localhost:3306/techlms";
             String user = "root";
             String password = "1234"; // Change if needed
             con = DriverManager.getConnection(url, user, password);

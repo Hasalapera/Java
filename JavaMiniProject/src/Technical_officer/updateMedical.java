@@ -45,7 +45,7 @@ public class updateMedical extends JFrame {
     private Connection con;
     private void connectToDatabase() {
         try {
-            String url = "jdbc:mysql://localhost:3308/techlms";
+            String url = "jdbc:mysql://localhost:3306/techlms";
             String user = "root";
             String password = "1234"; // Change if you use a password
             con = DriverManager.getConnection(url, user, password);
