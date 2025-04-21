@@ -412,18 +412,10 @@ allcamarks(User);
     // ******* Add marks *****************
 
     public void showmarkstable(String User_ID){
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
+       con = DatabaseConnection.connect();
         try {
 
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            }catch (ClassNotFoundException e){
-                JOptionPane.showMessageDialog(MainFrame, e);
-            }
-            Connection conn = DriverManager.getConnection(url, user, password);
-            PreparedStatement pst = conn.prepareStatement("SELECT * FROM marks WHERE Lec_id=?"); {
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM marks WHERE Lec_id=?"); {
 
                 pst.setString(1, User_ID);
                 ResultSet rs = pst.executeQuery();
@@ -471,9 +463,7 @@ allcamarks(User);
     }
 
     public void addmarks(String User_ID){
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
+        con = DatabaseConnection.connect();
 
         String MarkID = Mark_id_textfield.getText();
         String studentId = student_id_textField.getText();
@@ -496,15 +486,7 @@ allcamarks(User);
         }
 
         try {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(MainFrame, e);
-            }
-
-            // 1. Check if student + course already exists
-            Connection conn = DriverManager.getConnection(url, user, password);
-            PreparedStatement checkStmt = conn.prepareStatement("SELECT * FROM marks WHERE Stu_id=? AND Course_code=?");
+            PreparedStatement checkStmt = con.prepareStatement("SELECT * FROM marks WHERE Stu_id=? AND Course_code=?");
             checkStmt.setString(1, studentId);
             checkStmt.setString(2, coursecode);
             ResultSet rs = checkStmt.executeQuery();
@@ -512,7 +494,7 @@ allcamarks(User);
             // 2. If not exists, insert with all zero values
             if (!rs.next()) {
                 // Prepare the SQL query to insert values into the table
-                PreparedStatement insertStmt = conn.prepareStatement(
+                PreparedStatement insertStmt = con.prepareStatement(
                         "INSERT INTO marks (Mark_id,Stu_id, Course_code,Lec_id, Assignment_01,Assignment_02, Quiz_01, Quiz_02, Quiz_03, Quiz_04, Mid_theory, Mid_practical, End_theory, End_practical) " +
                                 "VALUES (?,?, ?, ?, 0,0,0,0,0,0,0,0,0,0)");
 
@@ -527,7 +509,7 @@ allcamarks(User);
 
             // 3. Update the selected category with the actual mark
             String updateQuery = "UPDATE marks SET " + markType + "=? WHERE Stu_id=? AND Course_code=? AND Mark_id=?";
-            PreparedStatement updateStmt = conn.prepareStatement(updateQuery);
+            PreparedStatement updateStmt = con.prepareStatement(updateQuery);
             updateStmt.setDouble(1, markValue);
             updateStmt.setString(2, studentId);
             updateStmt.setString(3, coursecode);
@@ -553,17 +535,9 @@ allcamarks(User);
     }
 
     public void deleteRecordFromTable(String markID){
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
+        con = DatabaseConnection.connect();
 
         try {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(MainFrame, e);
-            }
-            Connection con = DriverManager.getConnection(url, user, password);
             PreparedStatement pstm = con.prepareStatement("DELETE FROM marks WHERE Mark_id=?");
             pstm.setString(1,markID);
             int rowsAffected = pstm.executeUpdate();
@@ -590,13 +564,10 @@ allcamarks(User);
     }
 
     public void coursecodeselection(String User_ID){
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String username = "root";
-        String password = "";
+        con = DatabaseConnection.connect();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
+
             PreparedStatement ps = con.prepareStatement("SELECT Course_code FROM course WHERE Lec_id = ?");
             ps.setString(1, User_ID);
             ResultSet rs = ps.executeQuery();
@@ -616,13 +587,9 @@ allcamarks(User);
     // ******* Grade and GPU *****************
 
     private void Gradegpushowtable(String studentId) {
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
+        con = DatabaseConnection.connect();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, password);
 
             PreparedStatement courseStmt = con.prepareStatement("SELECT DISTINCT Course_code FROM marks");
             ResultSet courseRs = courseStmt.executeQuery();
@@ -694,15 +661,10 @@ allcamarks(User);
 
     private void Gradegpushowtable() {
 
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
+        con = DatabaseConnection.connect();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, password);
 
-            // Get course codes from marks table
             PreparedStatement courseStmt = con.prepareStatement("SELECT DISTINCT Course_code FROM marks");
             ResultSet courseRs = courseStmt.executeQuery();
 
@@ -769,14 +731,9 @@ allcamarks(User);
 
         double Final_marks=0.0;
 
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
+        con = DatabaseConnection.connect();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, password);
-
             PreparedStatement markpstm = con.prepareStatement(
                     "SELECT Quiz_01, Quiz_02, Quiz_03, Quiz_04, Assignment_01,Assignment_02, Mid_theory, Mid_practical, End_theory, End_practical " +
                             "FROM Marks WHERE Stu_id = ? AND Course_code = ?"
@@ -866,13 +823,10 @@ allcamarks(User);
 
     private double getCredit(String course_Id) {
         double credit = 0.0;
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
+
+        con = DatabaseConnection.connect();
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, password);
 
             PreparedStatement ps = con.prepareStatement("SELECT Credit FROM course WHERE Course_code = ?");
             ps.setString(1, course_Id);
