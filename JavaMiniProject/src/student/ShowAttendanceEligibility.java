@@ -157,6 +157,7 @@ public class ShowAttendanceEligibility extends JFrame {
 
     //********** check attendance eligibility *************
     public boolean checkAttEligibility(double attendancePercentage){
+
         return attendancePercentage >= 80;
     }
 
