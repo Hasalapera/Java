@@ -1284,7 +1284,7 @@
                                       <text value="All Medicels"/>
                                     </properties>
                                   </component>
-                                  <component id="9ba04" class="javax.swing.JButton" binding="eligibilityButton" default-binding="true">
+                                  <component id="9ba04" class="javax.swing.JButton" binding="attcaeligibilityButton">
                                     <constraints>
                                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false">
                                         <preferred-size width="145" height="40"/>

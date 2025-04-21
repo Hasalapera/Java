@@ -9,7 +9,10 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
@@ -83,7 +86,7 @@ public class LecHome extends JFrame {
     private JButton AllshowButton;
     private JButton allAttendanceButton;
     private JButton allMedicelsButton;
-    private JButton eligibilityButton;
+    private JButton attcaeligibilityButton;
     private JTable Attendance_table;
     private JTextField attStu_number;
     private JTextField CAstu_numbertextField;
@@ -174,7 +177,7 @@ public class LecHome extends JFrame {
         gradegpuallshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            Gradegpushowtable();
+                Gradegpushowtable();
             }
         });
         gradegpuuniqshowButton.addActionListener(new ActionListener() {
@@ -191,8 +194,8 @@ public class LecHome extends JFrame {
         undergraduateDetailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-cardLayout.show(cardMainPanel, "UgdetailsCard");
-allUgraduatesDetails();
+                cardLayout.show(cardMainPanel, "UgdetailsCard");
+                allUgraduatesDetails();
             }
         });
         allugdetailsshowButton.addActionListener(new ActionListener() {
@@ -222,25 +225,20 @@ allUgraduatesDetails();
         allAttendanceButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-attendanceTable(User_ID);
+                attendanceTable(User_ID);
             }
         });
         allMedicelsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-allMedicels(User_ID);
+                allMedicels(User_ID);
             }
         });
-        eligibilityButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
         AllshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-allstudentattendanceprecent(User_ID);
+                allstudentattendanceprecent(User_ID);
             }
         });
         attuniqoneshowButton.addActionListener(new ActionListener() {
@@ -258,13 +256,13 @@ allstudentattendanceprecent(User_ID);
         CAEligibilityButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-cardLayout.show(cardMainPanel, "CACard");
+                cardLayout.show(cardMainPanel, "CACard");
             }
         });
         AllCAbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-allcamarks(User);
+                allcamarks(User);
             }
         });
         Uniq_stu_CA_button.addActionListener(new ActionListener() {
@@ -277,6 +275,38 @@ allcamarks(User);
                 else {
                     uniqcamarks(CA_Stu_Number,User);
                 }
+            }
+        });
+        attcaeligibilityButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            new Att_CA();
+            }
+        });
+        selectTitleCombo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    // Get the selected title
+                    String selectedTitle = (String) selectTitleCombo.getSelectedItem();
+                    System.out.println("Selected Title: " + selectedTitle);
+                    // Display the content for the selected title
+                    if (selectedTitle != null) {
+                        displayNoticeContent(selectedTitle);
+                    }
+                }
+        });
+        noticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(cardMainPanel, "noticeCard");
+                addNoticeTitlesToComboBox();
+            }
+        });
+        deleteProfilePictureButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteProfilePicture(imageLbl);
+                deleteProfilePictureButton.setEnabled(false);
             }
         });
     }
@@ -360,7 +390,7 @@ allcamarks(User);
         }
     }
 
-    // ******* Display Profile Picture *****************
+    // *******  Profile Picture *****************
 
     public void showProfilePicture(JLabel imageLbl) {
         Connection con = DatabaseConnection.connect();
@@ -406,6 +436,43 @@ allcamarks(User);
         } catch (Exception e) {
             System.out.println("Error in showProfilePicture: " + e.getMessage());
             e.printStackTrace();
+        }
+    }
+
+    public void deleteProfilePicture(JLabel imageLbl) {
+        Connection con = DatabaseConnection.connect();
+        try{
+            String sql = "UPDATE User SET Profile_pic = NULL WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+
+            int result = pst.executeUpdate();
+
+            if (result > 0) {
+                // Set default image after deletion
+                String path = "JavaMiniProject/user_Pro_Pic/default.png";
+
+                // Get label size
+                int width = imageLbl.getWidth();
+                int height = imageLbl.getHeight();
+
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
+
+                ImageIcon imageIcon = new ImageIcon(path);
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                imageLbl.setIcon(new ImageIcon(image));
+                imageLbl.repaint();  // Refresh label
+
+                System.out.println("Profile picture deleted successfully.");
+            } else {
+                System.out.println("No profile picture was found or username invalid.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error in deleteProfilePicture: " + e.getMessage());
         }
     }
 
@@ -1008,7 +1075,7 @@ allcamarks(User);
         }
     }
 
-    private void allMedicels(String User_ID) {
+    private void allMedicels(String User) {
 
         con=DatabaseConnection.connect();
 
@@ -1636,4 +1703,57 @@ allcamarks(User);
         return CA_marks;
     }
 
+    // ******* Notice *****************
+
+    public void addNoticeTitlesToComboBox(){
+        con = DatabaseConnection.connect();
+
+        try{
+            Connection conn = DatabaseConnection.connect();
+            String sql = "SELECT * FROM Notice";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            selectTitleCombo.removeAllItems();
+
+            while (rs.next()) {
+                String title = rs.getString("Title");
+                selectTitleCombo.addItem(title); // Add each title to the combo box
+                System.out.println("Title: " + title);
+            }
+        }catch(Exception e){
+            System.out.println("Error in add Notice Titles To ComboBox: " + e.getMessage());
+        }
+    }
+
+    public void displayNoticeContent(String title) {
+        try {
+            noticeTxtArea.setText("");
+            // Establish connection to the database to get the NoticeId based on the title
+            Connection con = DatabaseConnection.connect();
+            String sql = "SELECT Notice_id FROM Notice WHERE Title = ?";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, title);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                String noticeId = rs.getString("Notice_id");
+
+                // Read content from the corresponding text file (e.g., notice_1.txt)
+                File noticeFile = new File("JavaMiniProject/notices/notice_" + noticeId + ".txt");
+                System.out.println("noticeFile: " + noticeId+ " Displayed");
+                BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
+                StringBuilder content = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    content.append(line).append("\n");
+                }
+
+                // Display the content in the JTextArea
+                noticeTxtArea.setText(content.toString());
+            }
+        } catch (SQLException | IOException e) {
+            System.out.println("Error in display Notice Content: " + e.getMessage());
+        }
+    }
 }
