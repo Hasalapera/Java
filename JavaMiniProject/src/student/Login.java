@@ -102,7 +102,7 @@ public class Login extends JFrame {
                         topFrame.dispose();
                     } else if (userNamelower.startsWith("lec")) {
                         JOptionPane.showMessageDialog(null, "Lecturer Login Successful");
-                        new LecHome();
+                        new LecHome(dbuserName);
                     } else if (userNamelower.startsWith("tech")) {
                         JOptionPane.showMessageDialog(null, "Technical Officer Login Successful");
                     } else {
