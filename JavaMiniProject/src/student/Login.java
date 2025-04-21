@@ -55,7 +55,7 @@ public class Login extends JFrame {
                 System.out.println("Login button clicked");
                 loginAuthentication();
 //                new StuHome(userName);
-                new toHome().setVisible(true);
+//                new toHome().setVisible(true);
 
             }
         });
