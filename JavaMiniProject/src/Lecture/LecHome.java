@@ -27,7 +27,7 @@ public class LecHome extends JFrame {
     private JButton gradeAndGPAButton;
     private JButton attendanceButton;
     private JButton medicalButton;
-    private JButton timeTableButton;
+    private JButton undergraduateDetailsButton;
     private JButton noticeButton;
     private JPanel cardMainPanel;
     private JPanel profileCard;
@@ -74,11 +74,7 @@ public class LecHome extends JFrame {
     private JPanel noticeTxtAreaPanel;
     private JScrollPane noticeScrollPane;
     private JTextArea noticeTxtArea;
-    private JPanel timeTableCard;
-    private JLabel timeTableHeadingLbl;
-    private JPanel timeTablePanel;
-    private JScrollPane timeTableScrollPane;
-    private JTable timeTableTable;
+    private JPanel UgdetailsCard;
     private JPanel MainFrame;
     private JTextField Mark_id_textfield;
     private JTextField student_id_textField;
@@ -189,6 +185,12 @@ public class LecHome extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.");
                 }
+            }
+        });
+        undergraduateDetailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+cardLayout.show(cardMainPanel, "UgdetailsCard");
             }
         });
     }
