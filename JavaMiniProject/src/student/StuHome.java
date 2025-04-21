@@ -52,6 +52,7 @@ public class StuHome extends JFrame {
     private JLabel FoTLbl;
     private JPanel coursesCard;
     private JLabel CoursesHeadingLbl;
+    private JPanel displayDetailsPanel;
     private JComboBox comboBoxCourses;
     private JLabel selectCourseLbl;
     private JPanel gradeGPACard;
@@ -93,6 +94,12 @@ public class StuHome extends JFrame {
     private JScrollPane noticeScrollPane;
     private JScrollPane timeTableScrollPane;
     private JButton updateProfileButton;
+    private JTable table1;
+    private JButton deleteButton;
+    private JButton updateCourseButton;
+    private JButton updateTimeTableButton;
+    private JButton addButton;
+    private JButton deleteButton1;
     private JButton checkEligibilityButton;
     private JButton checkAttendanceEligibilityButton;
     private JButton deleteProfilePictureButton;
