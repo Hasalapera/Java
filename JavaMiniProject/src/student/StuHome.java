@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 //import net.proteanit.sql.DbUtils;
 
 
@@ -52,7 +54,6 @@ public class StuHome extends JFrame {
     private JLabel CoursesHeadingLbl;
     private JComboBox comboBoxCourses;
     private JLabel selectCourseLbl;
-    private JPanel displayDetailsPanel;
     private JPanel gradeGPACard;
     private JLabel gradeGPAHeadingLbl;
     private JComboBox selectCrsComboBox;
@@ -95,14 +96,15 @@ public class StuHome extends JFrame {
     private JButton checkEligibilityButton;
     private JButton checkAttendanceEligibilityButton;
     private JButton deleteProfilePictureButton;
+    private JButton okButtonCourses;
 
-    private String[] courseCodes = {
-            "ICT2113",  // Index 0
-            "ICT2122",  // Index 1
-            "ICT2132",  // Index 2
-            "ICT2142",  // Index 3
-            "ICT2152"   // Index 4
-    };
+//    private String[] courseCodes = {
+//            "ICT2113",  // Index 0
+//            "ICT2122",  // Index 1
+//            "ICT2132",  // Index 2
+//            "ICT2142",  // Index 3
+//            "ICT2152"   // Index 4
+//    };
 
     Connection con;
     PreparedStatement pst;
@@ -118,7 +120,7 @@ public class StuHome extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        displayProfileDetils();
+        displayProfileDetails();
         showProfilePicture(imageLbl);
 //        getAllAttendanceCounts();
 
@@ -204,11 +206,13 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int selectedIndex = selectCrsComboBox.getSelectedIndex();
 
-                String selectedCourseCode = courseCodes[selectedIndex];
+//                String selectedCourseCode = courseCodes[selectedIndex];
+                List<String> courseCodes = getAllCourseCodes();
 
-                getGrade(selectedCourseCode);
+                getGrade(courseCodes.get(selectedIndex));
             }
         });
+
         selectTitleCombo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -232,8 +236,9 @@ public class StuHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int selectedIndex = selectAttCourseCombo.getSelectedIndex();
-                String selectedCourseCode = courseCodes[selectedIndex];
-                System.out.println("Selected CourseCode: " + selectedCourseCode);
+//                String selectedCourseCode = courseCodes[selectedIndex];
+                List<String> selectedCourseCodes = getAllCourseCodes();
+                System.out.println("Selected CourseCode: " + selectedCourseCodes.get(selectedIndex));
             }
         });
 
@@ -242,9 +247,10 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int selectedIndex = selectAttCourseCombo.getSelectedIndex();
                 if (selectedIndex >= 0) {
-                    String selectedCourseCode = courseCodes[selectedIndex];
-                    System.out.println("Selected CourseCode: " + selectedCourseCode);
-                    viewAttendance(selectedCourseCode);
+//                    String selectedCourseCode = courseCodes[selectedIndex];
+                    List<String> selectedCourseCodes = getAllCourseCodes();
+                    System.out.println("Selected CourseCode: " + selectedCourseCodes.get(selectedIndex));
+                    viewAttendance(selectedCourseCodes.get(selectedIndex));
                 }else {
                     JOptionPane.showMessageDialog(null, "Please select a course");
                 }
@@ -263,12 +269,12 @@ public class StuHome extends JFrame {
                 attTable.setModel(model);
             }
         });
-        checkAttendanceEligibilityButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+//        checkAttendanceEligibilityButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//
+//            }
+//        });
         checkAttendanceEligibilityButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -281,6 +287,32 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 deleteProfilePicture(imageLbl);
                 deleteProfilePictureButton.setEnabled(false);
+            }
+        });
+
+
+        comboBoxCourses.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int SelectedIndex = comboBoxCourses.getSelectedIndex();
+                List<String> selectedCourseCodeForMaterials = getAllCourseCodes();
+                System.out.println("Selected CourseCode: " + selectedCourseCodeForMaterials.get(SelectedIndex));
+//                getGrade(selectedCourseCodeForMaterials.get(SelectedIndex));
+            }
+        });
+        okButtonCourses.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedIndex = comboBoxCourses.getSelectedIndex();
+                if (selectedIndex >= 0) {
+//                    String selectedCourseCode = courseCodes[selectedIndex];
+                    List<String> selectedCourseCodeForMaterials = getAllCourseCodes();
+                    String selectedCourseCode = selectedCourseCodeForMaterials.get(selectedIndex);
+                    System.out.println("Selected CourseCode: " + selectedCourseCodeForMaterials.get(selectedIndex));
+                    viewCourseMaterials(selectedCourseCode);
+                }else {
+                    JOptionPane.showMessageDialog(null, "Please select a course");
+                }
             }
         });
     }
@@ -366,7 +398,7 @@ public class StuHome extends JFrame {
 
     // ******* Display Profile Details *****************
 
-    public void displayProfileDetils(){
+    public void displayProfileDetails(){
         con = DatabaseConnection.connect();
 
         try {
@@ -401,7 +433,7 @@ public class StuHome extends JFrame {
                 JOptionPane.showMessageDialog(null, "No Profile Found");
             }
         }catch (Exception e){
-            System.out.println("Error in displayProfileDetils: " + e.getMessage());
+            System.out.println("Error in display Profile Details: " + e.getMessage());
         }
     }
 
@@ -598,53 +630,6 @@ public class StuHome extends JFrame {
         }
     }
 
-    //***************** show profile picture ************************
-
-//    public void showProfilePicture(JLabel imageLbl) {
-//        Connection con = DatabaseConnection.connect();
-//        try {
-//            String sql = "SELECT Profile_pic FROM User WHERE UserName = ?";
-//            PreparedStatement pst = con.prepareStatement(sql);
-//            pst.setString(1, Session.loggedInUsername);
-//            ResultSet rs = pst.executeQuery();
-//
-//            if (rs.next()) {
-//                String fileName = rs.getString("Profile_pic");
-//
-//                // Handle null or empty from database
-//                if (fileName == null || fileName.trim().isEmpty()) {
-//                    fileName = "default.png";
-//                }
-//
-//                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
-//                File imageFile = new File(path);
-//
-//                if (!imageFile.exists()) {
-//                    path = "JavaMiniProject/user_Pro_Pic/default.png";
-////                    imageFile = new File(path);
-//                }else{
-//                    ImageIcon imageIcon = new ImageIcon(path);
-//
-//                    // Protect against zero-size label
-//                    int width = imageLbl.getWidth() > 0 ? imageLbl.getWidth() : 150;
-//                    int height = imageLbl.getHeight() > 0 ? imageLbl.getHeight() : 150;
-//
-//                    Image image = imageIcon.getImage().getScaledInstance(
-//                            width,
-//                            height,
-//                            Image.SCALE_SMOOTH
-//                    );
-//                    imageLbl.setIcon(new ImageIcon(image));
-//                }
-//
-//                imageLbl.repaint();  // refresh
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Error in show profile picture: " + e.getMessage());
-//            e.printStackTrace();
-//        }
-//    }
-
     public void showProfilePicture(JLabel imageLbl) {
         Connection con = DatabaseConnection.connect();
         try {
@@ -729,10 +714,46 @@ public class StuHome extends JFrame {
         }
     }
 
+    public List<String> getAllCourseCodes() {
+        List<String> courseCodes = new ArrayList<>();
+        Connection con = DatabaseConnection.connect();
+        try {
+            String sql = "SELECT Course_code FROM Course";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
 
+            while (rs.next()) {
+                courseCodes.add(rs.getString("Course_code"));
+            }
+        } catch (Exception e) {
+            System.out.println("Error in get All CourseCodes: " + e.getMessage());
+        }
+        return courseCodes;
+    }
 
-
-
+    public void viewCourseMaterials(String courseCode) {
+        Connection con = DatabaseConnection.connect();
+        try{
+            String sql = "SELECT Course_Material FROM Course WHERE Course_Name = ?";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+//            pstmt.setString(1, Session.loggedInUsername);
+            pstmt.setString(1, courseCode);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String materialLink = rs.getString("Course_Material");
+                if(materialLink != null && !materialLink.isEmpty()) {
+                    // Show link or open browser
+                    JOptionPane.showMessageDialog(null, "Download Course Material here:\n" + materialLink);
+                    // You can also open directly
+                    // Desktop.getDesktop().browse(new URI(materialLink));
+                } else {
+                    JOptionPane.showMessageDialog(null, "No course material uploaded for this course.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error in view Course Materials: " + e.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         new StuHome();
