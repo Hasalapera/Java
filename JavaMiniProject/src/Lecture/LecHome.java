@@ -89,6 +89,9 @@ public class LecHome extends JFrame {
     private JButton gradegpuallshowButton;
     private JTable Grade_GPA_Table;
     private JPanel GradeMainpanle;
+    private JButton showButton;
+    private JButton showButton2;
+    private JTable Stu_details_table;
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
