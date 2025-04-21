@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import Technical_officer.toHome;
 
 public class Login extends JFrame {
     private JPanel mainPanel;
@@ -54,6 +55,7 @@ public class Login extends JFrame {
                 System.out.println("Login button clicked");
                 loginAuthentication();
 //                new StuHome(userName);
+                new toHome().setVisible(true);
 
             }
         });
@@ -105,6 +107,9 @@ public class Login extends JFrame {
                         new LecHome(dbuserName);
                     } else if (userNamelower.startsWith("tech")) {
                         JOptionPane.showMessageDialog(null, "Technical Officer Login Successful");
+                        new toHome();
+                        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
+                        topFrame.dispose();
                     } else {
                         JOptionPane.showMessageDialog(null, "Unknown user role!");
                     }
@@ -126,4 +131,7 @@ public class Login extends JFrame {
         }
     }
 
+    public static void main(String[] args) {
+        new Login();
+    }
 }
