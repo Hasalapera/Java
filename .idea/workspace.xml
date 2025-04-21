@@ -4,7 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="" />
+    <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AdHome.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddNotices$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddNotices$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddNotices.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddTimeTable$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddTimeTable$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddTimeTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/ProfileUpdate$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/ProfileUpdate$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/ProfileUpdate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/TimeTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateCourse$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateCourse$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateCourse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateTimeTable$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateTimeTable$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateTimeTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddCourse.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddNotices.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddNotices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddTimeTable.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddTimeTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ProfileUpdate.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ProfileUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/TimeTable.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/TimeTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateCourse.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateTimeTable.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateTimeTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notices/noticeN10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notices/noticeN3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notices/noticeN4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notices/noticeN7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notices/noticeN8.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +65,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -29,9 +81,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Hasalapera/Java.git&quot;,
-    &quot;accountId&quot;: &quot;851966c5-c728-4543-9304-a162c1c561c2&quot;
+    &quot;accountId&quot;: &quot;1eed8741-c055-404f-857e-01ee05d684e0&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -42,45 +97,18 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AddAttendance.executor": "Run",
-    "Application.Attendance.executor": "Run",
-    "Application.Login.executor": "Run",
-    "Application.StuHome.executor": "Run",
-    "Application.StudentManagement.executor": "Run",
-    "Application.addmedical.executor": "Run",
-    "Application.toHome.executor": "Run",
-    "Application.updateAttendance.executor": "Run",
-    "Application.updateTOprofile.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "241",
-    "git-widget-placeholder": "TestNewNav",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/hasalashehan/Desktop/Workshop/Java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+    "git-widget-placeholder": "Merging TestNewNav",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Gayan\Desktop\Java\JavaMiniProject\Notices" />
+      <recent name="C:\Users\HP\Desktop\my java\JavaMiniProject\notices" />
+      <recent name="C:\Users\HP\Desktop\my java\JavaMiniProject\src\Admin" />
     </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
-      </set>
-    </attachedChunks>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -91,14 +119,88 @@
       <option name="presentableId" value="Default" />
       <updated>1744526520616</updated>
       <workItem from="1744526521691" duration="322000" />
-      <workItem from="1744888357542" duration="20367000" />
-      <workItem from="1744958635519" duration="23679000" />
-      <workItem from="1745229883452" duration="14689000" />
-      <workItem from="1745257534460" duration="1162000" />
+      <workItem from="1744695138711" duration="33562000" />
+      <workItem from="1744785878940" duration="37625000" />
+      <workItem from="1744834241055" duration="2995000" />
+      <workItem from="1744870262173" duration="37030000" />
+      <workItem from="1744925327722" duration="19000" />
+      <workItem from="1744925644361" duration="20000" />
+      <workItem from="1744951210416" duration="15950000" />
+      <workItem from="1744986970679" duration="3346000" />
+      <workItem from="1745038260843" duration="11155000" />
+      <workItem from="1745050649249" duration="64000" />
+      <workItem from="1745075081510" duration="113000" />
+      <workItem from="1745229141321" duration="16961000" />
+      <workItem from="1745260035637" duration="1698000" />
     </task>
+    <task id="LOCAL-00001" summary="dcbvv">
+      <option name="closed" value="true" />
+      <created>1744836790828</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744836790828</updated>
+    </task>
+    <task id="LOCAL-00002" summary="dcbvv">
+      <option name="closed" value="true" />
+      <created>1744836912129</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744836912129</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ok">
+      <option name="closed" value="true" />
+      <created>1744922099369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744922099369</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ok">
+      <option name="closed" value="true" />
+      <created>1745050504127</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745050504127</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Navodya" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dcbvv" />
+    <MESSAGE value="ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
