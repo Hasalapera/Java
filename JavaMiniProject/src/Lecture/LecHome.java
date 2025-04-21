@@ -408,7 +408,7 @@ cardLayout.show(cardMainPanel, "CACard");
     public void showmarkstable(String User_ID){
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
-        String password = "";
+        String password = "1234";
         try {
 
             try {
@@ -467,7 +467,7 @@ cardLayout.show(cardMainPanel, "CACard");
     public void addmarks(String User_ID){
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
-        String password = "";
+        String password = "1234";
 
         String MarkID = Mark_id_textfield.getText();
         String studentId = student_id_textField.getText();
@@ -549,7 +549,7 @@ cardLayout.show(cardMainPanel, "CACard");
     public void deleteRecordFromTable(String markID){
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
-        String password = "";
+        String password = "1234";
 
         try {
             try {
@@ -586,7 +586,7 @@ cardLayout.show(cardMainPanel, "CACard");
     public void coursecodeselection(String User_ID){
         String url = "jdbc:mysql://localhost:3306/techlms";
         String username = "root";
-        String password = "";
+        String password = "1234";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -612,7 +612,7 @@ cardLayout.show(cardMainPanel, "CACard");
     private void Gradegpushowtable(String studentId) {
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
-        String password = "";
+        String password = "1234";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -690,7 +690,7 @@ cardLayout.show(cardMainPanel, "CACard");
 
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
-        String password = "";
+        String password = "1234";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -765,7 +765,7 @@ cardLayout.show(cardMainPanel, "CACard");
 
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
-        String password = "";
+        String password = "1234";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -862,7 +862,7 @@ cardLayout.show(cardMainPanel, "CACard");
         double credit = 0.0;
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
-        String password = "";
+        String password = "1234";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
