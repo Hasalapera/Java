@@ -1308,6 +1308,16 @@ allstudentattendanceprecent(User_ID);
             getCourses.setString(1, User);
             ResultSet courseRS = getCourses.executeQuery();
 
+            String[] Column =new String[3+15];
+            Column[0]="Stu_id";
+            Column[1]="Course_code";
+            Column[2]="Course_type";
+            for (int i = 1; i <= 15; i++) {
+                Column[2 + i] = "Week " + i;
+            }
+
+            Map<String,String[]>studentmap=new LinkedHashMap<>();
+
             while (courseRS.next()){
                 String Course_code = courseRS.getString("Course_Code");
 
@@ -1316,19 +1326,7 @@ allstudentattendanceprecent(User_ID);
                 pstm.setString(2,Course_code);
                 ResultSet rs = pstm.executeQuery();
 
-                String[] Column =new String[3+15];
-                Column[0]="Stu_id";
-                Column[1]="Course_code";
-                Column[2]="Course_type";
-                for (int i = 1; i <= 15; i++) {
-                    Column[2 + i] = "Week " + i;
-                }
-
-                Map<String,String[]>studentmap=new LinkedHashMap<>();
-
                 while (rs.next()) {
-//                String Stu_id=rs.getString("Stu_id");
-//                String Course_code=rs.getString("Course_code");
                     String Course_type=rs.getString("Course_type");
                     String status=rs.getString("Status");
 
@@ -1347,22 +1345,22 @@ allstudentattendanceprecent(User_ID);
                     existingRow[2+week_no]=status;
 
                 }
-                String[][] data=new String[studentmap.size()][3+15];
-                int i=0;
-                for (String[] row:studentmap.values()) {
-                    data[i++]=row;
-                }
 
-                JFrame attendanceFrame = new JFrame("Attendance Records");
-                attendanceFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                attendanceFrame.setSize(600, 400);
-                JTable table = new JTable(data, Column);
-                table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-                JScrollPane scrollPane = new JScrollPane(table);
-                attendanceFrame.add(scrollPane);
-                attendanceFrame.setVisible(true);
+            }
+            String[][] data = new String[studentmap.size()][3 + 15];
+            int i = 0;
+            for (String[] row : studentmap.values()) {
+                data[i++] = row;
             }
 
+            JFrame attendanceFrame = new JFrame("Attendance Records - Student: " + Stu_id);
+            attendanceFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            attendanceFrame.setSize(1000, 400); // Wider for more weeks
+            JTable table = new JTable(data, Column);
+            table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            JScrollPane scrollPane = new JScrollPane(table);
+            attendanceFrame.add(scrollPane);
+            attendanceFrame.setVisible(true);
         }catch (SQLException e){
             JOptionPane.showMessageDialog(MainFrame,e);
         }
