@@ -52,11 +52,7 @@ public class LecHome extends JFrame {
     private JPanel AddmarksCard;
     private JPanel gradeGPACard;
     private JPanel attendanceCard;
-    private JPanel medicalCard;
-    private JLabel medicalHeadingLbl;
-    private JPanel mediDetailsTblPanel;
-    private JScrollPane mediScrollPane;
-    private JTable mediDetailsTable;
+    private JPanel CACard;
     private JPanel noticeCard;
     private JLabel noticeHeadingLbl;
     private JLabel selectTitleLbl;
@@ -90,6 +86,10 @@ public class LecHome extends JFrame {
     private JButton eligibilityButton;
     private JTable Attendance_table;
     private JTextField attStu_number;
+    private JTextField CAstu_numbertextField;
+    private JButton All_stu_CA_button;
+    private JTable CAEligibilitytable;
+    private JButton AllCAbutton;
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
@@ -253,6 +253,24 @@ allstudentattendanceprecent(User_ID);
                 else {
                     uniqstudentattendancepresent(attstunum,User_ID);
                 }
+            }
+        });
+        CAEligibilityButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+cardLayout.show(cardMainPanel, "CACard");
+            }
+        });
+        AllCAbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        All_stu_CA_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
@@ -1397,5 +1415,9 @@ allstudentattendanceprecent(User_ID);
         }
         return "None";
     }
+
+    // ******* CA Eligibility *****************
+
+
 
 }
