@@ -26,7 +26,7 @@ public class LecHome extends JFrame {
     private JButton addMarksButton;
     private JButton gradeAndGPAButton;
     private JButton attendanceButton;
-    private JButton medicalButton;
+    private JButton CAEligibilityButton;
     private JButton undergraduateDetailsButton;
     private JButton noticeButton;
     private JPanel cardMainPanel;
@@ -89,9 +89,10 @@ public class LecHome extends JFrame {
     private JButton gradegpuallshowButton;
     private JTable Grade_GPA_Table;
     private JPanel GradeMainpanle;
-    private JButton showButton;
-    private JButton showButton2;
+    private JButton uniqugdetailsshowButton;
+    private JButton allugdetailsshowButton;
     private JTable Stu_details_table;
+    private JTextField ugStudentNumber;
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
@@ -194,11 +195,36 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 cardLayout.show(cardMainPanel, "UgdetailsCard");
+allUgraduatesDetails();
+            }
+        });
+        allugdetailsshowButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                allUgraduatesDetails();
+            }
+        });
+        uniqugdetailsshowButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String st_Number = ugStudentNumber.getText().trim();
+                if (st_Number.isEmpty()) {
+                    JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    filterUgraduatesDetails(st_Number);
+                }
+            }
+        });
+        attendanceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
             }
         });
     }
 
-//    ***** get courses ********
+     //    ***** get courses ********
 
     public List<String> getAllCourseCodes() {
         List<String> courseCodes = new ArrayList<>();
@@ -605,6 +631,7 @@ cardLayout.show(cardMainPanel, "UgdetailsCard");
             ResultSet courseRs = courseStmt.executeQuery();
 
             List<String> course_codes = new ArrayList<>();
+
             while (courseRs.next()) {
                 course_codes.add(courseRs.getString("Course_code"));
             }
@@ -801,5 +828,88 @@ cardLayout.show(cardMainPanel, "UgdetailsCard");
             case "E": default: return 0.0;
         }
     }
+
+    // ******* Undergraduate Details *****************
+
+    private void filterUgraduatesDetails(String stu_number) {
+
+        con = DatabaseConnection.connect();
+        try {
+
+            if (stu_number.startsWith("tg")||stu_number.startsWith("TG")) {
+
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM user WHERE UPPER(UserName) LIKE ?");
+                pstm.setString(1, stu_number);
+
+                ResultSet rs = pstm.executeQuery();
+
+                String[] columnNames = {"Student ID", "Name","Date Of Birth", "Enrollment Date", "Address", "Email", "Phone Number"};
+                DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+                while (rs.next()) {
+                    model.addRow(new Object[]{
+                            rs.getString("UserName"),
+                            rs.getString("Fname")+" "+rs.getString("Lname"),
+                            rs.getString("DoB"),
+                            rs.getString("Enrollment_Date"),
+                            rs.getString("Address"),
+                            rs.getString("Email"),
+                            rs.getString("Phone_No")
+                    });
+                }
+
+                Stu_details_table.setModel(model);
+                ugStudentNumber.setText("");
+
+                rs.close();
+                pstm.close();
+                con.close();
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Access denied", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(MainFrame, ex.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    private void allUgraduatesDetails(){
+
+        con = DatabaseConnection.connect();
+
+        try{
+            PreparedStatement pstm = con.prepareStatement(" SELECT * FROM user WHERE LOWER(UserName)LIKE ?");
+            pstm.setString(1,"tg%");
+            ResultSet rs = pstm.executeQuery();
+
+            String[] columnNames = {"Student ID", "Name","Date Of Birth", "Enrollment Date", "Address", "Email", "Phone Number"};
+            DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                        rs.getString("UserName"),
+                        rs.getString("Fname")+" "+rs.getString("Lname"),
+                        rs.getString("DoB"),
+                        rs.getString("Enrollment_Date"),
+                        rs.getString("Address"),
+                        rs.getString("Email"),
+                        rs.getString("Phone_No")
+                });
+            }
+
+            Stu_details_table.setModel(model);
+            Stu_number.setText("");
+
+            rs.close();
+            pstm.close();
+            con.close();
+
+        }catch (SQLException x){
+            JOptionPane.showMessageDialog(MainFrame,x);
+        }
+    }
+
+    // *******  *****************
 
 }
