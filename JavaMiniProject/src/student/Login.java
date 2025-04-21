@@ -1,6 +1,6 @@
 package student;
 
-import Admin.AdminHome;
+import Admin.AdHome;
 //import admin.AdminHome;
 
 import Lecture.LecHome;
@@ -17,7 +17,7 @@ import java.sql.Statement;
 import Technical_officer.toHome;
 
 public class Login extends JFrame {
-    private JPanel mainPanel;
+    public JPanel mainPanel;
     private JTextField userNameTextField;
     private JPasswordField passwordPasswordField;
     private JButton cancelButton;
@@ -103,8 +103,13 @@ public class Login extends JFrame {
                         System.out.println("AdminHome window created");
                         JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
                         topFrame.dispose();
+//                        AdHome adHome = new AdHome();  // Create AdHome instance
+//                        adHome.setVisible(true);  // Make AdHome visible
                         try{
-                            new AdminHome();
+//                              new AdHome();
+                             AdHome adHome = new AdHome();
+                             adHome.setVisible(true);
+
                         }catch (Exception e){
                             e.printStackTrace();
                         }

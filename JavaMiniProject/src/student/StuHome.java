@@ -101,6 +101,16 @@ public class StuHome extends JFrame {
     private JButton addButton;
     private JButton deleteButton1;
     private JButton checkEligibilityButton;
+    private JButton button3;
+
+
+    private String[] courseCodes = {
+            "ICT2113",  // Index 0
+            "ICT2122",  // Index 1
+            "ICT2132",  // Index 2
+            "ICT2142",  // Index 3
+            "ICT2152"   // Index 4
+    };
     private JButton checkAttendanceEligibilityButton;
     private JButton deleteProfilePictureButton;
     private JButton okButtonCourses;
