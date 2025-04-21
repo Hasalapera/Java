@@ -1,5 +1,6 @@
 package student;
 
+import Lecture.LecHome;
 import database.DatabaseConnection;
 import database.Session;
 
@@ -38,7 +39,7 @@ public class Login extends JFrame {
         setTitle("Login");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setSize(2000, 1000);
+        setSize(1024, 768);
         setVisible(true);
 
 //        frame.add(mainPanel);
@@ -101,6 +102,7 @@ public class Login extends JFrame {
                         topFrame.dispose();
                     } else if (userNamelower.startsWith("lec")) {
                         JOptionPane.showMessageDialog(null, "Lecturer Login Successful");
+                        new LecHome(dbuserName);
                     } else if (userNamelower.startsWith("tech")) {
                         JOptionPane.showMessageDialog(null, "Technical Officer Login Successful");
                     } else {
