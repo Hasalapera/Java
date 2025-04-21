@@ -87,7 +87,7 @@ public class LecHome extends JFrame {
     private JTable Attendance_table;
     private JTextField attStu_number;
     private JTextField CAstu_numbertextField;
-    private JButton All_stu_CA_button;
+    private JButton Uniq_stu_CA_button;
     private JTable CAEligibilitytable;
     private JButton AllCAbutton;
 
@@ -264,13 +264,19 @@ cardLayout.show(cardMainPanel, "CACard");
         AllCAbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+allcamarks(User);
             }
         });
-        All_stu_CA_button.addActionListener(new ActionListener() {
+        Uniq_stu_CA_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String CA_Stu_Number =CAstu_numbertextField.getText().trim();
+                if(CA_Stu_Number.isEmpty()){
+                    JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    uniqcamarks(CA_Stu_Number,User);
+                }
             }
         });
     }
@@ -1418,6 +1424,262 @@ cardLayout.show(cardMainPanel, "CACard");
 
     // ******* CA Eligibility *****************
 
+    private void allcamarks(String User){
 
+        double CA_marks=0.0;
+
+        con=DatabaseConnection.connect();
+
+        try{
+
+            DefaultTableModel model=new DefaultTableModel();
+            model.setColumnIdentifiers(new String[]{
+                    "Student_ID","Course Code","Quiz_01", "Quiz_02", "Quiz_03", "Quiz_04",
+                    "Assignment_01", "Assignment_02", "Mid_Theory", "Mid_Practical",
+                    "CA_Marks", "Eligibility"
+
+            });
+
+            PreparedStatement courseStmt = con.prepareStatement("SELECT DISTINCT Course_code FROM course WHERE Lec_id = ?");
+            courseStmt.setString(1, User);
+            ResultSet courseRS = courseStmt.executeQuery();
+
+            while (courseRS.next()) {
+                String Course_code = courseRS.getString("Course_code");
+
+                PreparedStatement pstm=con.prepareStatement("select * from marks where Course_code=?");
+                pstm.setString(1,Course_code);
+                ResultSet rs=pstm.executeQuery();
+
+                while(rs.next()){
+                    String stu_id=rs.getString("Stu_id");
+                    double assignment1=rs.getDouble("Assignment_01");
+                    double assignment2=rs.getDouble("Assignment_02");
+                    double Quiz_01=rs.getDouble("Quiz_01");
+                    double Quiz_02=rs.getDouble("Quiz_02");
+                    double Quiz_03=rs.getDouble("Quiz_03");
+                    double Quiz_04=rs.getDouble("Quiz_04");
+                    double midtermtheory=rs.getDouble("Mid_theory");
+                    double midtermpractical=rs.getDouble("Mid_practical");
+
+
+                    double CA_cutoff1=19.5;
+                    double CA_cutoff2=15.0;
+                    String Eligibility="";
+
+                    double[] Quizzes = {Quiz_01, Quiz_02, Quiz_03, Quiz_04};
+                    Arrays.sort(Quizzes);
+                    double[] Assignments = {assignment1, assignment2};
+
+
+                    switch (Course_code){
+                        case "ICT2113":
+
+                            double quizMark2113 = (Quizzes[3] + Quizzes[2]) / 2 * 0.10;
+                            double midtermMark2113 = (midtermpractical + midtermtheory) / 2 * 0.20;
+                            CA_marks=quizMark2113+midtermMark2113;
+                            if(CA_marks>=CA_cutoff2){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                        case "ICT2122":
+
+                            double quizMark2122 = (Quizzes[3] + Quizzes[2]+Quizzes[1]) / 3 * 0.10;
+                            CA_marks=quizMark2122+(Assignments[0]*0.10)+(midtermtheory*0.20);
+                            if(CA_marks>=CA_cutoff1){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                        case "ICT2132":
+
+                            double quizMark2132 = (Quizzes[3] + Quizzes[2]) / 2 * 0.10;
+                            double assessmentMark2132 = (Assignments[0] + Assignments[1]) / 2 * 0.20;
+                            CA_marks=quizMark2132+assessmentMark2132;
+                            if(CA_marks>=CA_cutoff2){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                        case "ICT2142":
+
+                            double AssessmentMark2142 = (Assignments[0])* 0.20;
+                            double MidtermMark2142 = (midtermpractical)* 0.20;
+                            CA_marks=AssessmentMark2142+MidtermMark2142;
+                            if(CA_marks>=CA_cutoff1){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                        case "ICT2152":
+
+                            double quizMark2152 = (Quizzes[3] + Quizzes[2]) / 2 * 0.10;
+                            double assessmentMark2152 = (Assignments[0] + Assignments[1]) / 2 * 0.20;
+                            CA_marks=quizMark2152+assessmentMark2152;
+                            if(CA_marks>=CA_cutoff2){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                    }
+                    model.addRow(new Object[]{
+                            stu_id,Course_code,
+                            Quiz_01, Quiz_02, Quiz_03, Quiz_04,
+                            assignment1, assignment2,
+                            midtermtheory, midtermpractical,
+                            String.format("%.2f", CA_marks),
+                            Eligibility
+                    });
+                }
+            }
+
+
+
+            CAEligibilitytable.setModel(model);
+
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(MainFrame, e);
+        }
+//        return CA_marks;
+    }
+
+    private double uniqcamarks(String CA_Stu_Number,String User){
+
+        double CA_marks=0.0;
+
+        con=DatabaseConnection.connect();
+
+        try{
+
+            DefaultTableModel model=new DefaultTableModel();
+            model.setColumnIdentifiers(new String[]{
+                    "Student_ID","Course Code", "Quiz_01", "Quiz_02", "Quiz_03", "Quiz_04",
+                    "Assignment_01", "Assignment_02", "Mid_Theory", "Mid_Practical",
+                    "CA_Marks", "Eligibility"
+
+            });
+
+            PreparedStatement courseStmt = con.prepareStatement("SELECT DISTINCT Course_code FROM course WHERE Lec_id = ?");
+            courseStmt.setString(1, User);
+            ResultSet courseRS = courseStmt.executeQuery();
+
+            while (courseRS.next()) {
+                String Course_code = courseRS.getString("Course_code");
+
+                PreparedStatement pstm=con.prepareStatement("select * from marks where Stu_id=? AND Course_code=?");
+                pstm.setString(1,CA_Stu_Number);
+                pstm.setString(2,Course_code);
+                ResultSet rs=pstm.executeQuery();
+
+                while(rs.next()){
+
+                    double assignment1=rs.getDouble("Assignment_01");
+                    double assignment2=rs.getDouble("Assignment_02");
+                    double Quiz_01=rs.getDouble("Quiz_01");
+                    double Quiz_02=rs.getDouble("Quiz_02");
+                    double Quiz_03=rs.getDouble("Quiz_03");
+                    double Quiz_04=rs.getDouble("Quiz_04");
+                    double midtermtheory=rs.getDouble("Mid_theory");
+                    double midtermpractical=rs.getDouble("Mid_practical");
+
+
+                    double CA_cutoff1=19.5;
+                    double CA_cutoff2=15.0;
+                    String Eligibility="";
+
+                    double[] Quizzes = {Quiz_01, Quiz_02, Quiz_03, Quiz_04};
+                    double[] Assignments = {assignment1, assignment2};
+
+                    switch (Course_code){
+                        case "ICT2113":
+                            Arrays.sort(Quizzes);
+                            double quizMark2113 = (Quizzes[3] + Quizzes[2]) / 2 * 0.10;
+                            double midtermMark2113 = (midtermpractical + midtermtheory) / 2 * 0.20;
+                            CA_marks=quizMark2113+midtermMark2113;
+                            if(CA_marks>=CA_cutoff2){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                        case "ICT2122":
+                            Arrays.sort(Quizzes);
+                            double quizMark2122 = (Quizzes[3] + Quizzes[2]+Quizzes[1]) / 3 * 0.10;
+                            CA_marks=quizMark2122+(Assignments[0]*0.10)+(midtermtheory*0.20);
+                            if(CA_marks>=CA_cutoff1){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                        case "ICT2132":
+                            Arrays.sort(Quizzes);
+                            double quizMark2133 = (Quizzes[3] + Quizzes[2]) / 2 * 0.10;
+                            double assessmentMark2133 = (Assignments[0] + Assignments[1]) / 2 * 0.20;
+                            CA_marks=quizMark2133+assessmentMark2133;
+                            if(CA_marks>=CA_cutoff2){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                        case "ICT2142":
+                            Arrays.sort(Quizzes);
+                            double AssessmentMark2142 = (Assignments[0])* 0.20;
+                            double MidtermMark2142 = (midtermpractical)* 0.20;
+                            CA_marks=AssessmentMark2142+MidtermMark2142;
+                            if(CA_marks>=CA_cutoff1){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                        case "ICT2152":
+                            Arrays.sort(Quizzes);
+                            double quizMark2152 = (Quizzes[3] + Quizzes[2]) / 2 * 0.10;
+                            double assessmentMark2152 = (Assignments[0] + Assignments[1]) / 2 * 0.20;
+                            CA_marks=quizMark2152+assessmentMark2152;
+                            if(CA_marks>=CA_cutoff2){
+                                Eligibility="Eligible";
+                            }
+                            else{
+                                Eligibility="Not Eligible";
+                            }
+                            break;
+                    }
+                    model.addRow(new Object[]{
+                            CA_Stu_Number,Course_code,
+                            Quiz_01, Quiz_02, Quiz_03, Quiz_04,
+                            assignment1, assignment2,
+                            midtermtheory, midtermpractical,
+                            String.format("%.2f", CA_marks),
+                            Eligibility });
+            }
+
+            }
+
+            CAEligibilitytable.setModel(model);
+            CAstu_numbertextField.setText("");
+
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(MainFrame, e);
+        }
+        return CA_marks;
+    }
 
 }
