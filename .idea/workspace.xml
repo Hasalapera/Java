@@ -46,6 +46,7 @@
       <change afterPath="$PROJECT_DIR$/notices/noticeN4.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/notices/noticeN7.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/notices/noticeN8.txt" afterDir="false" />
+    <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" afterDir="false" />
@@ -131,7 +132,8 @@
       <workItem from="1745050649249" duration="64000" />
       <workItem from="1745075081510" duration="113000" />
       <workItem from="1745229141321" duration="16961000" />
-      <workItem from="1745260035637" duration="1698000" />
+      <workItem from="1745260035637" duration="2477000" />
+      <workItem from="1745263447632" duration="14000" />
     </task>
     <task id="LOCAL-00001" summary="dcbvv">
       <option name="closed" value="true" />
