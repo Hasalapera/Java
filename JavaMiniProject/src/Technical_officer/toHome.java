@@ -3,15 +3,12 @@ package Technical_officer;
 import database.DatabaseConnection;
 import database.Session;
 import student.Login;
-import student.UpdateStudentProfile;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -75,6 +72,8 @@ public class toHome extends  JFrame {
     private JButton addbtn;
     private JButton updatebtn;
     private JTable timeTableTable;
+    private JButton delete;
+    private JButton deletebtn;
 
     public toHome() {
 
@@ -112,7 +111,7 @@ public class toHome extends  JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new updateTOprofile();
-                dispose();
+
             }
         });
         attendanceButton.addActionListener(new ActionListener() {
@@ -191,6 +190,22 @@ public class toHome extends  JFrame {
                 upmedi.setVisible(true);
             }
         });
+
+        //delete attendance
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteSelectedAttendanceRow();
+            }
+        });
+
+        //delete medical
+        deletebtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteSelectedMedicalRow();
+            }
+        });
     }
 
     private Connection con;
@@ -249,6 +264,63 @@ public class toHome extends  JFrame {
         }
     }
 
+    //Delete Attendance
+    private void deleteSelectedAttendanceRow() {
+        // Find the JTable in the viewPanel
+        for (Component comp : viewPanel.getComponents()) {
+            if (comp instanceof JScrollPane) {
+                JScrollPane scrollPane = (JScrollPane) comp;
+                JViewport viewport = scrollPane.getViewport();
+                Component view = viewport.getView();
+
+                if (view instanceof JTable) {
+                    JTable table = (JTable) view;
+
+                    // Optional: Check if this table is the attendance table by checking column headers
+                    if (table.getColumnName(0).equalsIgnoreCase("Attendance_id")) {
+                        int selectedRow = table.getSelectedRow();
+
+                        if (selectedRow == -1) {
+                            JOptionPane.showMessageDialog(this, "Please select a row to delete.");
+                            return;
+                        }
+
+                        Object idValue = table.getValueAt(selectedRow, 0); // Attendance_id
+                        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this attendance record?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+
+                        if (confirm == JOptionPane.YES_OPTION) {
+                            try {
+                                connectToDatabase();
+                                String sql = "DELETE FROM attendance WHERE Attendance_id = ?";
+                                PreparedStatement pstmt = con.prepareStatement(sql);
+                                pstmt.setObject(1, idValue);
+
+                                int rowsAffected = pstmt.executeUpdate();
+                                if (rowsAffected > 0) {
+                                    JOptionPane.showMessageDialog(this, "Record deleted successfully.");
+                                    showAttendancetable(); // Refresh the table
+                                } else {
+                                    JOptionPane.showMessageDialog(this, "Failed to delete record.");
+                                }
+
+                                pstmt.close();
+                                con.close();
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                                JOptionPane.showMessageDialog(this, "Error deleting attendance: " + e.getMessage());
+                            }
+                        }
+
+                        return; // Exit after handling the table
+                    }
+                }
+            }
+        }
+
+        // If no suitable table is found
+        JOptionPane.showMessageDialog(this, "Attendance table not found.");
+    }
+
     //Medical
     private void showMedicaltable() {
         try {
@@ -292,6 +364,60 @@ public class toHome extends  JFrame {
             JOptionPane.showMessageDialog(this, "Database error while loading medical table");
         }
     }
+
+    //Delete Medical
+    private void deleteSelectedMedicalRow() {
+        int selectedRow = -1;
+
+        for (Component comp : view.getComponents()) {
+            if (comp instanceof JScrollPane) {
+                JScrollPane scrollPane = (JScrollPane) comp;
+                JViewport viewport = scrollPane.getViewport();
+                Component viewComponent = viewport.getView();
+                if (viewComponent instanceof JTable) {
+                    JTable table = (JTable) viewComponent;
+                    selectedRow = table.getSelectedRow();
+
+                    if (selectedRow == -1) {
+                        JOptionPane.showMessageDialog(this, "Please select a medical row to delete.");
+                        return;
+                    }
+
+                    Object idValue = table.getValueAt(selectedRow, 0); // Assume first column is ID
+                    int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this medical record?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        try {
+                            connectToDatabase();
+                            String sql = "DELETE FROM medical WHERE Medical_id = ?";
+                            PreparedStatement pstmt = con.prepareStatement(sql);
+                            pstmt.setObject(1, idValue);
+
+                            int rowsAffected = pstmt.executeUpdate();
+                            if (rowsAffected > 0) {
+                                JOptionPane.showMessageDialog(this, "Medical record deleted successfully.");
+                                showMedicaltable(); // Refresh
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Failed to delete medical record.");
+                            }
+
+                            pstmt.close();
+                            con.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                            JOptionPane.showMessageDialog(this, "Error deleting medical record: " + e.getMessage());
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Medical table not found.");
+        }
+    }
+
 
     //Timetable
     public void showTimeTable() {
@@ -372,7 +498,7 @@ public class toHome extends  JFrame {
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-                File noticeFile = new File("notices/notice_" + noticeId + ".txt");
+                File noticeFile = new File("C:\\Users\\Gayan\\Desktop\\Java\\JavaMiniProject\\Notices\\notice_" + noticeId + ".txt");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
                 StringBuilder content = new StringBuilder();
                 String line;

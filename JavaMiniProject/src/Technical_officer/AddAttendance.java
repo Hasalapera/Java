@@ -3,10 +3,7 @@ package Technical_officer;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class AddAttendance extends JFrame {
     private JPanel mainPanel;
@@ -29,14 +26,20 @@ public class AddAttendance extends JFrame {
     private JLabel status;
     private JLabel ctype;
 
-    public AddAttendance() {
+    private Connection con;
 
+    public AddAttendance() {
         setTitle("Add Attendance");
         setContentPane(mainPanel);
         setSize(400, 400);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
+
+        // Auto-generate and display Attendance ID when form is opened
+        String newId = generateAttendanceId();
+        aidLabel.setText(newId);
+        aidLabel.setEditable(false); // Prevent editing
 
         addbutton.addActionListener(new ActionListener() {
             @Override
@@ -46,16 +49,39 @@ public class AddAttendance extends JFrame {
         });
     }
 
-    private Connection con;
     private void connectToDatabase() {
         try {
             String url = "jdbc:mysql://localhost:3308/techlms";
             String user = "root";
-            String password = "1234"; // Change if you use a password
+            String password = "1234"; // Change if needed
             con = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Database connection failed: " + e.getMessage());
         }
+    }
+
+    private String generateAttendanceId() {
+        String newId = "A001"; // Default starting ID
+        try {
+            connectToDatabase();
+            String query = "SELECT Attendance_id FROM attendance ORDER BY Attendance_id DESC LIMIT 1";
+            PreparedStatement pstmt = con.prepareStatement(query);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                String lastId = rs.getString("Attendance_id"); // e.g., A015
+                int num = Integer.parseInt(lastId.substring(1)); // Get 15
+                num++; // Increment
+                newId = String.format("A%03d", num); // Format as A016
+            }
+
+            rs.close();
+            pstmt.close();
+            con.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error generating Attendance ID: " + e.getMessage());
+        }
+        return newId;
     }
 
     private void insertAttendance() {
@@ -69,9 +95,7 @@ public class AddAttendance extends JFrame {
         String ctype = ctypeLabel.getText();
 
         try {
-            // Connect to the database
             connectToDatabase();
-            // Prepare SQL query
             String sql = "INSERT INTO attendance (Attendance_id, Stu_id, Course_code, Lec_hour, Week_No, Day_No, Status, Course_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, aid);
@@ -83,12 +107,14 @@ public class AddAttendance extends JFrame {
             pstmt.setString(7, status);
             pstmt.setString(8, ctype);
 
-            // Execute insert
             int rows = pstmt.executeUpdate();
 
             if (rows > 0) {
                 JOptionPane.showMessageDialog(this, "Attendance Added Successfully!");
                 clearFields();
+                // Generate next ID
+                String nextId = generateAttendanceId();
+                aidLabel.setText(nextId);
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to Add Attendance.");
             }
@@ -102,7 +128,7 @@ public class AddAttendance extends JFrame {
     }
 
     private void clearFields() {
-        aidLabel.setText("");
+        // Do not clear aidLabel since it's auto-generated
         sidLabel.setText("");
         courseLabel.setText("");
         lechourLabel.setText("");

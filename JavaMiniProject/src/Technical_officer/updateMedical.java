@@ -61,15 +61,16 @@ public class updateMedical extends JFrame {
         String courseCode = courseField.getText().trim();
         String week = weekField.getText().trim();
         String day = dayField.getText().trim();
+        String courseType = ctypeField.getText().trim();
         String status = statusField.getText().trim();
 
         if (studentId.isEmpty() || courseCode.isEmpty() || week.isEmpty() ||
-                day.isEmpty()  || status.isEmpty()) {
+                day.isEmpty()  || courseType.isEmpty() || status.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields.");
             return;
         }
 
-        String sql = "UPDATE medical SET status = ? WHERE stu_id = ? AND course_code = ? AND week_no = ? AND day_no = ?";
+        String sql = "UPDATE medical SET status = ? WHERE stu_id = ? AND course_code = ? AND week_no = ? AND day_no = ? AND course_type = ?";
 
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
             stmt.setString(1, status);
@@ -77,6 +78,7 @@ public class updateMedical extends JFrame {
             stmt.setString(3, courseCode);
             stmt.setString(4, week);
             stmt.setString(5, day);
+            stmt.setString(6,courseType);
 
             int rowsAffected = stmt.executeUpdate();
 

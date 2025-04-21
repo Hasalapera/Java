@@ -24,6 +24,9 @@ public class addmedical extends JFrame {
     private JTextField aidField;
     private JLabel aidLabel;
     private JButton addButton;
+    private JTextField ctypeField;
+    private JLabel ctype;
+    private JButton findbutton;
 
     public addmedical() {
         setTitle("Add Medical");
@@ -36,6 +39,12 @@ public class addmedical extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 insertMedical();
+            }
+        });
+        findbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fetchAttendanceId();
             }
         });
     }
@@ -53,6 +62,55 @@ public class addmedical extends JFrame {
         }
     }
 
+    private void fetchAttendanceId() {
+        String sid = stuidField.getText();
+        String week = weekField.getText();
+        String day = dayField.getText();
+        String course = courseField.getText();
+        String ctype = ctypeField.getText();
+
+        if (sid.isEmpty() || week.isEmpty() || day.isEmpty() || course.isEmpty() || ctype.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all required fields to fetch Attendance ID.");
+            return;
+        }
+
+        connectToDatabase();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            String sql = "SELECT Attendance_id FROM attendance WHERE Stu_id = ? AND week_No = ? AND day_No = ? AND Course_code = ? AND Course_type = ?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, sid);
+            pstmt.setString(2, week);
+            pstmt.setString(3, day);
+            pstmt.setString(4, course);
+            pstmt.setString(5, ctype);
+
+            rs = pstmt.executeQuery();
+            if (rs.next()) {
+                String attendanceId = rs.getString("Attendance_id");
+                aidField.setText(attendanceId);
+                JOptionPane.showMessageDialog(this, "Attendance ID fetched successfully.");
+            } else {
+                JOptionPane.showMessageDialog(this, "No matching attendance record found.");
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error fetching attendance ID: " + ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (con != null) con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+
     private void insertMedical() {
         String mid = midField.getText();
         String sid = stuidField.getText();
@@ -61,12 +119,13 @@ public class addmedical extends JFrame {
         String week = weekField.getText();
         String day = dayField.getText();
         String status = statusField.getText();
+        String ctype = ctypeField.getText();
 
         connectToDatabase();
         PreparedStatement pstmt = null;
 
         try {
-            String sql = "INSERT INTO medical (Medical_id, Stu_id, Course_code, week_No, day_No, Status, Attendance_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO medical (Medical_id, Stu_id, Course_code, week_No, day_No, Status, Attendance_id,Course_type) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, mid);
             pstmt.setString(2, sid);
@@ -74,7 +133,8 @@ public class addmedical extends JFrame {
             pstmt.setString(4, week);
             pstmt.setString(5, day);
             pstmt.setString(6, status);
-            pstmt.setString(7, aid);      // corrected: aid placed here
+            pstmt.setString(7, aid);
+            pstmt.setString(8,ctype);// corrected: aid placed here
 
             int rows = pstmt.executeUpdate();
             if (rows > 0) {
