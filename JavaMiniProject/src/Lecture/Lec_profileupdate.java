@@ -32,7 +32,7 @@ public class Lec_profileupdate extends JFrame {
     private JButton updateProfileButton;
     private JButton cancelButton;
 
-    public Lec_profileupdate() {
+    public Lec_profileupdate(String User_ID) {
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Student Home");
@@ -48,7 +48,7 @@ public class Lec_profileupdate extends JFrame {
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateStudentDetails();
+                updateStudentDetails(User_ID);
             }
         });
         cancelButton.addActionListener(new ActionListener() {
@@ -59,7 +59,8 @@ public class Lec_profileupdate extends JFrame {
             }
         });
     }
-    public void updateStudentDetails() {
+
+    public void updateStudentDetails(String User_ID) {
         String firstName = firstNameTxt.getText();
         String lastName = lastNameTxt.getText();
         String address = addressTxt.getText();
@@ -85,7 +86,7 @@ public class Lec_profileupdate extends JFrame {
             pst.setString(4, email);
             pst.setString(5, pNo);
             pst.setString(6, proPic);
-            pst.setString(7, Session.loggedInUsername);
+            pst.setString(7,User_ID);
 
             int i = pst.executeUpdate();
 

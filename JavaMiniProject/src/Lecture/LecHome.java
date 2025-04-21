@@ -117,8 +117,8 @@ public class LecHome extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        displayProfileDetils();
-        showProfilePicture(imageLbl);
+        displayProfileDetils(User_ID);
+        showProfilePicture( User,imageLbl);
 
         User=User_ID;
 
@@ -142,7 +142,7 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                    new Lec_profileupdate();
+                    new Lec_profileupdate(User_ID);
                 dispose();
 
             }
@@ -305,7 +305,7 @@ public class LecHome extends JFrame {
         deleteProfilePictureButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                deleteProfilePicture(imageLbl);
+                deleteProfilePicture(User,imageLbl);
                 deleteProfilePictureButton.setEnabled(false);
             }
         });
@@ -351,14 +351,14 @@ public class LecHome extends JFrame {
 
     // ******* Display Profile Details *****************
 
-    public void displayProfileDetils(){
+    public void displayProfileDetils(String User_ID){
         con = DatabaseConnection.connect();
 
         try {
             String sql = "SELECT FName, LName, Address, Email, Phone_No, Role FROM User WHERE UserName = ?";
             PreparedStatement pstmt = con.prepareStatement(sql);
 
-            pstmt.setString(1, Session.loggedInUsername);
+            pstmt.setString(1, User_ID);
 
             ResultSet rs = pstmt.executeQuery();
 
@@ -392,12 +392,12 @@ public class LecHome extends JFrame {
 
     // *******  Profile Picture *****************
 
-    public void showProfilePicture(JLabel imageLbl) {
+    public void showProfilePicture(String User,JLabel imageLbl) {
         Connection con = DatabaseConnection.connect();
         try {
-            String sql = "SELECT Profile_pic FROM User WHERE UserName = ?";
+            String sql = "SELECT Profile_pic FROM user WHERE UserName = ?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, Session.loggedInUsername);
+            pst.setString(1,User);
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
@@ -439,12 +439,12 @@ public class LecHome extends JFrame {
         }
     }
 
-    public void deleteProfilePicture(JLabel imageLbl) {
+    public void deleteProfilePicture(String User,JLabel imageLbl) {
         Connection con = DatabaseConnection.connect();
         try{
-            String sql = "UPDATE User SET Profile_pic = NULL WHERE UserName = ?";
+            String sql = "UPDATE user SET Profile_pic = NULL WHERE UserName = ?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, Session.loggedInUsername);
+            pst.setString(1, User);
 
             int result = pst.executeUpdate();
 
