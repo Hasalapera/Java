@@ -1885,8 +1885,7 @@ public class LecHome extends JFrame {
 
         return nextId;
     }
-
-
+    
     private void uploadfile(String User) {
 
         String Course_code = (String) lecmaterialscoursecodedropdown.getSelectedItem();
@@ -1903,28 +1902,35 @@ public class LecHome extends JFrame {
 
         int returnVal = fc.showOpenDialog(this);
 
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fc.getSelectedFile();
             String fileName = selectedFile.getName();
 
-            String destFolderPath = "C:\\Users\\ASUS\\Desktop\\Git\\JavaMiniProject\\course_materials" + Course_code;
+            // Base folder path
+            String baseFolder = "C:\\Users\\ASUS\\Desktop\\Git\\JavaMiniProject\\course_materials";
+
+            // Ensure the course code subfolder is created inside the base folder
+            String destFolderPath = baseFolder + File.separator + Course_code;
+
             File destDir = new File(destFolderPath);
             if (!destDir.exists()) {
-                destDir.mkdirs();
+                destDir.mkdirs();  // Create course_code folder if not exist
             }
 
+            // Define the full destination file path
             File destFile = new File(destDir, fileName);
 
             try {
+                // Copy the file to the destination folder
                 Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                // Save relative or absolute path to DB
                 addmaterials(destFile.getAbsolutePath(), User, Course_code);
                 showmaterilstable(User);
-
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(MainFrame, "Failed to upload file: " + e.getMessage());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, "File upload failed: " + ex.getMessage());
             }
         }
+
     }
 
     private void deletematerial(String User) {
