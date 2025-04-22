@@ -94,15 +94,15 @@ public class StuHome extends JFrame {
     private JScrollPane timeTableScrollPane;
     private JButton updateProfileButton;
     private JTable table1;
-    private JButton deleteButton;
-    private JButton updateCourseButton;
     private JButton updateTimeTableButton;
     private JButton addButton;
-    private JButton deleteButton1;
     private JButton checkEligibilityButton;
     private JButton checkAttendanceEligibilityButton;
     private JButton deleteProfilePictureButton;
     private JButton okButtonCourses;
+
+    private JPanel displayDetailsPanel;
+
 
 //    private String[] courseCodes = {
 //            "ICT2113",  // Index 0
@@ -526,7 +526,7 @@ public class StuHome extends JFrame {
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-                File noticeFile = new File("JavaMiniProject/notices/notice_" + noticeId + ".txt");
+                File noticeFile = new File("notices/notice_" + noticeId + ".txt");
                 System.out.println("noticeFile: " + noticeId+ " Displayed");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
                 StringBuilder content = new StringBuilder();
@@ -540,6 +540,7 @@ public class StuHome extends JFrame {
             }
         } catch (SQLException | IOException e) {
             System.out.println("Error in display Notice Content: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -652,12 +653,12 @@ public class StuHome extends JFrame {
                     fileName = "default.png";
                 }
 
-                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
+                String path = "user_Pro_Pic/" + fileName;
                 File imageFile = new File(path);
 
                 // If image file does not exist, fallback to default image
                 if (!imageFile.exists()) {
-                    path = "JavaMiniProject/user_Pro_Pic/default.png";
+                    path = "user_Pro_Pic/default.png";
                 }
 
                 // Load and Resize Image to fit JLabel
