@@ -322,7 +322,7 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "AddmaterialsCard");
-                showcoursetable(User_ID);
+                showmaterilstable(User_ID);
                 populateCourseComboBox(User_ID);
             }
         });
@@ -1789,33 +1789,40 @@ public class LecHome extends JFrame {
     // ******* Add Materials *****************
     private boolean listenerAdded = false;
 
-    private void showcoursetable(String User) {
+    private void showmaterilstable(String User) {
 
         con=DatabaseConnection.connect();
 
         try{
-            PreparedStatement pstmt = con.prepareStatement("select Course_code,Course_name,Lecture_Material from course where lec_id=?");
-            pstmt.setString(1, User);
-            ResultSet rs = pstmt.executeQuery();
-            DefaultTableModel model = new DefaultTableModel(new String[]{"Course Code", "Course Name", "Lecture Material"}, 0) {
+            PreparedStatement ps = con.prepareStatement(
+                    "SELECT Material_id,Course_code,Lec_id, file_path, uploaded_on FROM lecture_materials WHERE lec_id = ?");
+            ps.setString(1, User);
+            ResultSet rs = ps.executeQuery();
+
+            DefaultTableModel model = new DefaultTableModel() {
                 @Override
-                public boolean isCellEditable(int row, int column) {
-                    return false; // Make all cells uneditable
-                }
+                public boolean isCellEditable ( int row, int column){
+                return false;
+            }
             };
+            model.addColumn("Material ID");
+            model.addColumn("Course Code");
+            model.addColumn("Lec ID");
+            model.addColumn("File Path");
+            model.addColumn("Uploaded On");
             while (rs.next()) {
                 model.addRow(new Object[]{
+                        rs.getString("Material_id"),
                         rs.getString("Course_code"),
-                        rs.getString("Course_name"),
-                        rs.getString("Lecture_Material")
+                        rs.getString("Lec_id"),
+                        rs.getString("File_path"),
+                        rs.getTimestamp("Uploaded_on")
                 });
             }
 
             Materials_Table.setModel(model);
-            Materials_Table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            Materials_Table.setRowSelectionAllowed(true);
-            Materials_Table.setColumnSelectionAllowed(false);
-            Materials_Table.setCellSelectionEnabled(false);
+            Materials_Table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
 
 
             if (!listenerAdded) {
@@ -1854,25 +1861,49 @@ public class LecHome extends JFrame {
         }
     }
 
-    private void addmaterials(String Path,String User,String Course_code) {
+    private void addmaterials(String path, String user, String courseCode) {
+        con = DatabaseConnection.connect();
 
-            con=DatabaseConnection.connect();
+        try {
+            // Step 1: Generate new Mark_ID
+            String newMarkId = genaratenextmaterialID();
 
-        try{
-            PreparedStatement ps = con.prepareStatement("UPDATE course SET Lecture_Material = ? WHERE Lec_id = ? AND Course_code = ?");
+            // Step 2: Insert material info
+            String sql = "INSERT INTO lecture_materials (Material_id, Course_code,Lec_id,File_path) VALUES (?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, newMarkId);
+            ps.setString(2, courseCode);
+            ps.setString(3, User);
+            ps.setString(4, path);
 
-            ps.setString(1, Path);
-            ps.setString(2, User);
-            ps.setString(3, Course_code);
-
-            int rowsUpdated = ps.executeUpdate();
-            if(rowsUpdated<0){
-                JOptionPane.showMessageDialog(MainFrame, "Something went wrong","Error",JOptionPane.ERROR_MESSAGE);
+            int rowsInserted = ps.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(MainFrame, "Lecture material uploaded successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(MainFrame, "Failed to upload material.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }catch (SQLException e){
-            JOptionPane.showMessageDialog(MainFrame,e);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainFrame, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private String genaratenextmaterialID() throws SQLException {
+        String sql = "SELECT Material_id FROM lecture_materials ORDER BY Material_id DESC LIMIT 1";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        String nextId = "M001"; // default starting ID
+
+        if (rs.next()) {
+            String lastId = rs.getString("Material_id");
+            int num = Integer.parseInt(lastId.substring(1));
+            num++; // increment
+            nextId = String.format("M%03d", num); // M006
+        }
+
+        return nextId;
+    }
+
 
     private void uploadfile(String User) {
 
@@ -1894,10 +1925,10 @@ public class LecHome extends JFrame {
             File selectedFile = fc.getSelectedFile();
             String fileName = selectedFile.getName();
 
-            String destFolderPath = "C:/Users/ASUS/Desktop/Git/JavaMiniProject/course_materials/" + Course_code;
+            String destFolderPath = "C:\\Users\\ASUS\\Desktop\\Git\\JavaMiniProject\\course_materials" + Course_code;
             File destDir = new File(destFolderPath);
             if (!destDir.exists()) {
-                destDir.mkdirs(); // Create folder if it doesn't exist
+                destDir.mkdirs();
             }
 
             File destFile = new File(destDir, fileName);
@@ -1906,8 +1937,7 @@ public class LecHome extends JFrame {
                 Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 // Save relative or absolute path to DB
                 addmaterials(destFile.getAbsolutePath(), User, Course_code);
-                showcoursetable(User);
-                JOptionPane.showMessageDialog(MainFrame, "Lecture material uploaded!");
+                showmaterilstable(User);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(MainFrame, "Failed to upload file: " + e.getMessage());
             }
@@ -1915,8 +1945,7 @@ public class LecHome extends JFrame {
     }
 
     private void deletematerial(String User) {
-
-        con=DatabaseConnection.connect();
+        con = DatabaseConnection.connect();
 
         try {
             int selectedRow = Materials_Table.getSelectedRow();
@@ -1924,35 +1953,39 @@ public class LecHome extends JFrame {
                 JOptionPane.showMessageDialog(MainFrame, "Please select to delete", "No Selection", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            String Course_Code = Materials_Table.getModel().getValueAt(selectedRow, 0).toString();
-            String materialPath = Materials_Table.getModel().getValueAt(selectedRow, 2).toString();
+
+            String materialID = Materials_Table.getModel().getValueAt(selectedRow, 0).toString();
+            String filePath = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
 
             int confirm = JOptionPane.showConfirmDialog(MainFrame, "Are you sure you want to delete this material?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
-                // 1. Delete the file from disk
-                File file = new File(materialPath);
-                if (file.exists() && file.delete()) {
-                    System.out.println("File deleted from system.");
-                } else {
-                    System.out.println("File not found or could not be deleted.");
+                // Delete the file from disk
+                File file = new File(filePath);
+                if (file.exists()) {
+                    if (file.delete()) {
+                        System.out.println("File deleted.");
+                    } else {
+                        System.out.println("Could not delete file.");
+                    }
                 }
 
-            PreparedStatement pstmt = con.prepareStatement("UPDATE course SET Lecture_Material = NULL WHERE Lec_id = ? AND Course_code =?");
-            pstmt.setString(1, User);
-            pstmt.setString(2, Course_Code);
-            int rowsAffected = pstmt.executeUpdate();
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(MainFrame, "Lecture material deleted successfully.");
-                showcoursetable(User);
-            } else {
-                JOptionPane.showMessageDialog(MainFrame, "No record was deleted", "Error", JOptionPane.ERROR_MESSAGE);
+                // Delete record from DB
+                PreparedStatement ps = con.prepareStatement("DELETE FROM lecture_materials WHERE Material_id = ?");
+                ps.setString(1, materialID);
+                int rows = ps.executeUpdate();
+
+                if (rows > 0) {
+                    JOptionPane.showMessageDialog(MainFrame, "Material deleted successfully.");
+                    showmaterilstable(User);
+                } else {
+                    JOptionPane.showMessageDialog(MainFrame, "No material deleted.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
-        }
-            showcoursetable(User);
-        }catch (SQLException e) {
-            JOptionPane.showMessageDialog(MainFrame,e);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainFrame, e);
         }
     }
+
 
     private void populateCourseComboBox(String User) {
         con=DatabaseConnection.connect();

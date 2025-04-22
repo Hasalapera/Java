@@ -437,9 +437,7 @@
               </grid>
             </children>
           </grid>
-
-          <grid id="f9a6f" binding="coursesCard" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-
+          <grid id="f9a6f" binding="coursesCard" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <card name="coursesCard"/>
@@ -450,30 +448,6 @@
             </properties>
             <border type="none"/>
             <children>
-              <component id="7ae26" class="javax.swing.JLabel" binding="selectCourseLbl">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Kannada MN" size="20" style="1"/>
-                  <foreground color="-16758099"/>
-                  <text value="Select a Course"/>
-                </properties>
-              </component>
-              <component id="10b00" class="javax.swing.JComboBox" binding="comboBoxCourses">
-                <constraints>
-                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <model>
-                    <item value="ICT2113 - Data Structures and Algorithms"/>
-                    <item value="ICT2122 - Object Oriented Programming"/>
-                    <item value="ICT2132 - Object Oriented Programmin Practicum"/>
-                    <item value="ICT2142 - Object Oriented Analysis and Design"/>
-                    <item value="ICT2152 - E Commerce Implimentation, Management and Security"/>
-                  </model>
-                </properties>
-              </component>
               <component id="58783" class="javax.swing.JButton" binding="checkEligibilityButton">
                 <constraints>
                   <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false">
@@ -487,23 +461,9 @@
                   <text value="Check CA Eligibility"/>
                 </properties>
               </component>
-              <component id="a4d10" class="javax.swing.JButton" binding="okButtonCourses">
-                <constraints>
-                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Kannada MN" size="16" style="0"/>
-                  <text value="OK"/>
-                </properties>
-              </component>
               <vspacer id="a8816">
                 <constraints>
                   <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <vspacer id="bed0f">
-                <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
               <hspacer id="dedba">
@@ -523,8 +483,7 @@
                   <text value="Courses"/>
                 </properties>
               </component>
-
-              <grid id="b3bcf" binding="displayDetailsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="b3bcf" binding="displayDetailsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -536,38 +495,41 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <vspacer id="7c3ff">
+                  <component id="7ae26" class="javax.swing.JLabel" binding="selectCourseLbl">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
-                  </vspacer>
+                    <properties>
+                      <font name="Kannada MN" size="20" style="1"/>
+                      <foreground color="-16758099"/>
+                      <text value="Select a Course"/>
+                    </properties>
+                  </component>
+                  <component id="10b00" class="javax.swing.JComboBox" binding="comboBoxCourses">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <model>
+                        <item value="ICT2113 - Data Structures and Algorithms"/>
+                        <item value="ICT2122 - Object Oriented Programming"/>
+                        <item value="ICT2132 - Object Oriented Programmin Practicum"/>
+                        <item value="ICT2142 - Object Oriented Analysis and Design"/>
+                        <item value="ICT2152 - E Commerce Implimentation, Management and Security"/>
+                      </model>
+                    </properties>
+                  </component>
+                  <component id="a4d10" class="javax.swing.JButton" binding="okButtonCourses">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Kannada MN" size="16" style="0"/>
+                      <text value="OK"/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
-              <component id="40999" class="javax.swing.JButton" binding="deleteButton" default-binding="true">
-                <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-              <component id="5e826" class="javax.swing.JButton" binding="updateCourseButton" default-binding="true">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-              <component id="13432" class="javax.swing.JButton" binding="deleteButton1" default-binding="true">
-                <constraints>
-                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Button"/>
-                </properties>
-              </component>
-
             </children>
           </grid>
           <grid id="4ad74" binding="gradeGPACard" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
