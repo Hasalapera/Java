@@ -125,11 +125,13 @@ public class LecHome extends JFrame {
         setSize(1024, 768);
         setLocationRelativeTo(null);
         setVisible(true);
+        
+        User=User_ID;
 
         displayProfileDetils(User_ID);
         showProfilePicture( User,imageLbl);
 
-        User=User_ID;
+
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
