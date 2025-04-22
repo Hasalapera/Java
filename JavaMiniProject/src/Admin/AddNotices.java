@@ -78,7 +78,7 @@ public class AddNotices {
                         // 2. Create notice file
                         File dir = new File("notices");
                         if (!dir.exists()) dir.mkdirs(); // Create directory if it doesn't exist
-                        File file = new File(dir, "notice" + noticeId + ".txt");
+                        File file = new File(dir, "notice_" + noticeId + ".txt");
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                             writer.write("Title: " + title);
                             writer.newLine();

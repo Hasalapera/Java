@@ -74,24 +74,32 @@ public class toHome extends  JFrame {
     private JTable timeTableTable;
     private JButton delete;
     private JButton deletebtn;
+    private JButton deleteProfilePictureButton;
 
     public toHome() {
 
-        CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
+        setContentPane(mainPanel);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("to home");
+        setSize(1000,800);
+        setVisible(true);
+        setLocationRelativeTo(null);
+
+
         displayProfileDetils();
+        showProfilePicture(imageLbl);
+
+
+        CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
         cardMainPanel.add(profileCard, "profileCard");
         cardMainPanel.add(attendanceCard, "attendanceCard");
         cardMainPanel.add(medicalCard, "medicalCard");
         cardMainPanel.add(timeTableCard, "timeTableCard");
         cardMainPanel.add(noticeCard, "noticeCard");
+        cardLayout.show(cardMainPanel, "profileCard");
 
-        setContentPane(mainPanel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("to home");
-        setSize(400,400);
-        setVisible(true);
-        setLocationRelativeTo(null);
+
 
         logOutButton.addActionListener(new ActionListener() {
             @Override
@@ -111,7 +119,7 @@ public class toHome extends  JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new updateTOprofile();
-
+                dispose();
             }
         });
         attendanceButton.addActionListener(new ActionListener() {
@@ -204,6 +212,14 @@ public class toHome extends  JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 deleteSelectedMedicalRow();
+            }
+        });
+
+        deleteProfilePictureButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteProfilePicture(imageLbl);
+                deleteProfilePictureButton.setEnabled(false);
             }
         });
     }
@@ -498,7 +514,7 @@ public class toHome extends  JFrame {
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-                File noticeFile = new File("C:\\Users\\Gayan\\Desktop\\Java\\JavaMiniProject\\Notices\\notice_" + noticeId + ".txt");
+                File noticeFile = new File("notices/notice_" + noticeId + ".txt");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
                 StringBuilder content = new StringBuilder();
                 String line;
@@ -554,12 +570,94 @@ public class toHome extends  JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        new toHome();
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
+    // *******  Profile Picture *****************
+
+    public void showProfilePicture(JLabel imageLbl) {
+        Connection con = DatabaseConnection.connect();
+        try {
+            String sql = "SELECT Profile_pic FROM User WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                String fileName = rs.getString("Profile_pic");
+
+                // If no profile picture set in DB, use default
+                if (fileName == null || fileName.trim().isEmpty()) {
+                    fileName = "default.png";
+                }
+
+                String path = "user_Pro_Pic/" + fileName;
+                File imageFile = new File(path);
+
+                // If image file does not exist, fallback to default image
+                if (!imageFile.exists()) {
+                    path = "user_Pro_Pic/default.png";
+                }
+
+                // Load and Resize Image to fit JLabel
+                ImageIcon imageIcon = new ImageIcon(path);
+
+                // Get JLabel size (designed from GUI builder)
+                int width = imageLbl.getWidth();
+                int height = imageLbl.getHeight();
+
+                // Default size safety check (in case label not ready)
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
+
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                imageLbl.setIcon(new ImageIcon(image));
+                imageLbl.repaint(); // Refresh label to show updated image
+            }
+        } catch (Exception e) {
+            System.out.println("Error in showProfilePicture: " + e.getMessage());
             e.printStackTrace();
         }
     }
+
+    public void deleteProfilePicture(JLabel imageLbl) {
+        Connection con = DatabaseConnection.connect();
+        try{
+            String sql = "UPDATE User SET Profile_pic = NULL WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+
+            int result = pst.executeUpdate();
+
+            if (result > 0) {
+                // Set default image after deletion
+                String path = "user_Pro_Pic/default.png";
+
+                // Get label size
+                int width = imageLbl.getWidth();
+                int height = imageLbl.getHeight();
+
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
+
+                ImageIcon imageIcon = new ImageIcon(path);
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                imageLbl.setIcon(new ImageIcon(image));
+                imageLbl.repaint();  // Refresh label
+
+                System.out.println("Profile picture deleted successfully.");
+            } else {
+                System.out.println("No profile picture was found or username invalid.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error in deleteProfilePicture: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+//    public static void main(String[] args) {
+//        new toHome();
+//    }
 }

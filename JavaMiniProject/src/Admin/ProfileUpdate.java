@@ -4,12 +4,13 @@ import javax.swing.*;
 import database.DatabaseConnection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-public class ProfileUpdate {
+public class ProfileUpdate extends JFrame{
     public JPanel MainPanel;
     private JPanel DetailPanel;
     private JTextField textField1;
@@ -26,8 +27,16 @@ public class ProfileUpdate {
     private JButton clearButton;
     private JTextField textField11;
     private JButton addPhotoButton;
+    private JButton exitBtn;
 
     public ProfileUpdate() {
+        setContentPane(MainPanel);
+        setTitle("Update Profile");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setSize(1000, 800);
+        setVisible(true);
+
         // UPDATE button logic
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
@@ -41,12 +50,26 @@ public class ProfileUpdate {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clearFields();
+
             }
         });
-}
+        addPhotoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                uploadProfilePicture();
+            }
+        });
+        exitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AdHome();
+                dispose();
+            }
+        });
+    }
 
     private void updateProfile() {
-        String sql = "UPDATE user SET Fname=?, Lname=?, DoB=?, Role=?, Enrollment_Date=?, Address=?, Email=?, Phone_No=?, Password=?, profile=? WHERE UserName=?";
+        String sql = "UPDATE user SET Fname=?, Lname=?, DoB=?, Role=?, Enrollment_Date=?, Address=?, Email=?, Phone_No=?, Password=?, Profile_pic=? WHERE UserName=?";
 
         try (Connection conn = DatabaseConnection.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -85,6 +108,25 @@ public class ProfileUpdate {
         }
     }
 
+    public void uploadProfilePicture() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Select Profile Picture");
+
+        // Optional: allow only image files
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.addChoosableFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Image Files", "jpg", "jpeg", "png", "gif"));
+
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String imagePath = selectedFile.getName();
+
+            // Set the selected file path into the text field
+            textField11.setText(imagePath);
+        }
+    }
+
     private void clearFields() {
         textField1.setText("");
         textField2.setText("");
@@ -100,12 +142,7 @@ public class ProfileUpdate {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Update Profile");
-        frame.setContentPane(new ProfileUpdate().MainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null); // Center the frame
-        frame.setVisible(true);
+        new ProfileUpdate();
     }
 }
 

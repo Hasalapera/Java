@@ -35,7 +35,7 @@ public class updateTOprofile extends JFrame {
     public updateTOprofile() {
 
         setContentPane(mainPanel);
-        setTitle("Update to Profile");
+        setTitle("Update Technical Officer Profile");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(2000, 1000);
@@ -51,24 +51,28 @@ public class updateTOprofile extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Update Profile Button pressed");
-                updateStudentDetails();
+                updateTODetails();
             }
         });
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new toHome();
                 dispose();
+                new toHome();
+
             }
         });
     }
-    public void updateStudentDetails() {
+    public void updateTODetails() {
         String firstName = firstNameTxt.getText();
         String lastName = lastNameTxt.getText();
         String address = addressTxt.getText();
         String email = emailTxt.getText();
         String pNo = pNoTxt.getText();
-        String proPic = proPicTxt.getText();
+//        String proPic = proPicTxt.getText();
+
+        File file = new File(proPicTxt.getText());
+        String proPic = file.getName();
 
         Connection con = null;
         PreparedStatement pst = null;
@@ -76,7 +80,7 @@ public class updateTOprofile extends JFrame {
 
         try{
             con = DatabaseConnection.connect();
-            String sql = "UPDATE User SET FName = ?, LName = ?, Address = ?, Email = ?, Phone_No = ?, ProfilePic = ? WHERE UserName = ?";
+            String sql = "UPDATE User SET FName = ?, LName = ?, Address = ?, Email = ?, Phone_No = ?, Profile_pic = ? WHERE UserName = ?";
             pst = con.prepareStatement(sql);
 
             pst.setString(1, firstName);
@@ -85,7 +89,7 @@ public class updateTOprofile extends JFrame {
             pst.setString(4, email);
             pst.setString(5, pNo);
             pst.setString(6, proPic);
-            pst.setString(6, Session.loggedInUsername);
+            pst.setString(7, Session.loggedInUsername);
 
             int i = pst.executeUpdate();
 
@@ -96,6 +100,7 @@ public class updateTOprofile extends JFrame {
             }
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "User Update Failed");
+            e.printStackTrace();
         }
     }
 
@@ -118,7 +123,7 @@ public class updateTOprofile extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        new updateTOprofile();
-    }
+//    public static void main(String[] args) {
+//        new updateTOprofile();
+//    }
 }

@@ -102,7 +102,7 @@ public class StuHome extends JFrame {
     private JButton okButtonCourses;
     private JPanel displayDetailsPanel;
 
-    private JPanel displayDetailsPanel;
+
 
 
 //    private String[] courseCodes = {
@@ -206,6 +206,7 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String password = ""                        ;
                 new Login();
+                dispose();
             }
         });
         selectCrsComboBox.addActionListener(new ActionListener() {
@@ -514,8 +515,9 @@ public class StuHome extends JFrame {
     }
 
     public void displayNoticeContent(String title) {
+        noticeTxtArea.setText("");
         try {
-            noticeTxtArea.setText("");
+
             // Establish connection to the database to get the NoticeId based on the title
             Connection con = DatabaseConnection.connect();
             String sql = "SELECT Notice_id FROM Notice WHERE Title = ?";
@@ -529,18 +531,26 @@ public class StuHome extends JFrame {
                 // Read content from the corresponding text file (e.g., notice_1.txt)
                 File noticeFile = new File("notices/notice_" + noticeId + ".txt");
                 System.out.println("noticeFile: " + noticeId+ " Displayed");
-                BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
-                StringBuilder content = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    content.append(line).append("\n");
-                }
 
-                // Display the content in the JTextArea
-                noticeTxtArea.setText(content.toString());
+                try(BufferedReader reader = new BufferedReader(new FileReader(noticeFile))){
+                    StringBuilder content = new StringBuilder();
+
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        content.append(line).append("\n");
+                    }
+                    // Display the content in the JTextArea
+                    noticeTxtArea.setText(content.toString());
+                }
+//                noticeTxtArea.setText(content.toString());
+            }else {
+                noticeTxtArea.setText("Notice not found");
             }
-        } catch (SQLException | IOException e) {
+        } catch (SQLException e) {
             System.out.println("Error in display Notice Content: " + e.getMessage());
+            e.printStackTrace();
+        }catch (IOException e) {
+            System.out.println("File error in display Notice Content: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -696,7 +706,7 @@ public class StuHome extends JFrame {
 
             if (result > 0) {
                 // Set default image after deletion
-                String path = "JavaMiniProject/user_Pro_Pic/default.png";
+                String path = "user_Pro_Pic/default.png";
 
                 // Get label size
                 int width = imageLbl.getWidth();
@@ -719,6 +729,7 @@ public class StuHome extends JFrame {
 
         } catch (Exception e) {
             System.out.println("Error in deleteProfilePicture: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
