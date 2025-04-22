@@ -5,51 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AdHome.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddCourse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddNotices$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddNotices$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddNotices.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddTimeTable$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddTimeTable$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AddTimeTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/ProfileUpdate$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/ProfileUpdate$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/ProfileUpdate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/TimeTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateCourse$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateCourse$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateCourse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateTimeTable$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateTimeTable$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/UpdateTimeTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddCourse.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddNotices.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddNotices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddTimeTable.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddTimeTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ProfileUpdate.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/ProfileUpdate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/TimeTable.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/TimeTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateCourse.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateTimeTable.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/UpdateTimeTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notices/noticeN10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notices/noticeN3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notices/noticeN4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notices/noticeN7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notices/noticeN8.txt" afterDir="false" />
-    <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/database/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/database/DatabaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/Lec_profileupdate.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/Lec_profileupdate.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/Lec_profileupdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/Lec_profileupdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.java" afterDir="false" />
     </list>
@@ -86,7 +71,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -98,7 +83,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "Merging TestNewNav",
+    "Application.StudentManagement.executor": "Debug",
+    "git-widget-placeholder": "TestNewNav",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -110,6 +96,26 @@
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="StudentManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.StudentManagement" />
+      <module name="Workshop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StudentManagement" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

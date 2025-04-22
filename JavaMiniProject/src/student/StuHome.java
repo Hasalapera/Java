@@ -103,6 +103,7 @@ public class StuHome extends JFrame {
     private JButton checkAttendanceEligibilityButton;
     private JButton deleteProfilePictureButton;
     private JButton okButtonCourses;
+    private JPanel displayDetailsPanel;
 
 //    private String[] courseCodes = {
 //            "ICT2113",  // Index 0
