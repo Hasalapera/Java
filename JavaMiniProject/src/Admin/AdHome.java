@@ -60,7 +60,6 @@ public class AdHome extends JFrame {
     private JTable NoticeTable;
     private JButton deleteProfilePictureButton;
     private JLabel imgDisplayLbl;
-    private JButton updateProfilePictureButton;
     //private JTable noticeTable;
 
     Connection con;
@@ -272,12 +271,7 @@ public class AdHome extends JFrame {
                 deleteProfilePictureButton.setEnabled(false);
             }
         });
-//        updateProfilePictureButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                uploadProfilePicture();
-//            }
-//        });
+
     }
 
     private void loadAdminProfile() {
