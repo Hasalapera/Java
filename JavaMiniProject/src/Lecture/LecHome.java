@@ -1767,6 +1767,7 @@ public class LecHome extends JFrame {
     }
 
     // ******* Add Materials *****************
+
     private boolean listenerAdded = false;
 
     private void showmaterilstable(String User) {
@@ -1812,15 +1813,14 @@ public class LecHome extends JFrame {
                         int column = Materials_Table.columnAtPoint(e.getPoint());
                         int row = Materials_Table.rowAtPoint(e.getPoint());
 
-                        // Check if clicked column is 'Lecture Material' (index 2)
-                        if (column == 2 && row != -1) {
+                        if (column == 3 && row != -1) {
                             String filePath = Materials_Table.getValueAt(row, column).toString();
-                            openMaterial(filePath); // Call method to open the file
+                            openMaterial(filePath);
                         }
                     }
                     }
                 });
-                listenerAdded = true; // Prevent multiple listener additions
+                listenerAdded = true;
             }
 
         }catch (SQLException e){
@@ -1885,7 +1885,7 @@ public class LecHome extends JFrame {
 
         return nextId;
     }
-    
+
     private void uploadfile(String User) {
 
         String Course_code = (String) lecmaterialscoursecodedropdown.getSelectedItem();
@@ -1974,7 +1974,6 @@ public class LecHome extends JFrame {
             JOptionPane.showMessageDialog(MainFrame, e);
         }
     }
-
 
     private void populateCourseComboBox(String User) {
         con=DatabaseConnection.connect();
