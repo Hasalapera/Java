@@ -9,6 +9,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -1785,6 +1787,7 @@ public class LecHome extends JFrame {
     }
 
     // ******* Add Materials *****************
+    private boolean listenerAdded = false;
 
     private void showcoursetable(String User) {
 
@@ -1794,21 +1797,60 @@ public class LecHome extends JFrame {
             PreparedStatement pstmt = con.prepareStatement("select Course_code,Course_name,Lecture_Material from course where lec_id=?");
             pstmt.setString(1, User);
             ResultSet rs = pstmt.executeQuery();
-            DefaultTableModel model=new DefaultTableModel();
-            model.addColumn("Course Code");
-            model.addColumn("Course Name");
-            model.addColumn("Lecture Material");
-
-            while(rs.next()){
+            DefaultTableModel model = new DefaultTableModel(new String[]{"Course Code", "Course Name", "Lecture Material"}, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false; // Make all cells uneditable
+                }
+            };
+            while (rs.next()) {
                 model.addRow(new Object[]{
                         rs.getString("Course_code"),
                         rs.getString("Course_name"),
                         rs.getString("Lecture_Material")
                 });
             }
+
             Materials_Table.setModel(model);
+            Materials_Table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            Materials_Table.setRowSelectionAllowed(true);
+            Materials_Table.setColumnSelectionAllowed(false);
+            Materials_Table.setCellSelectionEnabled(false);
+
+
+            if (!listenerAdded) {
+                Materials_Table.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                    if(e.getClickCount()==2) {
+                        int column = Materials_Table.columnAtPoint(e.getPoint());
+                        int row = Materials_Table.rowAtPoint(e.getPoint());
+
+                        // Check if clicked column is 'Lecture Material' (index 2)
+                        if (column == 2 && row != -1) {
+                            String filePath = Materials_Table.getValueAt(row, column).toString();
+                            openMaterial(filePath); // Call method to open the file
+                        }
+                    }
+                    }
+                });
+                listenerAdded = true; // Prevent multiple listener additions
+            }
+
         }catch (SQLException e){
             JOptionPane.showMessageDialog(MainFrame,e);
+        }
+    }
+
+    private void openMaterial(String filePath) {
+        File file = new File(filePath);
+        if (file.exists()) {
+            try {
+                Desktop.getDesktop().open(file); // Opens the file using the default system application
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(MainFrame, "Error opening the file: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(MainFrame, "File does not exist.");
         }
     }
 

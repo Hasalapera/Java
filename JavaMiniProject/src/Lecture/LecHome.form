@@ -1920,6 +1920,7 @@
                                       <background color="-1"/>
                                       <cellSelectionEnabled value="true"/>
                                       <columnSelectionAllowed value="true"/>
+                                      <enabled value="true"/>
                                       <fillsViewportHeight value="true"/>
                                       <font name="JetBrains Mono" size="12"/>
                                       <foreground color="-16447994"/>
