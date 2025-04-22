@@ -1,29 +1,22 @@
 package Admin;
 
 import javax.swing.*;
-import java.awt.CardLayout;
-import java.sql.Connection;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
 
 import database.DatabaseConnection;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
-import java.sql.Date;
-
+import database.Session;
 import student.Login;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.File;
-
-
-
-
-
-
 
 
 public class AdHome extends JFrame {
@@ -65,19 +58,29 @@ public class AdHome extends JFrame {
     private JButton viewNoticeButton;
     private JTextArea textArea1;
     private JTable NoticeTable;
+    private JButton deleteProfilePictureButton;
+    private JLabel imgDisplayLbl;
     //private JTable noticeTable;
 
+    Connection con;
+    PreparedStatement pst;
+    ResultSet rs;
 
 
 
     public AdHome() {
-
-        setTitle("Admin Home");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(mainPanel); // IntelliJ should generate and initialize this
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Admin Home");
         pack(); // Adjusts window size to fit content
+        setSize(1000, 800);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        // Load admin profile automatically when AdHome is initialized
+        loadAdminProfile();  // Call to load the admin details right after the window is shown
+        showProfilePicture(imgDisplayLbl);
+//        showOnlyProfilePicture(imgDisplayLbl);
 
         courseButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardpanel.getLayout();
@@ -85,8 +88,7 @@ public class AdHome extends JFrame {
             loadCourseData();// Make sure "course" matches the card name you set in Designer
         });
 
-        // Load admin profile automatically when AdHome is initialized
-        loadAdminProfile();  // Call to load the admin details right after the window is shown
+
 
         profileButton.addActionListener(e -> {
             CardLayout cl = (CardLayout) cardpanel.getLayout();
@@ -96,12 +98,9 @@ public class AdHome extends JFrame {
 
 
         updateProfileButton.addActionListener(e -> {
-            JFrame frame = new JFrame("Update Profile");
-            frame.setContentPane(new ProfileUpdate().MainPanel);
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null); // Center on screen
-            frame.setVisible(true);
+            dispose();
+            new ProfileUpdate();
+
         });
 
 
@@ -198,16 +197,9 @@ public class AdHome extends JFrame {
 
 
         logOutButton.addActionListener(e -> {
+            new Login();
             // Close the current window
             dispose();
-
-            // Open the login window
-            JFrame loginFrame = new JFrame("Login");
-            loginFrame.setContentPane(new Login().mainPanel); // Adjust according to your Login class
-            loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            loginFrame.pack();
-            loginFrame.setLocationRelativeTo(null);
-            loginFrame.setVisible(true);
         });
 
         viewNoticeButton.addActionListener(e -> {
@@ -272,10 +264,16 @@ public class AdHome extends JFrame {
         });
 
 
-
-
+        deleteProfilePictureButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteProfilePicture(imgDisplayLbl);
+                deleteProfilePictureButton.setEnabled(false);
+            }
+        });
 
     }
+
     private void loadAdminProfile() {
         try {
             Connection conn = DatabaseConnection.connect();
@@ -305,7 +303,90 @@ public class AdHome extends JFrame {
         }
     }
 
+    public void showProfilePicture(JLabel imgDisplayLbl) {
+        Connection con = DatabaseConnection.connect();
+        try {
+            String sql = "SELECT Profile_pic FROM User WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+            ResultSet rs = pst.executeQuery();
 
+            if (rs.next()) {
+                String fileName = rs.getString("Profile_pic");
+
+                // If no profile picture set in DB, use default
+                if (fileName == null || fileName.trim().isEmpty()) {
+                    fileName = "default.png";
+                }
+
+                String path = "user_Pro_Pic/" + fileName;
+                File imageFile = new File(path);
+
+                // If image file does not exist, fallback to default image
+                if (!imageFile.exists()) {
+                    path = "user_Pro_Pic/default.png";
+                }
+
+                // Load and Resize Image to fit JLabel
+                ImageIcon imageIcon = new ImageIcon(path);
+
+                // Get JLabel size (designed from GUI builder)
+                int width = imgDisplayLbl.getWidth();
+                int height = imgDisplayLbl.getHeight();
+
+                // Default size safety check (in case label not ready)
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
+
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                imgDisplayLbl.setIcon(new ImageIcon(image));
+                imgDisplayLbl.repaint(); // Refresh label to show updated image
+            }
+        } catch (Exception e) {
+            System.out.println("Error in show Profile Picture: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteProfilePicture(JLabel imgDisplayLbl) {
+        Connection con = DatabaseConnection.connect();
+        try{
+            String sql = "UPDATE User SET Profile_pic = NULL WHERE UserName = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, Session.loggedInUsername);
+
+            int result = pst.executeUpdate();
+
+            if (result > 0) {
+                // Set default image after deletion
+                String path = "user_Pro_Pic/default.png";
+
+                // Get label size
+                int width = imgDisplayLbl.getWidth();
+                int height = imgDisplayLbl.getHeight();
+
+                if (width == 0 || height == 0) {
+                    width = 150;
+                    height = 150;
+                }
+
+                ImageIcon imageIcon = new ImageIcon(path);
+                Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                imgDisplayLbl.setIcon(new ImageIcon(image));
+                imgDisplayLbl.repaint();  // Refresh label
+
+                System.out.println("Profile picture deleted successfully.");
+            } else {
+                System.out.println("No profile picture was found or username invalid.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error in deleteProfilePicture: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
     private void deleteCourseFromDatabase(String courseId) {
         try {
@@ -326,7 +407,6 @@ public class AdHome extends JFrame {
             JOptionPane.showMessageDialog(null, "Error deleting course from database.");
         }
     }
-
 
 
     private void loadCourseData() {
@@ -507,11 +587,6 @@ public class AdHome extends JFrame {
             JOptionPane.showMessageDialog(null, "Error deleting notice.");
         }
     }
-
-
-
-
-
 
 
     public static void main(String[] args) {

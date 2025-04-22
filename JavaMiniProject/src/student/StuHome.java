@@ -94,16 +94,16 @@ public class StuHome extends JFrame {
     private JScrollPane timeTableScrollPane;
     private JButton updateProfileButton;
     private JTable table1;
-    private JButton deleteButton;
-    private JButton updateCourseButton;
     private JButton updateTimeTableButton;
     private JButton addButton;
-    private JButton deleteButton1;
     private JButton checkEligibilityButton;
     private JButton checkAttendanceEligibilityButton;
     private JButton deleteProfilePictureButton;
     private JButton okButtonCourses;
     private JPanel displayDetailsPanel;
+
+
+
 
 //    private String[] courseCodes = {
 //            "ICT2113",  // Index 0
@@ -206,6 +206,7 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String password = ""                        ;
                 new Login();
+                dispose();
             }
         });
         selectCrsComboBox.addActionListener(new ActionListener() {
@@ -514,8 +515,9 @@ public class StuHome extends JFrame {
     }
 
     public void displayNoticeContent(String title) {
+        noticeTxtArea.setText("");
         try {
-            noticeTxtArea.setText("");
+
             // Establish connection to the database to get the NoticeId based on the title
             Connection con = DatabaseConnection.connect();
             String sql = "SELECT Notice_id FROM Notice WHERE Title = ?";
@@ -527,20 +529,29 @@ public class StuHome extends JFrame {
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-                File noticeFile = new File("JavaMiniProject/notices/notice_" + noticeId + ".txt");
+                File noticeFile = new File("notices/notice_" + noticeId + ".txt");
                 System.out.println("noticeFile: " + noticeId+ " Displayed");
-                BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
-                StringBuilder content = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    content.append(line).append("\n");
-                }
 
-                // Display the content in the JTextArea
-                noticeTxtArea.setText(content.toString());
+                try(BufferedReader reader = new BufferedReader(new FileReader(noticeFile))){
+                    StringBuilder content = new StringBuilder();
+
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        content.append(line).append("\n");
+                    }
+                    // Display the content in the JTextArea
+                    noticeTxtArea.setText(content.toString());
+                }
+//                noticeTxtArea.setText(content.toString());
+            }else {
+                noticeTxtArea.setText("Notice not found");
             }
-        } catch (SQLException | IOException e) {
+        } catch (SQLException e) {
             System.out.println("Error in display Notice Content: " + e.getMessage());
+            e.printStackTrace();
+        }catch (IOException e) {
+            System.out.println("File error in display Notice Content: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -653,12 +664,12 @@ public class StuHome extends JFrame {
                     fileName = "default.png";
                 }
 
-                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
+                String path = "user_Pro_Pic/" + fileName;
                 File imageFile = new File(path);
 
                 // If image file does not exist, fallback to default image
                 if (!imageFile.exists()) {
-                    path = "JavaMiniProject/user_Pro_Pic/default.png";
+                    path = "user_Pro_Pic/default.png";
                 }
 
                 // Load and Resize Image to fit JLabel
@@ -695,7 +706,7 @@ public class StuHome extends JFrame {
 
             if (result > 0) {
                 // Set default image after deletion
-                String path = "JavaMiniProject/user_Pro_Pic/default.png";
+                String path = "user_Pro_Pic/default.png";
 
                 // Get label size
                 int width = imageLbl.getWidth();
@@ -718,6 +729,7 @@ public class StuHome extends JFrame {
 
         } catch (Exception e) {
             System.out.println("Error in deleteProfilePicture: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
