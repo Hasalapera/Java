@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/Att_CA.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/Att_CA.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$11.class" afterDir="false" />
@@ -34,8 +35,8 @@
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/Att_CA.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/Att_CA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/Lec_profileupdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/Lec_profileupdate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

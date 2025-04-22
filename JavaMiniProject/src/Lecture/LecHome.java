@@ -7,10 +7,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -103,14 +100,6 @@ public class LecHome extends JFrame {
     private JComboBox lecmaterialscoursecodedropdown;
     private JButton lecmaterialsAddbutton;
 
-    private String[] courseCodes = {
-            "ICT2113",  // Index 0
-            "ICT2122",  // Index 1
-            "ICT2132",  // Index 2
-            "ICT2142",  // Index 3
-            "ICT2152"   // Index 4
-    };
-
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
@@ -125,13 +114,11 @@ public class LecHome extends JFrame {
         setSize(1024, 768);
         setLocationRelativeTo(null);
         setVisible(true);
-        
+
         User=User_ID;
 
         displayProfileDetils(User_ID);
         showProfilePicture( User,imageLbl);
-
-
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
@@ -154,7 +141,6 @@ public class LecHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                     new Lec_profileupdate(User_ID);
-                dispose();
 
             }
         });
@@ -340,45 +326,16 @@ public class LecHome extends JFrame {
                 deletematerial(User_ID);
             }
         });
-    }
-
-     //    ***** get courses ********
-
-    public List<String> getAllCourseCodes() {
-        List<String> courseCodes = new ArrayList<>();
-        Connection con = DatabaseConnection.connect();
-        try {
-            String sql = "SELECT Course_code FROM Course";
-            PreparedStatement pstmt = con.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                courseCodes.add(rs.getString("Course_code"));
+        Mark_id_textfield.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (Mark_id_textfield.getText().isEmpty()) {
+                    String generatedId = generateNextMarkID();
+                    Mark_id_textfield.setText(generatedId);
+                }
             }
-        } catch (Exception e) {
-            System.out.println("Error in getAllCourseCodes: " + e.getMessage());
-        }
-        return courseCodes;
+        });
     }
-
-    public List<String> getCourseCodesByLecturer(String User) {
-        List<String> courseCodes = new ArrayList<>();
-        Connection con = DatabaseConnection.connect();
-        try {
-            String sql = "SELECT Course_code FROM course_lecturer WHERE Lec_id = ?";
-            PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, User);
-            ResultSet rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                courseCodes.add(rs.getString("Course_code"));
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(MainFrame, e);
-        }
-        return courseCodes;
-    }
-
 
     // ******* Display Profile Details *****************
 
@@ -558,6 +515,27 @@ public class LecHome extends JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(MainFrame, e);
         }
+    }
+
+    private String generateNextMarkID() {
+        String nextId = "MK001"; // default ID
+        try {
+            con = DatabaseConnection.connect();
+            String sql = "SELECT Mark_id FROM marks ORDER BY Mark_id DESC LIMIT 1";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            if (rs.next()) {
+                String lastId = rs.getString("Mark_id"); // e.g., MK005
+                int num = Integer.parseInt(lastId.substring(2)); // remove 'MK'
+                num++;
+                nextId = String.format("MK%03d", num); // MK006
+            }
+        } catch (SQLException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(MainFrame, "Failed to generate Mark ID: " + e.getMessage());
+        }
+
+        return nextId;
     }
 
     public void addmarks(String User_ID){
@@ -1884,6 +1862,8 @@ public class LecHome extends JFrame {
             } else {
                 JOptionPane.showMessageDialog(MainFrame, "Failed to upload material.", "Error", JOptionPane.ERROR_MESSAGE);
             }
+            lecmaterialscoursecodedropdown.setSelectedIndex(-1);
+            populateCourseComboBox(user);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(MainFrame, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -1940,6 +1920,7 @@ public class LecHome extends JFrame {
                 // Save relative or absolute path to DB
                 addmaterials(destFile.getAbsolutePath(), User, Course_code);
                 showmaterilstable(User);
+
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(MainFrame, "Failed to upload file: " + e.getMessage());
             }
