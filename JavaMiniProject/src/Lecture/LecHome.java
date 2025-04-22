@@ -1,10 +1,10 @@
 package Lecture;
 
 import database.DatabaseConnection;
-import database.Session;
 import student.Login;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 import java.util.List;
+import java.nio.file.*;
 
 public class LecHome extends JFrame {
     private JPanel mainPanel;
@@ -93,6 +94,12 @@ public class LecHome extends JFrame {
     private JButton Uniq_stu_CA_button;
     private JTable CAEligibilitytable;
     private JButton AllCAbutton;
+    private JButton Addmaterialsbtm;
+    private JPanel AddmaterialsCard;
+    private JTable Materials_Table;
+    private JButton lecmaterialsDeletebutton;
+    private JComboBox lecmaterialscoursecodedropdown;
+    private JButton lecmaterialsAddbutton;
 
     private String[] courseCodes = {
             "ICT2113",  // Index 0
@@ -307,6 +314,26 @@ public class LecHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 deleteProfilePicture(User,imageLbl);
                 deleteProfilePictureButton.setEnabled(false);
+            }
+        });
+        Addmaterialsbtm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(cardMainPanel, "AddmaterialsCard");
+                showcoursetable(User_ID);
+                populateCourseComboBox(User_ID);
+            }
+        });
+        lecmaterialsAddbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                uploadfile(User_ID);
+            }
+        });
+        lecmaterialsDeletebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deletematerial(User_ID);
             }
         });
     }
@@ -1756,4 +1783,151 @@ public class LecHome extends JFrame {
             System.out.println("Error in display Notice Content: " + e.getMessage());
         }
     }
+
+    // ******* Add Materials *****************
+
+    private void showcoursetable(String User) {
+
+        con=DatabaseConnection.connect();
+
+        try{
+            PreparedStatement pstmt = con.prepareStatement("select Course_code,Course_name,Lecture_Material from course where lec_id=?");
+            pstmt.setString(1, User);
+            ResultSet rs = pstmt.executeQuery();
+            DefaultTableModel model=new DefaultTableModel();
+            model.addColumn("Course Code");
+            model.addColumn("Course Name");
+            model.addColumn("Lecture Material");
+
+            while(rs.next()){
+                model.addRow(new Object[]{
+                        rs.getString("Course_code"),
+                        rs.getString("Course_name"),
+                        rs.getString("Lecture_Material")
+                });
+            }
+            Materials_Table.setModel(model);
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(MainFrame,e);
+        }
+    }
+
+    private void addmaterials(String Path,String User,String Course_code) {
+
+            con=DatabaseConnection.connect();
+
+        try{
+            PreparedStatement ps = con.prepareStatement("UPDATE course SET Lecture_Material = ? WHERE Lec_id = ? AND Course_code = ?");
+
+            ps.setString(1, Path);
+            ps.setString(2, User);
+            ps.setString(3, Course_code);
+
+            int rowsUpdated = ps.executeUpdate();
+            if(rowsUpdated<0){
+                JOptionPane.showMessageDialog(MainFrame, "Something went wrong","Error",JOptionPane.ERROR_MESSAGE);
+            }
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(MainFrame,e);
+        }
+    }
+
+    private void uploadfile(String User) {
+
+        String Course_code = (String) lecmaterialscoursecodedropdown.getSelectedItem();
+        if (Course_code == null) {
+            JOptionPane.showMessageDialog(MainFrame, "Please select a course first!","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Select File");
+        fc.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("PDF, Word, Excel Files", "pdf", "doc", "docx", "xls", "xlsx");
+        fc.setFileFilter(filter);
+
+        int returnVal = fc.showOpenDialog(this);
+
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fc.getSelectedFile();
+            String fileName = selectedFile.getName();
+
+            String destFolderPath = "C:/Users/ASUS/Desktop/Git/JavaMiniProject/course_materials/" + Course_code;
+            File destDir = new File(destFolderPath);
+            if (!destDir.exists()) {
+                destDir.mkdirs(); // Create folder if it doesn't exist
+            }
+
+            File destFile = new File(destDir, fileName);
+
+            try {
+                Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                // Save relative or absolute path to DB
+                addmaterials(destFile.getAbsolutePath(), User, Course_code);
+                showcoursetable(User);
+                JOptionPane.showMessageDialog(MainFrame, "Lecture material uploaded!");
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(MainFrame, "Failed to upload file: " + e.getMessage());
+            }
+        }
+    }
+
+    private void deletematerial(String User) {
+
+        con=DatabaseConnection.connect();
+
+        try {
+            int selectedRow = Materials_Table.getSelectedRow();
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(MainFrame, "Please select to delete", "No Selection", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            String Course_Code = Materials_Table.getModel().getValueAt(selectedRow, 0).toString();
+            String materialPath = Materials_Table.getModel().getValueAt(selectedRow, 2).toString();
+
+            int confirm = JOptionPane.showConfirmDialog(MainFrame, "Are you sure you want to delete this material?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                // 1. Delete the file from disk
+                File file = new File(materialPath);
+                if (file.exists() && file.delete()) {
+                    System.out.println("File deleted from system.");
+                } else {
+                    System.out.println("File not found or could not be deleted.");
+                }
+
+            PreparedStatement pstmt = con.prepareStatement("UPDATE course SET Lecture_Material = NULL WHERE Lec_id = ? AND Course_code =?");
+            pstmt.setString(1, User);
+            pstmt.setString(2, Course_Code);
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(MainFrame, "Lecture material deleted successfully.");
+                showcoursetable(User);
+            } else {
+                JOptionPane.showMessageDialog(MainFrame, "No record was deleted", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+            showcoursetable(User);
+        }catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainFrame,e);
+        }
+    }
+
+    private void populateCourseComboBox(String User) {
+        con=DatabaseConnection.connect();
+
+        try {
+            PreparedStatement ps = con.prepareStatement("SELECT Course_code FROM course WHERE Lec_id = ?");
+            ps.setString(1, User);
+            ResultSet rs = ps.executeQuery();
+
+            lecmaterialscoursecodedropdown.removeAllItems();
+            while (rs.next()) {
+                lecmaterialscoursecodedropdown.addItem(rs.getString("Course_code"));
+            }
+            lecmaterialscoursecodedropdown.setSelectedIndex(-1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(MainFrame, e);
+        }
+    }
+
 }
