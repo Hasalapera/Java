@@ -176,7 +176,7 @@
               <background color="-16738382"/>
               <font name="JetBrains Mono ExtraBold" size="20"/>
               <foreground color="-1"/>
-              <text value="Button"/>
+              <text value="Submit"/>
             </properties>
           </component>
         </children>
