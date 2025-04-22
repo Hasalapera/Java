@@ -662,6 +662,58 @@ public class LecHome extends JFrame {
 
     // ******* Grade and GPU *****************
 
+    private boolean isEligibleForCourse(String stuId, String courseCode) {
+
+        double totalTheory = 0, presentTheory = 0;
+        double totalPractical = 0, presentPractical = 0;
+
+        con = DatabaseConnection.connect();
+
+        try {
+            // Theory
+            PreparedStatement pstTheory = con.prepareStatement("SELECT Lec_hour, Status FROM attendance WHERE Stu_id = ? AND Course_Code = ? AND Course_type = 'Theory'");
+            pstTheory.setString(1, stuId);
+            pstTheory.setString(2, courseCode);
+            ResultSet rsT = pstTheory.executeQuery();
+
+            while (rsT.next()) {
+                double hours = rsT.getDouble("Lec_hour");
+                String status = rsT.getString("Status");
+                totalTheory += hours;
+                if (status.equalsIgnoreCase("Present") || (status.equalsIgnoreCase("Medical") && checkMedicalStatus(stuId, courseCode).equalsIgnoreCase("Approved"))) {
+                    presentTheory += hours;
+                }
+            }
+
+            // Practical
+            PreparedStatement pstPractical = con.prepareStatement("SELECT Lec_hour, Status FROM attendance WHERE Stu_id = ? AND Course_code = ? AND Course_type = 'Practical'");
+            pstPractical.setString(1, stuId);
+            pstPractical.setString(2, courseCode);
+            ResultSet rsP = pstPractical.executeQuery();
+
+            while (rsP.next()) {
+                double hours = rsP.getDouble("Lec_hour");
+                String status = rsP.getString("Status");
+                totalPractical += hours;
+                if (status.equalsIgnoreCase("Present") || (status.equalsIgnoreCase("Medical") && checkMedicalStatus(stuId, courseCode).equalsIgnoreCase("Approved"))) {
+                    presentPractical += hours;
+                }
+            }
+
+            double total = totalTheory + totalPractical;
+            double present = presentTheory + presentPractical;
+
+            if (total == 0) return true;
+
+            double percent = (present / total) * 100;
+            return percent >= 80;
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error in eligibility check: " + e);
+            return false;
+        }
+    }
+
     private void Gradegpushowtable(String studentId) {
         con = DatabaseConnection.connect();
 
@@ -702,21 +754,30 @@ public class LecHome extends JFrame {
                 double totalGPA = 0.0;
                 double totalCredits = 0.0;
 
+                boolean anyIneligible = false;
+
                 for (int i = 0; i < course_codes.size(); i++) {
                     String courseId = course_codes.get(i);
-                    double totalMarks = Calculatetotalmarks(stu_id, courseId);
 
-                    double credit = getCredit(courseId);
-                    String grade = CalculateGrade(totalMarks);
-                    double gpa = getGpaValue(grade);
+                    if (isEligibleForCourse(stu_id, courseId)) {
+                        double totalMarks = Calculatetotalmarks(stu_id, courseId);
+                        double credit = getCredit(courseId);
+                        String grade = CalculateGrade(totalMarks);
+                        double gpa = getGpaValue(grade);
 
-                    row[i + 1] = grade;
+                        row[i + 1] = grade;
 
-                    totalGPA += gpa * credit;
-                    totalCredits += credit;
+                        totalGPA += gpa * credit;
+                        totalCredits += credit;
+                    } else {
+                        row[i + 1] = "Not Eligible";
+                        anyIneligible = true;
+                    }
+
                 }
-
-                if (totalCredits > 0) {
+                if (anyIneligible) {
+                    row[columns.length - 1] = "Hold";
+                } else if (totalCredits > 0) {
                     double finalGPA = totalGPA / totalCredits;
                     row[columns.length - 1] = String.format("%.2f", finalGPA);
                 } else {
@@ -771,21 +832,31 @@ public class LecHome extends JFrame {
                 double totalGPA = 0.0;
                 double totalCredits = 0.0;
 
+                boolean anyIneligible = false;
+
                 for (int i = 0; i < course_codes.size(); i++) {
                     String courseId = course_codes.get(i);
 
-                    double totalMarks = Calculatetotalmarks(stu_id, courseId);
-                    double credit = getCredit(courseId);
-                    String grade = CalculateGrade(totalMarks);
-                    double gpa = getGpaValue(grade);
+                    if (isEligibleForCourse(stu_id, courseId)) {
+                        double totalMarks = Calculatetotalmarks(stu_id, courseId);
+                        double credit = getCredit(courseId);
+                        String grade = CalculateGrade(totalMarks);
+                        double gpa = getGpaValue(grade);
 
-                    row[i + 1] = grade;
+                        row[i + 1] = grade;
 
-                    totalGPA += gpa * credit;
-                    totalCredits += credit;
+                        totalGPA += gpa * credit;
+                        totalCredits += credit;
+                    } else {
+                        row[i + 1] = "Not Eligible";
+                        anyIneligible = true;
+                    }
+
                 }
 
-                if (totalCredits > 0) {
+                if (anyIneligible) {
+                    row[columns.length - 1] = "Hold";
+                } else if (totalCredits > 0) {
                     double finalGPA = totalGPA / totalCredits;
                     row[columns.length - 1] = String.format("%.2f", finalGPA);
                 } else {
@@ -1228,9 +1299,9 @@ public class LecHome extends JFrame {
                     String combinedEligibility = (combinedPercent >= 80) ? "Eligible" : "Not Eligible";
 
                     if (hasTheory && hasPractical) {
-                        model.addRow(new Object[]{Stu_id, Course_code + "-T", String.format("%.2f", theoryPercent) + "%", theoryEligibility});
-                        model.addRow(new Object[]{Stu_id, Course_code + "-P", String.format("%.2f", practicalPercent) + "%", practicalEligibility});
-                        model.addRow(new Object[]{Stu_id, Course_code + "T,P", String.format("%.2f", combinedPercent) + "%", combinedEligibility});
+                        model.addRow(new Object[]{Stu_id, Course_code + " -T", String.format("%.2f", theoryPercent) + "%", theoryEligibility});
+                        model.addRow(new Object[]{Stu_id, Course_code + " -P", String.format("%.2f", practicalPercent) + "%", practicalEligibility});
+                        model.addRow(new Object[]{Stu_id, Course_code + " -T,P", String.format("%.2f", combinedPercent) + "%", combinedEligibility});
 
                     } else if (hasTheory) {
                         model.addRow(new Object[]{Stu_id, Course_code, String.format("%.2f", theoryPercent) + "%", theoryEligibility});
