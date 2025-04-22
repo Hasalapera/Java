@@ -1,11 +1,9 @@
 package Lecture;
 
 import database.DatabaseConnection;
-import database.Session;
 import student.StuHome;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -48,7 +46,7 @@ public class Lec_profileupdate extends JFrame {
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                updateStudentDetails(User_ID);
+                updatelecturedetails(User_ID);
             }
         });
         cancelButton.addActionListener(new ActionListener() {
@@ -60,7 +58,7 @@ public class Lec_profileupdate extends JFrame {
         });
     }
 
-    public void updateStudentDetails(String User_ID) {
+    public void updatelecturedetails(String User_ID) {
         String firstName = firstNameTxt.getText();
         String lastName = lastNameTxt.getText();
         String address = addressTxt.getText();
@@ -91,9 +89,9 @@ public class Lec_profileupdate extends JFrame {
             int i = pst.executeUpdate();
 
             if (i > 0) {
-                JOptionPane.showMessageDialog(null, "Student Profile Updated");
+                JOptionPane.showMessageDialog(null, "Lecture Profile Updated");
             } else {
-                JOptionPane.showMessageDialog(null, "Student Profile Not Updated");
+                JOptionPane.showMessageDialog(null, "Lecture Profile Not Updated");
             }
 
         } catch (Exception e) {
