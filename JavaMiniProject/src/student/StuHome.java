@@ -100,6 +100,7 @@ public class StuHome extends JFrame {
     private JButton checkAttendanceEligibilityButton;
     private JButton deleteProfilePictureButton;
     private JButton okButtonCourses;
+    private JPanel displayDetailsPanel;
 
     private JPanel displayDetailsPanel;
 
