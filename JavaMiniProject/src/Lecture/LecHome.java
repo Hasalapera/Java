@@ -475,7 +475,12 @@ public class LecHome extends JFrame {
                 pst.setString(1, User_ID);
                 ResultSet rs = pst.executeQuery();
 
-                DefaultTableModel model=new DefaultTableModel();
+                DefaultTableModel model = new DefaultTableModel() {
+                    @Override
+                    public boolean isCellEditable ( int row, int column){
+                        return false;
+                    }
+                };
 
                 model.addColumn("Mark ID");
                 model.addColumn("Student ID");
@@ -733,8 +738,15 @@ public class LecHome extends JFrame {
             for (int i = 0; i < course_codes.size(); i++) {
                 columns[i + 1] = course_codes.get(i);
             }
+
             columns[columns.length - 1] = "GPA";
-            DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+            DefaultTableModel model = new DefaultTableModel(columns,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
 
             // Only get the requested student
             PreparedStatement studentStmt = con.prepareStatement("SELECT DISTINCT Stu_id FROM marks WHERE Stu_id = ?");
@@ -818,7 +830,12 @@ public class LecHome extends JFrame {
                 columns[i + 1] = course_codes.get(i);
             }
             columns[columns.length - 1] = "GPA";
-            DefaultTableModel model = new DefaultTableModel(columns, 0);
+            DefaultTableModel model = new DefaultTableModel(columns,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
 
             // Get distinct student IDs
             PreparedStatement studentStmt = con.prepareStatement("SELECT DISTINCT Stu_id FROM marks");
@@ -1021,7 +1038,12 @@ public class LecHome extends JFrame {
                 ResultSet rs = pstm.executeQuery();
 
                 String[] columnNames = {"Student ID", "Name","Date Of Birth", "Enrollment Date", "Address", "Email", "Phone Number"};
-                DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+                DefaultTableModel model = new DefaultTableModel(columnNames,0) {
+                    @Override
+                    public boolean isCellEditable ( int row, int column){
+                        return false;
+                    }
+                };
 
                 while (rs.next()) {
                     model.addRow(new Object[]{
@@ -1061,7 +1083,12 @@ public class LecHome extends JFrame {
             ResultSet rs = pstm.executeQuery();
 
             String[] columnNames = {"Student ID", "Name","Date Of Birth", "Enrollment Date", "Address", "Email", "Phone Number"};
-            DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+            DefaultTableModel model = new DefaultTableModel(columnNames,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
 
             while (rs.next()) {
                 model.addRow(new Object[]{
@@ -1092,6 +1119,7 @@ public class LecHome extends JFrame {
     private void attendanceTable(String User) {
 
         con = DatabaseConnection.connect();
+
         try {
 
             PreparedStatement courseStmt = con.prepareStatement("SELECT DISTINCT Course_code FROM course WHERE Lec_id = ?");
@@ -1147,7 +1175,13 @@ public class LecHome extends JFrame {
                 data[i++] = row;
             }
 
-            Attendance_table.setModel(new javax.swing.table.DefaultTableModel(data, Column));
+            Attendance_table.setModel(new javax.swing.table.DefaultTableModel(data, Column) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            });
+
             Attendance_table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         } catch (SQLException e) {
@@ -1158,6 +1192,8 @@ public class LecHome extends JFrame {
     private void allMedicels(String User) {
 
         con=DatabaseConnection.connect();
+
+        Attendance_table.setModel(new javax.swing.table.DefaultTableModel());
 
         try{
 
@@ -1171,7 +1207,12 @@ public class LecHome extends JFrame {
             }
 
             String[] Column = {"Stu_id", "Course_code", "Week_No", "Day_No", "Status"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
+            DefaultTableModel model = new DefaultTableModel(Column,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
             Attendance_table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
             boolean found = false;
@@ -1210,7 +1251,12 @@ public class LecHome extends JFrame {
 
         try {
             String[] Column = {"Stu_id", "Course_Code", "Percentage", "Eligibility"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
+            DefaultTableModel model = new DefaultTableModel(Column,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
             Attendance_table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
             PreparedStatement courseStmt = con.prepareStatement("SELECT DISTINCT Course_code FROM course WHERE Lec_id = ?");
@@ -1327,7 +1373,12 @@ public class LecHome extends JFrame {
 
         try {
             String[] Column = {"Stu_id", "Course_Code", "Percentage", "Eligibility"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
+            DefaultTableModel model = new DefaultTableModel(Column,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
             Attendance_table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
             PreparedStatement coursestm = con.prepareStatement("SELECT DISTINCT Course_code FROM course WHERE Lec_id = ?");
@@ -1481,7 +1532,12 @@ public class LecHome extends JFrame {
             JFrame attendanceFrame = new JFrame("Attendance Records - Student: " + Stu_id);
             attendanceFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             attendanceFrame.setSize(1000, 400); // Wider for more weeks
-            JTable table = new JTable(data, Column);
+            JTable table = new JTable(data, Column){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
             table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
             JScrollPane scrollPane = new JScrollPane(table);
             attendanceFrame.add(scrollPane);
@@ -1533,7 +1589,12 @@ public class LecHome extends JFrame {
 
         try{
 
-            DefaultTableModel model=new DefaultTableModel();
+            DefaultTableModel model = new DefaultTableModel() {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
             model.setColumnIdentifiers(new String[]{
                     "Student_ID","Course Code","Quiz_01", "Quiz_02", "Quiz_03", "Quiz_04",
                     "Assignment_01", "Assignment_02", "Mid_Theory", "Mid_Practical",
@@ -1663,7 +1724,12 @@ public class LecHome extends JFrame {
 
         try{
 
-            DefaultTableModel model=new DefaultTableModel();
+            DefaultTableModel model = new DefaultTableModel() {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
             model.setColumnIdentifiers(new String[]{
                     "Student_ID","Course Code", "Quiz_01", "Quiz_02", "Quiz_03", "Quiz_04",
                     "Assignment_01", "Assignment_02", "Mid_Theory", "Mid_Practical",
@@ -1854,8 +1920,8 @@ public class LecHome extends JFrame {
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable ( int row, int column){
-                return false;
-            }
+                    return false;
+                }
             };
             model.addColumn("Material ID");
             model.addColumn("Course Code");

@@ -31,7 +31,7 @@ public class Att_CA extends JFrame{
         AllshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-attendancepluscaforall(Course_code);
+                attendancepluscaforall(Course_code);
             }
         });
         stu_numbershowButton.addActionListener(new ActionListener() {
@@ -63,7 +63,11 @@ attendancepluscaforall(Course_code);
             Connection con=DriverManager.getConnection(url,user,password);
 
             String[] Column = {"Student ID", "Course Code", "Attendance %", "CA Marks", "Eligibility"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
+            DefaultTableModel model = new DefaultTableModel( Column, 0){
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
 
             PreparedStatement pstm = con.prepareStatement("SELECT DISTINCT Stu_id FROM attendance WHERE Course_Code=?");
             pstm.setString(1, Course_code);
