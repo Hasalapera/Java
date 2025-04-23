@@ -52,7 +52,7 @@ public class Lec_profileupdate extends JFrame {
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new StuHome();
+                new LecHome(User_ID);
                 dispose();
             }
         });

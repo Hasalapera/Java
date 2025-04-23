@@ -117,7 +117,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-2104859"/>
+                  <background color="-1"/>
                   <font name="Kannada MN" size="20" style="1"/>
                   <foreground color="-16758099"/>
                   <text value="Grade And GPA"/>
