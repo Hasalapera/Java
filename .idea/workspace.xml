@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/course_materialsICT2113/Registration eService - RAMIS.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/course_materialsICT2122/Registration eService - RAMIS.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +34,12 @@
     &quot;assignee&quot;: &quot;Hasalapera&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Hasalapera/Java.git&quot;,
-    &quot;accountId&quot;: &quot;1eed8741-c055-404f-857e-01ee05d684e0&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Hasalapera/Java.git",
+    "accountId": "851966c5-c728-4543-9304-a162c1c561c2"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
@@ -55,10 +54,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.StudentManagement.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "git-widget-placeholder": "TestNewNav",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ASUS/Downloads/Java-Sadeepa/Java-Sadeepa",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -90,10 +95,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="" />
+      <changelist id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="" />
       <created>1744526520616</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -113,6 +126,7 @@
       <workItem from="1745229141321" duration="16961000" />
       <workItem from="1745260035637" duration="2477000" />
       <workItem from="1745263447632" duration="14000" />
+      <workItem from="1745348715033" duration="330000" />
     </task>
     <task id="LOCAL-00001" summary="dcbvv">
       <option name="closed" value="true" />
