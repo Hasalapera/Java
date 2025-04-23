@@ -2044,7 +2044,7 @@ public class LecHome extends JFrame {
             String fileName = selectedFile.getName();
 
             // Base folder path
-            String baseFolder = "C:\\Users\\ASUS\\Desktop\\Git\\JavaMiniProject\\course_materials";
+            String baseFolder = "course_materials";
 
             // Ensure the course code subfolder is created inside the base folder
             String destFolderPath = baseFolder + File.separator + Course_code;
