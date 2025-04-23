@@ -8,7 +8,7 @@ import database.DatabaseConnection;
 import database.Session;
 
 
-public class AddTimeTable {
+public class AddTimeTable extends JFrame {
     public JPanel panel1;
     private JTextField textField1;
     private JTextField textField2;
@@ -21,6 +21,13 @@ public class AddTimeTable {
     private JButton CLEARButton;
 
     public AddTimeTable() {
+        setContentPane(panel1);
+        setTitle("Add Time Table");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setSize(1000, 600);
+        setVisible(true);
+
         addDetailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,11 +104,7 @@ public class AddTimeTable {
 
     // Optional: run GUI
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Add Time Table");
-        frame.setContentPane(new AddTimeTable().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        new AddTimeTable().setVisible(true);
     }
 }
 

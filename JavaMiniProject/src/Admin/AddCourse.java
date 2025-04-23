@@ -12,7 +12,7 @@ import database.Session;
 
 
 
-public class AddCourse {
+public class AddCourse extends JFrame {
     public JPanel panel1;
     private JTextField textField1;
     private JTextField textField2;
@@ -25,6 +25,12 @@ public class AddCourse {
 
 
     public AddCourse() {
+        setContentPane(panel1);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setTitle("Add Course");
+        setSize(1000, 800);
+        setVisible(true);
 
 
         // Add course to database
@@ -95,11 +101,7 @@ public class AddCourse {
 
     // Optional: test GUI
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Add Course");
-        frame.setContentPane(new AddCourse().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        new AddCourse().setVisible(true);
     }
 }
 

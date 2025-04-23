@@ -396,12 +396,12 @@ public class LecHome extends JFrame {
                     fileName = "default.png";
                 }
 
-                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
+                String path = "user_Pro_Pic/" + fileName;
                 File imageFile = new File(path);
 
                 // If image file does not exist, fallback to default image
                 if (!imageFile.exists()) {
-                    path = "JavaMiniProject/user_Pro_Pic/default.png";
+                    path = "user_Pro_Pic/default.png";
                 }
 
                 // Load and Resize Image to fit JLabel
@@ -1820,7 +1820,7 @@ public class LecHome extends JFrame {
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-                File noticeFile = new File("JavaMiniProject/notices/notice_" + noticeId + ".txt");
+                File noticeFile = new File("notices/notice_" + noticeId + ".txt");
                 System.out.println("noticeFile: " + noticeId+ " Displayed");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
                 StringBuilder content = new StringBuilder();

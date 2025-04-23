@@ -14,7 +14,7 @@ import java.time.format.DateTimeParseException;
 
 
 
-public class AddNotices {
+public class AddNotices extends JFrame {
     public JPanel MainPanel;
     private JTextField textField1;
     private JTextField textField2;
@@ -24,6 +24,12 @@ public class AddNotices {
     private JButton clearButton;
 
     public AddNotices() {
+        setContentPane(MainPanel);
+        setTitle("Add Notices");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setSize(500, 500);
+        setVisible(true);
 
 
         addNoticeButton.addActionListener(new ActionListener() {
@@ -126,13 +132,7 @@ public class AddNotices {
 
 
     public static void main(String[] args) {
-        // Create the JFrame (window)
-        JFrame frame = new JFrame("Add Notices");
-        frame.setContentPane(new AddNotices().getMainPanel());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack(); // Adjust size to fit content
-        frame.setLocationRelativeTo(null); // Center on screen
-        frame.setVisible(true);
+        new AddNotices();
     }
 }
 

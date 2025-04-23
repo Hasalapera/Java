@@ -56,6 +56,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="4ae57" class="javax.swing.JTextField" binding="sidField">
@@ -66,6 +67,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="a220d" class="javax.swing.JTextField" binding="weekField">
@@ -76,6 +78,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="786a3" class="javax.swing.JTextField" binding="dayField">
@@ -86,6 +89,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="94f66" class="javax.swing.JTextField" binding="ctypeField">
@@ -96,6 +100,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="e1e24" class="javax.swing.JTextField" binding="statusField">
@@ -106,6 +111,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="89831" class="javax.swing.JLabel" binding="courseLabel">
@@ -173,9 +179,9 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-16738382"/>
+              <background color="-66049"/>
               <font name="JetBrains Mono ExtraBold" size="20"/>
-              <foreground color="-1"/>
+              <foreground color="-16758099"/>
               <text value="Button"/>
             </properties>
           </component>

@@ -7,7 +7,7 @@ import java.sql.*;
 import database.DatabaseConnection;
 import database.Session;
 
-public class UpdateTimeTable {
+public class UpdateTimeTable extends JFrame {
     public JPanel panel1;
     private JTextField textField1;
     private JTextField textField2;
@@ -20,6 +20,13 @@ public class UpdateTimeTable {
     private JButton CLEARButton;
 
     public UpdateTimeTable() {
+        setContentPane(panel1);
+        setTitle("Update Time Table");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setSize(500, 500);
+        setVisible(true);
+
         // Update button functionality
         updateButton.addActionListener(new ActionListener() {
             @Override
@@ -35,6 +42,7 @@ public class UpdateTimeTable {
                 clearFields();
             }
         });
+
     }
 
     private void updateTimeTableInDB() {
@@ -95,11 +103,7 @@ public class UpdateTimeTable {
 
     // Optional: run GUI
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Update Time Table");
-        frame.setContentPane(new UpdateTimeTable().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        new UpdateTimeTable().setVisible(true);
     }
 }
 

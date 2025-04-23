@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 import database.DatabaseConnection;
+import Admin.ProfileUpdate;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -60,6 +61,24 @@ public class AdHome extends JFrame {
     private JTable NoticeTable;
     private JButton deleteProfilePictureButton;
     private JLabel imgDisplayLbl;
+    private JTextField userNametxt;
+    private JTextField fNametxt;
+    private JTextField lNametxt;
+    private JTextField dobTxt;
+    private JTextField roleTxt;
+    private JTextField enrollTxt;
+    private JTextField addressTxt;
+    private JTextField emailTxt;
+    private JTextField pNoTxt;
+    private JTextField pwTxt;
+    private JTextField proPicTxt;
+    private JButton addPhotoButton;
+    private JButton clearButton;
+    private JButton updateProfileButton1;
+    private JButton exitButton;
+    private JButton updateUserProfilesButton;
+    private JPanel updateUProfilesPanel;
+    private JPanel noticeDisplaybtnPanel;
     //private JTable noticeTable;
 
     Connection con;
@@ -80,189 +99,16 @@ public class AdHome extends JFrame {
         // Load admin profile automatically when AdHome is initialized
         loadAdminProfile();  // Call to load the admin details right after the window is shown
         showProfilePicture(imgDisplayLbl);
-//        showOnlyProfilePicture(imgDisplayLbl);
-
-        courseButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardpanel.getLayout();
-            cl.show(cardpanel, "Course");
-            loadCourseData();// Make sure "course" matches the card name you set in Designer
-        });
 
 
 
-        profileButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardpanel.getLayout();
-            cl.show(cardpanel, "Profile");
-            loadAdminProfile();
-        });
-
-
-        updateProfileButton.addActionListener(e -> {
-            dispose();
-            new ProfileUpdate();
-
-        });
-
-
-        timeTableButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardpanel.getLayout();
-            cl.show(cardpanel, "TimeTable"); // The string must match the name you set in your CardLayout
-           loadTimeTableData(); // Optional: load data from DB
-        });
-
-
-        addCourseButton.addActionListener(e -> {
-            JFrame frame = new JFrame("Add Course");
-            frame.setContentPane(new AddCourse().panel1);
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null); // center it
-            frame.setVisible(true);
-        });
-
-        updateCourseButton.addActionListener(e -> {
-            JFrame frame = new JFrame("Update Course");
-            frame.setContentPane(new UpdateCourse().panel1); // use mainPanel if that's your variable name
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-        });
-
-        deleteButton.addActionListener(e -> {
-            int selectedRow = CourseTable.getSelectedRow();
-
-            if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(null, "Please select a course to delete.");
-                return;
-            }
-
-            // Get course ID (or any unique key)
-            String courseId = CourseTable.getValueAt(selectedRow, 0).toString(); // assuming column 0 is course_id
-
-            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete Course ID: " + courseId + "?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
-
-            if (confirm == JOptionPane.YES_OPTION) {
-                deleteCourseFromDatabase(courseId);
-                ((DefaultTableModel) CourseTable.getModel()).removeRow(selectedRow); // remove from table
+        updateUserProfilesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout) cardpanel.getLayout();
+                cl.show(cardpanel, "updateUProfilesPanel");
             }
         });
-
-        addTimeTableButton.addActionListener(e -> {
-            JFrame frame = new JFrame("Add Time Table");
-            frame.setContentPane(new AddTimeTable().panel1); // make sure `panel1` is public
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null); // center it
-            frame.setVisible(true);
-        });
-
-        updateTimeTableButton.addActionListener(e -> {
-            JFrame frame = new JFrame("Update Time Table");
-            frame.setContentPane(new UpdateTimeTable().panel1); // Make sure panel1 is public in UpdateTimeTable
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null); // Center on screen
-            frame.setVisible(true);
-        });
-
-        deleteButton1.addActionListener(e -> {
-            int selectedRow = Timetable1.getSelectedRow();
-
-            if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(null, "Please select a timetable entry to delete.");
-                return;
-            }
-
-            // Get the primary key (timetable_id) from the selected row
-            String timetableId = Timetable1.getValueAt(selectedRow, 0).toString(); // assuming column 0 is timetable_id
-
-            int confirm = JOptionPane.showConfirmDialog(null,
-                    "Are you sure you want to delete TimeTable ID: " + timetableId + "?",
-                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
-
-            if (confirm == JOptionPane.YES_OPTION) {
-                deleteTimetableFromDatabase(timetableId);
-                ((DefaultTableModel) Timetable1.getModel()).removeRow(selectedRow); // Remove row from JTable
-            }
-        });
-
-
-        noticeButton.addActionListener(e -> {
-            CardLayout cl = (CardLayout) cardpanel.getLayout();
-            cl.show(cardpanel, "Notice");
-            loadNoticeData();
-        });
-
-
-
-        logOutButton.addActionListener(e -> {
-            new Login();
-            // Close the current window
-            dispose();
-        });
-
-        viewNoticeButton.addActionListener(e -> {
-            int selectedRow = NoticeTable.getSelectedRow();
-
-            if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(null, "Please select a notice to view.");
-                return;
-            }
-
-            // Get Notice ID from selected row (assume column 0)
-            String noticeId = NoticeTable.getValueAt(selectedRow, 0).toString(); // e.g., N1
-            String filename = "notice_"+ noticeId + ".txt"; // e.g., N1.txt
-
-            // Build file path
-//            File file = new File("notices", filename);
-              File file = new File("C:/Users/HP/Desktop/my java/JavaMiniProject/notices/" + filename);
-
-            System.out.println("Trying to read from: " + file.getAbsolutePath());
-
-            // Read and display the file
-            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-                StringBuilder content = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    content.append(line).append("\n");
-                }
-                textArea1.setText(content.toString());
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Unable to load notice content from file: " + file.getName());
-            }
-        });
-
-        deleteNoticeButton.addActionListener(e -> {
-            int selectedRow = NoticeTable.getSelectedRow();
-
-            if (selectedRow == -1) {
-                JOptionPane.showMessageDialog(null, "Please select a notice to delete.");
-                return;
-            }
-
-            // Get the Notice ID (assuming it is in column 0 of the JTable)
-            String noticeId = NoticeTable.getValueAt(selectedRow, 0).toString();
-
-            // Confirm before deletion
-            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete Notice ID: " + noticeId + "?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
-
-            if (confirm == JOptionPane.YES_OPTION) {
-                deleteNotice(noticeId);  // Call the combined method
-            }
-        });
-
-        addNoticeButton.addActionListener(e -> {
-            JFrame frame = new JFrame("Add Notice");
-            frame.setContentPane(new AddNotices().MainPanel); // if AddNotice has a MainPanel
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null); // center on screen
-            frame.setVisible(true);
-        });
-
 
         deleteProfilePictureButton.addActionListener(new ActionListener() {
             @Override
@@ -272,6 +118,249 @@ public class AdHome extends JFrame {
             }
         });
 
+        addPhotoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                uploadProfilePicture();
+            }
+        });
+        updateProfileButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateProfile();
+            }
+        });
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clearFields();
+            }
+        });
+        profileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout) cardpanel.getLayout();
+                cl.show(cardpanel, "Profile");
+                loadAdminProfile();
+            }
+        });
+        updateProfileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                new ProfileUpdate();
+            }
+        });
+        timeTableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout) cardpanel.getLayout();
+                cl.show(cardpanel, "TimeTableCard");
+                loadTimeTableData();
+            }
+        });
+        addCourseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddCourse();
+            }
+        });
+        updateCourseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UpdateCourse();
+            }
+        });
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = CourseTable.getSelectedRow();
+
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(null, "Please select a course to delete.");
+                    return;
+                }
+
+                // Get course ID from selected row (assuming course_id is at column index 0)
+                String courseId = CourseTable.getValueAt(selectedRow, 0).toString();
+
+                // Confirm delete action
+                int confirm = JOptionPane.showConfirmDialog(
+                        null,
+                        "Are you sure you want to delete Course ID: " + courseId + "?",
+                        "Confirm Delete",
+                        JOptionPane.YES_NO_OPTION
+                );
+
+                // Perform deletion if confirmed
+                if (confirm == JOptionPane.YES_OPTION) {
+                    deleteCourseFromDatabase(courseId); // delete from DB
+                    loadCourseData(); // refresh JTable with fresh data from DB
+                }
+            }
+        });
+
+        addTimeTableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddTimeTable();
+            }
+        });
+        updateTimeTableButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UpdateTimeTable();
+            }
+        });
+        deleteButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deleteSelectedTimetableEntry();
+            }
+        });
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Login();
+                dispose();
+            }
+        });
+        noticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout) cardpanel.getLayout();
+                cl.show(cardpanel, "Notice");
+                loadNoticeData();
+            }
+        });
+        viewNoticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadSelectedNoticeContent();
+            }
+        });
+        addNoticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddNotices();
+            }
+        });
+        deleteNoticeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = NoticeTable.getSelectedRow();
+
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(null, "Please select a course to delete.");
+                    return;
+                }
+
+                // Get course ID from selected row (assuming course_id is at column index 0)
+                String noticeId = NoticeTable.getValueAt(selectedRow, 0).toString();
+
+                // Confirm delete action
+                int confirm = JOptionPane.showConfirmDialog(
+                        null,
+                        "Are you sure you want to delete Notice ID: " + noticeId + "?",
+                        "Confirm Delete",
+                        JOptionPane.YES_NO_OPTION
+                );
+
+                // Perform deletion if confirmed
+                if (confirm == JOptionPane.YES_OPTION) {
+                    deleteNotice(noticeId); // delete from DB
+                    loadCourseData(); // refresh JTable with fresh data from DB
+                }
+            }
+
+        });
+        courseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout) cardpanel.getLayout();
+                cl.show(cardpanel, "Course");
+                loadCourseData();
+            }
+        });
+        updateCourseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UpdateCourse();
+            }
+        });
+    }
+
+    private void clearFields() {
+        userNametxt.setText("");
+        fNametxt.setText("");
+        lNametxt.setText("");
+        dobTxt.setText("");
+        roleTxt.setText("");
+        enrollTxt.setText("");
+        addressTxt.setText("");
+        emailTxt.setText("");
+        pNoTxt.setText("");
+        pwTxt.setText("");
+        proPicTxt.setText("");
+    }
+
+    public void updateProfile() {
+        String sql = "UPDATE user SET Fname=?, Lname=?, DoB=?, Role=?, Enrollment_Date=?, Address=?, Email=?, Phone_No=?, Password=?, Profile_pic=? WHERE UserName=?";
+
+        try (Connection conn = DatabaseConnection.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, fNametxt.getText());
+            pstmt.setString(2, lNametxt.getText());
+            pstmt.setString(3, dobTxt.getText());
+            pstmt.setString(4, roleTxt.getText());
+            pstmt.setString(5, enrollTxt.getText());
+            pstmt.setString(6, addressTxt.getText());
+            pstmt.setString(7, emailTxt.getText());
+
+            // Convert phone number to int (handle empty or invalid input gracefully)
+            try {
+                pstmt.setInt(8, Integer.parseInt(pNoTxt.getText()));
+            } catch (NumberFormatException ex) {
+                pstmt.setNull(8, java.sql.Types.INTEGER);
+            }
+
+            pstmt.setString(9, pwTxt.getText());
+            pstmt.setString(10, proPicTxt.getText());
+
+            pstmt.setString(11, userNametxt.getText()); // WHERE UserName = ?
+
+            int rows = pstmt.executeUpdate();
+
+            if (rows > 0) {
+                JOptionPane.showMessageDialog(null, "Profile updated successfully.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No profile found for that username.");
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error updating profile: " + ex.getMessage());
+        }
+    }
+
+    public void uploadProfilePicture() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Select Profile Picture");
+
+        // Optional: allow only image files
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.addChoosableFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Image Files", "jpg", "jpeg", "png", "gif"));
+
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String imagePath = selectedFile.getName();
+
+            // Set the selected file path into the text field
+            proPicTxt.setText(imagePath);
+        }
     }
 
     private void loadAdminProfile() {
@@ -436,6 +525,7 @@ public class AdHome extends JFrame {
 
             CourseTable.setModel(model);
 
+
             rs.close();
             stmt.close();
             conn.close();
@@ -452,7 +542,7 @@ public class AdHome extends JFrame {
             ResultSet rs = stmt.executeQuery("SELECT * FROM timetable");
 
             DefaultTableModel model = new DefaultTableModel();
-            model.addColumn("TimeTable ID");
+            model.addColumn("TimeTable_ID");
             model.addColumn("Admin ID");
             model.addColumn("Department");
             model.addColumn("Course Code");
@@ -485,6 +575,30 @@ public class AdHome extends JFrame {
             JOptionPane.showMessageDialog(null, "Error loading timetable data");
         }
     }
+
+    private void deleteSelectedTimetableEntry() {
+        int selectedRow = Timetable1.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(null, "Please select a timetable entry to delete.");
+            return;
+        }
+
+        String timetableId = Timetable1.getValueAt(selectedRow, 0).toString(); // column 0 = timetable_id
+
+        int confirm = JOptionPane.showConfirmDialog(
+                null,
+                "Are you sure you want to delete ID: " + timetableId + "?",
+                "Confirm Delete",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            deleteTimetableFromDatabase(timetableId);  // Delete from DB
+            loadTimeTableData();                       // Refresh table after delete
+        }
+    }
+
 
     // This helper method converts numeric days to names
     private String convertDayNumberToName(String dayNumber) {
@@ -553,6 +667,37 @@ public class AdHome extends JFrame {
         }
     }
 
+    private void loadSelectedNoticeContent() {
+        int selectedRow = NoticeTable.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(null, "Please select a notice to view.");
+            return;
+        }
+
+        String noticeId = NoticeTable.getValueAt(selectedRow, 0).toString(); // assume column 0 = notice ID
+        String filename = "notice_" + noticeId + ".txt";
+        File file = new File("notices/" + filename);
+
+        System.out.println("Trying to read from: " + file.getName());
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            StringBuilder content = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+            textArea1.setText(content.toString());
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Unable to load notice content from file: " + file.getName());
+        }
+    }
+
+
+
+
     private void deleteNotice(String noticeId) {
         try {
             // Step 1: Delete from the database
@@ -589,16 +734,10 @@ public class AdHome extends JFrame {
     }
 
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Admin Home");
-            frame.setContentPane(new AdHome().mainPanel);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null); // Center the window
-            frame.setVisible(true);
 
-        });
+
+    public static void main(String[] args) {
+        new AdHome();
     }
 
 

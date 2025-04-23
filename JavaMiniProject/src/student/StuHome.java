@@ -515,9 +515,10 @@ public class StuHome extends JFrame {
     }
 
     public void displayNoticeContent(String title) {
+        // Clear the JTextArea first
         noticeTxtArea.setText("");
-        try {
 
+        try {
             // Establish connection to the database to get the NoticeId based on the title
             Connection con = DatabaseConnection.connect();
             String sql = "SELECT Notice_id FROM Notice WHERE Title = ?";
@@ -525,35 +526,50 @@ public class StuHome extends JFrame {
             pstmt.setString(1, title);
             ResultSet rs = pstmt.executeQuery();
 
+            // If the notice exists in the database
             if (rs.next()) {
                 String noticeId = rs.getString("Notice_id");
-
-                // Read content from the corresponding text file (e.g., notice_1.txt)
+                // Construct the file path using the noticeId
                 File noticeFile = new File("notices/notice_" + noticeId + ".txt");
-                System.out.println("noticeFile: " + noticeId+ " Displayed");
+                System.out.println("Looking for file at: " + noticeFile.getAbsolutePath());
 
-                try(BufferedReader reader = new BufferedReader(new FileReader(noticeFile))){
+
+                // Check if the file exists
+                if (!noticeFile.exists()) {
+                    System.out.println("File not found: " + noticeFile.getName());
+                    noticeTxtArea.setText("Notice file not found.");
+                    return;
+                }
+
+                // Debug: Print the absolute path to ensure it's correct
+                System.out.println("Looking for file at: " + noticeFile.getAbsolutePath());
+
+                // Read content from the file
+                try (BufferedReader reader = new BufferedReader(new FileReader(noticeFile))) {
                     StringBuilder content = new StringBuilder();
-
                     String line;
                     while ((line = reader.readLine()) != null) {
                         content.append(line).append("\n");
                     }
-                    // Display the content in the JTextArea
+
+                    // Display the content in JTextArea
                     noticeTxtArea.setText(content.toString());
+                } catch (IOException e) {
+                    System.out.println("Error reading file: " + e.getMessage());
+                    noticeTxtArea.setText("Error reading the notice file.");
+                    e.printStackTrace();
                 }
-//                noticeTxtArea.setText(content.toString());
-            }else {
-                noticeTxtArea.setText("Notice not found");
+            } else {
+                noticeTxtArea.setText("Notice not found in the database.");
             }
+
         } catch (SQLException e) {
-            System.out.println("Error in display Notice Content: " + e.getMessage());
+            System.out.println("Error fetching Notice ID: " + e.getMessage());
             e.printStackTrace();
-        }catch (IOException e) {
-            System.out.println("File error in display Notice Content: " + e.getMessage());
-            e.printStackTrace();
+            noticeTxtArea.setText("Error fetching notice details.");
         }
     }
+
 
     //************ Medical *******************
 
@@ -627,7 +643,7 @@ public class StuHome extends JFrame {
             ResultSet rs = pstmt.executeQuery();
 
             DefaultTableModel model = new DefaultTableModel(
-                    new String[]{"Attendance Id", "Lectur Hour", "Week No", "Day No", "Status", "Course Type"}, 0
+                    new String[]{"Attendance Id", "Lecture Hour", "Week No", "Day No", "Status", "Course Type"}, 0
             );
 
             while (rs.next()) {

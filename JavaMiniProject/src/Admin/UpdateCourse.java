@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import database.DatabaseConnection;
 import database.Session;
 
-public class UpdateCourse {
+public class UpdateCourse extends JFrame {
     public JPanel panel1;
     private JTextField textField1;
     private JTextField textField2;
@@ -27,6 +27,13 @@ public class UpdateCourse {
 //    }
 
     public UpdateCourse() {
+        setContentPane(panel1);
+        setTitle("Update Course");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setSize(500, 500);
+        setVisible(true);
+
         UPDATEButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,11 +110,7 @@ public class UpdateCourse {
 
     // Optional: for testing the GUI
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Update Course");
-        frame.setContentPane(new UpdateCourse().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        new UpdateCourse();
     }
 }
 

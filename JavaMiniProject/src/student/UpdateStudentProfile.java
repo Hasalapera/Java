@@ -122,7 +122,7 @@ public class UpdateStudentProfile extends JFrame {
 
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            String imagePath = selectedFile.getAbsolutePath();
+            String imagePath = selectedFile.getName();
 
             // Set the selected file path into the text field
             proPicTxt.setText(imagePath);

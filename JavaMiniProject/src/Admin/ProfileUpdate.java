@@ -37,6 +37,8 @@ public class ProfileUpdate extends JFrame{
         setSize(1000, 800);
         setVisible(true);
 
+
+
         // UPDATE button logic
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
@@ -56,6 +58,7 @@ public class ProfileUpdate extends JFrame{
         addPhotoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 uploadProfilePicture();
             }
         });
@@ -68,7 +71,7 @@ public class ProfileUpdate extends JFrame{
         });
     }
 
-    private void updateProfile() {
+    public void updateProfile() {
         String sql = "UPDATE user SET Fname=?, Lname=?, DoB=?, Role=?, Enrollment_Date=?, Address=?, Email=?, Phone_No=?, Password=?, Profile_pic=? WHERE UserName=?";
 
         try (Connection conn = DatabaseConnection.connect();
