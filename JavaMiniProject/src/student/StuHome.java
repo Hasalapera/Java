@@ -8,10 +8,15 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +98,7 @@ public class StuHome extends JFrame {
     private JScrollPane noticeScrollPane;
     private JScrollPane timeTableScrollPane;
     private JButton updateProfileButton;
-    private JTable table1;
+    private JTable Course_materials;
     private JButton updateTimeTableButton;
     private JButton addButton;
     private JButton checkEligibilityButton;
@@ -101,8 +106,7 @@ public class StuHome extends JFrame {
     private JButton deleteProfilePictureButton;
     private JButton okButtonCourses;
     private JPanel displayDetailsPanel;
-
-
+    private JButton downloadButton;
 
 
 //    private String[] courseCodes = {
@@ -321,6 +325,23 @@ public class StuHome extends JFrame {
                 }else {
                     JOptionPane.showMessageDialog(null, "Please select a course");
                 }
+            }
+        });
+        downloadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = Course_materials.getSelectedRow();
+
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(mainPanel, "Please select a material to download.");
+                    return;
+                }
+
+                // Get file path from selected row
+                String filePath = Course_materials.getValueAt(selectedRow, 3).toString();
+
+                // Call download method
+                downloadMaterial(filePath);
             }
         });
     }
@@ -766,29 +787,95 @@ public class StuHome extends JFrame {
         return courseCodes;
     }
 
+    // ************* Course materials **********************
+
+    private boolean listenerAdded = false;
+
     public void viewCourseMaterials(String courseCode) {
         Connection con = DatabaseConnection.connect();
         try{
-            String sql = "SELECT Course_Material FROM Course WHERE Course_Name = ?";
+            String sql = "SELECT Material_id,Course_code,Lec_id, file_path, uploaded_on FROM lecture_materials WHERE Course_code = ?";
             PreparedStatement pstmt = con.prepareStatement(sql);
-//            pstmt.setString(1, Session.loggedInUsername);
             pstmt.setString(1, courseCode);
             ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                String materialLink = rs.getString("Course_Material");
-                if(materialLink != null && !materialLink.isEmpty()) {
-                    // Show link or open browser
-                    JOptionPane.showMessageDialog(null, "Download Course Material here:\n" + materialLink);
-                    // You can also open directly
-                    // Desktop.getDesktop().browse(new URI(materialLink));
-                } else {
-                    JOptionPane.showMessageDialog(null, "No course material uploaded for this course.");
+
+            DefaultTableModel model = new DefaultTableModel() {
+                @Override
+                public boolean isCellEditable(int row, int column) {     // make jtable uneditable
+                    return false;
                 }
+            };
+            model.addColumn("Material ID");
+            model.addColumn("Course Code");
+            model.addColumn("Lecturer ID");
+            model.addColumn("File Path");
+            model.addColumn("Uploaded On");
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                        rs.getString("Material_id"),
+                        rs.getString("Course_code"),
+                        rs.getString("Lec_id"),
+                        rs.getString("file_path"),
+                        rs.getTimestamp("uploaded_on")
+                });
             }
+
+            Course_materials.setModel(model);
+            Course_materials.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+
+            if (!listenerAdded) {
+                Course_materials.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e) {
+                        int row = Course_materials.rowAtPoint(e.getPoint());
+                        int col = Course_materials.columnAtPoint(e.getPoint());
+
+                        if (row >= 0 && col == 3) {
+                            String filePath = Course_materials.getValueAt(row, col).toString();
+                            openMaterial(filePath);
+                        }
+                    }
+                });
+                listenerAdded = true;
+            }
+
         } catch (Exception e) {
             System.out.println("Error in view Course Materials: " + e.getMessage());
         }
     }
+
+    private void openMaterial(String filePath) {
+        File file = new File(filePath);
+        if (file.exists()) {
+            try {
+                Desktop.getDesktop().open(file);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(mainPanel, "Error opening the file: " + e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(mainPanel, "File does not exist.");
+        }
+    }
+
+    private void downloadMaterial(String sourcePath) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Save As");
+        fileChooser.setSelectedFile(new File(new File(sourcePath).getName())); // Default name
+
+        int userSelection = fileChooser.showSaveDialog(mainPanel);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File destinationFile = fileChooser.getSelectedFile();
+            try {
+                Files.copy(Paths.get(sourcePath), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                JOptionPane.showMessageDialog(mainPanel, "File downloaded to: " + destinationFile.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(mainPanel, "Error downloading file: " + e.getMessage());
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         new StuHome();
