@@ -101,7 +101,6 @@ public class AdHome extends JFrame {
         showProfilePicture(imgDisplayLbl);
 
 
-
         updateUserProfilesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -497,7 +496,6 @@ public class AdHome extends JFrame {
         }
     }
 
-
     private void loadCourseData() {
         try {
             Connection conn = DatabaseConnection.connect();
@@ -695,9 +693,6 @@ public class AdHome extends JFrame {
         }
     }
 
-
-
-
     private void deleteNotice(String noticeId) {
         try {
             // Step 1: Delete from the database
@@ -732,9 +727,6 @@ public class AdHome extends JFrame {
             JOptionPane.showMessageDialog(null, "Error deleting notice.");
         }
     }
-
-
-
 
     public static void main(String[] args) {
         new AdHome();

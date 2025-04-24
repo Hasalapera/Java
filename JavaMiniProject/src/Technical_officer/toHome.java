@@ -657,7 +657,4 @@ public class toHome extends  JFrame {
         }
     }
 
-//    public static void main(String[] args) {
-//        new toHome();
-//    }
 }
