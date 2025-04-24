@@ -438,7 +438,7 @@ public class LecHome extends JFrame {
 
             if (result > 0) {
                 // Set default image after deletion
-                String path = "JavaMiniProject/user_Pro_Pic/default.png";
+                String path = "user_Pro_Pic/default.png";
 
                 // Get label size
                 int width = imageLbl.getWidth();
@@ -531,10 +531,10 @@ public class LecHome extends JFrame {
             ResultSet rs = stmt.executeQuery(sql);
 
             if (rs.next()) {
-                String lastId = rs.getString("Mark_id"); // e.g., MK005
-                int num = Integer.parseInt(lastId.substring(2)); // remove 'MK'
+                String lastId = rs.getString("Mark_id");
+                int num = Integer.parseInt(lastId.substring(2));
                 num++;
-                nextId = String.format("MK%03d", num); // MK006
+                nextId = String.format("MK%03d", num);
             }
         } catch (SQLException | NumberFormatException e) {
             JOptionPane.showMessageDialog(MainFrame, "Failed to generate Mark ID: " + e.getMessage());
@@ -837,7 +837,7 @@ public class LecHome extends JFrame {
                 }
             };
 
-            // Get distinct student IDs
+            // Get student IDs
             PreparedStatement studentStmt = con.prepareStatement("SELECT DISTINCT Stu_id FROM marks");
             ResultSet studentRs = studentStmt.executeQuery();
 
@@ -1455,9 +1455,9 @@ public class LecHome extends JFrame {
                 String combinedEligibility = (combinedPercent >= 80) ? "Eligible" : "Not Eligible";
 
                 if (hasTheory && hasPractical) {
-                    model.addRow(new Object[]{Stu_id, Course_code1 + "-T", String.format("%.2f", theoryPercent) + "%", theoryEligibility});
-                    model.addRow(new Object[]{Stu_id, Course_code1 + "-P", String.format("%.2f", practicalPercent) + "%", practicalEligibility});
-                    model.addRow(new Object[]{Stu_id, Course_code1 + "-T,P", String.format("%.2f", combinedPercent) + "%", combinedEligibility});
+                    model.addRow(new Object[]{Stu_id, Course_code1 + " -T", String.format("%.2f", theoryPercent) + "%", theoryEligibility});
+                    model.addRow(new Object[]{Stu_id, Course_code1 + " -P", String.format("%.2f", practicalPercent) + "%", practicalEligibility});
+                    model.addRow(new Object[]{Stu_id, Course_code1 + " -T,P", String.format("%.2f", combinedPercent) + "%", combinedEligibility});
 
                 } else if (hasTheory) {
                     model.addRow(new Object[]{Stu_id, Course_code1, String.format("%.2f", theoryPercent) + "%", theoryEligibility});
@@ -1713,7 +1713,6 @@ public class LecHome extends JFrame {
         }catch (SQLException e){
             JOptionPane.showMessageDialog(MainFrame, e);
         }
-//        return CA_marks;
     }
 
     private double uniqcamarks(String CA_Stu_Number,String User){
@@ -1969,7 +1968,7 @@ public class LecHome extends JFrame {
         File file = new File(filePath);
         if (file.exists()) {
             try {
-                Desktop.getDesktop().open(file); // Opens the file using the default system application
+                Desktop.getDesktop().open(file);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(MainFrame, "Error opening the file: " + e.getMessage());
             }
@@ -1982,10 +1981,9 @@ public class LecHome extends JFrame {
         con = DatabaseConnection.connect();
 
         try {
-            // Step 1: Generate new Mark_ID
+
             String newMarkId = genaratenextmaterialID();
 
-            // Step 2: Insert material info
             String sql = "INSERT INTO lecture_materials (Material_id, Course_code,Lec_id,File_path) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, newMarkId);
@@ -2011,13 +2009,13 @@ public class LecHome extends JFrame {
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
-        String nextId = "M001"; // default starting ID
+        String nextId = "M001";
 
         if (rs.next()) {
             String lastId = rs.getString("Material_id");
             int num = Integer.parseInt(lastId.substring(1));
             num++; // increment
-            nextId = String.format("M%03d", num); // M006
+            nextId = String.format("M%03d", num);
         }
 
         return nextId;
@@ -2043,10 +2041,9 @@ public class LecHome extends JFrame {
             File selectedFile = fc.getSelectedFile();
             String fileName = selectedFile.getName();
 
-            // Base folder path
+            // Main folder path
             String baseFolder = "course_materials";
 
-            // Ensure the course code subfolder is created inside the base folder
             String destFolderPath = baseFolder + File.separator + Course_code;
 
             File destDir = new File(destFolderPath);
@@ -2054,11 +2051,9 @@ public class LecHome extends JFrame {
                 destDir.mkdirs();  // Create course_code folder if not exist
             }
 
-            // Define the full destination file path
             File destFile = new File(destDir, fileName);
 
             try {
-                // Copy the file to the destination folder
                 Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 addmaterials(destFile.getAbsolutePath(), User, Course_code);
                 showmaterilstable(User);
@@ -2095,7 +2090,6 @@ public class LecHome extends JFrame {
                     }
                 }
 
-                // Delete record from DB
                 PreparedStatement ps = con.prepareStatement("DELETE FROM lecture_materials WHERE Material_id = ?");
                 ps.setString(1, materialID);
                 int rows = ps.executeUpdate();
