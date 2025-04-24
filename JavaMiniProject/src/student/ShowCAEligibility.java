@@ -23,7 +23,7 @@ public class ShowCAEligibility extends JFrame {
 
     public ShowCAEligibility() {
         setContentPane(mainPanel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("CA Eligibility");
         setSize(2000, 1000);
         setLocationRelativeTo(null);
@@ -39,6 +39,7 @@ public class ShowCAEligibility extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new StuHome();
+                dispose();
             }
         });
     }

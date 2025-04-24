@@ -27,13 +27,14 @@ public class Att_CA extends JFrame{
         setLocationRelativeTo(null);
 
         String Course_code="ICT2132";
+        attendancepluscaforall(Course_code);
 
-        AllshowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                attendancepluscaforall(Course_code);
-            }
-        });
+//        AllshowButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                attendancepluscaforall(Course_code);
+//            }
+//        });
         stu_numbershowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -338,7 +339,7 @@ public class Att_CA extends JFrame{
         }
     }
 
-    public static void main(String[] args) {
-        new Att_CA();
-    }
+//    public static void main(String[] args) {
+//        new Att_CA();
+//    }
 }

@@ -51,7 +51,7 @@
               </grid>
             </constraints>
             <properties>
-              <font name="Kannada MN" size="16" style="0"/>
+              <font name="Courier New" size="20" style="1"/>
               <foreground color="-16758099"/>
               <text value="Log Out"/>
             </properties>
@@ -78,67 +78,62 @@
         <children>
           <component id="40953" class="javax.swing.JButton" binding="profileButton" default-binding="true">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="220" height="80"/>
-              </grid>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-66049"/>
-              <font name="Krungthep" size="20" style="0"/>
-              <foreground color="-16758099"/>
+              <background color="-16758099"/>
+              <borderPainted value="false"/>
+              <font name="Courier New" size="22" style="1"/>
+              <foreground color="-1"/>
               <horizontalTextPosition value="11"/>
               <text value="Profile"/>
             </properties>
           </component>
           <component id="23a0" class="javax.swing.JButton" binding="attendanceButton" default-binding="true">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="220" height="80"/>
-              </grid>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-66049"/>
-              <font name="Krungthep" size="20" style="0"/>
-              <foreground color="-16758099"/>
+              <background color="-16758099"/>
+              <borderPainted value="false"/>
+              <font name="Courier New" size="22" style="1"/>
+              <foreground color="-1"/>
               <text value="Attendance"/>
             </properties>
           </component>
           <component id="7ab12" class="javax.swing.JButton" binding="medicalButton" default-binding="true">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="220" height="80"/>
-              </grid>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-66049"/>
-              <font name="Krungthep" size="20" style="0"/>
-              <foreground color="-16758099"/>
+              <background color="-16758099"/>
+              <borderPainted value="false"/>
+              <font name="Courier New" size="22" style="1"/>
+              <foreground color="-1"/>
               <text value="Medical"/>
             </properties>
           </component>
           <component id="2e91" class="javax.swing.JButton" binding="timeTableButton" default-binding="true">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="220" height="80"/>
-              </grid>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-66049"/>
-              <font name="Krungthep" size="20" style="0"/>
-              <foreground color="-16758099"/>
+              <background color="-16758099"/>
+              <borderPainted value="false"/>
+              <font name="Courier New" size="22" style="1"/>
+              <foreground color="-1"/>
               <text value="Time Table"/>
             </properties>
           </component>
           <component id="efcc9" class="javax.swing.JButton" binding="noticeButton">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="220" height="80"/>
-              </grid>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-66049"/>
-              <font name="Krungthep" size="20" style="0"/>
-              <foreground color="-16758099"/>
+              <background color="-16758099"/>
+              <borderPainted value="false"/>
+              <font name="Courier New" size="22" style="1"/>
+              <foreground color="-1"/>
               <text value="Notice"/>
             </properties>
           </component>
@@ -213,10 +208,10 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-3289651"/>
+                      <background color="-1"/>
                       <editable value="false"/>
                       <font name="Courier New" size="14" style="0"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-16758099"/>
                       <horizontalAlignment value="0"/>
                     </properties>
                   </component>
@@ -239,10 +234,10 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-3289651"/>
+                      <background color="-1"/>
                       <editable value="false"/>
                       <font name="Courier New" size="14" style="0"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-16758099"/>
                       <horizontalAlignment value="0"/>
                     </properties>
                   </component>
@@ -265,10 +260,10 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-3289651"/>
+                      <background color="-1"/>
                       <editable value="false"/>
                       <font name="Courier New" size="14" style="0"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-16758099"/>
                       <horizontalAlignment value="0"/>
                     </properties>
                   </component>
@@ -291,10 +286,10 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-3289651"/>
+                      <background color="-1"/>
                       <editable value="false"/>
                       <font name="Courier New" size="14" style="0"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-16758099"/>
                       <horizontalAlignment value="0"/>
                     </properties>
                   </component>
@@ -329,10 +324,10 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-3289651"/>
+                      <background color="-1"/>
                       <editable value="false"/>
                       <font name="Courier New" size="14" style="0"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-16758099"/>
                       <horizontalAlignment value="0"/>
                     </properties>
                   </component>
@@ -343,10 +338,10 @@
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-3289651"/>
+                      <background color="-1"/>
                       <editable value="false"/>
                       <font name="Courier New" size="14" style="0"/>
-                      <foreground color="-16777216"/>
+                      <foreground color="-16758099"/>
                       <horizontalAlignment value="0"/>
                     </properties>
                   </component>
@@ -469,6 +464,7 @@
                       <component id="972e1" class="javax.swing.JTextArea" binding="noticeTxtArea">
                         <constraints/>
                         <properties>
+                          <background color="-1"/>
                           <editable value="false"/>
                           <foreground color="-16758099"/>
                         </properties>
@@ -565,39 +561,39 @@
                   <component id="b35f9" class="javax.swing.JButton" binding="add">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                        <preferred-size width="200" height="50"/>
+                        <preferred-size width="200" height="-1"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-16758099"/>
-                      <font name="JetBrains Mono ExtraBold" size="18"/>
-                      <foreground color="-1"/>
+                      <background color="-1"/>
+                      <font name="Courier New" size="18" style="0"/>
+                      <foreground color="-16758099"/>
                       <text value="Add"/>
                     </properties>
                   </component>
                   <component id="d025c" class="javax.swing.JButton" binding="update">
                     <constraints>
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                        <preferred-size width="200" height="50"/>
+                        <preferred-size width="200" height="-1"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-16758099"/>
-                      <font name="JetBrains Mono ExtraBold" size="18"/>
-                      <foreground color="-1"/>
+                      <background color="-1"/>
+                      <font name="Courier New" size="18" style="0"/>
+                      <foreground color="-16758099"/>
                       <text value="Update"/>
                     </properties>
                   </component>
                   <component id="145cf" class="javax.swing.JButton" binding="delete">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                        <preferred-size width="200" height="50"/>
+                        <preferred-size width="200" height="-1"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-16758099"/>
-                      <font name="JetBrains Mono ExtraBold" size="18"/>
-                      <foreground color="-1"/>
+                      <background color="-1"/>
+                      <font name="Courier New" size="18" style="0"/>
+                      <foreground color="-16758099"/>
                       <text value="Delete"/>
                     </properties>
                   </component>
@@ -665,39 +661,39 @@
                   <component id="28d6f" class="javax.swing.JButton" binding="addbtn">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                        <preferred-size width="200" height="50"/>
+                        <preferred-size width="200" height="-1"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-16758099"/>
-                      <font name="JetBrains Mono ExtraBold" size="18"/>
-                      <foreground color="-1"/>
+                      <background color="-1"/>
+                      <font name="Courier New" size="18" style="1"/>
+                      <foreground color="-16758099"/>
                       <text value="Add"/>
                     </properties>
                   </component>
                   <component id="d2d3d" class="javax.swing.JButton" binding="updatebtn">
                     <constraints>
                       <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="1" use-parent-layout="false">
-                        <preferred-size width="200" height="50"/>
+                        <preferred-size width="200" height="-1"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-16758099"/>
-                      <font name="JetBrains Mono ExtraBold" size="18"/>
-                      <foreground color="-1"/>
+                      <background color="-1"/>
+                      <font name="Courier New" size="18" style="1"/>
+                      <foreground color="-16758099"/>
                       <text value="Update"/>
                     </properties>
                   </component>
                   <component id="136ae" class="javax.swing.JButton" binding="deletebtn">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                        <preferred-size width="200" height="50"/>
+                        <preferred-size width="200" height="-1"/>
                       </grid>
                     </constraints>
                     <properties>
-                      <background color="-16758099"/>
-                      <font name="JetBrains Mono ExtraBold" size="18"/>
-                      <foreground color="-1"/>
+                      <background color="-1"/>
+                      <font name="Courier New" size="18" style="1"/>
+                      <foreground color="-16758099"/>
                       <text value="Delete"/>
                     </properties>
                   </component>

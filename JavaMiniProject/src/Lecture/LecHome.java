@@ -17,88 +17,88 @@ import java.util.*;
 import java.util.List;
 import java.nio.file.*;
 
-public class LecHome extends JFrame {
-    private JPanel mainPanel;
-    private JPanel headingPanel;
-    private JLabel stuManaSysLbl;
-    private JLabel FoTLbl;
-    private JButton logOutButton;
-    private JPanel btnPanel;
-    private JButton profileButton;
-    private JButton addMarksButton;
-    private JButton gradeAndGPAButton;
-    private JButton attendanceButton;
-    private JButton CAEligibilityButton;
-    private JButton undergraduateDetailsButton;
-    private JButton noticeButton;
-    private JPanel cardMainPanel;
-    private JPanel profileCard;
-    private JLabel profileHeadingLbl;
-    private JPanel detailPanel;
-    private JLabel fNameLbl;
-    private JTextField fNameTxt;
-    private JLabel lNameLbl;
-    private JTextField lNameTxt;
-    private JLabel addressLbl;
-    private JTextField addressTxt;
-    private JLabel emailLbl;
-    private JTextField emailTxt;
-    private JLabel pNoLbl;
-    private JLabel roleLbl;
-    private JTextField pNoTxt;
-    private JTextField roleTxt;
-    private JPanel imgMainPanel;
-    private JPanel imgPanel;
-    private JLabel imageLbl;
-    private JButton deleteProfilePictureButton;
-    private JButton updateProfileButton;
-    private JPanel AddmarksCard;
-    private JPanel gradeGPACard;
-    private JPanel attendanceCard;
-    private JPanel CACard;
-    private JPanel noticeCard;
-    private JLabel noticeHeadingLbl;
-    private JLabel selectTitleLbl;
-    private JComboBox selectTitleCombo;
-    private JPanel noticeTxtAreaPanel;
-    private JScrollPane noticeScrollPane;
-    private JTextArea noticeTxtArea;
-    private JPanel UgdetailsCard;
-    private JPanel MainFrame;
-    private JTextField Mark_id_textfield;
-    private JTextField student_id_textField;
-    private JTextField mark_textField;
-    private JButton ADDButton;
-    private JButton deleteButton;
-    private JComboBox mark_type_comboBox;
-    private JComboBox coursecodecomboBox;
-    private JTable marktable;
-    private JTextField Stu_number;
-    private JButton gradegpuuniqshowButton;
-    private JButton gradegpuallshowButton;
-    private JTable Grade_GPA_Table;
-    private JPanel GradeMainpanle;
-    private JButton uniqugdetailsshowButton;
-    private JButton allugdetailsshowButton;
-    private JTable Stu_details_table;
-    private JTextField ugStudentNumber;
-    private JButton attuniqoneshowButton;
-    private JButton AllshowButton;
-    private JButton allAttendanceButton;
-    private JButton allMedicelsButton;
-    private JButton attcaeligibilityButton;
-    private JTable Attendance_table;
-    private JTextField attStu_number;
-    private JTextField CAstu_numbertextField;
-    private JButton Uniq_stu_CA_button;
-    private JTable CAEligibilitytable;
-    private JButton AllCAbutton;
-    private JButton Addmaterialsbtm;
-    private JPanel AddmaterialsCard;
-    private JTable Materials_Table;
-    private JButton lecmaterialsDeletebutton;
-    private JComboBox lecmaterialscoursecodedropdown;
-    private JButton lecmaterialsAddbutton;
+public class LecHome extends JFrame{
+    public JPanel mainPanel;
+    public JPanel headingPanel;
+    public JLabel stuManaSysLbl;
+    public JLabel FoTLbl;
+    public JButton logOutButton;
+    public JPanel btnPanel;
+    public JButton profileButton;
+    public JButton addMarksButton;
+    public JButton gradeAndGPAButton;
+    public JButton attendanceButton;
+    public JButton CAEligibilityButton;
+    public JButton undergraduateDetailsButton;
+    public JButton noticeButton;
+    public JPanel cardMainPanel;
+    public JPanel profileCard;
+    public JLabel profileHeadingLbl;
+    public JPanel detailPanel;
+    public JLabel fNameLbl;
+    public JTextField fNameTxt;
+    public JLabel lNameLbl;
+    public JTextField lNameTxt;
+    public JLabel addressLbl;
+    public JTextField addressTxt;
+    public JLabel emailLbl;
+    public JTextField emailTxt;
+    public JLabel pNoLbl;
+    public JLabel roleLbl;
+    public JTextField pNoTxt;
+    public JTextField roleTxt;
+    public JPanel imgMainPanel;
+    public JPanel imgPanel;
+    public JLabel imageLbl;
+    public JButton deleteProfilePictureButton;
+    public JButton updateProfileButton;
+    public JPanel AddmarksCard;
+    public JPanel gradeGPACard;
+    public JPanel attendanceCard;
+    public JPanel CACard;
+    public JPanel noticeCard;
+    public JLabel noticeHeadingLbl;
+    public JLabel selectTitleLbl;
+    public JComboBox selectTitleCombo;
+    public JPanel noticeTxtAreaPanel;
+    public JScrollPane noticeScrollPane;
+    public JTextArea noticeTxtArea;
+    public JPanel UgdetailsCard;
+    public JPanel MainFrame;
+    public JTextField Mark_id_textfield;
+    public JTextField student_id_textField;
+    public JTextField mark_textField;
+    public JButton ADDButton;
+    public JButton deleteButton;
+    public JComboBox mark_type_comboBox;
+    public JComboBox coursecodecomboBox;
+    public JTable marktable;
+    public JTextField Stu_number;
+    public JButton gradegpuuniqshowButton;
+    public JButton gradegpuallshowButton;
+    public JTable Grade_GPA_Table;
+    public JPanel GradeMainpanle;
+    public JButton uniqugdetailsshowButton;
+    public JButton allugdetailsshowButton;
+    public JTable Stu_details_table;
+    public JTextField ugStudentNumber;
+    public JButton attuniqoneshowButton;
+    public JButton AllshowButton;
+    public JButton allAttendanceButton;
+    public JButton allMedicelsButton;
+    public JButton attcaeligibilityButton;
+    public JTable Attendance_table;
+    public JTextField attStu_number;
+    public JTextField CAstu_numbertextField;
+    public JButton Uniq_stu_CA_button;
+    public JTable CAEligibilitytable;
+    public JButton AllCAbutton;
+    public JButton Addmaterialsbtm;
+    public JPanel AddmaterialsCard;
+    public JTable Materials_Table;
+    public JButton lecmaterialsDeletebutton;
+    public JComboBox lecmaterialscoursecodedropdown;
+    public JButton lecmaterialsAddbutton;
 
     Connection con;
     PreparedStatement pst;
@@ -109,7 +109,7 @@ public class LecHome extends JFrame {
     public LecHome(String User_ID) {
 
         setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Lecture Home");
         setSize(1024, 768);
         setLocationRelativeTo(null);
@@ -119,6 +119,7 @@ public class LecHome extends JFrame {
 
         displayProfileDetils(User_ID);
         showProfilePicture( User,imageLbl);
+//        Gradegpushowtable();
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
@@ -139,7 +140,6 @@ public class LecHome extends JFrame {
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                     new Lec_profileupdate(User_ID);
 
             }
@@ -171,12 +171,12 @@ public class LecHome extends JFrame {
                 Gradegpushowtable();
             }
         });
-        gradegpuallshowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Gradegpushowtable();
-            }
-        });
+//        gradegpuallshowButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Gradegpushowtable();
+//            }
+//        });
         gradegpuuniqshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -195,12 +195,12 @@ public class LecHome extends JFrame {
                 allUgraduatesDetails();
             }
         });
-        allugdetailsshowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                allUgraduatesDetails();
-            }
-        });
+//        allugdetailsshowButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                allUgraduatesDetails();
+//            }
+//        });
         uniqugdetailsshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -217,6 +217,7 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "attendanceCard");
+                allstudentattendanceprecent(User_ID);
             }
         });
         allAttendanceButton.addActionListener(new ActionListener() {
@@ -232,12 +233,12 @@ public class LecHome extends JFrame {
             }
         });
 
-        AllshowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                allstudentattendanceprecent(User_ID);
-            }
-        });
+//        AllshowButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                allstudentattendanceprecent(User_ID);
+//            }
+//        });
         attuniqoneshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -254,14 +255,15 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "CACard");
-            }
-        });
-        AllCAbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 allcamarks(User);
             }
         });
+//        AllCAbutton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                allcamarks(User);
+//            }
+//        });
         Uniq_stu_CA_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -2122,6 +2124,10 @@ public class LecHome extends JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(MainFrame, e);
         }
+    }
+
+    public static void main(String[] args) {
+        new LecHome("Lec001");
     }
 
 }

@@ -32,7 +32,7 @@ public class Lec_profileupdate extends JFrame {
 
     public Lec_profileupdate(String User_ID) {
         setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Student Home");
         setSize(1024, 768);
         setLocationRelativeTo(null);

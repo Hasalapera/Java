@@ -127,7 +127,7 @@ public class StuHome extends JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Student Home");
-        setSize(2000, 1000);
+        setSize(1000, 800);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -241,7 +241,7 @@ public class StuHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new ShowCAEligibility();
-//                dispose();
+                dispose();
             }
         });
         selectAttCourseCombo.addActionListener(new ActionListener() {

@@ -1,9 +1,10 @@
 package student;
 
 import Admin.AdHome;
+import Lecture.*;
 //import admin.AdminHome;
 
-import Lecture.LecHome;
+//import Lecture.LecHome;
 import database.DatabaseConnection;
 import database.Session;
 
@@ -41,7 +42,7 @@ public class Login extends JFrame {
     public Login() {
         setContentPane(mainPanel);
         setTitle("Login");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(1024, 768);
         setVisible(true);
@@ -121,6 +122,8 @@ public class Login extends JFrame {
                     } else if (userNamelower.startsWith("lec")) {
                         JOptionPane.showMessageDialog(null, "Lecturer Login Successful");
                         new LecHome(dbuserName);
+                        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(mainPanel);
+                        topFrame.dispose();
                     } else if (userNamelower.startsWith("tech")) {
                         JOptionPane.showMessageDialog(null, "Technical Officer Login Successful");
                         new toHome();
