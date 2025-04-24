@@ -2,6 +2,8 @@ package student;
 
 import database.DatabaseConnection;
 import database.Session;
+import helper.MarkCalculator;
+import java.text.DecimalFormat;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -384,6 +386,7 @@ public class StuHome extends JFrame {
             }
         }
     }
+
 
     public void getGrade(String courseCode){
         Connection con = null;
