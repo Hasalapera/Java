@@ -550,7 +550,7 @@
                   <background color="-2104859"/>
                   <font name="Kannada MN" size="20" style="1"/>
                   <foreground color="-16758099"/>
-                  <text value="SGPA"/>
+                  <text value="GPA"/>
                 </properties>
               </component>
               <component id="6827b" class="javax.swing.JTextField" binding="sgpaTxt">

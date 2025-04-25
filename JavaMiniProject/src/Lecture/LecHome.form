@@ -796,7 +796,7 @@
                               <component id="529b" class="javax.swing.JTextField" binding="Stu_number">
                                 <constraints>
                                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                                    <preferred-size width="-1" height="30"/>
+                                    <preferred-size width="300" height="30"/>
                                     <maximum-size width="-1" height="100"/>
                                   </grid>
                                 </constraints>
@@ -828,12 +828,12 @@
                   </grid>
                   <component id="76468" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="48" style="1"/>
-                      <foreground color="-16447994"/>
-                      <text value="Grade And GPU"/>
+                      <foreground color="-16758099"/>
+                      <text value="Grade And GPA"/>
                     </properties>
                   </component>
                 </children>
@@ -882,7 +882,7 @@
                             </properties>
                             <border type="none"/>
                             <children>
-                              <grid id="b976c" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                              <grid id="b976c" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                                 <margin top="10" left="60" bottom="10" right="40"/>
                                 <constraints>
                                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -895,33 +895,6 @@
                                 </properties>
                                 <border type="none"/>
                                 <children>
-                                  <component id="c619e" class="javax.swing.JButton" binding="allMedicelsButton" default-binding="true">
-                                    <constraints>
-                                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                                        <preferred-size width="250" height="-1"/>
-                                        <maximum-size width="145" height="40"/>
-                                      </grid>
-                                    </constraints>
-                                    <properties>
-                                      <background color="-1"/>
-                                      <font name="Courier New" size="14" style="1"/>
-                                      <foreground color="-16758099"/>
-                                      <text value="All Medicels"/>
-                                    </properties>
-                                  </component>
-                                  <component id="9505b" class="javax.swing.JButton" binding="allAttendanceButton">
-                                    <constraints>
-                                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                                        <preferred-size width="250" height="-1"/>
-                                      </grid>
-                                    </constraints>
-                                    <properties>
-                                      <background color="-1"/>
-                                      <font name="Courier New" size="14" style="1"/>
-                                      <foreground color="-16758099"/>
-                                      <text value="All Attendance"/>
-                                    </properties>
-                                  </component>
                                   <component id="258b1" class="javax.swing.JTextField" binding="attStu_number">
                                     <constraints>
                                       <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
@@ -967,16 +940,41 @@
                                   </vspacer>
                                   <component id="9ba04" class="javax.swing.JButton" binding="attcaeligibilityButton">
                                     <constraints>
-                                      <grid row="0" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                                         <preferred-size width="250" height="-1"/>
-                                        <maximum-size width="145" height="40"/>
                                       </grid>
                                     </constraints>
                                     <properties>
                                       <background color="-1"/>
                                       <font name="Courier New" size="14" style="1"/>
                                       <foreground color="-16758099"/>
-                                      <text value="Attendance_Eligibility"/>
+                                      <text value="Final Eligibility"/>
+                                    </properties>
+                                  </component>
+                                  <component id="9505b" class="javax.swing.JButton" binding="allAttendanceButton">
+                                    <constraints>
+                                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="250" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-1"/>
+                                      <font name="Courier New" size="14" style="1"/>
+                                      <foreground color="-16758099"/>
+                                      <text value="All Attendance"/>
+                                    </properties>
+                                  </component>
+                                  <component id="c619e" class="javax.swing.JButton" binding="allMedicelsButton" default-binding="true">
+                                    <constraints>
+                                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                                        <preferred-size width="250" height="-1"/>
+                                      </grid>
+                                    </constraints>
+                                    <properties>
+                                      <background color="-1"/>
+                                      <font name="Courier New" size="14" style="1"/>
+                                      <foreground color="-16758099"/>
+                                      <text value="All Medicels"/>
                                     </properties>
                                   </component>
                                 </children>
