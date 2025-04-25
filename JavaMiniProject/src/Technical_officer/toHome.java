@@ -100,7 +100,12 @@ public class toHome extends  JFrame {
         cardLayout.show(cardMainPanel, "profileCard");
 
 
-
+        profileButton.setFocusPainted(false);
+        attendanceButton.setFocusPainted(false);
+        medicalButton.setFocusPainted(false);
+        timeTableButton.setFocusPainted(false);
+        noticeButton.setFocusPainted(false);
+        
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

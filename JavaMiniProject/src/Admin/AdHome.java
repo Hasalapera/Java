@@ -102,6 +102,11 @@ public class AdHome extends JFrame {
         loadAdminProfile();  // Call to load the admin details right after the window is shown
         showProfilePicture(imgDisplayLbl);
 
+        UserProfilesButton.setFocusPainted(false);
+        AdminprofileButton.setFocusPainted(false);
+        courseButton.setFocusPainted(false);
+        timeTableButton.setFocusPainted(false);
+        noticeButton.setFocusPainted(false);
 
         UserProfilesButton.addActionListener(new ActionListener() {
             @Override

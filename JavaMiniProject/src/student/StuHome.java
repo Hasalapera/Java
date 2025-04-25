@@ -137,6 +137,14 @@ public class StuHome extends JFrame {
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
+        profileButton.setFocusPainted(false);
+        coursesButton.setFocusPainted(false);
+        attendanceButton.setFocusPainted(false);
+        medicalButton.setFocusPainted(false);
+        timeTableButton.setFocusPainted(false);
+        noticeButton.setFocusPainted(false);
+        gradeAndGPAButton.setFocusPainted(false);
+
         // Button actions to switch cards
         profileButton.addActionListener(new ActionListener() {
             @Override

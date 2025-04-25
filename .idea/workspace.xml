@@ -6,25 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="crs materials updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/Att_CA.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/Att_CA.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/database/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/database/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/AddAttendance.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/AddAttendance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/addmedical.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/addmedical.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateAttendance.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateAttendance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateMedical.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/updateMedical.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Workshop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Workshop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2113/Lecture1_DSA new.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2113/Lecture2_stacks new.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2122/Lesson 01 - Introduction to OOP.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2122/Lesson 02 - Classes and Objects - Part 02.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2132/Lesson 01 - Introduction to Java - Part 2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2132/Lesson 01 - Introduction to Java.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2142/Lecture 01.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2142/Lecture 02.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2152/ICT2152 - Lecture01.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_materials/ICT2152/ICT2152 - Lecture02.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

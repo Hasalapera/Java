@@ -119,6 +119,15 @@ public class LecHome extends JFrame{
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
+        profileButton.setFocusPainted(false);
+        addMarksButton.setFocusPainted(false);
+        gradeAndGPAButton.setFocusPainted(false);
+        attendanceButton.setFocusPainted(false);
+        CAEligibilityButton.setFocusPainted(false);
+        noticeButton.setFocusPainted(false);
+        Addmaterialsbtm.setFocusPainted(false);
+        undergraduateDetailsButton.setFocusPainted(false);
+
         profileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
