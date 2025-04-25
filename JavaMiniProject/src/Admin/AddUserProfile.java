@@ -32,7 +32,7 @@ public class AddUserProfile extends JFrame {
         setContentPane(MainPanel);
         setTitle("Add User Profile");
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setLocationRelativeTo(null);
+//        setLocationRelativeTo(null);
         setSize(1000, 800);
         setVisible(true);
         textField11.setVisible(true);

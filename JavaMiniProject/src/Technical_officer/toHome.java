@@ -81,7 +81,7 @@ public class toHome extends  JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("to home");
-        setSize(2000,900);
+        setSize(2000,830);
         setVisible(true);
         setLocationRelativeTo(null);
 

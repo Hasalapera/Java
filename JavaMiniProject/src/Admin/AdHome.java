@@ -94,7 +94,7 @@ public class AdHome extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Admin Home");
         pack(); // Adjusts window size to fit content
-        setSize(2000, 800);
+        setSize(2000, 830);
         setLocationRelativeTo(null);
         setVisible(true);
 
