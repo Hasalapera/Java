@@ -7,9 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import database.DatabaseConnection;
-import database.Session;
-
-
 
 
 public class AddCourse extends JFrame {
@@ -22,11 +19,12 @@ public class AddCourse extends JFrame {
     private JTextField textField6;
     private JButton addCourseButton;
     private JButton clearButton;
+    private JButton EXITButton;
 
 
     public AddCourse() {
         setContentPane(panel1);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Add Course");
         setSize(1000, 800);
@@ -46,6 +44,13 @@ public class AddCourse extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clearFields();
+            }
+        });
+        EXITButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AdHome(); // go back to admin home
+                dispose();
             }
         });
     }

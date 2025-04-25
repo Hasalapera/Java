@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import database.DatabaseConnection;
-import database.Session;
 
 
 public class AddTimeTable extends JFrame {
@@ -19,11 +18,12 @@ public class AddTimeTable extends JFrame {
     private JTextField textField7;
     private JButton addDetailsButton;
     private JButton CLEARButton;
+    private JButton exitButton;
 
     public AddTimeTable() {
         setContentPane(panel1);
         setTitle("Add Time Table");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(1000, 600);
         setVisible(true);
@@ -42,6 +42,13 @@ public class AddTimeTable extends JFrame {
             }
         });
 
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AdHome(); // go back to admin home
+                dispose();
+            }
+        });
     }
 
     private void clearFields() {

@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import database.DatabaseConnection;
-import database.Session;
 
 public class UpdateTimeTable extends JFrame {
     public JPanel panel1;
@@ -18,11 +17,12 @@ public class UpdateTimeTable extends JFrame {
     private JTextField textField7;
     private JButton updateButton;
     private JButton CLEARButton;
+    private JButton exitButton;
 
     public UpdateTimeTable() {
         setContentPane(panel1);
         setTitle("Update Time Table");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(500, 500);
         setVisible(true);
@@ -43,6 +43,13 @@ public class UpdateTimeTable extends JFrame {
             }
         });
 
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AdHome(); // go back to admin home
+                dispose();
+            }
+        });
     }
 
     private void updateTimeTableInDB() {
