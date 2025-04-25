@@ -46,6 +46,7 @@ public class Login extends JFrame {
         setLocationRelativeTo(null);
         setSize(1024, 768);
         setVisible(true);
+        getRootPane().setDefaultButton(logInButton);
 
 //        frame.add(mainPanel);
 //        frame.setLocationRelativeTo(null);
