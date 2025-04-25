@@ -105,7 +105,7 @@ public class toHome extends  JFrame {
         medicalButton.setFocusPainted(false);
         timeTableButton.setFocusPainted(false);
         noticeButton.setFocusPainted(false);
-        
+
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
