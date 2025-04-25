@@ -5,7 +5,7 @@ import java.sql.*;
 public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/fot_management_system";
     private static final String USER = "root";
-    private static final String PASSWORD = "1234";
+    private static final String PASSWORD = "";
 
     public static Connection connect() {
         try {
