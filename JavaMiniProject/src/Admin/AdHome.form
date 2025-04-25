@@ -68,7 +68,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="cb7e4" class="javax.swing.JButton" binding="profileButton" default-binding="true">
+          <component id="cb7e4" class="javax.swing.JButton" binding="AdminprofileButton">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -78,7 +78,7 @@
               <font name="Monospaced" size="20" style="1"/>
               <foreground color="-2104859"/>
               <iconTextGap value="4"/>
-              <text value="Profile"/>
+              <text value="Admin Profile"/>
             </properties>
           </component>
           <component id="6ce70" class="javax.swing.JButton" binding="courseButton" default-binding="true">
@@ -117,7 +117,7 @@
               <text value="Notice"/>
             </properties>
           </component>
-          <component id="6b059" class="javax.swing.JButton" binding="updateUserProfilesButton" default-binding="true">
+          <component id="6b059" class="javax.swing.JButton" binding="UserProfilesButton">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -126,7 +126,7 @@
               <borderPainted value="false"/>
               <font name="Monospaced" size="20" style="1"/>
               <foreground color="-2104859"/>
-              <text value="Update User Profiles"/>
+              <text value="User Profiles"/>
             </properties>
           </component>
         </children>
@@ -640,7 +640,7 @@
               </component>
             </children>
           </grid>
-          <grid id="dee6b" binding="updateUProfilesPanel" layout-manager="GridLayoutManager" row-count="13" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="dee6b" binding="updateUProfilesPanel" layout-manager="GridLayoutManager" row-count="14" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <card name="updateUProfilesPanel"/>
@@ -652,7 +652,7 @@
             <children>
               <component id="78516" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="2" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Krungthep" size="48" style="1"/>
@@ -662,7 +662,7 @@
               </component>
               <component id="95340" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
@@ -671,32 +671,6 @@
                 </properties>
               </component>
               <component id="753e3" class="javax.swing.JTextField" binding="userNametxt">
-                <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <background color="-66049"/>
-                  <foreground color="-14145496"/>
-                </properties>
-              </component>
-              <hspacer id="58659">
-                <constraints>
-                  <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </hspacer>
-              <component id="c0772" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
-                  <text value="First Name"/>
-                </properties>
-              </component>
-              <component id="73d7d" class="javax.swing.JTextField" binding="fNametxt">
                 <constraints>
                   <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -707,17 +681,22 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="24832" class="javax.swing.JLabel">
+              <hspacer id="58659">
+                <constraints>
+                  <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <component id="c0772" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Last Name"/>
+                  <text value="First Name"/>
                 </properties>
               </component>
-              <component id="8158b" class="javax.swing.JTextField" binding="lNametxt">
+              <component id="73d7d" class="javax.swing.JTextField" binding="fNametxt">
                 <constraints>
                   <grid row="3" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -728,17 +707,17 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="d077e" class="javax.swing.JLabel">
+              <component id="24832" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Date of Birthday"/>
+                  <text value="Last Name"/>
                 </properties>
               </component>
-              <component id="a31e" class="javax.swing.JTextField" binding="dobTxt">
+              <component id="8158b" class="javax.swing.JTextField" binding="lNametxt">
                 <constraints>
                   <grid row="4" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -749,17 +728,17 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="e0d39" class="javax.swing.JLabel">
+              <component id="d077e" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Role"/>
+                  <text value="Date of Birthday"/>
                 </properties>
               </component>
-              <component id="7e8b6" class="javax.swing.JTextField" binding="roleTxt">
+              <component id="a31e" class="javax.swing.JTextField" binding="dobTxt">
                 <constraints>
                   <grid row="5" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -770,17 +749,17 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="b03ff" class="javax.swing.JLabel">
+              <component id="e0d39" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Enrollment Date"/>
+                  <text value="Role"/>
                 </properties>
               </component>
-              <component id="10903" class="javax.swing.JTextField" binding="enrollTxt">
+              <component id="7e8b6" class="javax.swing.JTextField" binding="roleTxt">
                 <constraints>
                   <grid row="6" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -791,17 +770,17 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="66c4" class="javax.swing.JLabel">
+              <component id="b03ff" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Address"/>
+                  <text value="Enrollment Date"/>
                 </properties>
               </component>
-              <component id="41f72" class="javax.swing.JTextField" binding="addressTxt">
+              <component id="10903" class="javax.swing.JTextField" binding="enrollTxt">
                 <constraints>
                   <grid row="7" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -812,17 +791,17 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="d9fc7" class="javax.swing.JLabel">
+              <component id="66c4" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Email"/>
+                  <text value="Address"/>
                 </properties>
               </component>
-              <component id="5c73d" class="javax.swing.JTextField" binding="emailTxt">
+              <component id="41f72" class="javax.swing.JTextField" binding="addressTxt">
                 <constraints>
                   <grid row="8" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -833,17 +812,17 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="cff24" class="javax.swing.JLabel">
+              <component id="d9fc7" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Phone Number"/>
+                  <text value="Email"/>
                 </properties>
               </component>
-              <component id="7f319" class="javax.swing.JTextField" binding="pNoTxt">
+              <component id="5c73d" class="javax.swing.JTextField" binding="emailTxt">
                 <constraints>
                   <grid row="9" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -854,17 +833,17 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="5d8bb" class="javax.swing.JLabel">
+              <component id="cff24" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Password"/>
+                  <text value="Phone Number"/>
                 </properties>
               </component>
-              <component id="94296" class="javax.swing.JTextField" binding="pwTxt">
+              <component id="7f319" class="javax.swing.JTextField" binding="pNoTxt">
                 <constraints>
                   <grid row="10" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -875,17 +854,17 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
-              <component id="7c1ce" class="javax.swing.JLabel">
+              <component id="5d8bb" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
                   <foreground color="-66049"/>
-                  <text value="Profile Picture"/>
+                  <text value="Password"/>
                 </properties>
               </component>
-              <component id="8d8b6" class="javax.swing.JTextField" binding="proPicTxt">
+              <component id="94296" class="javax.swing.JTextField" binding="pwTxt">
                 <constraints>
                   <grid row="11" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -896,9 +875,30 @@
                   <foreground color="-14145496"/>
                 </properties>
               </component>
+              <component id="7c1ce" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Kannada MN" size="18" style="1"/>
+                  <foreground color="-66049"/>
+                  <text value="Profile Picture"/>
+                </properties>
+              </component>
+              <component id="8d8b6" class="javax.swing.JTextField" binding="proPicTxt">
+                <constraints>
+                  <grid row="12" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-66049"/>
+                  <foreground color="-14145496"/>
+                </properties>
+              </component>
               <component id="a4846" class="javax.swing.JButton" binding="addPhotoButton" default-binding="true">
                 <constraints>
-                  <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="16" style="0"/>
@@ -907,7 +907,7 @@
               </component>
               <component id="a3625" class="javax.swing.JButton" binding="clearButton" default-binding="true">
                 <constraints>
-                  <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="16" style="0"/>
@@ -916,7 +916,7 @@
               </component>
               <component id="894aa" class="javax.swing.JButton" binding="updateProfileButton1" default-binding="true">
                 <constraints>
-                  <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="16" style="0"/>
@@ -925,9 +925,35 @@
               </component>
               <hspacer id="c54cd">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
+              <component id="c855b" class="javax.swing.JButton" binding="viewAllUsersButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="40"/>
+                    <maximum-size width="150" height="40"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font size="16" style="1"/>
+                  <foreground color="-16758099"/>
+                  <text value="View All Users"/>
+                </properties>
+              </component>
+              <component id="49404" class="javax.swing.JButton" binding="addNewUserButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="40"/>
+                    <maximum-size width="150" height="40"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font size="16" style="1"/>
+                  <foreground color="-16758099"/>
+                  <text value="Add New User "/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>

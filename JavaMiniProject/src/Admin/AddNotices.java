@@ -7,7 +7,7 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import database.DatabaseConnection;
-import database.Session;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -22,6 +22,7 @@ public class AddNotices extends JFrame {
     private JTextField textField4;
     private JButton addNoticeButton;
     private JButton clearButton;
+    private JButton exitButton;
 
     public AddNotices() {
         setContentPane(MainPanel);
@@ -114,6 +115,13 @@ public class AddNotices extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clearFields();
+            }
+        });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AdHome(); // go back to admin home
+                dispose();
             }
         });
     }

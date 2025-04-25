@@ -7,9 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.*;
 import java.sql.SQLException;
-import java.sql.DriverManager;
+
 import database.DatabaseConnection;
-import database.Session;
 
 public class UpdateCourse extends JFrame {
     public JPanel panel1;
@@ -21,6 +20,7 @@ public class UpdateCourse extends JFrame {
     private JTextField textField6;
     private JButton UPDATEButton;
     private JButton CLEARButton;
+    private JButton exitButton;
 
 //    private void createUIComponents() {
         // TODO: place custom component creation code here
@@ -29,7 +29,7 @@ public class UpdateCourse extends JFrame {
     public UpdateCourse() {
         setContentPane(panel1);
         setTitle("Update Course");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(500, 500);
         setVisible(true);
@@ -48,6 +48,13 @@ public class UpdateCourse extends JFrame {
             }
         });
 
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AdHome(); // go back to admin home
+                dispose();
+            }
+        });
     }
 
     private void clearFields() {

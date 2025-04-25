@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 import database.DatabaseConnection;
-import Admin.ProfileUpdate;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -20,9 +19,10 @@ import java.io.IOException;
 import java.io.File;
 
 
+
 public class AdHome extends JFrame {
     private JPanel mainPanel;
-    private JButton profileButton;
+    private JButton AdminprofileButton;
     private JButton courseButton;
     private JButton timeTableButton;
     private JButton noticeButton;
@@ -76,9 +76,11 @@ public class AdHome extends JFrame {
     private JButton clearButton;
     private JButton updateProfileButton1;
     private JButton exitButton;
-    private JButton updateUserProfilesButton;
+    private JButton UserProfilesButton;
     private JPanel updateUProfilesPanel;
     private JPanel noticeDisplaybtnPanel;
+    private JButton viewAllUsersButton;
+    private JButton addNewUserButton;
     //private JTable noticeTable;
 
     Connection con;
@@ -101,7 +103,7 @@ public class AdHome extends JFrame {
         showProfilePicture(imgDisplayLbl);
 
 
-        updateUserProfilesButton.addActionListener(new ActionListener() {
+        UserProfilesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) cardpanel.getLayout();
@@ -135,7 +137,7 @@ public class AdHome extends JFrame {
                 clearFields();
             }
         });
-        profileButton.addActionListener(new ActionListener() {
+        AdminprofileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) cardpanel.getLayout();
@@ -146,10 +148,39 @@ public class AdHome extends JFrame {
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 new ProfileUpdate();
+                dispose();
             }
         });
+
+        viewAllUsersButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ViewUserProfiles viewPanel = new ViewUserProfiles(cardpanel, "PreviousCardName");
+                cardpanel.add(viewPanel.Mainpanel, "ViewUsersCard");
+
+                CardLayout cl = (CardLayout) cardpanel.getLayout();
+                cl.show(cardpanel, "ViewUsersCard");
+
+
+//               new ViewUserProfiles();
+
+            }
+        });
+
+
+        addNewUserButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout) cardpanel.getLayout();
+                cl.show(cardpanel, "AddUserCard");
+                new AddUserProfile();
+                dispose();
+
+
+            }
+        });
+
         timeTableButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -162,12 +193,14 @@ public class AdHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new AddCourse();
+                dispose();
             }
         });
         updateCourseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new UpdateCourse();
+                dispose();
             }
         });
         deleteButton.addActionListener(new ActionListener() {
@@ -203,12 +236,14 @@ public class AdHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new AddTimeTable();
+                dispose();
             }
         });
         updateTimeTableButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new UpdateTimeTable();
+                dispose();
             }
         });
         deleteButton1.addActionListener(new ActionListener() {
@@ -242,6 +277,7 @@ public class AdHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new AddNotices();
+                dispose();
             }
         });
         deleteNoticeButton.addActionListener(new ActionListener() {
@@ -285,8 +321,11 @@ public class AdHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new UpdateCourse();
+                dispose();
             }
         });
+
+
     }
 
     private void clearFields() {
