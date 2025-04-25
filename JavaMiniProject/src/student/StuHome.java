@@ -2,15 +2,11 @@ package student;
 
 import database.DatabaseConnection;
 import database.Session;
-import java.text.DecimalFormat;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -136,6 +132,9 @@ public class StuHome extends JFrame {
         showProfilePicture(imageLbl);
 //        getAllAttendanceCounts();
 
+        selectTitleCombo.setSelectedIndex(-1);  // Ensure no initial selection
+        noticeTxtArea.setText("");
+
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
         // Button actions to switch cards
@@ -159,7 +158,7 @@ public class StuHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "gradeGPACard");
-                getSGPA();
+                calculateGPA();
             }
         });
 
@@ -195,7 +194,10 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "noticeCard");
                 addNoticeTitlesToComboBox();
+                selectTitleCombo.setSelectedIndex(-1); // Reset selection
+                noticeTxtArea.setText(""); // Clear previous content
             }
+
         });
 
 
@@ -223,21 +225,24 @@ public class StuHome extends JFrame {
                 List<String> courseCodes = getAllCourseCodes();
 
                 getGrade(courseCodes.get(selectedIndex));
+//                selectCrsComboBox.setSelectedIndex(-1);
             }
         });
 
         selectTitleCombo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Get the selected title
-                String selectedTitle = (String) selectTitleCombo.getSelectedItem();
-                System.out.println("Selected Title: " + selectedTitle);
-                // Display the content for the selected title
-                if (selectedTitle != null) {
+                // Only proceed if an item is selected (index not -1)
+                if (selectTitleCombo.getSelectedIndex() != -1) {
+                    String selectedTitle = (String) selectTitleCombo.getSelectedItem();
+                    System.out.println("Selected Title: " + selectedTitle);
                     displayNoticeContent(selectedTitle);
+                } else {
+                    noticeTxtArea.setText(""); // Clear if nothing selected
                 }
             }
         });
+
         checkEligibilityButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -338,95 +343,120 @@ public class StuHome extends JFrame {
                     return;
                 }
 
-                // Get all required values from the selected row
-                String courseCode = Course_materials.getValueAt(selectedRow, 1).toString();
-                String fileName = Course_materials.getValueAt(selectedRow, 3).toString();
+                // Get file path from selected row
+                String filePath = Course_materials.getValueAt(selectedRow, 3).toString();
 
-                // Call download method with all parameters
-                downloadMaterial(Session.loggedInUsername, courseCode, fileName);
+                // Call download method
+                downloadMaterial(filePath);
             }
         });
+
     }
 
-    // ******* Grade & GPA *****************
 
-    public void getSGPA(){
-        Connection con = null;
-        CallableStatement cstmt = null;
-        ResultSet rs = null;
+public double calculateGPA() {
+    Connection con = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    double totalGradePoints = 0;
+    int totalCredits = 0;
 
-        try{
-            con = DatabaseConnection.connect();
-            String sql = "{CALL Calculate_SGPA_For_Student(?)}";
-            cstmt = con.prepareCall(sql);
+    try {
+        con = DatabaseConnection.connect();
+        // Query to get final exam marks and credits
+        String sql = "SELECT g.Final_Exam_Mark, c.Credit " +
+                "FROM grade_letters g " +
+                "JOIN course c ON g.Course_code = c.Course_code " +
+                "WHERE g.Stu_id = ?";
+        pstmt = con.prepareStatement(sql);
+        pstmt.setString(1, Session.loggedInUsername);
+        rs = pstmt.executeQuery();
 
-            cstmt.setString(1, Session.loggedInUsername);
+        while (rs.next()) {
+            double finalMark = rs.getDouble("Final_Exam_Mark");
+            int credits = rs.getInt("Credit");
 
-            rs = cstmt.executeQuery();
+            double gradePoints = convertMarkToPoints(finalMark);
+            totalGradePoints += gradePoints * credits;
+            totalCredits += credits;
+        }
 
-            if(rs.next()){
-                double sgpa = rs.getDouble("SGPA");
-                System.out.println("SGPA retrieved: " + sgpa);
+        if (totalCredits > 0) {
+            double gpa = totalGradePoints / totalCredits;
+            sgpaTxt.setText(String.format("%.2f", gpa));
+            return gpa;
 
-                sgpaTxt.setText(String.format("%.2f", sgpa));
-            }else{
-                JOptionPane.showMessageDialog(null, "No SGPA Found");
-            }
-
-        } catch (Exception e) {
-            System.out.println("error");
-        }finally {
-            // Close resources properly
-            try {
-                if (rs != null) rs.close();
-                if (cstmt != null) cstmt.close();
-                if (con != null) con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a grade");
+            return 0.0; // No courses found
+        }
+    } catch (Exception e) {
+        System.out.println("Error in calculating GPA: " + e.getMessage());
+        e.printStackTrace();
+        return 0.0;
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (pstmt != null) pstmt.close();
+            if (con != null) con.close();
+        } catch (SQLException se) {
+            System.out.println("Error closing resources: " + se.getMessage());
         }
     }
+}
 
+    private double convertMarkToPoints(double finalMark) {
+        if (finalMark >= 90) return 4.0;
+        if (finalMark >= 84) return 4.0;
+        if (finalMark >= 75) return 3.7;
+        if (finalMark >= 70) return 3.3;
+        if (finalMark >= 65) return 3.0;
+        if (finalMark >= 60) return 2.7;
+        if (finalMark >= 55) return 2.3;
+        if (finalMark >= 50) return 2.0;
+        if (finalMark >= 45) return 1.7;
+        if (finalMark >= 40) return 1.3;
+        if (finalMark >= 35) return 1.0;
+        return 0.0;
+    }
 
-    public void getGrade(String courseCode){
+    public void getGrade(String courseCode) {
         Connection con = null;
-        CallableStatement cstmt = null;
+        PreparedStatement pstmt = null;
         ResultSet rs = null;
 
         try {
-            con = DatabaseConnection.connect();
-//            String sql = "{CALL GetGradeByStudentAndCourse (?, ?)}";
-            String sql = "{CALL Get_Grade_By_Course_And_Student(?, ?)}";
-            cstmt = con.prepareCall(sql);
+            con = DatabaseConnection.connect();  // Your method to connect to DB
+            String sql = "SELECT Stu_id, Course_code, Final_Exam_Mark, Grade FROM Grade_Letters WHERE Course_code = ? AND Stu_id = ?";
+            pstmt = con.prepareStatement(sql);
 
-            cstmt.setString(1, courseCode);
-            cstmt.setString(2, Session.loggedInUsername);
+            pstmt.setString(1, courseCode);
+            pstmt.setString(2, Session.loggedInUsername);  // Assuming you have a Session class
 
-            rs = cstmt.executeQuery();
+            rs = pstmt.executeQuery();
 
-            if(rs.next()){
+            if (rs.next()) {
                 String grade = rs.getString("Grade");
                 yourGradeTxt.setText(grade);
 
-                System.out.println("Course Code: " + courseCode + " | Grade: " + grade); // Print to console
-
+                System.out.println("Course Code: " + courseCode + " | Grade: " + grade);
             } else {
                 JOptionPane.showMessageDialog(null, "No Grades Found");
             }
         } catch (Exception e) {
             System.out.println("Error in getting grade: " + e.getMessage());
-            e.printStackTrace();  // This will print the full stack trace to the console
+            e.printStackTrace();
         } finally {
-            // Close resources to avoid memory leaks
             try {
                 if (rs != null) rs.close();
-                if (cstmt != null) cstmt.close();
+                if (pstmt != null) pstmt.close();
                 if (con != null) con.close();
             } catch (SQLException se) {
                 System.out.println("Error closing resources: " + se.getMessage());
             }
         }
     }
+
 
     // ******* Display Profile Details *****************
 
@@ -519,28 +549,32 @@ public class StuHome extends JFrame {
 
     public void addNoticeTitlesToComboBox(){
         con = DatabaseConnection.connect();
-
-        try{
+        try {
             Connection conn = DatabaseConnection.connect();
             String sql = "SELECT * FROM Notice";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
 
-            selectTitleCombo.removeAllItems();
+            selectTitleCombo.removeAllItems(); // Clear existing items
+
+            // Add a placeholder or leave empty (optional)
+            // selectTitleCombo.addItem("-- Select a Notice --");
 
             while (rs.next()) {
                 String title = rs.getString("Title");
-                selectTitleCombo.addItem(title); // Add each title to the combo box
+                selectTitleCombo.addItem(title);
                 System.out.println("Title: " + title);
             }
-        }catch(Exception e){
-            System.out.println("Error in add Notice Titles To ComboBox: " + e.getMessage());
+
+            // Set initial selection to -1 (no selection)
+            selectTitleCombo.setSelectedIndex(-1);
+        } catch(Exception e) {
+            System.out.println("Error in addNoticeTitlesToComboBox: " + e.getMessage());
         }
+
     }
 
     public void displayNoticeContent(String title) {
-        // Clear the JTextArea first
-        noticeTxtArea.setText("");
 
         try {
             // Establish connection to the database to get the NoticeId based on the title
@@ -811,7 +845,7 @@ public class StuHome extends JFrame {
             model.addColumn("Material ID");
             model.addColumn("Course Code");
             model.addColumn("Lecturer ID");
-            model.addColumn("Material");
+            model.addColumn("File Path");
             model.addColumn("Uploaded On");
 
             while (rs.next()) {
@@ -834,10 +868,7 @@ public class StuHome extends JFrame {
                         int col = Course_materials.columnAtPoint(e.getPoint());
 
                         if (row >= 0 && col == 3) {
-                            String fileName = Course_materials.getValueAt(row, col).toString();
-                            String courseCode = Course_materials.getValueAt(row, 1).toString();
-
-                            String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
+                            String filePath = Course_materials.getValueAt(row, col).toString();
                             openMaterial(filePath);
                         }
                     }
@@ -863,41 +894,25 @@ public class StuHome extends JFrame {
         }
     }
 
-    private void downloadMaterial(String user, String courseCode, String fileName) {
-
-        String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
-
-        File sourceFile = new File(filePath);
-        if (!sourceFile.exists()) {
-            JOptionPane.showMessageDialog(mainPanel, "The requested file does not exist: " + filePath, "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
+    private void downloadMaterial(String sourcePath) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Save As");
-        fileChooser.setSelectedFile(new File(fileName));
+        fileChooser.setSelectedFile(new File(new File(sourcePath).getName())); // Default name
+
         int userSelection = fileChooser.showSaveDialog(mainPanel);
+
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File destinationFile = fileChooser.getSelectedFile();
-
-            // Ensure the file is not overwritten without confirmation
-            if (destinationFile.exists()) {
-                int option = JOptionPane.showConfirmDialog(null, "File already exists. Do you want to overwrite?", "Confirm Overwrite", JOptionPane.YES_NO_OPTION);
-                if (option == JOptionPane.NO_OPTION) {
-                    return;
-                }
-            }
-
             try {
-                Files.copy(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                JOptionPane.showMessageDialog(mainPanel, "File downloaded successfully to: ");
+                Files.copy(Paths.get(sourcePath), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                JOptionPane.showMessageDialog(mainPanel, "File downloaded to: " + destinationFile.getAbsolutePath());
             } catch (IOException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(mainPanel, "Error downloading file: " + e.getMessage());
             }
-
         }
     }
+
 
     public static void main(String[] args) {
         new StuHome();

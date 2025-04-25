@@ -4,28 +4,253 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8e724d6-0622-4b27-8d40-02d8053f1c69" name="Changes" comment="">
+    <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="crs materials updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/database/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/database/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Hasalapera&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Hasalapera/Java.git&quot;,
+    &quot;accountId&quot;: &quot;b61bfe7f-cca7-4a5c-9a41-c4213ca2fa8f&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2vfC0jspa2Qlh6HVxuOlXRmIbzE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.ShowAttendanceEligibility.executor": "Run",
+    "Application.AdHome.executor": "Run",
+    "Application.AddCourse.executor": "Run",
+    "Application.AddNotices.executor": "Run",
+    "Application.AddTimeTable.executor": "Run",
+    "Application.LecHome.executor": "Run",
+    "Application.ProfileUpdate.executor": "Run",
+    "Application.ShowCAEligibility.executor": "Run",
+    "Application.StuHome.executor": "Run",
     "Application.StudentManagement.executor": "Run",
-    "git-widget-placeholder": "Testing3.0",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "Application.UpdateCourse.executor": "Run",
+    "Application.UpdateTimeTable.executor": "Run",
+    "Application.toHome.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "113",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "240",
+    "git-widget-placeholder": "HasalaTesting",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ASUS/Desktop/New Folder/New folder/Git",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Lecture" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\my java\JavaMiniProject\notices" />
+      <recent name="C:\Users\HP\Desktop\my java\JavaMiniProject\src\Admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="StudentManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.StudentManagement" />
+      <module name="Workshop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StudentManagement" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="" />
+      <created>1744526520616</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744526520616</updated>
+      <workItem from="1744526521691" duration="322000" />
+      <workItem from="1744695138711" duration="33562000" />
+      <workItem from="1744785878940" duration="37625000" />
+      <workItem from="1744834241055" duration="2995000" />
+      <workItem from="1744870262173" duration="37030000" />
+      <workItem from="1744925327722" duration="19000" />
+      <workItem from="1744925644361" duration="20000" />
+      <workItem from="1744951210416" duration="15950000" />
+      <workItem from="1744986970679" duration="3346000" />
+      <workItem from="1745038260843" duration="11155000" />
+      <workItem from="1745050649249" duration="64000" />
+      <workItem from="1745075081510" duration="113000" />
+      <workItem from="1745229141321" duration="16961000" />
+      <workItem from="1745260035637" duration="2477000" />
+      <workItem from="1745263447632" duration="14000" />
+      <workItem from="1745348715033" duration="330000" />
+      <workItem from="1745489850757" duration="8054000" />
+      <workItem from="1745504247280" duration="13613000" />
+      <workItem from="1745518115011" duration="15331000" />
+      <workItem from="1745545255864" duration="4000" />
+      <workItem from="1745545277119" duration="1252000" />
+      <workItem from="1745546607029" duration="60000" />
+      <workItem from="1745557983542" duration="8912000" />
+      <workItem from="1745569185966" duration="14048000" />
+    </task>
+    <task id="LOCAL-00001" summary="dcbvv">
+      <option name="closed" value="true" />
+      <created>1744836790828</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744836790828</updated>
+    </task>
+    <task id="LOCAL-00002" summary="dcbvv">
+      <option name="closed" value="true" />
+      <created>1744836912129</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744836912129</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ok">
+      <option name="closed" value="true" />
+      <created>1744922099369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744922099369</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ok">
+      <option name="closed" value="true" />
+      <created>1745050504127</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745050504127</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ok">
+      <option name="closed" value="true" />
+      <created>1745434035741</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745434035741</updated>
+    </task>
+    <task id="LOCAL-00006" summary="crs materials updated">
+      <option name="closed" value="true" />
+      <created>1745437580111</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745437580111</updated>
+    </task>
+    <task id="LOCAL-00007" summary="crs materials updated">
+      <option name="closed" value="true" />
+      <created>1745564119607</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745564119607</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Navodya" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dcbvv" />
+    <MESSAGE value="ok" />
+    <MESSAGE value="crs materials updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="crs materials updated" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
