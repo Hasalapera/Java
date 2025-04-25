@@ -54,7 +54,7 @@ public class ViewUserProfiles extends JFrame{
                 CardLayout cl = (CardLayout) parentCardPanel.getLayout();
                 cl.show(parentCardPanel, returnCardName);
                 new AdHome(); // go back to admin home
-//                dispose();
+                dispose();
             }
         });
     }

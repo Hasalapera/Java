@@ -43,8 +43,8 @@ public class Login extends JFrame {
         setContentPane(mainPanel);
         setTitle("Login");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setSize(1024, 768);
+//        setLocationRelativeTo(null);
+        setSize(2000, 900);
         setVisible(true);
         getRootPane().setDefaultButton(logInButton);
 
@@ -53,6 +53,9 @@ public class Login extends JFrame {
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        frame.pack();
 //        frame.setVisible(true);
+
+        logInButton.setFocusPainted(false);
+        cancelButton.setFocusPainted(false);
 
         logInButton.addActionListener(new ActionListener() {
             @Override

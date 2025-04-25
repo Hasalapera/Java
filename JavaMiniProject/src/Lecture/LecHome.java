@@ -108,7 +108,7 @@ public class LecHome extends JFrame{
         setContentPane(mainPanel);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Lecture Home");
-        setSize(1024, 768);
+        setSize(2000, 900);
         setLocationRelativeTo(null);
         setVisible(true);
 

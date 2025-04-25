@@ -124,7 +124,7 @@ public class StuHome extends JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Student Home");
-        setSize(1000, 800);
+        setSize(2000, 900);
         setLocationRelativeTo(null);
         setVisible(true);
 

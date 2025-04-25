@@ -94,7 +94,7 @@ public class AdHome extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Admin Home");
         pack(); // Adjusts window size to fit content
-        setSize(1000, 800);
+        setSize(2000, 800);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -322,13 +322,13 @@ public class AdHome extends JFrame {
                 loadCourseData();
             }
         });
-        updateCourseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new UpdateCourse();
-                dispose();
-            }
-        });
+//        updateCourseButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                new UpdateCourse();
+//                dispose();
+//            }
+//        });
 
 
     }

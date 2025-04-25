@@ -30,8 +30,8 @@ public class UpdateCourse extends JFrame {
         setContentPane(panel1);
         setTitle("Update Course");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setSize(500, 500);
+//        setLocationRelativeTo(null);
+        setSize(800, 600);
         setVisible(true);
 
         UPDATEButton.addActionListener(new ActionListener() {
