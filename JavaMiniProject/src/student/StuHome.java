@@ -925,7 +925,7 @@ public double calculateGPA() {
 
             try {
                 Files.copy(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                JOptionPane.showMessageDialog(mainPanel, "File downloaded successfully to: ");
+                JOptionPane.showMessageDialog(mainPanel, "File downloaded successfully");
             } catch (IOException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(mainPanel, "Error downloading file: " + e.getMessage());
