@@ -711,7 +711,7 @@ public class LecHome extends JFrame{
             double present = presentTheory + presentPractical;
 
             if (total == 0) return true;
-
+            con.close();
             double percent = (present / total) * 100;
             return percent >= 80;
 
@@ -719,6 +719,7 @@ public class LecHome extends JFrame{
             JOptionPane.showMessageDialog(null, "Error in eligibility check: " + e);
             return false;
         }
+
     }
 
     private void Gradegpushowtable(String studentId) {
@@ -2126,8 +2127,8 @@ public class LecHome extends JFrame{
         }
     }
 
-    public static void main(String[] args) {
-        new LecHome("Lec001");
-    }
+//    public static void main(String[] args) {
+//        new LecHome("Lec001");
+//    }
 
 }
