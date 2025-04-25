@@ -42,10 +42,36 @@ public class Att_CA extends JFrame{
                     JOptionPane.showMessageDialog(MainPanle,"Please enter student number","Error",JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    attendancepluscaforone(Stu_id,User_ID);
+                    if(isStudentExist(Stu_id)){
+                        attendancepluscaforone(Stu_id,User_ID);
+                    }
+                   else {
+                       JOptionPane.showMessageDialog(MainPanle,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
+    }
+
+    public boolean isStudentExist(String studentId) {
+        con = DatabaseConnection.connect();
+
+        try {
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM student WHERE Stu_id = ?");
+            pst.setString(1, studentId);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainPanle, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
     }
 
     public List<String> coursecodeselection(String User_ID) {

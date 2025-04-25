@@ -173,7 +173,12 @@ public class LecHome extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 String studentId = Stu_number.getText().trim();
                 if (!studentId.isEmpty()) {
-                    Gradegpushowtable(studentId);
+                    if(isStudentExist(studentId)) {
+                        Gradegpushowtable(studentId);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.");
                 }
@@ -195,7 +200,12 @@ public class LecHome extends JFrame{
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    filterUgraduatesDetails(st_Number);
+                    if(isStudentExist(st_Number)) {
+                        filterUgraduatesDetails(st_Number);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -227,7 +237,12 @@ public class LecHome extends JFrame{
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    uniqstudentattendancepresent(attstunum,User_ID);
+                    if(isStudentExist(attstunum)){
+                        uniqstudentattendancepresent(attstunum,User_ID);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -247,7 +262,12 @@ public class LecHome extends JFrame{
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    uniqcamarks(CA_Stu_Number,User);
+                    if(isStudentExist(CA_Stu_Number)){
+                        uniqcamarks(CA_Stu_Number,User);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -542,6 +562,10 @@ public class LecHome extends JFrame{
             JOptionPane.showMessageDialog(MainFrame, "Only Accept numeric values", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if(markValue>100||markValue<0){
+            JOptionPane.showMessageDialog(MainFrame, "Marks Should be in range 0 - 100", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
 
         try {
             PreparedStatement checkStmt = con.prepareStatement("SELECT * FROM marks WHERE Stu_id=? AND Course_code=?");
@@ -579,17 +603,18 @@ public class LecHome extends JFrame{
             else {
                 JOptionPane.showMessageDialog(MainFrame, "Mark updated successfully!");
             }
-            student_id_textField.setText("");
-            Mark_id_textfield.setText("");
-            mark_textField.setText("");
-            mark_type_comboBox.setSelectedIndex(-1);
-            coursecodecomboBox.setSelectedIndex(-1);
 
             showmarkstable(User);
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(MainFrame, e);
         }
+        }
+        student_id_textField.setText("");
+        Mark_id_textfield.setText("");
+        mark_textField.setText("");
+        coursecodecomboBox.setSelectedIndex(-1);
+        mark_type_comboBox.setSelectedIndex(-1);
     }
 
     public void deleteRecordFromTable(String markID){
@@ -2099,6 +2124,29 @@ public class LecHome extends JFrame{
             lecmaterialscoursecodedropdown.setSelectedIndex(-1);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(MainFrame, e);
+        }
+    }
+
+//    ******* student available check ************
+
+    public boolean isStudentExist(String studentId) {
+        con = DatabaseConnection.connect();
+
+        try {
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM student WHERE Stu_id = ?");
+            pst.setString(1, studentId);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainFrame, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
     }
 
