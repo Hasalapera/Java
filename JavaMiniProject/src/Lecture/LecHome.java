@@ -101,9 +101,6 @@ public class LecHome extends JFrame{
     public JButton lecmaterialsAddbutton;
 
     Connection con;
-    PreparedStatement pst;
-    ResultSet rs;
-
     String User;
 
     public LecHome(String User_ID) {
@@ -119,7 +116,6 @@ public class LecHome extends JFrame{
 
         displayProfileDetils(User_ID);
         showProfilePicture( User,imageLbl);
-//        Gradegpushowtable();
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
@@ -141,7 +137,7 @@ public class LecHome extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                     new Lec_profileupdate(User_ID);
-
+                    dispose();
             }
         });
         ADDButton.addActionListener(new ActionListener() {
@@ -171,18 +167,18 @@ public class LecHome extends JFrame{
                 Gradegpushowtable();
             }
         });
-//        gradegpuallshowButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                Gradegpushowtable();
-//            }
-//        });
+
         gradegpuuniqshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String studentId = Stu_number.getText().trim();
                 if (!studentId.isEmpty()) {
-                    Gradegpushowtable(studentId);
+                    if(isStudentExist(studentId)) {
+                        Gradegpushowtable(studentId);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.");
                 }
@@ -195,12 +191,7 @@ public class LecHome extends JFrame{
                 allUgraduatesDetails();
             }
         });
-//        allugdetailsshowButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                allUgraduatesDetails();
-//            }
-//        });
+
         uniqugdetailsshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -209,7 +200,12 @@ public class LecHome extends JFrame{
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    filterUgraduatesDetails(st_Number);
+                    if(isStudentExist(st_Number)) {
+                        filterUgraduatesDetails(st_Number);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -233,12 +229,6 @@ public class LecHome extends JFrame{
             }
         });
 
-//        AllshowButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                allstudentattendanceprecent(User_ID);
-//            }
-//        });
         attuniqoneshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -247,7 +237,12 @@ public class LecHome extends JFrame{
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    uniqstudentattendancepresent(attstunum,User_ID);
+                    if(isStudentExist(attstunum)){
+                        uniqstudentattendancepresent(attstunum,User_ID);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -258,12 +253,7 @@ public class LecHome extends JFrame{
                 allcamarks(User);
             }
         });
-//        AllCAbutton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                allcamarks(User);
-//            }
-//        });
+
         Uniq_stu_CA_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -272,20 +262,26 @@ public class LecHome extends JFrame{
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    uniqcamarks(CA_Stu_Number,User);
+                    if(isStudentExist(CA_Stu_Number)){
+                        uniqcamarks(CA_Stu_Number,User);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
         attcaeligibilityButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            new Att_CA();
+            new Att_CA(User_ID);
             }
         });
         selectTitleCombo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                     // Get the selected title
+
                     String selectedTitle = (String) selectTitleCombo.getSelectedItem();
                     System.out.println("Selected Title: " + selectedTitle);
                     // Display the content for the selected title
@@ -525,7 +521,7 @@ public class LecHome extends JFrame{
     }
 
     private String generateNextMarkID() {
-        String nextId = "MK001"; // default ID
+        String nextId = "M001";
         try {
             con = DatabaseConnection.connect();
             String sql = "SELECT Mark_id FROM marks ORDER BY Mark_id DESC LIMIT 1";
@@ -534,9 +530,9 @@ public class LecHome extends JFrame{
 
             if (rs.next()) {
                 String lastId = rs.getString("Mark_id");
-                int num = Integer.parseInt(lastId.substring(2));
+                int num = Integer.parseInt(lastId.substring(1));
                 num++;
-                nextId = String.format("MK%03d", num);
+                nextId = String.format("M%03d", num);
             }
         } catch (SQLException | NumberFormatException e) {
             JOptionPane.showMessageDialog(MainFrame, "Failed to generate Mark ID: " + e.getMessage());
@@ -567,6 +563,10 @@ public class LecHome extends JFrame{
             JOptionPane.showMessageDialog(MainFrame, "Only Accept numeric values", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if(markValue>100||markValue<0){
+            JOptionPane.showMessageDialog(MainFrame, "Marks Should be in range 0 - 100", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
 
         try {
             PreparedStatement checkStmt = con.prepareStatement("SELECT * FROM marks WHERE Stu_id=? AND Course_code=?");
@@ -604,17 +604,18 @@ public class LecHome extends JFrame{
             else {
                 JOptionPane.showMessageDialog(MainFrame, "Mark updated successfully!");
             }
-            student_id_textField.setText("");
-            Mark_id_textfield.setText("");
-            mark_textField.setText("");
-            mark_type_comboBox.setSelectedIndex(-1);
-            coursecodecomboBox.setSelectedIndex(-1);
 
             showmarkstable(User);
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(MainFrame, e);
         }
+            }
+        student_id_textField.setText("");
+        Mark_id_textfield.setText("");
+        mark_textField.setText("");
+        coursecodecomboBox.setSelectedIndex(-1);
+        mark_type_comboBox.setSelectedIndex(-1);
     }
 
     public void deleteRecordFromTable(String markID){
@@ -1928,7 +1929,7 @@ public class LecHome extends JFrame{
             model.addColumn("Material ID");
             model.addColumn("Course Code");
             model.addColumn("Lec ID");
-            model.addColumn("File Path");
+            model.addColumn("Material");
             model.addColumn("Uploaded On");
             while (rs.next()) {
                 model.addRow(new Object[]{
@@ -1943,8 +1944,6 @@ public class LecHome extends JFrame{
             Materials_Table.setModel(model);
             Materials_Table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-
-
             if (!listenerAdded) {
                 Materials_Table.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
@@ -1953,8 +1952,12 @@ public class LecHome extends JFrame{
                         int row = Materials_Table.rowAtPoint(e.getPoint());
 
                         if (column == 3 && row != -1) {
-                            String filePath = Materials_Table.getValueAt(row, column).toString();
+                            String fileName = Materials_Table.getValueAt(row, column).toString();
+                            String courseCode = Materials_Table.getValueAt(row, 1).toString();
+
+                            String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
                             openMaterial(filePath);
+
                         }
                     }
                     }
@@ -2012,13 +2015,13 @@ public class LecHome extends JFrame{
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
-        String nextId = "M001";
+        String nextId = "MA001";
 
         if (rs.next()) {
             String lastId = rs.getString("Material_id");
-            int num = Integer.parseInt(lastId.substring(1));
+            int num = Integer.parseInt(lastId.substring(2));
             num++; // increment
-            nextId = String.format("M%03d", num);
+            nextId = String.format("MA%03d", num);
         }
 
         return nextId;
@@ -2058,7 +2061,7 @@ public class LecHome extends JFrame{
 
             try {
                 Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                addmaterials(destFile.getAbsolutePath(), User, Course_code);
+                addmaterials(destFile.getName(), User, Course_code);
                 showmaterilstable(User);
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -2079,7 +2082,10 @@ public class LecHome extends JFrame{
             }
 
             String materialID = Materials_Table.getModel().getValueAt(selectedRow, 0).toString();
-            String filePath = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
+            String courseCode = Materials_Table.getModel().getValueAt(selectedRow, 1).toString();
+            String fileName = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
+
+            String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
 
             int confirm = JOptionPane.showConfirmDialog(MainFrame, "Are you sure you want to delete this material?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
@@ -2127,8 +2133,27 @@ public class LecHome extends JFrame{
         }
     }
 
-//    public static void main(String[] args) {
-//        new LecHome("Lec001");
-//    }
+//    ******* student available check ************
+
+    public boolean isStudentExist(String studentId) {
+        con = DatabaseConnection.connect();
+
+        try {
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM student WHERE Stu_id = ?");
+            pst.setString(1, studentId);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainFrame, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 
 }

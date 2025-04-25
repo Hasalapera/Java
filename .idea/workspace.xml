@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="crs materials updated">
       <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddUserProfile.form" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AddUserProfile.java" afterDir="false" />
@@ -26,6 +27,9 @@
       <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/database/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Workshop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Workshop.iml" afterDir="false" />
     </list>
+
+    <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="crs materials updated" />
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +63,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -69,6 +73,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AdHome.executor": "Run",
@@ -101,8 +106,38 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
+
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AdHome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddCourse.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddNotices.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddTimeTable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LecHome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProfileUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ShowCAEligibility.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StuHome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StudentManagement.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UpdateCourse.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UpdateTimeTable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.toHome.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;113&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;240&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sadeepaTesting&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/Desktop/GIt lec finalized&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Lecture" />
@@ -216,7 +251,12 @@
       <workItem from="1745504247280" duration="13613000" />
       <workItem from="1745518115011" duration="15331000" />
       <workItem from="1745545255864" duration="4000" />
-      <workItem from="1745545277119" duration="817000" />
+      <workItem from="1745545277119" duration="1252000" />
+      <workItem from="1745546607029" duration="60000" />
+      <workItem from="1745557983542" duration="8912000" />
+      <workItem from="1745570615220" duration="6844000" />
+      <workItem from="1745578297977" duration="7239000" />
+      <workItem from="1745594800186" duration="652000" />
     </task>
     <task id="LOCAL-00001" summary="dcbvv">
       <option name="closed" value="true" />
@@ -266,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745437580111</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="crs materials updated">
+      <option name="closed" value="true" />
+      <created>1745564119607</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745564119607</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
