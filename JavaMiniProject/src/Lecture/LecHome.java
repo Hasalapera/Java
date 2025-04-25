@@ -281,6 +281,7 @@ public class LecHome extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                     // Get the selected title
+
                     String selectedTitle = (String) selectTitleCombo.getSelectedItem();
                     System.out.println("Selected Title: " + selectedTitle);
                     // Display the content for the selected title
@@ -609,7 +610,7 @@ public class LecHome extends JFrame{
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(MainFrame, e);
         }
-        }
+            }
         student_id_textField.setText("");
         Mark_id_textfield.setText("");
         mark_textField.setText("");
@@ -1928,7 +1929,7 @@ public class LecHome extends JFrame{
             model.addColumn("Material ID");
             model.addColumn("Course Code");
             model.addColumn("Lec ID");
-            model.addColumn("File Path");
+            model.addColumn("Material");
             model.addColumn("Uploaded On");
             while (rs.next()) {
                 model.addRow(new Object[]{
@@ -1943,8 +1944,6 @@ public class LecHome extends JFrame{
             Materials_Table.setModel(model);
             Materials_Table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-
-
             if (!listenerAdded) {
                 Materials_Table.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
@@ -1953,8 +1952,12 @@ public class LecHome extends JFrame{
                         int row = Materials_Table.rowAtPoint(e.getPoint());
 
                         if (column == 3 && row != -1) {
-                            String filePath = Materials_Table.getValueAt(row, column).toString();
+                            String fileName = Materials_Table.getValueAt(row, column).toString();
+                            String courseCode = Materials_Table.getValueAt(row, 1).toString();
+
+                            String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
                             openMaterial(filePath);
+
                         }
                     }
                     }
@@ -2012,13 +2015,13 @@ public class LecHome extends JFrame{
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
-        String nextId = "M001";
+        String nextId = "MA001";
 
         if (rs.next()) {
             String lastId = rs.getString("Material_id");
-            int num = Integer.parseInt(lastId.substring(1));
+            int num = Integer.parseInt(lastId.substring(2));
             num++; // increment
-            nextId = String.format("M%03d", num);
+            nextId = String.format("MA%03d", num);
         }
 
         return nextId;
@@ -2058,7 +2061,7 @@ public class LecHome extends JFrame{
 
             try {
                 Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                addmaterials(destFile.getAbsolutePath(), User, Course_code);
+                addmaterials(destFile.getName(), User, Course_code);
                 showmaterilstable(User);
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -2079,7 +2082,10 @@ public class LecHome extends JFrame{
             }
 
             String materialID = Materials_Table.getModel().getValueAt(selectedRow, 0).toString();
-            String filePath = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
+            String courseCode = Materials_Table.getModel().getValueAt(selectedRow, 1).toString();
+            String fileName = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
+
+            String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
 
             int confirm = JOptionPane.showConfirmDialog(MainFrame, "Are you sure you want to delete this material?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
