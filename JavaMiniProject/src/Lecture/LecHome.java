@@ -101,9 +101,6 @@ public class LecHome extends JFrame{
     public JButton lecmaterialsAddbutton;
 
     Connection con;
-    PreparedStatement pst;
-    ResultSet rs;
-
     String User;
 
     public LecHome(String User_ID) {
@@ -119,7 +116,6 @@ public class LecHome extends JFrame{
 
         displayProfileDetils(User_ID);
         showProfilePicture( User,imageLbl);
-//        Gradegpushowtable();
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
 
@@ -141,7 +137,7 @@ public class LecHome extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                     new Lec_profileupdate(User_ID);
-
+                    dispose();
             }
         });
         ADDButton.addActionListener(new ActionListener() {
@@ -171,12 +167,7 @@ public class LecHome extends JFrame{
                 Gradegpushowtable();
             }
         });
-//        gradegpuallshowButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                Gradegpushowtable();
-//            }
-//        });
+
         gradegpuuniqshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -195,12 +186,7 @@ public class LecHome extends JFrame{
                 allUgraduatesDetails();
             }
         });
-//        allugdetailsshowButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                allUgraduatesDetails();
-//            }
-//        });
+
         uniqugdetailsshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -233,12 +219,6 @@ public class LecHome extends JFrame{
             }
         });
 
-//        AllshowButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                allstudentattendanceprecent(User_ID);
-//            }
-//        });
         attuniqoneshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -258,12 +238,7 @@ public class LecHome extends JFrame{
                 allcamarks(User);
             }
         });
-//        AllCAbutton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                allcamarks(User);
-//            }
-//        });
+
         Uniq_stu_CA_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -279,7 +254,7 @@ public class LecHome extends JFrame{
         attcaeligibilityButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            new Att_CA();
+            new Att_CA(User_ID);
             }
         });
         selectTitleCombo.addActionListener(new ActionListener() {
@@ -2126,9 +2101,5 @@ public class LecHome extends JFrame{
             JOptionPane.showMessageDialog(MainFrame, e);
         }
     }
-
-//    public static void main(String[] args) {
-//        new LecHome("Lec001");
-//    }
 
 }
