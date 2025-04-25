@@ -1,5 +1,7 @@
 package Technical_officer;
 
+import database.DatabaseConnection;
+import database.Session;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,20 +44,12 @@ public class updateMedical extends JFrame {
             }
         });
     }
-    private Connection con;
-    private void connectToDatabase() {
-        try {
-            String url = "jdbc:mysql://localhost:3306/fot_management_system";
-            String user = "root";
-            String password = ""; // Change if you use a password
-            con = DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Database connection failed: " + e.getMessage());
-        }
-    }
+    Connection con;
+
 
     private void updateMedicalStatus() {
-        connectToDatabase();
+
+        con = DatabaseConnection.connect();
 
         String studentId = sidField.getText().trim();
         String courseCode = courseField.getText().trim();

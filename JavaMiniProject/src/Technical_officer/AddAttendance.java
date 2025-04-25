@@ -1,5 +1,7 @@
 package Technical_officer;
 
+import database.DatabaseConnection;
+import database.Session;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +28,7 @@ public class AddAttendance extends JFrame {
     private JLabel status;
     private JLabel ctype;
 
-    private Connection con;
+    Connection con;
 
     public AddAttendance() {
         setTitle("Add Attendance");
@@ -49,21 +51,11 @@ public class AddAttendance extends JFrame {
         });
     }
 
-    private void connectToDatabase() {
-        try {
-            String url = "jdbc:mysql://localhost:3306/fot_management_system";
-            String user = "root";
-            String password = ""; // Change if needed
-            con = DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Database connection failed: " + e.getMessage());
-        }
-    }
 
     private String generateAttendanceId() {
         String newId = "A001"; // Default starting ID
         try {
-            connectToDatabase();
+            con = DatabaseConnection.connect();
             String query = "SELECT Attendance_id FROM attendance ORDER BY Attendance_id DESC LIMIT 1";
             PreparedStatement pstmt = con.prepareStatement(query);
             ResultSet rs = pstmt.executeQuery();
@@ -95,7 +87,7 @@ public class AddAttendance extends JFrame {
         String ctype = ctypeLabel.getText();
 
         try {
-            connectToDatabase();
+            con = DatabaseConnection.connect();
             String sql = "INSERT INTO attendance (Attendance_id, Stu_id, Course_code, Lec_hour, Week_No, Day_No, Status, Course_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, aid);
