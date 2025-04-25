@@ -53,9 +53,9 @@ public class addmedical extends JFrame {
 
     private void connectToDatabase() {
         try {
-            String url = "jdbc:mysql://localhost:3306/techlms";
+            String url = "jdbc:mysql://localhost:3306/fot_management_system";
             String user = "root";
-            String password = "1234"; // Change if you use a password
+            String password = ""; // Change if you use a password
             con = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Database connection failed: " + e.getMessage());

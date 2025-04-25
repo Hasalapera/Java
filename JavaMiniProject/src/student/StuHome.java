@@ -343,11 +343,12 @@ public class StuHome extends JFrame {
                     return;
                 }
 
-                // Get file path from selected row
-                String filePath = Course_materials.getValueAt(selectedRow, 3).toString();
+                // Get all required values from the selected row
+                String courseCode = Course_materials.getValueAt(selectedRow, 1).toString();
+                String fileName = Course_materials.getValueAt(selectedRow, 3).toString();
 
-                // Call download method
-                downloadMaterial(filePath);
+                // Call download method with all parameters
+                downloadMaterial(Session.loggedInUsername, courseCode, fileName);
             }
         });
 
@@ -845,7 +846,7 @@ public double calculateGPA() {
             model.addColumn("Material ID");
             model.addColumn("Course Code");
             model.addColumn("Lecturer ID");
-            model.addColumn("File Path");
+            model.addColumn("Material");
             model.addColumn("Uploaded On");
 
             while (rs.next()) {
@@ -868,7 +869,10 @@ public double calculateGPA() {
                         int col = Course_materials.columnAtPoint(e.getPoint());
 
                         if (row >= 0 && col == 3) {
-                            String filePath = Course_materials.getValueAt(row, col).toString();
+                            String fileName = Course_materials.getValueAt(row, col).toString();
+                            String courseCode = Course_materials.getValueAt(row, 1).toString();
+
+                            String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
                             openMaterial(filePath);
                         }
                     }
@@ -894,24 +898,42 @@ public double calculateGPA() {
         }
     }
 
-    private void downloadMaterial(String sourcePath) {
+    private void downloadMaterial(String user, String courseCode, String fileName) {
+
+        String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
+
+        File sourceFile = new File(filePath);
+        if (!sourceFile.exists()) {
+            JOptionPane.showMessageDialog(mainPanel, "The requested file does not exist: " + filePath, "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Save As");
-        fileChooser.setSelectedFile(new File(new File(sourcePath).getName())); // Default name
-
+        fileChooser.setSelectedFile(new File(fileName));
         int userSelection = fileChooser.showSaveDialog(mainPanel);
-
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File destinationFile = fileChooser.getSelectedFile();
+
+            // Ensure the file is not overwritten without confirmation
+            if (destinationFile.exists()) {
+                int option = JOptionPane.showConfirmDialog(null, "File already exists. Do you want to overwrite?", "Confirm Overwrite", JOptionPane.YES_NO_OPTION);
+                if (option == JOptionPane.NO_OPTION) {
+                    return;
+                }
+            }
+
             try {
-                Files.copy(Paths.get(sourcePath), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                JOptionPane.showMessageDialog(mainPanel, "File downloaded to: " + destinationFile.getAbsolutePath());
+                Files.copy(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                JOptionPane.showMessageDialog(mainPanel, "File downloaded successfully to: ");
             } catch (IOException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(mainPanel, "Error downloading file: " + e.getMessage());
             }
+
         }
     }
+
 
 
     public static void main(String[] args) {

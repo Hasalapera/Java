@@ -51,9 +51,9 @@ public class AddAttendance extends JFrame {
 
     private void connectToDatabase() {
         try {
-            String url = "jdbc:mysql://localhost:3306/techlms";
+            String url = "jdbc:mysql://localhost:3306/fot_management_system";
             String user = "root";
-            String password = "1234"; // Change if needed
+            String password = ""; // Change if needed
             con = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Database connection failed: " + e.getMessage());
