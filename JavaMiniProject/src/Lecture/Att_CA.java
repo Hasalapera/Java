@@ -25,7 +25,7 @@ public class Att_CA extends JFrame{
         setContentPane(MainPanle);
         setSize(1024, 768);
         setVisible(true);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Student Eligibility");
         setResizable(true);
         setLocationRelativeTo(null);
