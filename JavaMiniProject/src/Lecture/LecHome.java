@@ -520,7 +520,7 @@ public class LecHome extends JFrame{
     }
 
     private String generateNextMarkID() {
-        String nextId = "MK001"; // default ID
+        String nextId = "M001";
         try {
             con = DatabaseConnection.connect();
             String sql = "SELECT Mark_id FROM marks ORDER BY Mark_id DESC LIMIT 1";
@@ -529,9 +529,9 @@ public class LecHome extends JFrame{
 
             if (rs.next()) {
                 String lastId = rs.getString("Mark_id");
-                int num = Integer.parseInt(lastId.substring(2));
+                int num = Integer.parseInt(lastId.substring(1));
                 num++;
-                nextId = String.format("MK%03d", num);
+                nextId = String.format("M%03d", num);
             }
         } catch (SQLException | NumberFormatException e) {
             JOptionPane.showMessageDialog(MainFrame, "Failed to generate Mark ID: " + e.getMessage());
