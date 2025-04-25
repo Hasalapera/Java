@@ -223,23 +223,12 @@ public class toHome extends  JFrame {
             }
         });
     }
-
-    private Connection con;
-    private void connectToDatabase() {
-        try {
-            String url = "jdbc:mysql://localhost:3306/techlms";
-            String user = "root";
-            String password = "1234"; // Change if you use a password
-            con = DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Database connection failed: " + e.getMessage());
-        }
-    }
+    Connection con;
 
     //Attendance table
     private void showAttendancetable() {
         try{
-            connectToDatabase();
+            con = DatabaseConnection.connect();
             Statement st = con.createStatement();
             String query = "select * from attendance";
             ResultSet rs = st.executeQuery(query);
@@ -306,7 +295,7 @@ public class toHome extends  JFrame {
 
                         if (confirm == JOptionPane.YES_OPTION) {
                             try {
-                                connectToDatabase();
+                                con = DatabaseConnection.connect();
                                 String sql = "DELETE FROM attendance WHERE Attendance_id = ?";
                                 PreparedStatement pstmt = con.prepareStatement(sql);
                                 pstmt.setObject(1, idValue);
@@ -340,7 +329,7 @@ public class toHome extends  JFrame {
     //Medical
     private void showMedicaltable() {
         try {
-            connectToDatabase();
+            con = DatabaseConnection.connect();
             Statement st = con.createStatement();
             String query = "SELECT * FROM medical";
             ResultSet rs = st.executeQuery(query);
@@ -404,7 +393,8 @@ public class toHome extends  JFrame {
 
                     if (confirm == JOptionPane.YES_OPTION) {
                         try {
-                            connectToDatabase();
+                            //connectToDatabase();
+                            con = DatabaseConnection.connect();
                             String sql = "DELETE FROM medical WHERE Medical_id = ?";
                             PreparedStatement pstmt = con.prepareStatement(sql);
                             pstmt.setObject(1, idValue);
@@ -438,7 +428,7 @@ public class toHome extends  JFrame {
     //Timetable
     public void showTimeTable() {
         try {
-            connectToDatabase();
+            con = DatabaseConnection.connect();
             String sql = "SELECT * FROM TimeTable";
             PreparedStatement pstmt = con.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();

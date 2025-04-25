@@ -1,5 +1,7 @@
 package Technical_officer;
 
+import database.DatabaseConnection;
+import database.Session;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,18 +51,8 @@ public class addmedical extends JFrame {
         });
     }
 
-    private Connection con;
+    Connection con;
 
-    private void connectToDatabase() {
-        try {
-            String url = "jdbc:mysql://localhost:3306/techlms";
-            String user = "root";
-            String password = "1234"; // Change if you use a password
-            con = DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Database connection failed: " + e.getMessage());
-        }
-    }
 
     private void fetchAttendanceId() {
         String sid = stuidField.getText();
@@ -74,7 +66,8 @@ public class addmedical extends JFrame {
             return;
         }
 
-        connectToDatabase();
+
+        con = DatabaseConnection.connect();
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
@@ -121,7 +114,8 @@ public class addmedical extends JFrame {
         String status = statusField.getText();
         String ctype = ctypeField.getText();
 
-        connectToDatabase();
+
+        con = DatabaseConnection.connect();
         PreparedStatement pstmt = null;
 
         try {
@@ -158,7 +152,8 @@ public class addmedical extends JFrame {
     }
 
     private void updateAttendanceStatus(String attendanceId) {
-        connectToDatabase();
+
+        con = DatabaseConnection.connect();
         PreparedStatement pstmt = null;
 
         try {
