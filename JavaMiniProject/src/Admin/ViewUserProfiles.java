@@ -48,6 +48,7 @@ public class ViewUserProfiles extends JFrame{
                 clearFields();
             }
         });
+
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

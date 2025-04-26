@@ -1,5 +1,6 @@
 package student;
 
+import Admin.ViewUserProfiles;
 import database.DatabaseConnection;
 import database.Session;
 
@@ -124,7 +125,7 @@ public class StuHome extends JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Student Home");
-        setSize(2000, 830);
+        setSize(2000, 890);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -256,6 +257,11 @@ public class StuHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 new ShowCAEligibility();
                 dispose();
+//                ShowCAEligibility showCAEligibility = new ShowCAEligibility(cardMainPanel, "cardMain");
+//                cardMainPanel.add(showCAEligibility, "showCAEligibilityCard");
+//
+//                CardLayout cl = (CardLayout) cardMainPanel.getLayout();
+//                cl.show(coursesCard, "showCAEligibilityCard");
             }
         });
         selectAttCourseCombo.addActionListener(new ActionListener() {
