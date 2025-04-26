@@ -26,7 +26,7 @@ public class ShowCAEligibility extends JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("CA Eligibility");
-        setSize(2000, 1000);
+        setSize(2000, 890);
         setLocationRelativeTo(null);
         setVisible(true);
 

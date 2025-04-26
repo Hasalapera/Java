@@ -80,7 +80,7 @@ public class toHome extends  JFrame {
 
         setContentPane(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("to home");
+        setTitle("Technical Officer home");
         setSize(2000,890);
         setVisible(true);
         setLocationRelativeTo(null);

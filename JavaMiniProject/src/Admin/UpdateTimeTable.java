@@ -24,7 +24,7 @@ public class UpdateTimeTable extends JFrame {
         setTitle("Update Time Table");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
-        setSize(500, 500);
+        setSize(2000, 890);
         setVisible(true);
 
         // Update button functionality

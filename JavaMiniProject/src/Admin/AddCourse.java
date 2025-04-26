@@ -27,7 +27,7 @@ public class AddCourse extends JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setTitle("Add Course");
-        setSize(1000, 800);
+        setSize(2000, 890);
         setVisible(true);
 
 

@@ -25,7 +25,7 @@ public class AddTimeTable extends JFrame {
         setTitle("Add Time Table");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
-        setSize(1000, 600);
+        setSize(2000, 890);
         setVisible(true);
 
         addDetailsButton.addActionListener(new ActionListener() {

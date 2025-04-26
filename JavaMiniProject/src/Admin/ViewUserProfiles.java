@@ -15,7 +15,7 @@ public class ViewUserProfiles extends JFrame{
     private JButton deleteButton;
     private JTextField username;
     private JButton clearButton;
-    private JButton exitButton;
+//    private JButton exitButton;
     private JPanel parentCardPanel;
     private String returnCardName;
 
@@ -49,15 +49,15 @@ public class ViewUserProfiles extends JFrame{
             }
         });
 
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout) parentCardPanel.getLayout();
-                cl.show(parentCardPanel, returnCardName);
-                new AdHome(); // go back to admin home
-                dispose();
-            }
-        });
+//        exitButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                CardLayout cl = (CardLayout) parentCardPanel.getLayout();
+//                cl.show(parentCardPanel, returnCardName);
+//                new AdHome(); // go back to admin home
+//                dispose();
+//            }
+//        });
     }
 
     public void loadUserTable() {

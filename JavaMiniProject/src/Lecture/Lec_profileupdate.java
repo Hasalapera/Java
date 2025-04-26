@@ -34,7 +34,7 @@ public class Lec_profileupdate extends JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Student Home");
-        setSize(1024, 768);
+        setSize(2000, 890);
         setLocationRelativeTo(null);
         setVisible(true);
         uploadAnImageButton.addActionListener(new ActionListener() {

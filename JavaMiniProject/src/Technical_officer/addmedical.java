@@ -33,7 +33,7 @@ public class addmedical extends JFrame {
     public addmedical() {
         setTitle("Add Medical");
         setContentPane(MainPanel);
-        setSize(400, 400);
+        setSize(2000, 890);
         setLocationRelativeTo(null); // Center the window
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

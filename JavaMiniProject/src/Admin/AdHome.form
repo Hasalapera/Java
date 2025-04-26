@@ -165,9 +165,9 @@
                     </constraints>
                     <properties>
                       <background color="-16758099"/>
-                      <font name="Inter" size="72" style="1"/>
+                      <font name="Krungthep" size="48" style="1"/>
                       <foreground color="-16758099"/>
-                      <text value="Profile"/>
+                      <text value="Admin Profile"/>
                     </properties>
                   </component>
                   <component id="a6aa" class="javax.swing.JLabel">
@@ -403,7 +403,7 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <font size="24" style="1"/>
+                  <font name="Krungthep" size="48" style="1"/>
                   <foreground color="-16758099"/>
                   <text value="Course Details"/>
                 </properties>
@@ -485,7 +485,7 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <font size="20" style="1"/>
+                  <font name="Krungthep" size="48" style="1"/>
                   <foreground color="-16758099"/>
                   <text value="Time Table Details"/>
                 </properties>
@@ -569,7 +569,7 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <font size="48" style="1"/>
+                  <font name="Krungthep" size="48" style="1"/>
                   <foreground color="-16758099"/>
                   <text value="NOTICE"/>
                 </properties>
@@ -646,7 +646,7 @@
               <card name="updateUProfilesPanel"/>
             </constraints>
             <properties>
-              <background color="-16758099"/>
+              <background color="-66049"/>
             </properties>
             <border type="none"/>
             <children>
@@ -656,7 +656,7 @@
                 </constraints>
                 <properties>
                   <font name="Krungthep" size="48" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Update Profile"/>
                 </properties>
               </component>
@@ -666,7 +666,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="User Name"/>
                 </properties>
               </component>
@@ -677,7 +677,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -692,7 +692,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="First Name"/>
                 </properties>
               </component>
@@ -703,7 +703,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -713,7 +713,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Last Name"/>
                 </properties>
               </component>
@@ -724,7 +724,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -734,7 +734,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Date of Birthday"/>
                 </properties>
               </component>
@@ -745,7 +745,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -755,7 +755,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Role"/>
                 </properties>
               </component>
@@ -766,7 +766,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -776,7 +776,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Enrollment Date"/>
                 </properties>
               </component>
@@ -787,7 +787,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -797,7 +797,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Address"/>
                 </properties>
               </component>
@@ -808,7 +808,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -818,7 +818,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Email"/>
                 </properties>
               </component>
@@ -829,7 +829,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -839,7 +839,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Phone Number"/>
                 </properties>
               </component>
@@ -850,7 +850,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -860,7 +860,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Password"/>
                 </properties>
               </component>
@@ -871,7 +871,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -881,7 +881,7 @@
                 </constraints>
                 <properties>
                   <font name="Kannada MN" size="18" style="1"/>
-                  <foreground color="-66049"/>
+                  <foreground color="-16758099"/>
                   <text value="Profile Picture"/>
                 </properties>
               </component>
@@ -892,7 +892,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-66049"/>
+                  <background color="-2500135"/>
                   <foreground color="-14145496"/>
                 </properties>
               </component>
@@ -901,7 +901,9 @@
                   <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-16758099"/>
                   <font name="Kannada MN" size="16" style="0"/>
+                  <foreground color="-66049"/>
                   <text value="Add Photo"/>
                 </properties>
               </component>
@@ -910,7 +912,9 @@
                   <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-16758099"/>
                   <font name="Kannada MN" size="16" style="0"/>
+                  <foreground color="-66049"/>
                   <text value="Clear"/>
                 </properties>
               </component>
@@ -919,7 +923,9 @@
                   <grid row="13" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-16758099"/>
                   <font name="Kannada MN" size="16" style="0"/>
+                  <foreground color="-66049"/>
                   <text value="Update Profile"/>
                 </properties>
               </component>
@@ -936,8 +942,9 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <background color="-16758099"/>
                   <font size="16" style="1"/>
-                  <foreground color="-16758099"/>
+                  <foreground color="-66049"/>
                   <text value="View All Users"/>
                 </properties>
               </component>
@@ -949,8 +956,9 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <background color="-16758099"/>
                   <font size="16" style="1"/>
-                  <foreground color="-16758099"/>
+                  <foreground color="-66049"/>
                   <text value="Add New User "/>
                 </properties>
               </component>

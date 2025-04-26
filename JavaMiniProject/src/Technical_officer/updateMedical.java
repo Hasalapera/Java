@@ -32,7 +32,7 @@ public class updateMedical extends JFrame {
 
         setContentPane(mainPanel);
         setTitle("Update Medical Card");
-        setSize(400, 400);
+        setSize(2000, 890);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
 

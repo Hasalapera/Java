@@ -29,7 +29,7 @@ public class AddNotices extends JFrame {
         setTitle("Add Notices");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setSize(500, 500);
+        setSize(2000, 890);
         setVisible(true);
 
 

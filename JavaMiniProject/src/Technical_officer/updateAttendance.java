@@ -34,7 +34,7 @@ public class updateAttendance extends JFrame {
         setContentPane(mainPanel);
         setTitle("Update Attendance");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 400);
+        setSize(2000, 890);
         setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 

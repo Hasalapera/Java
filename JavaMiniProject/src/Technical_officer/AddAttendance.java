@@ -33,7 +33,7 @@ public class AddAttendance extends JFrame {
     public AddAttendance() {
         setTitle("Add Attendance");
         setContentPane(mainPanel);
-        setSize(400, 400);
+        setSize(2000, 890);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
