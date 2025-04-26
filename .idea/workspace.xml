@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="crs materials updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AdHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Admin/AdHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Lecture/LecHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Technical_officer/toHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/Technical_officer/toHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/out/production/Workshop/student/StuHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Admin/AdHome.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Lecture/LecHome.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/Technical_officer/toHome.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.form" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject/src/student/StuHome.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
