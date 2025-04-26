@@ -44,7 +44,9 @@
           </component>
           <component id="6ad5d" class="javax.swing.JButton" binding="logOutButton" default-binding="true">
             <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="100" height="40"/>
+              </grid>
             </constraints>
             <properties>
               <font name="Kannada MN" size="16" style="0"/>
@@ -378,7 +380,7 @@
                       <component id="3f3b5" class="javax.swing.JLabel" binding="imageLbl">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false">
-                            <preferred-size width="200" height="200"/>
+                            <preferred-size width="250" height="250"/>
                           </grid>
                         </constraints>
                         <properties>
@@ -388,7 +390,9 @@
                       </component>
                       <component id="1ff5e" class="javax.swing.JButton" binding="deleteProfilePictureButton" default-binding="true">
                         <constraints>
-                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false">
+                            <preferred-size width="-1" height="40"/>
+                          </grid>
                         </constraints>
                         <properties>
                           <text value="Delete Profile Picture"/>
@@ -398,7 +402,9 @@
                   </grid>
                   <component id="ae1c1" class="javax.swing.JButton" binding="updateProfileButton" default-binding="true">
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="300" height="60"/>
+                      </grid>
                     </constraints>
                     <properties>
                       <text value="Update Profile"/>
