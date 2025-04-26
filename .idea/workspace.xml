@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="pdf added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="pdf added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +68,7 @@
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "113",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "240",
-    "git-widget-placeholder": "Testing3.0",
+    "git-widget-placeholder": "Finalized",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/hasalashehan/Desktop/Workshop/Java/notices",
     "node.js.detected.package.eslint": "true",
@@ -157,7 +155,7 @@
       <workItem from="1745545255864" duration="4000" />
       <workItem from="1745545277119" duration="817000" />
       <workItem from="1745607889443" duration="2175000" />
-      <workItem from="1745684707797" duration="1662000" />
+      <workItem from="1745684707797" duration="2487000" />
     </task>
     <task id="LOCAL-00001" summary="dcbvv">
       <option name="closed" value="true" />
