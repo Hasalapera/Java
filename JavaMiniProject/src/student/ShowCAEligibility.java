@@ -5,6 +5,7 @@ import database.Session;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -23,11 +24,15 @@ public class ShowCAEligibility extends JFrame {
 
     public ShowCAEligibility() {
         setContentPane(mainPanel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("CA Eligibility");
-        setSize(2000, 1000);
+        setSize(2000, 890);
         setLocationRelativeTo(null);
         setVisible(true);
+
+
+
+//        checkCAEligibility();
 
         String[] caEligibility = {"Course Code", "Course Name", "Eligibility Status"};
         DefaultTableModel model = new DefaultTableModel(null, caEligibility);
@@ -39,6 +44,9 @@ public class ShowCAEligibility extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new StuHome();
+                dispose();
+//                CardLayout cl = (CardLayout) cardpanel.getLayout();
+//                cl.show(cardpanel, returnToCard);
             }
         });
     }
@@ -140,7 +148,7 @@ public class ShowCAEligibility extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        new ShowCAEligibility();
-    }
+//    public static void main(String[] args) {
+//        new ShowCAEligibility();
+//    }
 }
