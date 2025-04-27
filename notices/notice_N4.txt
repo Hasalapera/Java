@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Title: Release of 1st Semester Examination Results
 Date: 2025-04-25
 Content:
@@ -10,3 +11,17 @@ If you encounter any issues accessing your results, please contact the examinati
 Make sure to review your results carefully and note any re-evaluation deadlines if applicable.
 
 Thank you for your attention and cooperation.
+=======
+Title: Release of 1st Semester Examination Results
+Date: 2025-04-25
+Content:
+This is to inform all students that the 1st Semester examination results have been officially released.
+
+Students are advised to check their university email accounts for the result notifications and detailed grade reports.
+
+If you encounter any issues accessing your results, please contact the examination branch immediately.
+
+Make sure to review your results carefully and note any re-evaluation deadlines if applicable.
+
+Thank you for your attention and cooperation.
+>>>>>>> Finalized
