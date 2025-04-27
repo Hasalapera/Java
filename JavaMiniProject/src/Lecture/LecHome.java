@@ -17,90 +17,6 @@ import java.util.*;
 import java.util.List;
 import java.nio.file.*;
 
-<<<<<<< HEAD
-public class LecHome extends JFrame {
-    private JPanel mainPanel;
-    private JPanel headingPanel;
-    private JLabel stuManaSysLbl;
-    private JLabel FoTLbl;
-    private JButton logOutButton;
-    private JPanel btnPanel;
-    private JButton profileButton;
-    private JButton addMarksButton;
-    private JButton gradeAndGPAButton;
-    private JButton attendanceButton;
-    private JButton CAEligibilityButton;
-    private JButton undergraduateDetailsButton;
-    private JButton noticeButton;
-    private JPanel cardMainPanel;
-    private JPanel profileCard;
-    private JLabel profileHeadingLbl;
-    private JPanel detailPanel;
-    private JLabel fNameLbl;
-    private JTextField fNameTxt;
-    private JLabel lNameLbl;
-    private JTextField lNameTxt;
-    private JLabel addressLbl;
-    private JTextField addressTxt;
-    private JLabel emailLbl;
-    private JTextField emailTxt;
-    private JLabel pNoLbl;
-    private JLabel roleLbl;
-    private JTextField pNoTxt;
-    private JTextField roleTxt;
-    private JPanel imgMainPanel;
-    private JPanel imgPanel;
-    private JLabel imageLbl;
-    private JButton deleteProfilePictureButton;
-    private JButton updateProfileButton;
-    private JPanel AddmarksCard;
-    private JPanel gradeGPACard;
-    private JPanel attendanceCard;
-    private JPanel CACard;
-    private JPanel noticeCard;
-    private JLabel noticeHeadingLbl;
-    private JLabel selectTitleLbl;
-    private JComboBox selectTitleCombo;
-    private JPanel noticeTxtAreaPanel;
-    private JScrollPane noticeScrollPane;
-    private JTextArea noticeTxtArea;
-    private JPanel UgdetailsCard;
-    private JPanel MainFrame;
-    private JTextField Mark_id_textfield;
-    private JTextField student_id_textField;
-    private JTextField mark_textField;
-    private JButton ADDButton;
-    private JButton deleteButton;
-    private JComboBox mark_type_comboBox;
-    private JComboBox coursecodecomboBox;
-    private JTable marktable;
-    private JTextField Stu_number;
-    private JButton gradegpuuniqshowButton;
-    private JButton gradegpuallshowButton;
-    private JTable Grade_GPA_Table;
-    private JPanel GradeMainpanle;
-    private JButton uniqugdetailsshowButton;
-    private JButton allugdetailsshowButton;
-    private JTable Stu_details_table;
-    private JTextField ugStudentNumber;
-    private JButton attuniqoneshowButton;
-    private JButton AllshowButton;
-    private JButton allAttendanceButton;
-    private JButton allMedicelsButton;
-    private JButton attcaeligibilityButton;
-    private JTable Attendance_table;
-    private JTextField attStu_number;
-    private JTextField CAstu_numbertextField;
-    private JButton Uniq_stu_CA_button;
-    private JTable CAEligibilitytable;
-    private JButton AllCAbutton;
-    private JButton Addmaterialsbtm;
-    private JPanel AddmaterialsCard;
-    private JTable Materials_Table;
-    private JButton lecmaterialsDeletebutton;
-    private JComboBox lecmaterialscoursecodedropdown;
-    private JButton lecmaterialsAddbutton;
-=======
 public class LecHome extends JFrame{
     public JPanel mainPanel;
     public JPanel headingPanel;
@@ -183,7 +99,6 @@ public class LecHome extends JFrame{
     public JButton lecmaterialsDeletebutton;
     public JComboBox lecmaterialscoursecodedropdown;
     public JButton lecmaterialsAddbutton;
->>>>>>> origin
 
     Connection con;
     String User;
@@ -230,14 +145,8 @@ public class LecHome extends JFrame{
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-
-                    new Lec_profileupdate(User_ID);
-
-=======
                     new Lec_profileupdate(User_ID);
                     dispose();
->>>>>>> origin
             }
         });
         ADDButton.addActionListener(new ActionListener() {
@@ -267,16 +176,7 @@ public class LecHome extends JFrame{
                 Gradegpushowtable();
             }
         });
-<<<<<<< HEAD
-        gradegpuallshowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Gradegpushowtable();
-            }
-        });
-=======
 
->>>>>>> origin
         gradegpuuniqshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -297,15 +197,6 @@ public class LecHome extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "UgdetailsCard");
-<<<<<<< HEAD
-                allUgraduatesDetails();
-            }
-        });
-        allugdetailsshowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-=======
->>>>>>> origin
                 allUgraduatesDetails();
             }
         });
@@ -347,15 +238,7 @@ public class LecHome extends JFrame{
             }
         });
 
-<<<<<<< HEAD
-        AllshowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                allstudentattendanceprecent(User_ID);
-            }
-        });
-=======
->>>>>>> origin
+
         attuniqoneshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -377,37 +260,14 @@ public class LecHome extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "CACard");
-<<<<<<< HEAD
-=======
+
                 allcamarks(User);
->>>>>>> origin
             }
         });
 
         Uniq_stu_CA_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-                allcamarks(User);
-            }
-        });
-        Uniq_stu_CA_button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String CA_Stu_Number =CAstu_numbertextField.getText().trim();
-                if(CA_Stu_Number.isEmpty()){
-                    JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                else {
-                    uniqcamarks(CA_Stu_Number,User);
-                }
-            }
-        });
-        attcaeligibilityButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            new Att_CA();
-=======
                 String CA_Stu_Number =CAstu_numbertextField.getText().trim();
                 if(CA_Stu_Number.isEmpty()){
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -426,17 +286,13 @@ public class LecHome extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
             new Att_CA(User_ID);
->>>>>>> origin
             }
         });
         selectTitleCombo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                     // Get the selected title
-<<<<<<< HEAD
-=======
 
->>>>>>> origin
                     String selectedTitle = (String) selectTitleCombo.getSelectedItem();
                     System.out.println("Selected Title: " + selectedTitle);
                     // Display the content for the selected title
@@ -591,11 +447,8 @@ public class LecHome extends JFrame{
 
             if (result > 0) {
                 // Set default image after deletion
-<<<<<<< HEAD
-                String path = "JavaMiniProject/user_Pro_Pic/default.png";
-=======
+
                 String path = "user_Pro_Pic/default.png";
->>>>>>> origin
 
                 // Get label size
                 int width = imageLbl.getWidth();
@@ -680,11 +533,8 @@ public class LecHome extends JFrame{
     }
 
     private String generateNextMarkID() {
-<<<<<<< HEAD
-        String nextId = "MK001"; // default ID
-=======
+
         String nextId = "M001";
->>>>>>> origin
         try {
             con = DatabaseConnection.connect();
             String sql = "SELECT Mark_id FROM marks ORDER BY Mark_id DESC LIMIT 1";
@@ -692,17 +542,10 @@ public class LecHome extends JFrame{
             ResultSet rs = stmt.executeQuery(sql);
 
             if (rs.next()) {
-<<<<<<< HEAD
-                String lastId = rs.getString("Mark_id"); // e.g., MK005
-                int num = Integer.parseInt(lastId.substring(2)); // remove 'MK'
-                num++;
-                nextId = String.format("MK%03d", num); // MK006
-=======
                 String lastId = rs.getString("Mark_id");
                 int num = Integer.parseInt(lastId.substring(1));
                 num++;
                 nextId = String.format("M%03d", num);
->>>>>>> origin
             }
         } catch (SQLException | NumberFormatException e) {
             JOptionPane.showMessageDialog(MainFrame, "Failed to generate Mark ID: " + e.getMessage());
@@ -882,11 +725,8 @@ public class LecHome extends JFrame{
             double present = presentTheory + presentPractical;
 
             if (total == 0) return true;
-<<<<<<< HEAD
 
-=======
             con.close();
->>>>>>> origin
             double percent = (present / total) * 100;
             return percent >= 80;
 
@@ -894,10 +734,7 @@ public class LecHome extends JFrame{
             JOptionPane.showMessageDialog(null, "Error in eligibility check: " + e);
             return false;
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> origin
     }
 
     private void Gradegpushowtable(String studentId) {
@@ -1769,17 +1606,12 @@ public class LecHome extends JFrame{
         con=DatabaseConnection.connect();
 
         try{
-
-<<<<<<< HEAD
-            DefaultTableModel model=new DefaultTableModel();
-=======
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable ( int row, int column){
                     return false;
                 }
             };
->>>>>>> origin
             model.setColumnIdentifiers(new String[]{
                     "Student_ID","Course Code","Quiz_01", "Quiz_02", "Quiz_03", "Quiz_04",
                     "Assignment_01", "Assignment_02", "Mid_Theory", "Mid_Practical",
@@ -1898,10 +1730,6 @@ public class LecHome extends JFrame{
         }catch (SQLException e){
             JOptionPane.showMessageDialog(MainFrame, e);
         }
-<<<<<<< HEAD
-//        return CA_marks;
-=======
->>>>>>> origin
     }
 
     private double uniqcamarks(String CA_Stu_Number,String User){
@@ -1911,17 +1739,12 @@ public class LecHome extends JFrame{
         con=DatabaseConnection.connect();
 
         try{
-
-<<<<<<< HEAD
-            DefaultTableModel model=new DefaultTableModel();
-=======
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable ( int row, int column){
                     return false;
                 }
             };
->>>>>>> origin
             model.setColumnIdentifiers(new String[]{
                     "Student_ID","Course Code", "Quiz_01", "Quiz_02", "Quiz_03", "Quiz_04",
                     "Assignment_01", "Assignment_02", "Mid_Theory", "Mid_Practical",
@@ -2078,11 +1901,8 @@ public class LecHome extends JFrame{
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-<<<<<<< HEAD
-                File noticeFile = new File("JavaMiniProject/notices/notice_" + noticeId + ".txt");
-=======
+
                 File noticeFile = new File("notices/notice_" + noticeId + ".txt");
->>>>>>> origin
                 System.out.println("noticeFile: " + noticeId+ " Displayed");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
                 StringBuilder content = new StringBuilder();
@@ -2116,22 +1936,14 @@ public class LecHome extends JFrame{
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable ( int row, int column){
-<<<<<<< HEAD
-                return false;
-            }
-=======
+
                     return false;
                 }
->>>>>>> origin
             };
             model.addColumn("Material ID");
             model.addColumn("Course Code");
             model.addColumn("Lec ID");
-<<<<<<< HEAD
-            model.addColumn("File Path");
-=======
             model.addColumn("Material");
->>>>>>> origin
             model.addColumn("Uploaded On");
             while (rs.next()) {
                 model.addRow(new Object[]{
@@ -2146,11 +1958,6 @@ public class LecHome extends JFrame{
             Materials_Table.setModel(model);
             Materials_Table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin
             if (!listenerAdded) {
                 Materials_Table.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
@@ -2159,17 +1966,11 @@ public class LecHome extends JFrame{
                         int row = Materials_Table.rowAtPoint(e.getPoint());
 
                         if (column == 3 && row != -1) {
-<<<<<<< HEAD
-                            String filePath = Materials_Table.getValueAt(row, column).toString();
-                            openMaterial(filePath);
-=======
                             String fileName = Materials_Table.getValueAt(row, column).toString();
                             String courseCode = Materials_Table.getValueAt(row, 1).toString();
 
                             String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
                             openMaterial(filePath);
-
->>>>>>> origin
                         }
                     }
                     }
@@ -2186,11 +1987,8 @@ public class LecHome extends JFrame{
         File file = new File(filePath);
         if (file.exists()) {
             try {
-<<<<<<< HEAD
-                Desktop.getDesktop().open(file); // Opens the file using the default system application
-=======
+
                 Desktop.getDesktop().open(file);
->>>>>>> origin
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(MainFrame, "Error opening the file: " + e.getMessage());
             }
@@ -2203,16 +2001,8 @@ public class LecHome extends JFrame{
         con = DatabaseConnection.connect();
 
         try {
-<<<<<<< HEAD
-            // Step 1: Generate new Mark_ID
-            String newMarkId = genaratenextmaterialID();
-
-            // Step 2: Insert material info
-=======
 
             String newMarkId = genaratenextmaterialID();
-
->>>>>>> origin
             String sql = "INSERT INTO lecture_materials (Material_id, Course_code,Lec_id,File_path) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, newMarkId);
@@ -2238,15 +2028,7 @@ public class LecHome extends JFrame{
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
-<<<<<<< HEAD
-        String nextId = "M001"; // default starting ID
 
-        if (rs.next()) {
-            String lastId = rs.getString("Material_id");
-            int num = Integer.parseInt(lastId.substring(1));
-            num++; // increment
-            nextId = String.format("M%03d", num); // M006
-=======
         String nextId = "MA001";
 
         if (rs.next()) {
@@ -2254,7 +2036,6 @@ public class LecHome extends JFrame{
             int num = Integer.parseInt(lastId.substring(2));
             num++; // increment
             nextId = String.format("MA%03d", num);
->>>>>>> origin
         }
 
         return nextId;
@@ -2280,16 +2061,9 @@ public class LecHome extends JFrame{
             File selectedFile = fc.getSelectedFile();
             String fileName = selectedFile.getName();
 
-<<<<<<< HEAD
-            // Base folder path
-            String baseFolder = "C:\\Users\\ASUS\\Desktop\\Git\\JavaMiniProject\\course_materials";
-
-            // Ensure the course code subfolder is created inside the base folder
-=======
             // Main folder path
             String baseFolder = "course_materials";
 
->>>>>>> origin
             String destFolderPath = baseFolder + File.separator + Course_code;
 
             File destDir = new File(destFolderPath);
@@ -2297,21 +2071,12 @@ public class LecHome extends JFrame{
                 destDir.mkdirs();  // Create course_code folder if not exist
             }
 
-<<<<<<< HEAD
-            // Define the full destination file path
-            File destFile = new File(destDir, fileName);
 
-            try {
-                // Copy the file to the destination folder
-                Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                addmaterials(destFile.getAbsolutePath(), User, Course_code);
-=======
             File destFile = new File(destDir, fileName);
 
             try {
                 Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 addmaterials(destFile.getName(), User, Course_code);
->>>>>>> origin
                 showmaterilstable(User);
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -2332,14 +2097,11 @@ public class LecHome extends JFrame{
             }
 
             String materialID = Materials_Table.getModel().getValueAt(selectedRow, 0).toString();
-<<<<<<< HEAD
-            String filePath = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
-=======
+
             String courseCode = Materials_Table.getModel().getValueAt(selectedRow, 1).toString();
             String fileName = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
 
             String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
->>>>>>> origin
 
             int confirm = JOptionPane.showConfirmDialog(MainFrame, "Are you sure you want to delete this material?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
@@ -2353,10 +2115,6 @@ public class LecHome extends JFrame{
                     }
                 }
 
-<<<<<<< HEAD
-                // Delete record from DB
-=======
->>>>>>> origin
                 PreparedStatement ps = con.prepareStatement("DELETE FROM lecture_materials WHERE Material_id = ?");
                 ps.setString(1, materialID);
                 int rows = ps.executeUpdate();
@@ -2390,8 +2148,7 @@ public class LecHome extends JFrame{
             JOptionPane.showMessageDialog(MainFrame, e);
         }
     }
-<<<<<<< HEAD
-=======
+
 
 //    ******* student available check ************
 
@@ -2415,6 +2172,5 @@ public class LecHome extends JFrame{
             return false;
         }
     }
->>>>>>> origin
 
 }
