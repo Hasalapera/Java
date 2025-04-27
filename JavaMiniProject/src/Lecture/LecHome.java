@@ -795,7 +795,7 @@ public class LecHome extends JFrame{
                         totalGPA += gpa * credit;
                         totalCredits += credit;
                     } else {
-                        row[i + 1] = "Not Eligible";
+                        row[i + 1] = "NE";
                         anyIneligible = true;
                     }
 
@@ -878,7 +878,7 @@ public class LecHome extends JFrame{
                         totalGPA += gpa * credit;
                         totalCredits += credit;
                     } else {
-                        row[i + 1] = "Not Eligible";
+                        row[i + 1] = "NE";
                         anyIneligible = true;
                     }
 
