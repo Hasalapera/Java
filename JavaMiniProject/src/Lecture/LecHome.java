@@ -1,6 +1,7 @@
 package Lecture;
 
 import database.DatabaseConnection;
+import noticesViewing.NoticeViewing;
 import student.Login;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ import java.util.*;
 import java.util.List;
 import java.nio.file.*;
 
-public class LecHome extends JFrame{
+public class LecHome extends JFrame implements NoticeViewing {
     public JPanel mainPanel;
     public JPanel headingPanel;
     public JLabel stuManaSysLbl;
@@ -1870,6 +1871,7 @@ public class LecHome extends JFrame{
 
     // ******* Notice *****************
 
+    @Override
     public void addNoticeTitlesToComboBox(){
         con = DatabaseConnection.connect();
 
@@ -1891,6 +1893,7 @@ public class LecHome extends JFrame{
         }
     }
 
+    @Override
     public void displayNoticeContent(String title) {
         try {
             noticeTxtArea.setText("");

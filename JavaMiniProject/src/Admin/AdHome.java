@@ -11,6 +11,7 @@ import database.DatabaseConnection;
 import javax.swing.table.DefaultTableModel;
 
 import database.Session;
+import noticesViewing.NoticeViewing;
 import student.Login;
 
 import java.io.BufferedReader;
@@ -94,7 +95,7 @@ public class AdHome extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Admin Home");
         pack(); // Adjusts window size to fit content
-        setSize(2000, 890);
+        setSize(2000, 800);
         setLocationRelativeTo(null);
         setVisible(true);
 

@@ -124,7 +124,7 @@ public class StuHome extends JFrame implements NoticeViewing {
         setContentPane(mainPanel);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Student Home");
-        setSize(2000, 890);
+        setSize(2000, 800);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -948,9 +948,9 @@ public double calculateGPA() {
 
 
 
-    public static void main(String[] args) {
-        new StuHome();
-    }
+//    public static void main(String[] args) {
+//        new StuHome();
+//    }
 
 
 }

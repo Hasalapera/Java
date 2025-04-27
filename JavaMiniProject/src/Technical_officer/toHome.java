@@ -2,6 +2,7 @@ package Technical_officer;
 
 import database.DatabaseConnection;
 import database.Session;
+import noticesViewing.NoticeViewing;
 import student.Login;
 
 import javax.swing.*;
@@ -16,7 +17,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Vector;
 
-public class toHome extends  JFrame {
+public class toHome extends  JFrame implements NoticeViewing {
     private JPanel mainPanel;
     private JPanel headingPanel;
     private JLabel stuManaSysLbl;
@@ -81,7 +82,7 @@ public class toHome extends  JFrame {
         setContentPane(mainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Technical Officer home");
-        setSize(2000,890);
+        setSize(2000,800);
         setVisible(true);
         setLocationRelativeTo(null);
 
@@ -499,6 +500,8 @@ public class toHome extends  JFrame {
     }
 
     //Notices
+
+    @Override
     public void addNoticeTitlesToComboBox(){
         con = DatabaseConnection.connect();
 
@@ -520,6 +523,7 @@ public class toHome extends  JFrame {
         }
     }
 
+    @Override
     public void displayNoticeContent(String title) {
         try {
             noticeTxtArea.setText("");

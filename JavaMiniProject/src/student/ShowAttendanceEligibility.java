@@ -215,8 +215,8 @@ public class ShowAttendanceEligibility extends JFrame {
     }
 
 
-    public static void main(String[] args) {
-        new ShowAttendanceEligibility().getAllAttendanceCounts();
-    }
+//    public static void main(String[] args) {
+//        new ShowAttendanceEligibility().getAllAttendanceCounts();
+//    }
 
 }

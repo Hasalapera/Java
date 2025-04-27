@@ -5,31 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c41334f-96d0-4d11-b09c-40b52741956e" name="Changes" comment="Ad home updated">
-      <change afterPath="$PROJECT_DIR$/src/noticesViewing/NoticeViewing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaMiniProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaMiniProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Admin/AdHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/AdHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lecture/LecHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lecture/LecHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Technical_officer/toHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Technical_officer/toHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/ShowAttendanceEligibility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/ShowAttendanceEligibility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/student/StuHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/StuHome.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,12 +37,12 @@
     &quot;assignee&quot;: &quot;Hasalapera&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Hasalapera/Java.git&quot;,
-    &quot;accountId&quot;: &quot;851966c5-c728-4543-9304-a162c1c561c2&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Hasalapera/Java.git",
+    "accountId": "b61bfe7f-cca7-4a5c-9a41-c4213ca2fa8f"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
@@ -72,28 +55,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.StuHome.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StudentManagement.executor&quot;: &quot;Run&quot;,
-    &quot;Application.updateTOprofile.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;206&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Hasala&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hasalashehan/Desktop/Workshop/Java/JavaMiniProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.StuHome.executor": "Run",
+    "Application.StudentManagement.executor": "Run",
+    "Application.updateTOprofile.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "206",
+    "git-widget-placeholder": "#27 on Sadeepa",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ASUS/Desktop/Java/New folder/JavaMiniProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="StudentManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.StudentManagement" />
@@ -117,8 +100,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -139,6 +122,7 @@
       <workItem from="1745736156185" duration="488000" />
       <workItem from="1745736842327" duration="1401000" />
       <workItem from="1745738828620" duration="6075000" />
+      <workItem from="1745760644023" duration="3372000" />
     </task>
     <task id="LOCAL-00001" summary="Ad home updated">
       <option name="closed" value="true" />
