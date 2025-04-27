@@ -771,7 +771,7 @@
                                     <properties>
                                       <autoResizeMode value="2"/>
                                       <background color="-1"/>
-                                      <enabled value="false"/>
+                                      <enabled value="true"/>
                                       <fillsViewportHeight value="true"/>
                                       <font name="JetBrains Mono" size="14"/>
                                       <foreground color="-16447994"/>

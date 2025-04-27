@@ -128,6 +128,13 @@ public class LecHome extends JFrame{
         Addmaterialsbtm.setFocusPainted(false);
         undergraduateDetailsButton.setFocusPainted(false);
 
+        fNameTxt.setEditable(false);
+        lNameTxt.setEditable(false);
+        addressTxt.setEditable(false);
+        emailTxt.setEditable(false);
+        pNoTxt.setEditable(false);
+        roleTxt.setEditable(false);
+
         profileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
