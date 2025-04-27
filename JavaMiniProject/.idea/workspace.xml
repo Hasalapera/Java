@@ -5,32 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c41334f-96d0-4d11-b09c-40b52741956e" name="Changes" comment="Ad home updated">
-      <change afterPath="$PROJECT_DIR$/src/noticesViewing/NoticeViewing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/student/StuHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/student/StuHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/StuHome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/AddAttendance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/AddAttendance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/addmedical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/addmedical.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/toHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/toHome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/updateAttendance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/updateAttendance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/updateMedical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/Technical_officer/updateMedical.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaMiniProject/database/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaMiniProject/database/DatabaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/Login.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/student/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/student/Login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +29,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -57,7 +45,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Hasalapera/Java.git&quot;,
-    &quot;accountId&quot;: &quot;851966c5-c728-4543-9304-a162c1c561c2&quot;
+    &quot;accountId&quot;: &quot;1eed8741-c055-404f-857e-01ee05d684e0&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -72,30 +60,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.StuHome.executor&quot;: &quot;Run&quot;,
-    &quot;Application.StudentManagement.executor&quot;: &quot;Run&quot;,
-    &quot;Application.updateTOprofile.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;206&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Hasala&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/hasalashehan/Desktop/Workshop/Java/JavaMiniProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.StuHome.executor": "Run",
+    "Application.StudentManagement.executor": "Run",
+    "Application.updateTOprofile.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "206",
+    "git-widget-placeholder": "Navodya",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="StudentManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="23" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.StudentManagement" />
       <module name="JavaMiniProject" />
       <extension name="coverage">
@@ -110,6 +100,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StudentManagement" />
+        <item itemvalue="Application.StudentManagement" />
+        <item itemvalue="Application.StudentManagement" />
         <item itemvalue="Application.StudentManagement" />
       </list>
     </recent_temporary>
@@ -139,6 +132,11 @@
       <workItem from="1745736156185" duration="488000" />
       <workItem from="1745736842327" duration="1401000" />
       <workItem from="1745738828620" duration="6075000" />
+      <workItem from="1745754141293" duration="120000" />
+      <workItem from="1745754268640" duration="209000" />
+      <workItem from="1745754507500" duration="52000" />
+      <workItem from="1745757180524" duration="112000" />
+      <workItem from="1745761188038" duration="349000" />
     </task>
     <task id="LOCAL-00001" summary="Ad home updated">
       <option name="closed" value="true" />
