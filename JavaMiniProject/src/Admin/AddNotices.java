@@ -139,8 +139,8 @@ public class AddNotices extends JFrame {
 
 
 
-    public static void main(String[] args) {
-        new AddNotices();
-    }
+//    public static void main(String[] args) {
+//        new AddNotices();
+//    }
 }
 

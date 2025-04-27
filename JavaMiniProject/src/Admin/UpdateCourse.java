@@ -116,9 +116,9 @@ public class UpdateCourse extends JFrame {
     }
 
     // Optional: for testing the GUI
-    public static void main(String[] args) {
-        new UpdateCourse();
-    }
+//    public static void main(String[] args) {
+//        new UpdateCourse();
+//    }
 }
 
 

@@ -110,8 +110,8 @@ public class AddTimeTable extends JFrame {
     }
 
     // Optional: run GUI
-    public static void main(String[] args) {
-        new AddTimeTable().setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        new AddTimeTable().setVisible(true);
+//    }
 }
 

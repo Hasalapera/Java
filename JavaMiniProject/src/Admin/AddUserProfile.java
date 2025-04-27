@@ -138,9 +138,9 @@ public class AddUserProfile extends JFrame {
         textField11.setText("");
     }
 
-    public static void main(String[] args) {
-        new AddUserProfile();
-    }
+//    public static void main(String[] args) {
+//        new AddUserProfile();
+//    }
 }
 
 

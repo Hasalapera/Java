@@ -269,7 +269,7 @@ public class AdHome extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) cardpanel.getLayout();
                 cl.show(cardpanel, "Notice");
-                loadNoticeData();
+                displayNoticeContent();
             }
         });
         viewNoticeButton.addActionListener(new ActionListener() {
@@ -684,7 +684,7 @@ public class AdHome extends JFrame {
         }
     }
 
-    private void loadNoticeData() {
+    private void displayNoticeContent() {
         try {
             Connection conn = DatabaseConnection.connect();
             Statement stmt = conn.createStatement();
@@ -786,9 +786,9 @@ public class AdHome extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        new AdHome();
-    }
+//    public static void main(String[] args) {
+//        new AdHome();
+//    }
 
 
 

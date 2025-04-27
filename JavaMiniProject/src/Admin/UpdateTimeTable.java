@@ -109,9 +109,9 @@ public class UpdateTimeTable extends JFrame {
     }
 
     // Optional: run GUI
-    public static void main(String[] args) {
-        new UpdateTimeTable().setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        new UpdateTimeTable().setVisible(true);
+//    }
 }
 
 

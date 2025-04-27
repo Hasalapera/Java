@@ -105,9 +105,9 @@ public class AddCourse extends JFrame {
     }
 
     // Optional: test GUI
-    public static void main(String[] args) {
-        new AddCourse().setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        new AddCourse().setVisible(true);
+//    }
 }
 
 

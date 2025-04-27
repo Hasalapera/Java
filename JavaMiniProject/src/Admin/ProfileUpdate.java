@@ -144,9 +144,9 @@ public class ProfileUpdate extends JFrame{
         textField11.setText("");
     }
 
-    public static void main(String[] args) {
-        new ProfileUpdate();
-    }
+//    public static void main(String[] args) {
+//        new ProfileUpdate();
+//    }
 }
 
 
