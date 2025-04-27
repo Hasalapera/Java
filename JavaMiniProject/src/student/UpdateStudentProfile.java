@@ -38,7 +38,7 @@ public class UpdateStudentProfile extends JFrame {
         setTitle("Update Student Profile");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        setSize(2000, 1000);
+        setSize(2000, 890);
         setVisible(true);
 
 
@@ -122,7 +122,7 @@ public class UpdateStudentProfile extends JFrame {
 
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
-            String imagePath = selectedFile.getAbsolutePath();
+            String imagePath = selectedFile.getName();
 
             // Set the selected file path into the text field
             proPicTxt.setText(imagePath);

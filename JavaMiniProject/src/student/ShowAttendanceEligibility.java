@@ -25,7 +25,7 @@ public class ShowAttendanceEligibility extends JFrame {
     public ShowAttendanceEligibility() {
         setTitle("Attendance Eligibility");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(2000, 1000);
+        setSize(2000, 890);
         setContentPane(mainPanel);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -157,6 +157,7 @@ public class ShowAttendanceEligibility extends JFrame {
 
     //********** check attendance eligibility *************
     public boolean checkAttEligibility(double attendancePercentage){
+
         return attendancePercentage >= 80;
     }
 

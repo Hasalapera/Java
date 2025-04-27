@@ -60,8 +60,9 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-16758099"/>
+          <background color="-1"/>
           <font name="Kannada MN" size="16" style="0"/>
+          <foreground color="-16758099"/>
           <text value="Exit"/>
         </properties>
       </component>

@@ -179,6 +179,7 @@
                         </constraints>
                         <properties>
                           <background color="-16758099"/>
+                          <foreground color="-1"/>
                           <text value="Clear"/>
                         </properties>
                       </component>
@@ -190,6 +191,7 @@
                         </constraints>
                         <properties>
                           <background color="-16758099"/>
+                          <foreground color="-1"/>
                           <text value="Log In"/>
                         </properties>
                       </component>

@@ -17,6 +17,7 @@ import java.util.*;
 import java.util.List;
 import java.nio.file.*;
 
+<<<<<<< HEAD
 public class LecHome extends JFrame {
     private JPanel mainPanel;
     private JPanel headingPanel;
@@ -99,19 +100,100 @@ public class LecHome extends JFrame {
     private JButton lecmaterialsDeletebutton;
     private JComboBox lecmaterialscoursecodedropdown;
     private JButton lecmaterialsAddbutton;
+=======
+public class LecHome extends JFrame{
+    public JPanel mainPanel;
+    public JPanel headingPanel;
+    public JLabel stuManaSysLbl;
+    public JLabel FoTLbl;
+    public JButton logOutButton;
+    public JPanel btnPanel;
+    public JButton profileButton;
+    public JButton addMarksButton;
+    public JButton gradeAndGPAButton;
+    public JButton attendanceButton;
+    public JButton CAEligibilityButton;
+    public JButton undergraduateDetailsButton;
+    public JButton noticeButton;
+    public JPanel cardMainPanel;
+    public JPanel profileCard;
+    public JLabel profileHeadingLbl;
+    public JPanel detailPanel;
+    public JLabel fNameLbl;
+    public JTextField fNameTxt;
+    public JLabel lNameLbl;
+    public JTextField lNameTxt;
+    public JLabel addressLbl;
+    public JTextField addressTxt;
+    public JLabel emailLbl;
+    public JTextField emailTxt;
+    public JLabel pNoLbl;
+    public JLabel roleLbl;
+    public JTextField pNoTxt;
+    public JTextField roleTxt;
+    public JPanel imgMainPanel;
+    public JPanel imgPanel;
+    public JLabel imageLbl;
+    public JButton deleteProfilePictureButton;
+    public JButton updateProfileButton;
+    public JPanel AddmarksCard;
+    public JPanel gradeGPACard;
+    public JPanel attendanceCard;
+    public JPanel CACard;
+    public JPanel noticeCard;
+    public JLabel noticeHeadingLbl;
+    public JLabel selectTitleLbl;
+    public JComboBox selectTitleCombo;
+    public JPanel noticeTxtAreaPanel;
+    public JScrollPane noticeScrollPane;
+    public JTextArea noticeTxtArea;
+    public JPanel UgdetailsCard;
+    public JPanel MainFrame;
+    public JTextField Mark_id_textfield;
+    public JTextField student_id_textField;
+    public JTextField mark_textField;
+    public JButton ADDButton;
+    public JButton deleteButton;
+    public JComboBox mark_type_comboBox;
+    public JComboBox coursecodecomboBox;
+    public JTable marktable;
+    public JTextField Stu_number;
+    public JButton gradegpuuniqshowButton;
+    public JButton gradegpuallshowButton;
+    public JTable Grade_GPA_Table;
+    public JPanel GradeMainpanle;
+    public JButton uniqugdetailsshowButton;
+    public JButton allugdetailsshowButton;
+    public JTable Stu_details_table;
+    public JTextField ugStudentNumber;
+    public JButton attuniqoneshowButton;
+    public JButton AllshowButton;
+    public JButton allAttendanceButton;
+    public JButton allMedicelsButton;
+    public JButton attcaeligibilityButton;
+    public JTable Attendance_table;
+    public JTextField attStu_number;
+    public JTextField CAstu_numbertextField;
+    public JButton Uniq_stu_CA_button;
+    public JTable CAEligibilitytable;
+    public JButton AllCAbutton;
+    public JButton Addmaterialsbtm;
+    public JPanel AddmaterialsCard;
+    public JTable Materials_Table;
+    public JButton lecmaterialsDeletebutton;
+    public JComboBox lecmaterialscoursecodedropdown;
+    public JButton lecmaterialsAddbutton;
+>>>>>>> origin
 
     Connection con;
-    PreparedStatement pst;
-    ResultSet rs;
-
     String User;
 
     public LecHome(String User_ID) {
 
         setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("Lecture Home");
-        setSize(1024, 768);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setTitle("Lecturer Home");
+        setSize(2000, 890);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -121,6 +203,15 @@ public class LecHome extends JFrame {
         showProfilePicture( User,imageLbl);
 
         CardLayout cardLayout = (CardLayout) (cardMainPanel.getLayout());
+
+        profileButton.setFocusPainted(false);
+        addMarksButton.setFocusPainted(false);
+        gradeAndGPAButton.setFocusPainted(false);
+        attendanceButton.setFocusPainted(false);
+        CAEligibilityButton.setFocusPainted(false);
+        noticeButton.setFocusPainted(false);
+        Addmaterialsbtm.setFocusPainted(false);
+        undergraduateDetailsButton.setFocusPainted(false);
 
         profileButton.addActionListener(new ActionListener() {
             @Override
@@ -139,9 +230,14 @@ public class LecHome extends JFrame {
         updateProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 
                     new Lec_profileupdate(User_ID);
 
+=======
+                    new Lec_profileupdate(User_ID);
+                    dispose();
+>>>>>>> origin
             }
         });
         ADDButton.addActionListener(new ActionListener() {
@@ -171,18 +267,27 @@ public class LecHome extends JFrame {
                 Gradegpushowtable();
             }
         });
+<<<<<<< HEAD
         gradegpuallshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Gradegpushowtable();
             }
         });
+=======
+
+>>>>>>> origin
         gradegpuuniqshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String studentId = Stu_number.getText().trim();
                 if (!studentId.isEmpty()) {
-                    Gradegpushowtable(studentId);
+                    if(isStudentExist(studentId)) {
+                        Gradegpushowtable(studentId);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.");
                 }
@@ -192,15 +297,19 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "UgdetailsCard");
+<<<<<<< HEAD
                 allUgraduatesDetails();
             }
         });
         allugdetailsshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+=======
+>>>>>>> origin
                 allUgraduatesDetails();
             }
         });
+
         uniqugdetailsshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -209,7 +318,12 @@ public class LecHome extends JFrame {
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    filterUgraduatesDetails(st_Number);
+                    if(isStudentExist(st_Number)) {
+                        filterUgraduatesDetails(st_Number);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -217,6 +331,7 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "attendanceCard");
+                allstudentattendanceprecent(User_ID);
             }
         });
         allAttendanceButton.addActionListener(new ActionListener() {
@@ -232,12 +347,15 @@ public class LecHome extends JFrame {
             }
         });
 
+<<<<<<< HEAD
         AllshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 allstudentattendanceprecent(User_ID);
             }
         });
+=======
+>>>>>>> origin
         attuniqoneshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -246,7 +364,12 @@ public class LecHome extends JFrame {
                     JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-                    uniqstudentattendancepresent(attstunum,User_ID);
+                    if(isStudentExist(attstunum)){
+                        uniqstudentattendancepresent(attstunum,User_ID);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
         });
@@ -254,11 +377,17 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "CACard");
+<<<<<<< HEAD
+=======
+                allcamarks(User);
+>>>>>>> origin
             }
         });
-        AllCAbutton.addActionListener(new ActionListener() {
+
+        Uniq_stu_CA_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
                 allcamarks(User);
             }
         });
@@ -278,12 +407,36 @@ public class LecHome extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
             new Att_CA();
+=======
+                String CA_Stu_Number =CAstu_numbertextField.getText().trim();
+                if(CA_Stu_Number.isEmpty()){
+                    JOptionPane.showMessageDialog(MainFrame, "Please enter a student ID.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    if(isStudentExist(CA_Stu_Number)){
+                        uniqcamarks(CA_Stu_Number,User);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(MainFrame,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
+        attcaeligibilityButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            new Att_CA(User_ID);
+>>>>>>> origin
             }
         });
         selectTitleCombo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                     // Get the selected title
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
                     String selectedTitle = (String) selectTitleCombo.getSelectedItem();
                     System.out.println("Selected Title: " + selectedTitle);
                     // Display the content for the selected title
@@ -396,12 +549,12 @@ public class LecHome extends JFrame {
                     fileName = "default.png";
                 }
 
-                String path = "JavaMiniProject/user_Pro_Pic/" + fileName;
+                String path = "user_Pro_Pic/" + fileName;
                 File imageFile = new File(path);
 
                 // If image file does not exist, fallback to default image
                 if (!imageFile.exists()) {
-                    path = "JavaMiniProject/user_Pro_Pic/default.png";
+                    path = "user_Pro_Pic/default.png";
                 }
 
                 // Load and Resize Image to fit JLabel
@@ -438,7 +591,11 @@ public class LecHome extends JFrame {
 
             if (result > 0) {
                 // Set default image after deletion
+<<<<<<< HEAD
                 String path = "JavaMiniProject/user_Pro_Pic/default.png";
+=======
+                String path = "user_Pro_Pic/default.png";
+>>>>>>> origin
 
                 // Get label size
                 int width = imageLbl.getWidth();
@@ -475,7 +632,12 @@ public class LecHome extends JFrame {
                 pst.setString(1, User_ID);
                 ResultSet rs = pst.executeQuery();
 
-                DefaultTableModel model=new DefaultTableModel();
+                DefaultTableModel model = new DefaultTableModel() {
+                    @Override
+                    public boolean isCellEditable ( int row, int column){
+                        return false;
+                    }
+                };
 
                 model.addColumn("Mark ID");
                 model.addColumn("Student ID");
@@ -518,7 +680,11 @@ public class LecHome extends JFrame {
     }
 
     private String generateNextMarkID() {
+<<<<<<< HEAD
         String nextId = "MK001"; // default ID
+=======
+        String nextId = "M001";
+>>>>>>> origin
         try {
             con = DatabaseConnection.connect();
             String sql = "SELECT Mark_id FROM marks ORDER BY Mark_id DESC LIMIT 1";
@@ -526,10 +692,17 @@ public class LecHome extends JFrame {
             ResultSet rs = stmt.executeQuery(sql);
 
             if (rs.next()) {
+<<<<<<< HEAD
                 String lastId = rs.getString("Mark_id"); // e.g., MK005
                 int num = Integer.parseInt(lastId.substring(2)); // remove 'MK'
                 num++;
                 nextId = String.format("MK%03d", num); // MK006
+=======
+                String lastId = rs.getString("Mark_id");
+                int num = Integer.parseInt(lastId.substring(1));
+                num++;
+                nextId = String.format("M%03d", num);
+>>>>>>> origin
             }
         } catch (SQLException | NumberFormatException e) {
             JOptionPane.showMessageDialog(MainFrame, "Failed to generate Mark ID: " + e.getMessage());
@@ -560,6 +733,10 @@ public class LecHome extends JFrame {
             JOptionPane.showMessageDialog(MainFrame, "Only Accept numeric values", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if(markValue>100||markValue<0){
+            JOptionPane.showMessageDialog(MainFrame, "Marks Should be in range 0 - 100", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
 
         try {
             PreparedStatement checkStmt = con.prepareStatement("SELECT * FROM marks WHERE Stu_id=? AND Course_code=?");
@@ -597,17 +774,18 @@ public class LecHome extends JFrame {
             else {
                 JOptionPane.showMessageDialog(MainFrame, "Mark updated successfully!");
             }
-            student_id_textField.setText("");
-            Mark_id_textfield.setText("");
-            mark_textField.setText("");
-            mark_type_comboBox.setSelectedIndex(-1);
-            coursecodecomboBox.setSelectedIndex(-1);
 
             showmarkstable(User);
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(MainFrame, e);
         }
+            }
+        student_id_textField.setText("");
+        Mark_id_textfield.setText("");
+        mark_textField.setText("");
+        coursecodecomboBox.setSelectedIndex(-1);
+        mark_type_comboBox.setSelectedIndex(-1);
     }
 
     public void deleteRecordFromTable(String markID){
@@ -704,7 +882,11 @@ public class LecHome extends JFrame {
             double present = presentTheory + presentPractical;
 
             if (total == 0) return true;
+<<<<<<< HEAD
 
+=======
+            con.close();
+>>>>>>> origin
             double percent = (present / total) * 100;
             return percent >= 80;
 
@@ -712,6 +894,10 @@ public class LecHome extends JFrame {
             JOptionPane.showMessageDialog(null, "Error in eligibility check: " + e);
             return false;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
     }
 
     private void Gradegpushowtable(String studentId) {
@@ -733,8 +919,15 @@ public class LecHome extends JFrame {
             for (int i = 0; i < course_codes.size(); i++) {
                 columns[i + 1] = course_codes.get(i);
             }
+
             columns[columns.length - 1] = "GPA";
-            DefaultTableModel model = new DefaultTableModel(columns, 0);
+
+            DefaultTableModel model = new DefaultTableModel(columns,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
 
             // Only get the requested student
             PreparedStatement studentStmt = con.prepareStatement("SELECT DISTINCT Stu_id FROM marks WHERE Stu_id = ?");
@@ -818,9 +1011,14 @@ public class LecHome extends JFrame {
                 columns[i + 1] = course_codes.get(i);
             }
             columns[columns.length - 1] = "GPA";
-            DefaultTableModel model = new DefaultTableModel(columns, 0);
+            DefaultTableModel model = new DefaultTableModel(columns,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
 
-            // Get distinct student IDs
+            // Get student IDs
             PreparedStatement studentStmt = con.prepareStatement("SELECT DISTINCT Stu_id FROM marks");
             ResultSet studentRs = studentStmt.executeQuery();
 
@@ -1021,7 +1219,12 @@ public class LecHome extends JFrame {
                 ResultSet rs = pstm.executeQuery();
 
                 String[] columnNames = {"Student ID", "Name","Date Of Birth", "Enrollment Date", "Address", "Email", "Phone Number"};
-                DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+                DefaultTableModel model = new DefaultTableModel(columnNames,0) {
+                    @Override
+                    public boolean isCellEditable ( int row, int column){
+                        return false;
+                    }
+                };
 
                 while (rs.next()) {
                     model.addRow(new Object[]{
@@ -1061,7 +1264,12 @@ public class LecHome extends JFrame {
             ResultSet rs = pstm.executeQuery();
 
             String[] columnNames = {"Student ID", "Name","Date Of Birth", "Enrollment Date", "Address", "Email", "Phone Number"};
-            DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+            DefaultTableModel model = new DefaultTableModel(columnNames,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
 
             while (rs.next()) {
                 model.addRow(new Object[]{
@@ -1092,6 +1300,7 @@ public class LecHome extends JFrame {
     private void attendanceTable(String User) {
 
         con = DatabaseConnection.connect();
+
         try {
 
             PreparedStatement courseStmt = con.prepareStatement("SELECT DISTINCT Course_code FROM course WHERE Lec_id = ?");
@@ -1147,7 +1356,13 @@ public class LecHome extends JFrame {
                 data[i++] = row;
             }
 
-            Attendance_table.setModel(new javax.swing.table.DefaultTableModel(data, Column));
+            Attendance_table.setModel(new javax.swing.table.DefaultTableModel(data, Column) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            });
+
             Attendance_table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         } catch (SQLException e) {
@@ -1158,6 +1373,8 @@ public class LecHome extends JFrame {
     private void allMedicels(String User) {
 
         con=DatabaseConnection.connect();
+
+        Attendance_table.setModel(new javax.swing.table.DefaultTableModel());
 
         try{
 
@@ -1171,7 +1388,12 @@ public class LecHome extends JFrame {
             }
 
             String[] Column = {"Stu_id", "Course_code", "Week_No", "Day_No", "Status"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
+            DefaultTableModel model = new DefaultTableModel(Column,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
             Attendance_table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
             boolean found = false;
@@ -1210,7 +1432,12 @@ public class LecHome extends JFrame {
 
         try {
             String[] Column = {"Stu_id", "Course_Code", "Percentage", "Eligibility"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
+            DefaultTableModel model = new DefaultTableModel(Column,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
             Attendance_table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
             PreparedStatement courseStmt = con.prepareStatement("SELECT DISTINCT Course_code FROM course WHERE Lec_id = ?");
@@ -1327,7 +1554,12 @@ public class LecHome extends JFrame {
 
         try {
             String[] Column = {"Stu_id", "Course_Code", "Percentage", "Eligibility"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
+            DefaultTableModel model = new DefaultTableModel(Column,0) {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
             Attendance_table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
             PreparedStatement coursestm = con.prepareStatement("SELECT DISTINCT Course_code FROM course WHERE Lec_id = ?");
@@ -1404,9 +1636,9 @@ public class LecHome extends JFrame {
                 String combinedEligibility = (combinedPercent >= 80) ? "Eligible" : "Not Eligible";
 
                 if (hasTheory && hasPractical) {
-                    model.addRow(new Object[]{Stu_id, Course_code1 + "-T", String.format("%.2f", theoryPercent) + "%", theoryEligibility});
-                    model.addRow(new Object[]{Stu_id, Course_code1 + "-P", String.format("%.2f", practicalPercent) + "%", practicalEligibility});
-                    model.addRow(new Object[]{Stu_id, Course_code1 + "-T,P", String.format("%.2f", combinedPercent) + "%", combinedEligibility});
+                    model.addRow(new Object[]{Stu_id, Course_code1 + " -T", String.format("%.2f", theoryPercent) + "%", theoryEligibility});
+                    model.addRow(new Object[]{Stu_id, Course_code1 + " -P", String.format("%.2f", practicalPercent) + "%", practicalEligibility});
+                    model.addRow(new Object[]{Stu_id, Course_code1 + " -T,P", String.format("%.2f", combinedPercent) + "%", combinedEligibility});
 
                 } else if (hasTheory) {
                     model.addRow(new Object[]{Stu_id, Course_code1, String.format("%.2f", theoryPercent) + "%", theoryEligibility});
@@ -1481,7 +1713,12 @@ public class LecHome extends JFrame {
             JFrame attendanceFrame = new JFrame("Attendance Records - Student: " + Stu_id);
             attendanceFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             attendanceFrame.setSize(1000, 400); // Wider for more weeks
-            JTable table = new JTable(data, Column);
+            JTable table = new JTable(data, Column){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
             table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
             JScrollPane scrollPane = new JScrollPane(table);
             attendanceFrame.add(scrollPane);
@@ -1533,7 +1770,16 @@ public class LecHome extends JFrame {
 
         try{
 
+<<<<<<< HEAD
             DefaultTableModel model=new DefaultTableModel();
+=======
+            DefaultTableModel model = new DefaultTableModel() {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
+>>>>>>> origin
             model.setColumnIdentifiers(new String[]{
                     "Student_ID","Course Code","Quiz_01", "Quiz_02", "Quiz_03", "Quiz_04",
                     "Assignment_01", "Assignment_02", "Mid_Theory", "Mid_Practical",
@@ -1652,7 +1898,10 @@ public class LecHome extends JFrame {
         }catch (SQLException e){
             JOptionPane.showMessageDialog(MainFrame, e);
         }
+<<<<<<< HEAD
 //        return CA_marks;
+=======
+>>>>>>> origin
     }
 
     private double uniqcamarks(String CA_Stu_Number,String User){
@@ -1663,7 +1912,16 @@ public class LecHome extends JFrame {
 
         try{
 
+<<<<<<< HEAD
             DefaultTableModel model=new DefaultTableModel();
+=======
+            DefaultTableModel model = new DefaultTableModel() {
+                @Override
+                public boolean isCellEditable ( int row, int column){
+                    return false;
+                }
+            };
+>>>>>>> origin
             model.setColumnIdentifiers(new String[]{
                     "Student_ID","Course Code", "Quiz_01", "Quiz_02", "Quiz_03", "Quiz_04",
                     "Assignment_01", "Assignment_02", "Mid_Theory", "Mid_Practical",
@@ -1820,7 +2078,11 @@ public class LecHome extends JFrame {
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
+<<<<<<< HEAD
                 File noticeFile = new File("JavaMiniProject/notices/notice_" + noticeId + ".txt");
+=======
+                File noticeFile = new File("notices/notice_" + noticeId + ".txt");
+>>>>>>> origin
                 System.out.println("noticeFile: " + noticeId+ " Displayed");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
                 StringBuilder content = new StringBuilder();
@@ -1854,13 +2116,22 @@ public class LecHome extends JFrame {
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable ( int row, int column){
+<<<<<<< HEAD
                 return false;
             }
+=======
+                    return false;
+                }
+>>>>>>> origin
             };
             model.addColumn("Material ID");
             model.addColumn("Course Code");
             model.addColumn("Lec ID");
+<<<<<<< HEAD
             model.addColumn("File Path");
+=======
+            model.addColumn("Material");
+>>>>>>> origin
             model.addColumn("Uploaded On");
             while (rs.next()) {
                 model.addRow(new Object[]{
@@ -1875,8 +2146,11 @@ public class LecHome extends JFrame {
             Materials_Table.setModel(model);
             Materials_Table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin
             if (!listenerAdded) {
                 Materials_Table.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e) {
@@ -1885,8 +2159,17 @@ public class LecHome extends JFrame {
                         int row = Materials_Table.rowAtPoint(e.getPoint());
 
                         if (column == 3 && row != -1) {
+<<<<<<< HEAD
                             String filePath = Materials_Table.getValueAt(row, column).toString();
                             openMaterial(filePath);
+=======
+                            String fileName = Materials_Table.getValueAt(row, column).toString();
+                            String courseCode = Materials_Table.getValueAt(row, 1).toString();
+
+                            String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
+                            openMaterial(filePath);
+
+>>>>>>> origin
                         }
                     }
                     }
@@ -1903,7 +2186,11 @@ public class LecHome extends JFrame {
         File file = new File(filePath);
         if (file.exists()) {
             try {
+<<<<<<< HEAD
                 Desktop.getDesktop().open(file); // Opens the file using the default system application
+=======
+                Desktop.getDesktop().open(file);
+>>>>>>> origin
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(MainFrame, "Error opening the file: " + e.getMessage());
             }
@@ -1916,10 +2203,16 @@ public class LecHome extends JFrame {
         con = DatabaseConnection.connect();
 
         try {
+<<<<<<< HEAD
             // Step 1: Generate new Mark_ID
             String newMarkId = genaratenextmaterialID();
 
             // Step 2: Insert material info
+=======
+
+            String newMarkId = genaratenextmaterialID();
+
+>>>>>>> origin
             String sql = "INSERT INTO lecture_materials (Material_id, Course_code,Lec_id,File_path) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, newMarkId);
@@ -1945,6 +2238,7 @@ public class LecHome extends JFrame {
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
 
+<<<<<<< HEAD
         String nextId = "M001"; // default starting ID
 
         if (rs.next()) {
@@ -1952,6 +2246,15 @@ public class LecHome extends JFrame {
             int num = Integer.parseInt(lastId.substring(1));
             num++; // increment
             nextId = String.format("M%03d", num); // M006
+=======
+        String nextId = "MA001";
+
+        if (rs.next()) {
+            String lastId = rs.getString("Material_id");
+            int num = Integer.parseInt(lastId.substring(2));
+            num++; // increment
+            nextId = String.format("MA%03d", num);
+>>>>>>> origin
         }
 
         return nextId;
@@ -1977,10 +2280,16 @@ public class LecHome extends JFrame {
             File selectedFile = fc.getSelectedFile();
             String fileName = selectedFile.getName();
 
+<<<<<<< HEAD
             // Base folder path
             String baseFolder = "C:\\Users\\ASUS\\Desktop\\Git\\JavaMiniProject\\course_materials";
 
             // Ensure the course code subfolder is created inside the base folder
+=======
+            // Main folder path
+            String baseFolder = "course_materials";
+
+>>>>>>> origin
             String destFolderPath = baseFolder + File.separator + Course_code;
 
             File destDir = new File(destFolderPath);
@@ -1988,6 +2297,7 @@ public class LecHome extends JFrame {
                 destDir.mkdirs();  // Create course_code folder if not exist
             }
 
+<<<<<<< HEAD
             // Define the full destination file path
             File destFile = new File(destDir, fileName);
 
@@ -1995,6 +2305,13 @@ public class LecHome extends JFrame {
                 // Copy the file to the destination folder
                 Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 addmaterials(destFile.getAbsolutePath(), User, Course_code);
+=======
+            File destFile = new File(destDir, fileName);
+
+            try {
+                Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                addmaterials(destFile.getName(), User, Course_code);
+>>>>>>> origin
                 showmaterilstable(User);
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -2015,7 +2332,14 @@ public class LecHome extends JFrame {
             }
 
             String materialID = Materials_Table.getModel().getValueAt(selectedRow, 0).toString();
+<<<<<<< HEAD
             String filePath = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
+=======
+            String courseCode = Materials_Table.getModel().getValueAt(selectedRow, 1).toString();
+            String fileName = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
+
+            String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
+>>>>>>> origin
 
             int confirm = JOptionPane.showConfirmDialog(MainFrame, "Are you sure you want to delete this material?", "Confirm Delete", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
@@ -2029,7 +2353,10 @@ public class LecHome extends JFrame {
                     }
                 }
 
+<<<<<<< HEAD
                 // Delete record from DB
+=======
+>>>>>>> origin
                 PreparedStatement ps = con.prepareStatement("DELETE FROM lecture_materials WHERE Material_id = ?");
                 ps.setString(1, materialID);
                 int rows = ps.executeUpdate();
@@ -2063,5 +2390,31 @@ public class LecHome extends JFrame {
             JOptionPane.showMessageDialog(MainFrame, e);
         }
     }
+<<<<<<< HEAD
+=======
+
+//    ******* student available check ************
+
+    public boolean isStudentExist(String studentId) {
+        con = DatabaseConnection.connect();
+
+        try {
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM student WHERE Stu_id = ?");
+            pst.setString(1, studentId);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainFrame, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+>>>>>>> origin
 
 }

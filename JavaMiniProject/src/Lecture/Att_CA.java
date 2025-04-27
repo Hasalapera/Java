@@ -1,31 +1,55 @@
 package Lecture;
 
+<<<<<<< HEAD
+=======
+import database.DatabaseConnection;
+
+>>>>>>> origin
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+<<<<<<< HEAD
 import java.util.Arrays;
 
 public class Att_CA extends JFrame{
     private JButton AllshowButton;
+=======
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Att_CA extends JFrame{
+>>>>>>> origin
     private JTextField stu_numbertextField;
     private JButton stu_numbershowButton;
     private JTable Eligibilitytable;
     private JPanel MainPanle;
 
+<<<<<<< HEAD
     
 
     public Att_CA() {
 
         setContentPane(MainPanle);
         setSize(1024, 768);
+=======
+    Connection con;
+    String User;
+
+    public Att_CA(String User_ID) {
+
+        setContentPane(MainPanle);
+        setSize(2000, 890);
+>>>>>>> origin
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Student Eligibility");
         setResizable(true);
         setLocationRelativeTo(null);
 
+<<<<<<< HEAD
         String Course_code="ICT2132";
 
         AllshowButton.addActionListener(new ActionListener() {
@@ -34,6 +58,12 @@ public class Att_CA extends JFrame{
 attendancepluscaforall(Course_code);
             }
         });
+=======
+        User=User_ID;
+
+        attendancepluscaforall(User_ID);
+
+>>>>>>> origin
         stu_numbershowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -42,12 +72,22 @@ attendancepluscaforall(Course_code);
                     JOptionPane.showMessageDialog(MainPanle,"Please enter student number","Error",JOptionPane.ERROR_MESSAGE);
                 }
                 else {
+<<<<<<< HEAD
                     attendancepluscaforone(Stu_id,Course_code);
+=======
+                    if(isStudentExist(Stu_id)){
+                        attendancepluscaforone(Stu_id,User_ID);
+                    }
+                   else {
+                       JOptionPane.showMessageDialog(MainPanle,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
+                    }
+>>>>>>> origin
                 }
             }
         });
     }
 
+<<<<<<< HEAD
     private void attendancepluscaforall(String Course_code){
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
@@ -92,6 +132,92 @@ attendancepluscaforall(Course_code);
                 });
             }
 
+=======
+    public boolean isStudentExist(String studentId) {
+        con = DatabaseConnection.connect();
+
+        try {
+            PreparedStatement pst = con.prepareStatement("SELECT * FROM student WHERE Stu_id = ?");
+            pst.setString(1, studentId);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainPanle, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    public List<String> coursecodeselection(String User_ID) {
+        List<String> Course_code = new ArrayList<>();
+        con = DatabaseConnection.connect();
+
+        try {
+            PreparedStatement pstm = con.prepareStatement("SELECT Course_code FROM course WHERE Lec_id = ?");
+            pstm.setString(1, User_ID);
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                Course_code.add(rs.getString("Course_code"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(MainPanle, "Connection Failed: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
+        return Course_code;
+    }
+
+    private void attendancepluscaforall(String User_ID){
+
+        con= DatabaseConnection.connect();
+
+        try{
+
+            List<String> courseCodes = coursecodeselection(User_ID);
+
+            String[] Column = {"Student ID", "Course Code", "Attendance %", "CA Marks", "Eligibility"};
+            DefaultTableModel model = new DefaultTableModel( Column, 0){
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+
+            for (String Course_code : courseCodes) {
+                PreparedStatement pstm = con.prepareStatement("SELECT DISTINCT Stu_id FROM attendance WHERE Course_Code=?");
+                pstm.setString(1, Course_code);
+                ResultSet rs = pstm.executeQuery();
+
+                while (rs.next()) {
+                    String stuId = rs.getString("Stu_id");
+
+                    double attendancePercentage = getStudentAttendancePercentage(stuId, Course_code);
+                    double caMarks = CAmarks(stuId, Course_code);
+
+                    String eligibility;
+                    double caCutoff = getCACutoff(Course_code);
+                    if (attendancePercentage >= 80 && caMarks >= caCutoff) {
+                        eligibility = "Eligible";
+                    } else {
+                        eligibility = "Not Eligible";
+                    }
+
+                    model.addRow(new Object[]{
+                            stuId,
+                            Course_code,
+                            String.format("%.2f", attendancePercentage) + "%",
+                            String.format("%.2f", caMarks),
+                            eligibility
+                    });
+                }
+
+            }
+>>>>>>> origin
             Eligibilitytable.setModel(model);
 
         }catch (SQLException e){
@@ -99,11 +225,25 @@ attendancepluscaforall(Course_code);
         }
     }
 
+<<<<<<< HEAD
     private void attendancepluscaforone(String Stu_id,String Course_code) {
 
             String[] Column = {"Student ID", "Course Code", "Attendance %", "CA Marks", "Eligibility"};
             DefaultTableModel model = new DefaultTableModel(null, Column);
 
+=======
+    private void attendancepluscaforone(String Stu_id,String User_ID) {
+
+            List<String> courseCodes = coursecodeselection(User_ID);
+
+            String[] Column = {"Student ID", "Course Code", "Attendance %", "CA Marks", "Eligibility"};
+            DefaultTableModel model = new DefaultTableModel(null, Column){
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            for (String Course_code : courseCodes) {
+>>>>>>> origin
                 double attendancePercentage = getStudentAttendancePercentage(Stu_id, Course_code);
                 double caMarks = CAmarks(Stu_id, Course_code);
 
@@ -122,7 +262,11 @@ attendancepluscaforall(Course_code);
                         String.format("%.2f", caMarks),
                         eligibility
                 });
+<<<<<<< HEAD
 
+=======
+            }
+>>>>>>> origin
 
             Eligibilitytable.setModel(model);
     }
@@ -133,6 +277,7 @@ attendancepluscaforall(Course_code);
         double assignment1, assignment2, Quiz_01, Quiz_02, Quiz_03, Quiz_04, midtermtheory, midtermpractical,quizMark2113,quizMark2122
                 ,quizMark2132,quizMark2152,assessmentMark2132,AssessmentMark2142,MidtermMark2142,midtermMark2113,assessmentMark2152;
 
+<<<<<<< HEAD
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
         String password = "";
@@ -145,6 +290,12 @@ attendancepluscaforall(Course_code);
             }
 
             Connection con = DriverManager.getConnection(url, user, password);
+=======
+        con= DatabaseConnection.connect();
+
+        try {
+
+>>>>>>> origin
             PreparedStatement pstm = con.prepareStatement("select * from marks where Course_code=? AND Stu_Id=?");
             pstm.setString(1,Course_code);
             pstm.setString(2,Stu_id);
@@ -209,17 +360,24 @@ attendancepluscaforall(Course_code);
 
     private double getStudentAttendancePercentage(String Stu_id, String Course_code) {
 
+<<<<<<< HEAD
         String url = "jdbc:mysql://localhost:3306/techlms";
         String user = "root";
         String password = "";
+=======
+        con= DatabaseConnection.connect();
+>>>>>>> origin
 
         double totalTheory = 0, presentTheory = 0;
         double totalPractical = 0, presentPractical = 0;
 
         try {
+<<<<<<< HEAD
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
 
+=======
+>>>>>>> origin
             PreparedStatement typeCheck = con.prepareStatement(
                     "SELECT DISTINCT Course_type FROM attendance WHERE Stu_id = ? AND Course_Code = ?");
             typeCheck.setString(1, Stu_id);
@@ -253,7 +411,11 @@ attendancepluscaforall(Course_code);
                     if (status.equalsIgnoreCase("Present")) {
                         presentTheory += lecHour;
                     } else if (status.equalsIgnoreCase("Medical")) {
+<<<<<<< HEAD
                         String medicalStatus = checkMedicalStatus(con, Stu_id, Course_code);
+=======
+                        String medicalStatus = checkMedicalStatus(Stu_id, Course_code);
+>>>>>>> origin
                         if (medicalStatus.equalsIgnoreCase("Approved")) {
                             presentTheory += lecHour;
                         }
@@ -279,7 +441,11 @@ attendancepluscaforall(Course_code);
                     if (status.equalsIgnoreCase("Present")) {
                         presentPractical += lecHour;
                     } else if (status.equalsIgnoreCase("Medical")) {
+<<<<<<< HEAD
                         String medicalStatus = checkMedicalStatus(con, Stu_id, Course_code);
+=======
+                        String medicalStatus = checkMedicalStatus(Stu_id, Course_code);
+>>>>>>> origin
                         if (medicalStatus.equalsIgnoreCase("Approved")) {
                             presentPractical += lecHour;
                         }
@@ -305,7 +471,14 @@ attendancepluscaforall(Course_code);
     }
 
 
+<<<<<<< HEAD
     public String checkMedicalStatus(Connection con, String Stu_id, String Course_code) {
+=======
+    public String checkMedicalStatus( String Stu_id, String Course_code) {
+
+        con= DatabaseConnection.connect();
+
+>>>>>>> origin
         try {
             PreparedStatement med = con.prepareStatement("SELECT Status FROM medical WHERE Stu_id = ? AND Course_code = ?");
             med.setString(1, Stu_id);
@@ -334,7 +507,10 @@ attendancepluscaforall(Course_code);
         }
     }
 
+<<<<<<< HEAD
     public static void main(String[] args) {
         new Att_CA();
     }
+=======
+>>>>>>> origin
 }

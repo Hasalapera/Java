@@ -32,9 +32,9 @@ public class Lec_profileupdate extends JFrame {
 
     public Lec_profileupdate(String User_ID) {
         setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Student Home");
-        setSize(1024, 768);
+        setSize(2000, 890);
         setLocationRelativeTo(null);
         setVisible(true);
         uploadAnImageButton.addActionListener(new ActionListener() {
@@ -64,7 +64,11 @@ public class Lec_profileupdate extends JFrame {
         String address = addressTxt.getText();
         String email = emailTxt.getText();
         String pNo = pNoTxt.getText();
+<<<<<<< HEAD
 //        String proPic = proPicTxt.getText();
+=======
+
+>>>>>>> origin
 
         File file = new File(proPicTxt.getText());
         String proPic = file.getName();
