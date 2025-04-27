@@ -439,7 +439,12 @@ public class toHome extends  JFrame {
             ResultSet rs = pstmt.executeQuery();
 
             String[] columnNames = {"Department", "Course_Code", "Course_Name", "Time", "Day"};
-            DefaultTableModel model = new DefaultTableModel(null, columnNames);
+            DefaultTableModel model = new DefaultTableModel(null, columnNames){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
 
             while (rs.next()) {
                 // Get the day number from the database
