@@ -37,7 +37,7 @@ public class UpdateStudentProfile extends JFrame {
         setContentPane(mainPanel);
         setTitle("Update Student Profile");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
+      //  setLocationRelativeTo(null);
         setSize(2000, 890);
         setVisible(true);
 
