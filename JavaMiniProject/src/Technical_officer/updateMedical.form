@@ -182,7 +182,7 @@
               <background color="-66049"/>
               <font name="JetBrains Mono ExtraBold" size="20"/>
               <foreground color="-16758099"/>
-              <text value="Button"/>
+              <text value="Submit"/>
             </properties>
           </component>
         </children>
