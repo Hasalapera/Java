@@ -1,8 +1,6 @@
 package Lecture;
 
-
 import database.DatabaseConnection;
-
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -14,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Att_CA extends JFrame{
-
     private JTextField stu_numbertextField;
     private JButton stu_numbershowButton;
     private JTable Eligibilitytable;
@@ -32,7 +29,6 @@ public class Att_CA extends JFrame{
         setTitle("Student Eligibility");
         setResizable(true);
         setLocationRelativeTo(null);
-
 
         User=User_ID;
 
@@ -56,7 +52,6 @@ public class Att_CA extends JFrame{
             }
         });
     }
-
 
     public boolean isStudentExist(String studentId) {
         con = DatabaseConnection.connect();
@@ -178,7 +173,6 @@ public class Att_CA extends JFrame{
                         String.format("%.2f", caMarks),
                         eligibility
                 });
-
             }
 
             Eligibilitytable.setModel(model);
@@ -189,7 +183,6 @@ public class Att_CA extends JFrame{
         double CA_marks = 0.0;
         double assignment1, assignment2, Quiz_01, Quiz_02, Quiz_03, Quiz_04, midtermtheory, midtermpractical,quizMark2113,quizMark2122
                 ,quizMark2132,quizMark2152,assessmentMark2132,AssessmentMark2142,MidtermMark2142,midtermMark2113,assessmentMark2152;
-
 
         con= DatabaseConnection.connect();
 
@@ -259,18 +252,12 @@ public class Att_CA extends JFrame{
 
     private double getStudentAttendancePercentage(String Stu_id, String Course_code) {
 
-
         con= DatabaseConnection.connect();
-
 
         double totalTheory = 0, presentTheory = 0;
         double totalPractical = 0, presentPractical = 0;
 
         try {
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, password);
-
             PreparedStatement typeCheck = con.prepareStatement(
                     "SELECT DISTINCT Course_type FROM attendance WHERE Stu_id = ? AND Course_Code = ?");
             typeCheck.setString(1, Stu_id);
@@ -304,7 +291,6 @@ public class Att_CA extends JFrame{
                     if (status.equalsIgnoreCase("Present")) {
                         presentTheory += lecHour;
                     } else if (status.equalsIgnoreCase("Medical")) {
-
                         String medicalStatus = checkMedicalStatus(Stu_id, Course_code);
                         if (medicalStatus.equalsIgnoreCase("Approved")) {
                             presentTheory += lecHour;
@@ -331,7 +317,6 @@ public class Att_CA extends JFrame{
                     if (status.equalsIgnoreCase("Present")) {
                         presentPractical += lecHour;
                     } else if (status.equalsIgnoreCase("Medical")) {
-
                         String medicalStatus = checkMedicalStatus(Stu_id, Course_code);
                         if (medicalStatus.equalsIgnoreCase("Approved")) {
                             presentPractical += lecHour;
@@ -356,7 +341,6 @@ public class Att_CA extends JFrame{
 
         return 0.0;
     }
-
 
 
     public String checkMedicalStatus( String Stu_id, String Course_code) {

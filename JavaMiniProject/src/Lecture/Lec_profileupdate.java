@@ -64,11 +64,7 @@ public class Lec_profileupdate extends JFrame {
         String address = addressTxt.getText();
         String email = emailTxt.getText();
         String pNo = pNoTxt.getText();
-<<<<<<< HEAD
-//        String proPic = proPicTxt.getText();
-=======
 
->>>>>>> origin
 
         File file = new File(proPicTxt.getText());
         String proPic = file.getName();

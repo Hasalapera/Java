@@ -108,7 +108,7 @@ public class LecHome extends JFrame{
         setContentPane(mainPanel);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Lecturer Home");
-        setSize(2000, 890);
+        setSize(2000, 800);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -238,7 +238,6 @@ public class LecHome extends JFrame{
             }
         });
 
-
         attuniqoneshowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -260,7 +259,6 @@ public class LecHome extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(cardMainPanel, "CACard");
-
                 allcamarks(User);
             }
         });
@@ -447,7 +445,6 @@ public class LecHome extends JFrame{
 
             if (result > 0) {
                 // Set default image after deletion
-
                 String path = "user_Pro_Pic/default.png";
 
                 // Get label size
@@ -533,7 +530,6 @@ public class LecHome extends JFrame{
     }
 
     private String generateNextMarkID() {
-
         String nextId = "M001";
         try {
             con = DatabaseConnection.connect();
@@ -725,7 +721,6 @@ public class LecHome extends JFrame{
             double present = presentTheory + presentPractical;
 
             if (total == 0) return true;
-
             con.close();
             double percent = (present / total) * 100;
             return percent >= 80;
@@ -1606,6 +1601,7 @@ public class LecHome extends JFrame{
         con=DatabaseConnection.connect();
 
         try{
+
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable ( int row, int column){
@@ -1739,6 +1735,7 @@ public class LecHome extends JFrame{
         con=DatabaseConnection.connect();
 
         try{
+
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable ( int row, int column){
@@ -1901,7 +1898,6 @@ public class LecHome extends JFrame{
                 String noticeId = rs.getString("Notice_id");
 
                 // Read content from the corresponding text file (e.g., notice_1.txt)
-
                 File noticeFile = new File("notices/notice_" + noticeId + ".txt");
                 System.out.println("noticeFile: " + noticeId+ " Displayed");
                 BufferedReader reader = new BufferedReader(new FileReader(noticeFile));
@@ -1936,7 +1932,6 @@ public class LecHome extends JFrame{
             DefaultTableModel model = new DefaultTableModel() {
                 @Override
                 public boolean isCellEditable ( int row, int column){
-
                     return false;
                 }
             };
@@ -1971,6 +1966,7 @@ public class LecHome extends JFrame{
 
                             String filePath = "course_materials" + File.separator + courseCode + File.separator + fileName;
                             openMaterial(filePath);
+
                         }
                     }
                     }
@@ -1987,7 +1983,6 @@ public class LecHome extends JFrame{
         File file = new File(filePath);
         if (file.exists()) {
             try {
-
                 Desktop.getDesktop().open(file);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(MainFrame, "Error opening the file: " + e.getMessage());
@@ -2003,6 +1998,7 @@ public class LecHome extends JFrame{
         try {
 
             String newMarkId = genaratenextmaterialID();
+
             String sql = "INSERT INTO lecture_materials (Material_id, Course_code,Lec_id,File_path) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, newMarkId);
@@ -2027,7 +2023,6 @@ public class LecHome extends JFrame{
         String sql = "SELECT Material_id FROM lecture_materials ORDER BY Material_id DESC LIMIT 1";
         PreparedStatement ps = con.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-
 
         String nextId = "MA001";
 
@@ -2071,7 +2066,6 @@ public class LecHome extends JFrame{
                 destDir.mkdirs();  // Create course_code folder if not exist
             }
 
-
             File destFile = new File(destDir, fileName);
 
             try {
@@ -2097,7 +2091,6 @@ public class LecHome extends JFrame{
             }
 
             String materialID = Materials_Table.getModel().getValueAt(selectedRow, 0).toString();
-
             String courseCode = Materials_Table.getModel().getValueAt(selectedRow, 1).toString();
             String fileName = Materials_Table.getModel().getValueAt(selectedRow, 3).toString();
 
@@ -2148,7 +2141,6 @@ public class LecHome extends JFrame{
             JOptionPane.showMessageDialog(MainFrame, e);
         }
     }
-
 
 //    ******* student available check ************
 
