@@ -36,9 +36,9 @@ public class updateTOprofile extends JFrame {
 
         setContentPane(mainPanel);
         setTitle("Update Technical Officer Profile");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setSize(2000, 890);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        //setLocationRelativeTo(null);
+        setSize(2000, 800);
         setVisible(true);
 
         uploadAnImageButton.addActionListener(new ActionListener() {

@@ -73,7 +73,12 @@ public class ViewUserProfiles extends JFrame{
                 int columnCount = metaData.getColumnCount();
 
                 // Table model
-                DefaultTableModel model = new DefaultTableModel();
+                DefaultTableModel model = new DefaultTableModel(){
+                    public boolean isCellEditable(int row, int column) {
+                        return false;
+                    }
+                };
+
 
                 // Add column names
                 for (int i = 1; i <= columnCount; i++) {

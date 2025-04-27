@@ -181,7 +181,7 @@ public class addmedical extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new addmedical().setVisible(true));
-    }
+    }*/
 }

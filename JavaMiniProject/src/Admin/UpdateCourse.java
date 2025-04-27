@@ -31,7 +31,7 @@ public class UpdateCourse extends JFrame {
         setTitle("Update Course");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 //        setLocationRelativeTo(null);
-        setSize(2000, 890);
+        setSize(2000, 800);
         setVisible(true);
 
         UPDATEButton.addActionListener(new ActionListener() {
@@ -116,9 +116,9 @@ public class UpdateCourse extends JFrame {
     }
 
     // Optional: for testing the GUI
-    public static void main(String[] args) {
-        new UpdateCourse();
-    }
+//    public static void main(String[] args) {
+//        new UpdateCourse();
+//    }
 }
 
 

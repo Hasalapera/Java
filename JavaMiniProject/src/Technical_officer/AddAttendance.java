@@ -56,7 +56,7 @@ public class AddAttendance extends JFrame {
         String newId = "A001"; // Default starting ID
         try {
             con = DatabaseConnection.connect();
-            String query = "SELECT Attendance_id FROM attendance ORDER BY Attendance_id DESC LIMIT 1";
+            String query = "SELECT Attendance_id FROM attendance ORDER BY CAST(SUBSTRING(Attendance_id, 2) AS UNSIGNED) DESC LIMIT 1";
             PreparedStatement pstmt = con.prepareStatement(query);
             ResultSet rs = pstmt.executeQuery();
 
@@ -130,7 +130,7 @@ public class AddAttendance extends JFrame {
         ctypeLabel.setText("");
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new AddAttendance().setVisible(true));
-    }
+    }*/
 }

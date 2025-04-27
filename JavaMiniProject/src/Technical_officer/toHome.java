@@ -231,36 +231,46 @@ public class toHome extends  JFrame {
     Connection con;
 
     //Attendance table
+
     private void showAttendancetable() {
-        try{
+        try {
             con = DatabaseConnection.connect();
             Statement st = con.createStatement();
-            String query = "select * from attendance";
+            String query = "SELECT * FROM attendance";
             ResultSet rs = st.executeQuery(query);
 
+            // Get column names from ResultSetMetaData
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
-            Vector<String> columnNames = new Vector<String>();
-            for(int i=1;i<=columnCount;i++){
-                columnNames.add(rsmd.getColumnName(i));
+            String[] columnNames = new String[columnCount];
+            for (int i = 0; i < columnCount; i++) {
+                columnNames[i] = rsmd.getColumnName(i + 1);
             }
 
-            Vector<Vector<Object>> data = new Vector<>();
-            while(rs.next()){
-                Vector<Object> row = new Vector<>();
-                for(int i=1;i<=columnCount;i++){
-                    row.add(rs.getObject(i));
+            // Create table model
+            DefaultTableModel model = new DefaultTableModel(columnNames, 0){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
                 }
-                data.add(row);
+            };
+
+            // Add rows to model
+            while (rs.next()) {
+                Object[] rowData = new Object[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    rowData[i] = rs.getObject(i + 1);
+                }
+                model.addRow(rowData);
             }
 
-            JTable table = new JTable(data,columnNames);
+            JTable table = new JTable(model);
             JScrollPane scrollPane = new JScrollPane(table);
-            scrollPane.setPreferredSize(new Dimension(580,300));
+            scrollPane.setPreferredSize(new Dimension(580, 300));
 
             viewPanel.removeAll();
             viewPanel.setLayout(new BorderLayout());
-            viewPanel.add(scrollPane,BorderLayout.CENTER);
+            viewPanel.add(scrollPane, BorderLayout.CENTER);
             viewPanel.revalidate();
             viewPanel.repaint();
 
@@ -270,9 +280,10 @@ public class toHome extends  JFrame {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this,"Database error");
+            JOptionPane.showMessageDialog(this, "Database error");
         }
     }
+
 
     //Delete Attendance
     private void deleteSelectedAttendanceRow() {
@@ -341,21 +352,30 @@ public class toHome extends  JFrame {
 
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
-            Vector<String> columnNames = new Vector<String>();
-            for (int i = 1; i <= columnCount; i++) {
-                columnNames.add(rsmd.getColumnName(i));
+
+            // Get column names
+            String[] columnNames = new String[columnCount];
+            for (int i = 0; i < columnCount; i++) {
+                columnNames[i] = rsmd.getColumnName(i + 1);
             }
 
-            Vector<Vector<Object>> data = new Vector<>();
-            while (rs.next()) {
-                Vector<Object> row = new Vector<>();
-                for (int i = 1; i <= columnCount; i++) {
-                    row.add(rs.getObject(i));
+            // Table model to store data
+            DefaultTableModel model = new DefaultTableModel(columnNames, 0){
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return false;
                 }
-                data.add(row);
+            };
+
+            // Read each row and add to model
+            while (rs.next()) {
+                Object[] rowData = new Object[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    rowData[i] = rs.getObject(i + 1);
+                }
+                model.addRow(rowData);
             }
 
-            JTable table = new JTable(data, columnNames);
+            JTable table = new JTable(model);
             JScrollPane scrollPane = new JScrollPane(table);
             scrollPane.setPreferredSize(new Dimension(580, 300));
 
@@ -439,7 +459,12 @@ public class toHome extends  JFrame {
             ResultSet rs = pstmt.executeQuery();
 
             String[] columnNames = {"Department", "Course_Code", "Course_Name", "Time", "Day"};
-            DefaultTableModel model = new DefaultTableModel(null, columnNames);
+            DefaultTableModel model = new DefaultTableModel(null, columnNames){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
 
             while (rs.next()) {
                 // Get the day number from the database
@@ -652,7 +677,7 @@ public class toHome extends  JFrame {
         }
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         new toHome();
-    }
+    }*/
 }

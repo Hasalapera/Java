@@ -1,0 +1,24 @@
+<changelist name="Uncommitted_changes_before_Update_at_2025-04-22,_17_08_[Changes]" date="1745322469925" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025-04-22,_17_08_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2025-04-22, 17:08 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/JavaMiniProject/Admin/AddNotices$1.class" />
+    <option name="AFTER_PATH" value="out/production/JavaMiniProject/Admin/AddNotices$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025-04-22,_17_08_[Changes]/AddNotices$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/JavaMiniProject/Lecture/Lec_profileupdate.class" />
+    <option name="AFTER_PATH" value="out/production/JavaMiniProject/Lecture/Lec_profileupdate.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025-04-22,_17_08_[Changes]/Lec_profileupdate.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/JavaMiniProject/student/StuHome.class" />
+    <option name="AFTER_PATH" value="out/production/JavaMiniProject/student/StuHome.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025-04-22,_17_08_[Changes]/StuHome.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/JavaMiniProject/Technical_officer/updateTOprofile.class" />
+    <option name="AFTER_PATH" value="out/production/JavaMiniProject/Technical_officer/updateTOprofile.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2025-04-22,_17_08_[Changes]/updateTOprofile.class" />
+  </binary>
+</changelist>
