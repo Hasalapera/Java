@@ -1,8 +1,8 @@
 package student;
 
-import Admin.ViewUserProfiles;
 import database.DatabaseConnection;
 import database.Session;
+import noticesViewing.NoticeViewing;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ import java.util.List;
 //import net.proteanit.sql.DbUtils;
 
 
-public class StuHome extends JFrame {
+public class StuHome extends JFrame implements NoticeViewing {
     private JPanel mainPanel;
     private JPanel headingPanel;
     private JPanel btnPanel;
@@ -561,8 +560,8 @@ public double calculateGPA() {
     }
 
     // Add Notice titles to the combo box *****************
-
-    public void addNoticeTitlesToComboBox(){
+    @Override
+    public void addNoticeTitlesToComboBox() {
         con = DatabaseConnection.connect();
         try {
             Connection conn = DatabaseConnection.connect();
@@ -586,11 +585,10 @@ public double calculateGPA() {
         } catch(Exception e) {
             System.out.println("Error in addNoticeTitlesToComboBox: " + e.getMessage());
         }
-
     }
 
+    @Override
     public void displayNoticeContent(String title) {
-
         try {
             // Establish connection to the database to get the NoticeId based on the title
             Connection con = DatabaseConnection.connect();
@@ -953,4 +951,6 @@ public double calculateGPA() {
     public static void main(String[] args) {
         new StuHome();
     }
+
+
 }
