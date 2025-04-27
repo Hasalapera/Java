@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Technical_officer.addmedical">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="20" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="20" width="1024" height="768"/>
+    </constraints>
+    <properties>
+      <background color="-1"/>
+      <foreground color="-1"/>
+      <minimumSize width="1024" height="768"/>
+      <preferredSize width="1024" height="768"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="435a0" class="javax.swing.JLabel" binding="titleLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <font name="JetBrains Mono ExtraBold" size="48" style="1"/>
+          <foreground color="-16758099"/>
+          <text value="Add Medical"/>
+        </properties>
+      </component>
+      <grid id="51cd4" binding="btnPanel" layout-manager="GridLayoutManager" row-count="9" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="30" left="30" bottom="30" right="30"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="600" height="600"/>
+            <maximum-size width="600" height="600"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16758099"/>
+          <foreground color="-1"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="9c739" class="javax.swing.JTextField" binding="stuidField">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16758099"/>
+            </properties>
+          </component>
+          <component id="d90d7" class="javax.swing.JTextField" binding="midField">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16758099"/>
+            </properties>
+          </component>
+          <component id="91c65" class="javax.swing.JLabel" binding="stuidLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="JetBrains Mono ExtraBold" size="18"/>
+              <foreground color="-1"/>
+              <text value="Student ID"/>
+            </properties>
+          </component>
+          <component id="75469" class="javax.swing.JTextField" binding="courseField">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16758099"/>
+            </properties>
+          </component>
+          <component id="324aa" class="javax.swing.JLabel" binding="courseLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="JetBrains Mono ExtraBold" size="18"/>
+              <foreground color="-1"/>
+              <text value="Course code"/>
+            </properties>
+          </component>
+          <component id="e7ddb" class="javax.swing.JTextField" binding="weekField">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16758099"/>
+            </properties>
+          </component>
+          <component id="29485" class="javax.swing.JLabel" binding="weekLabel">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="6" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="JetBrains Mono ExtraBold" size="18"/>
+              <foreground color="-1"/>
+              <text value="Week No"/>
+            </properties>
+          </component>
+          <component id="a5cf1" class="javax.swing.JTextField" binding="dayField">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16758099"/>
+            </properties>
+          </component>
+          <component id="ba5d9" class="javax.swing.JLabel" binding="dayLabel">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="6" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="JetBrains Mono ExtraBold" size="18"/>
+              <foreground color="-1"/>
+              <text value="Day No"/>
+            </properties>
+          </component>
+          <component id="6ef55" class="javax.swing.JTextField" binding="statusField">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16758099"/>
+            </properties>
+          </component>
+          <component id="e047" class="javax.swing.JLabel" binding="statusLabel">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="6" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="JetBrains Mono ExtraBold" size="18"/>
+              <foreground color="-1"/>
+              <text value="Status"/>
+            </properties>
+          </component>
+          <component id="2c512" class="javax.swing.JLabel" binding="midLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="6" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="JetBrains Mono ExtraBold" size="18"/>
+              <foreground color="-1"/>
+              <text value="Medical ID"/>
+            </properties>
+          </component>
+          <component id="125b3" class="javax.swing.JLabel" binding="aidLabel">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="6" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <font name="JetBrains Mono ExtraBold" size="18"/>
+              <foreground color="-1"/>
+              <text value="Attendance ID"/>
+            </properties>
+          </component>
+          <component id="44ea6" class="javax.swing.JTextField" binding="aidField">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16758099"/>
+            </properties>
+          </component>
+          <component id="267c2" class="javax.swing.JButton" binding="addButton">
+            <constraints>
+              <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-66049"/>
+              <font name="JetBrains Mono ExtraBold" size="18"/>
+              <foreground color="-16758099"/>
+              <text value="Add"/>
+            </properties>
+          </component>
+          <component id="dd514" class="javax.swing.JLabel" binding="ctype">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="6" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono ExtraBold" size="20"/>
+              <foreground color="-1"/>
+              <text value="Course type"/>
+            </properties>
+          </component>
+          <component id="7a880" class="javax.swing.JTextField" binding="ctypeField">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="250" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1"/>
+              <foreground color="-16758099"/>
+            </properties>
+          </component>
+          <component id="a842" class="javax.swing.JButton" binding="findbutton">
+            <constraints>
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-66049"/>
+              <font name="JetBrains Mono ExtraBold" size="14"/>
+              <foreground color="-16758099"/>
+              <text value="Find"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
