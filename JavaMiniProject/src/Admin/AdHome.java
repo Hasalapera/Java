@@ -546,7 +546,12 @@ public class AdHome extends JFrame {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM course");
 
-            DefaultTableModel model = new DefaultTableModel();
+            DefaultTableModel model = new DefaultTableModel(){
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+
             model.addColumn("Course ID");
             model.addColumn("Course Code");
             model.addColumn("Lecturer ID");
@@ -583,7 +588,12 @@ public class AdHome extends JFrame {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM timetable");
 
-            DefaultTableModel model = new DefaultTableModel();
+            DefaultTableModel model = new DefaultTableModel(){
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+
             model.addColumn("TimeTable_ID");
             model.addColumn("Admin ID");
             model.addColumn("Department");
@@ -684,7 +694,11 @@ public class AdHome extends JFrame {
             String[] columnNames = {"Notice ID", "Admin ID", "Title", "Date"};
 
             // Use DefaultTableModel to fill JTable
-            DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+            DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0){
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
 
             while (rs.next()) {
                 String id = rs.getString("Notice_id");
