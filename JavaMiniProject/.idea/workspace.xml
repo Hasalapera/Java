@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c41334f-96d0-4d11-b09c-40b52741956e" name="Changes" comment="Ad home updated">
-      <change beforePath="$PROJECT_DIR$/JavaMiniProject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +115,8 @@
       <workItem from="1745736842327" duration="1401000" />
       <workItem from="1745738828620" duration="6075000" />
       <workItem from="1745754141293" duration="120000" />
+      <workItem from="1745754268640" duration="209000" />
+      <workItem from="1745754507500" duration="52000" />
     </task>
     <task id="LOCAL-00001" summary="Ad home updated">
       <option name="closed" value="true" />
