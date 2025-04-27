@@ -57,6 +57,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="8178f" class="javax.swing.JTextField" binding="courseField">
@@ -67,6 +68,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="7dbfb" class="javax.swing.JTextField" binding="weekField">
@@ -77,6 +79,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="445ca" class="javax.swing.JTextField" binding="dayField">
@@ -87,6 +90,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="e6f53" class="javax.swing.JTextField" binding="ctypeField">
@@ -97,6 +101,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="f770f" class="javax.swing.JTextField" binding="statusField">
@@ -107,6 +112,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="4e42b" class="javax.swing.JLabel" binding="stuidLabel">
@@ -181,9 +187,9 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-16738382"/>
+              <background color="-66049"/>
               <font name="JetBrains Mono ExtraBold" size="20"/>
-              <foreground color="-1"/>
+              <foreground color="-16758099"/>
               <label value="Submit"/>
               <text value="Submit"/>
             </properties>

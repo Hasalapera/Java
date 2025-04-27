@@ -54,7 +54,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Courier New" size="18" style="0"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="ca17" class="javax.swing.JLabel" binding="lastNameLbl">
@@ -74,7 +76,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Courier New" size="18" style="0"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="bc792" class="javax.swing.JLabel" binding="addressLbl">
@@ -124,7 +128,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Courier New" size="18" style="0"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="73046" class="javax.swing.JTextField" binding="emailTxt">
@@ -134,7 +140,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Courier New" size="18" style="0"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="f500" class="javax.swing.JTextField" binding="pNoTxt">
@@ -144,7 +152,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Courier New" size="18" style="0"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="38b3b" class="javax.swing.JTextField" binding="proPicTxt">
@@ -154,7 +164,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Courier New" size="18" style="0"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="117c" class="javax.swing.JButton" binding="uploadAnImageButton" default-binding="true">
@@ -164,7 +176,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Kannada MN" size="14" style="0"/>
+              <foreground color="-16758099"/>
               <text value="Upload an Image"/>
             </properties>
           </component>
@@ -175,7 +189,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Kannada MN" size="16" style="0"/>
+              <foreground color="-16758099"/>
               <text value="Update Profile"/>
             </properties>
           </component>
@@ -186,7 +202,9 @@
               </grid>
             </constraints>
             <properties>
+              <background color="-1772289"/>
               <font name="Kannada MN" size="16" style="0"/>
+              <foreground color="-16758099"/>
               <text value="Cancel"/>
             </properties>
           </component>

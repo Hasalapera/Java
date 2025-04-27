@@ -20,7 +20,7 @@
         <properties>
           <background color="-1"/>
           <font name="JetBrains Mono ExtraBold" size="48" style="1"/>
-          <foreground color="-16183579"/>
+          <foreground color="-16758099"/>
           <text value="Add Medical"/>
         </properties>
       </component>
@@ -33,7 +33,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-16183579"/>
+          <background color="-16758099"/>
           <foreground color="-1"/>
         </properties>
         <border type="none"/>
@@ -46,6 +46,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="d90d7" class="javax.swing.JTextField" binding="midField">
@@ -56,6 +57,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="91c65" class="javax.swing.JLabel" binding="stuidLabel">
@@ -79,6 +81,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="324aa" class="javax.swing.JLabel" binding="courseLabel">
@@ -102,6 +105,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="29485" class="javax.swing.JLabel" binding="weekLabel">
@@ -125,6 +129,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="ba5d9" class="javax.swing.JLabel" binding="dayLabel">
@@ -148,6 +153,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="e047" class="javax.swing.JLabel" binding="statusLabel">
@@ -197,6 +203,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="267c2" class="javax.swing.JButton" binding="addButton">
@@ -206,9 +213,9 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-16738382"/>
+              <background color="-66049"/>
               <font name="JetBrains Mono ExtraBold" size="18"/>
-              <foreground color="-1"/>
+              <foreground color="-16758099"/>
               <text value="Add"/>
             </properties>
           </component>
@@ -232,6 +239,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="a842" class="javax.swing.JButton" binding="findbutton">
@@ -239,9 +247,9 @@
               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-16738382"/>
+              <background color="-66049"/>
               <font name="JetBrains Mono ExtraBold" size="14"/>
-              <foreground color="-1"/>
+              <foreground color="-16758099"/>
               <text value="Find"/>
             </properties>
           </component>

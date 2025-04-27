@@ -31,7 +31,7 @@
             <properties>
               <font name="Krungthep" size="48" style="1"/>
               <foreground color="-16758099"/>
-              <text value="Eligibility"/>
+              <text value="CA Eligibility"/>
             </properties>
           </component>
           <scrollpane id="1da2b" binding="eligibilityScrollPane">

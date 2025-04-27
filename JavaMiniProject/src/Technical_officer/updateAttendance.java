@@ -1,5 +1,8 @@
 package Technical_officer;
 
+import database.DatabaseConnection;
+import database.Session;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +34,7 @@ public class updateAttendance extends JFrame {
         setContentPane(mainPanel);
         setTitle("Update Attendance");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 400);
+        setSize(2000, 890);
         setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -42,20 +45,11 @@ public class updateAttendance extends JFrame {
             }
         });
     }
-    private Connection con;
-    private void connectToDatabase() {
-        try {
-            String url = "jdbc:mysql://localhost:3308/techlms";
-            String user = "root";
-            String password = "1234"; // Change if you use a password
-            con = DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Database connection failed: " + e.getMessage());
-        }
-    }
+    Connection con;
 
     private void updateAttendanceStatus() {
-        connectToDatabase();
+
+        con = DatabaseConnection.connect();
 
         String studentId = sidField.getText();
         String courseCode = courseField.getText();

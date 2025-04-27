@@ -19,7 +19,7 @@
         <properties>
           <background color="-1"/>
           <font name="JetBrains Mono ExtraBold" size="48"/>
-          <foreground color="-16183579"/>
+          <foreground color="-16758099"/>
           <text value="Add Attendance"/>
         </properties>
       </component>
@@ -32,7 +32,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-16183579"/>
+          <background color="-16758099"/>
         </properties>
         <border type="none"/>
         <children>
@@ -57,6 +57,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="29044" class="javax.swing.JTextField" binding="aidLabel">
@@ -67,6 +68,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="fa24f" class="javax.swing.JTextField" binding="courseLabel">
@@ -77,6 +79,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="29534" class="javax.swing.JTextField" binding="lechourLabel">
@@ -87,6 +90,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="35451" class="javax.swing.JTextField" binding="weekLabel">
@@ -97,6 +101,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="f69fb" class="javax.swing.JTextField" binding="dayLabel">
@@ -107,6 +112,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="3a5a6" class="javax.swing.JTextField" binding="statusLabel">
@@ -117,6 +123,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="8a537" class="javax.swing.JTextField" binding="ctypeLabel">
@@ -127,6 +134,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <foreground color="-16758099"/>
             </properties>
           </component>
           <component id="f87f1" class="javax.swing.JLabel" binding="sid">
@@ -227,9 +235,9 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-16738382"/>
+              <background color="-66049"/>
               <font name="JetBrains Mono ExtraBold" size="18"/>
-              <foreground color="-1"/>
+              <foreground color="-16758099"/>
               <text value="Add"/>
             </properties>
           </component>

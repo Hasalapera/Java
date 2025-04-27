@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="pdf added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +18,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -34,6 +37,9 @@
     &quot;accountId&quot;: &quot;851966c5-c728-4543-9304-a162c1c561c2&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -44,36 +50,72 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.AddAttendance.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Attendance.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AdHome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddCourse.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddNotices.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddTimeTable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.AddUserProfile.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.LecHome.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProfileUpdate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ShowCAEligibility.executor&quot;: &quot;Run&quot;,
     &quot;Application.StuHome.executor&quot;: &quot;Run&quot;,
-    &quot;Application.addmedical.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StudentManagement.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UpdateCourse.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UpdateTimeTable.executor&quot;: &quot;Run&quot;,
     &quot;Application.toHome.executor&quot;: &quot;Run&quot;,
-    &quot;Application.updateAttendance.executor&quot;: &quot;Run&quot;,
-    &quot;Application.updateTOprofile.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;241&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Maheesha&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;113&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;240&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gayan/Desktop/Java/JavaMiniProject/Notices&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hasalashehan/Desktop/Workshop/Java&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Gayan\Desktop\Java\JavaMiniProject\Notices" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Lecture" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/notices" />
+      <recent name="C:\Users\HP\Desktop\my java\JavaMiniProject\notices" />
+      <recent name="C:\Users\HP\Desktop\my java\JavaMiniProject\src\Admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="StudentManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.StudentManagement" />
+      <module name="Workshop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StudentManagement" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -86,20 +128,142 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="82f3b2c9-835d-408a-bee3-7d29491ffa31" name="Changes" comment="" />
+      <changelist id="8ae815cf-9fa5-4977-835f-5b21a2f02ee3" name="Changes" comment="" />
       <created>1744526520616</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744526520616</updated>
       <workItem from="1744526521691" duration="322000" />
-      <workItem from="1744888357542" duration="20367000" />
-      <workItem from="1744958635519" duration="23679000" />
-      <workItem from="1745229883452" duration="15968000" />
-      <workItem from="1745312369836" duration="1692000" />
+      <workItem from="1744695138711" duration="33562000" />
+      <workItem from="1744785878940" duration="37625000" />
+      <workItem from="1744834241055" duration="2995000" />
+      <workItem from="1744870262173" duration="37030000" />
+      <workItem from="1744925327722" duration="19000" />
+      <workItem from="1744925644361" duration="20000" />
+      <workItem from="1744951210416" duration="15950000" />
+      <workItem from="1744986970679" duration="3346000" />
+      <workItem from="1745038260843" duration="11155000" />
+      <workItem from="1745050649249" duration="64000" />
+      <workItem from="1745075081510" duration="113000" />
+      <workItem from="1745229141321" duration="16961000" />
+      <workItem from="1745260035637" duration="2477000" />
+      <workItem from="1745263447632" duration="14000" />
+      <workItem from="1745348715033" duration="330000" />
+      <workItem from="1745489850757" duration="8054000" />
+      <workItem from="1745504247280" duration="13613000" />
+      <workItem from="1745518115011" duration="15331000" />
+      <workItem from="1745545255864" duration="4000" />
+      <workItem from="1745545277119" duration="817000" />
+      <workItem from="1745607889443" duration="2175000" />
+      <workItem from="1745684707797" duration="2487000" />
+      <workItem from="1745691437375" duration="929000" />
+      <workItem from="1745729997451" duration="16000" />
+      <workItem from="1745735950869" duration="16000" />
+      <workItem from="1745735987928" duration="167000" />
+      <workItem from="1745736724344" duration="8000" />
     </task>
+    <task id="LOCAL-00001" summary="dcbvv">
+      <option name="closed" value="true" />
+      <created>1744836790828</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744836790828</updated>
+    </task>
+    <task id="LOCAL-00002" summary="dcbvv">
+      <option name="closed" value="true" />
+      <created>1744836912129</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744836912129</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ok">
+      <option name="closed" value="true" />
+      <created>1744922099369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744922099369</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ok">
+      <option name="closed" value="true" />
+      <created>1745050504127</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745050504127</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ok">
+      <option name="closed" value="true" />
+      <created>1745434035741</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745434035741</updated>
+    </task>
+    <task id="LOCAL-00006" summary="crs materials updated">
+      <option name="closed" value="true" />
+      <created>1745437580111</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745437580111</updated>
+    </task>
+    <task id="LOCAL-00007" summary="pdf added">
+      <option name="closed" value="true" />
+      <created>1745685076330</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745685076330</updated>
+    </task>
+    <task id="LOCAL-00008" summary="pdf added">
+      <option name="closed" value="true" />
+      <created>1745685375621</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745685375621</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Navodya" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dcbvv" />
+    <MESSAGE value="ok" />
+    <MESSAGE value="crs materials updated" />
+    <MESSAGE value="pdf added" />
+    <option name="LAST_COMMIT_MESSAGE" value="pdf added" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
