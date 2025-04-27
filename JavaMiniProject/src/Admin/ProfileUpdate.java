@@ -32,9 +32,9 @@ public class ProfileUpdate extends JFrame{
     public ProfileUpdate() {
         setContentPane(MainPanel);
         setTitle("Update Profile");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setSize(2000, 890);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+//        setLocationRelativeTo(null);
+        setSize(2000, 800);
         setVisible(true);
 
 
@@ -144,9 +144,9 @@ public class ProfileUpdate extends JFrame{
         textField11.setText("");
     }
 
-    public static void main(String[] args) {
-        new ProfileUpdate();
-    }
+//    public static void main(String[] args) {
+//        new ProfileUpdate();
+//    }
 }
 
 

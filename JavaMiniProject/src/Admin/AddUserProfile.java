@@ -31,9 +31,9 @@ public class AddUserProfile extends JFrame {
     public AddUserProfile() {
         setContentPane(MainPanel);
         setTitle("Add User Profile");
-        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 //        setLocationRelativeTo(null);
-        setSize(2000, 890);
+        setSize(2000, 800);
         setVisible(true);
         textField11.setVisible(true);
 
@@ -138,9 +138,9 @@ public class AddUserProfile extends JFrame {
         textField11.setText("");
     }
 
-    public static void main(String[] args) {
-        new AddUserProfile();
-    }
+//    public static void main(String[] args) {
+//        new AddUserProfile();
+//    }
 }
 
 

@@ -23,8 +23,8 @@ public class UpdateTimeTable extends JFrame {
         setContentPane(panel1);
         setTitle("Update Time Table");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setSize(2000, 890);
+//        setLocationRelativeTo(null);
+        setSize(2000, 800);
         setVisible(true);
 
         // Update button functionality
@@ -109,9 +109,9 @@ public class UpdateTimeTable extends JFrame {
     }
 
     // Optional: run GUI
-    public static void main(String[] args) {
-        new UpdateTimeTable().setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        new UpdateTimeTable().setVisible(true);
+//    }
 }
 
 
