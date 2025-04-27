@@ -559,7 +559,7 @@
                     </constraints>
                     <properties>
                       <background color="-1"/>
-                      <font name="Courier New" size="18" style="0"/>
+                      <font name="Courier New" size="18" style="1"/>
                       <foreground color="-16758099"/>
                       <text value="Add"/>
                     </properties>
@@ -572,7 +572,7 @@
                     </constraints>
                     <properties>
                       <background color="-1"/>
-                      <font name="Courier New" size="18" style="0"/>
+                      <font name="Courier New" size="18" style="1"/>
                       <foreground color="-16758099"/>
                       <text value="Update"/>
                     </properties>
@@ -585,7 +585,7 @@
                     </constraints>
                     <properties>
                       <background color="-1"/>
-                      <font name="Courier New" size="18" style="0"/>
+                      <font name="Courier New" size="18" style="1"/>
                       <foreground color="-16758099"/>
                       <text value="Delete"/>
                     </properties>
