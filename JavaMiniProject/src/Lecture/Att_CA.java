@@ -1,40 +1,25 @@
 package Lecture;
 
-<<<<<<< HEAD
-=======
+
 import database.DatabaseConnection;
 
->>>>>>> origin
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-<<<<<<< HEAD
-import java.util.Arrays;
-
-public class Att_CA extends JFrame{
-    private JButton AllshowButton;
-=======
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Att_CA extends JFrame{
->>>>>>> origin
+
     private JTextField stu_numbertextField;
     private JButton stu_numbershowButton;
     private JTable Eligibilitytable;
     private JPanel MainPanle;
 
-<<<<<<< HEAD
-    
-
-    public Att_CA() {
-
-        setContentPane(MainPanle);
-        setSize(1024, 768);
-=======
     Connection con;
     String User;
 
@@ -42,28 +27,17 @@ public class Att_CA extends JFrame{
 
         setContentPane(MainPanle);
         setSize(2000, 890);
->>>>>>> origin
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Student Eligibility");
         setResizable(true);
         setLocationRelativeTo(null);
 
-<<<<<<< HEAD
-        String Course_code="ICT2132";
 
-        AllshowButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-attendancepluscaforall(Course_code);
-            }
-        });
-=======
         User=User_ID;
 
         attendancepluscaforall(User_ID);
 
->>>>>>> origin
         stu_numbershowButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,67 +46,18 @@ attendancepluscaforall(Course_code);
                     JOptionPane.showMessageDialog(MainPanle,"Please enter student number","Error",JOptionPane.ERROR_MESSAGE);
                 }
                 else {
-<<<<<<< HEAD
-                    attendancepluscaforone(Stu_id,Course_code);
-=======
                     if(isStudentExist(Stu_id)){
                         attendancepluscaforone(Stu_id,User_ID);
                     }
                    else {
                        JOptionPane.showMessageDialog(MainPanle,"Student Not Found","Error",JOptionPane.ERROR_MESSAGE);
                     }
->>>>>>> origin
                 }
             }
         });
     }
 
-<<<<<<< HEAD
-    private void attendancepluscaforall(String Course_code){
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
 
-        try{
-            try{
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            }catch (ClassNotFoundException e){
-                JOptionPane.showMessageDialog(MainPanle,e);
-            }
-
-            Connection con=DriverManager.getConnection(url,user,password);
-
-            String[] Column = {"Student ID", "Course Code", "Attendance %", "CA Marks", "Eligibility"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
-
-            PreparedStatement pstm = con.prepareStatement("SELECT DISTINCT Stu_id FROM attendance WHERE Course_Code=?");
-            pstm.setString(1, Course_code);
-            ResultSet rs = pstm.executeQuery();
-
-            while (rs.next()) {
-                String stuId = rs.getString("Stu_id");
-
-                double attendancePercentage = getStudentAttendancePercentage(stuId, Course_code);
-                double caMarks = CAmarks(stuId, Course_code);
-
-                String eligibility;
-                double caCutoff = getCACutoff(Course_code);
-                if (attendancePercentage >= 80 && caMarks >= caCutoff) {
-                    eligibility = "Eligible";
-                } else {
-                    eligibility = "Not Eligible";
-                }
-
-                model.addRow(new Object[]{
-                        stuId,
-                        Course_code,
-                        String.format("%.2f", attendancePercentage) + "%",
-                        String.format("%.2f", caMarks),
-                        eligibility
-                });
-            }
-
-=======
     public boolean isStudentExist(String studentId) {
         con = DatabaseConnection.connect();
 
@@ -217,7 +142,6 @@ attendancepluscaforall(Course_code);
                 }
 
             }
->>>>>>> origin
             Eligibilitytable.setModel(model);
 
         }catch (SQLException e){
@@ -225,13 +149,6 @@ attendancepluscaforall(Course_code);
         }
     }
 
-<<<<<<< HEAD
-    private void attendancepluscaforone(String Stu_id,String Course_code) {
-
-            String[] Column = {"Student ID", "Course Code", "Attendance %", "CA Marks", "Eligibility"};
-            DefaultTableModel model = new DefaultTableModel(null, Column);
-
-=======
     private void attendancepluscaforone(String Stu_id,String User_ID) {
 
             List<String> courseCodes = coursecodeselection(User_ID);
@@ -243,7 +160,6 @@ attendancepluscaforall(Course_code);
                 }
             };
             for (String Course_code : courseCodes) {
->>>>>>> origin
                 double attendancePercentage = getStudentAttendancePercentage(Stu_id, Course_code);
                 double caMarks = CAmarks(Stu_id, Course_code);
 
@@ -262,11 +178,8 @@ attendancepluscaforall(Course_code);
                         String.format("%.2f", caMarks),
                         eligibility
                 });
-<<<<<<< HEAD
 
-=======
             }
->>>>>>> origin
 
             Eligibilitytable.setModel(model);
     }
@@ -277,25 +190,11 @@ attendancepluscaforall(Course_code);
         double assignment1, assignment2, Quiz_01, Quiz_02, Quiz_03, Quiz_04, midtermtheory, midtermpractical,quizMark2113,quizMark2122
                 ,quizMark2132,quizMark2152,assessmentMark2132,AssessmentMark2142,MidtermMark2142,midtermMark2113,assessmentMark2152;
 
-<<<<<<< HEAD
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
 
-        try {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(MainPanle, e);
-            }
-
-            Connection con = DriverManager.getConnection(url, user, password);
-=======
         con= DatabaseConnection.connect();
 
         try {
 
->>>>>>> origin
             PreparedStatement pstm = con.prepareStatement("select * from marks where Course_code=? AND Stu_Id=?");
             pstm.setString(1,Course_code);
             pstm.setString(2,Stu_id);
@@ -360,24 +259,18 @@ attendancepluscaforall(Course_code);
 
     private double getStudentAttendancePercentage(String Stu_id, String Course_code) {
 
-<<<<<<< HEAD
-        String url = "jdbc:mysql://localhost:3306/techlms";
-        String user = "root";
-        String password = "";
-=======
+
         con= DatabaseConnection.connect();
->>>>>>> origin
+
 
         double totalTheory = 0, presentTheory = 0;
         double totalPractical = 0, presentPractical = 0;
 
         try {
-<<<<<<< HEAD
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, user, password);
 
-=======
->>>>>>> origin
             PreparedStatement typeCheck = con.prepareStatement(
                     "SELECT DISTINCT Course_type FROM attendance WHERE Stu_id = ? AND Course_Code = ?");
             typeCheck.setString(1, Stu_id);
@@ -411,11 +304,8 @@ attendancepluscaforall(Course_code);
                     if (status.equalsIgnoreCase("Present")) {
                         presentTheory += lecHour;
                     } else if (status.equalsIgnoreCase("Medical")) {
-<<<<<<< HEAD
-                        String medicalStatus = checkMedicalStatus(con, Stu_id, Course_code);
-=======
+
                         String medicalStatus = checkMedicalStatus(Stu_id, Course_code);
->>>>>>> origin
                         if (medicalStatus.equalsIgnoreCase("Approved")) {
                             presentTheory += lecHour;
                         }
@@ -441,11 +331,8 @@ attendancepluscaforall(Course_code);
                     if (status.equalsIgnoreCase("Present")) {
                         presentPractical += lecHour;
                     } else if (status.equalsIgnoreCase("Medical")) {
-<<<<<<< HEAD
-                        String medicalStatus = checkMedicalStatus(con, Stu_id, Course_code);
-=======
+
                         String medicalStatus = checkMedicalStatus(Stu_id, Course_code);
->>>>>>> origin
                         if (medicalStatus.equalsIgnoreCase("Approved")) {
                             presentPractical += lecHour;
                         }
@@ -471,14 +358,11 @@ attendancepluscaforall(Course_code);
     }
 
 
-<<<<<<< HEAD
-    public String checkMedicalStatus(Connection con, String Stu_id, String Course_code) {
-=======
+
     public String checkMedicalStatus( String Stu_id, String Course_code) {
 
         con= DatabaseConnection.connect();
 
->>>>>>> origin
         try {
             PreparedStatement med = con.prepareStatement("SELECT Status FROM medical WHERE Stu_id = ? AND Course_code = ?");
             med.setString(1, Stu_id);
@@ -507,10 +391,4 @@ attendancepluscaforall(Course_code);
         }
     }
 
-<<<<<<< HEAD
-    public static void main(String[] args) {
-        new Att_CA();
-    }
-=======
->>>>>>> origin
 }
